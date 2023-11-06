@@ -1,7 +1,7 @@
 <template>
   <div class="container max-w-3xl mx-auto">
     <div class="h-48" />
-    <HelloWorld />
+    <HelloThere />
 
     <Footer />
   </div>
