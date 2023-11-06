@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    copy: typeof import('./components/gallery/GalleryFilter copy.vue')['default']
     DarkThemeIcon: typeof import('./components/footer/icons/DarkThemeIcon.vue')['default']
     Footer: typeof import('./components/footer/Footer.vue')['default']
     FooterIcon: typeof import('./components/footer/FooterIcon.vue')['default']
@@ -15,6 +16,8 @@ declare module '@vue/runtime-core' {
     Gallery: typeof import('./components/gallery/Gallery.vue')['default']
     GalleryCard: typeof import('./components/gallery/GalleryCard.vue')['default']
     GalleryFilter: typeof import('./components/gallery/GalleryFilter.vue')['default']
+    GalleryFilterBadge: typeof import('./components/gallery/GalleryFilterBadge.vue')['default']
+    GalleryFilterCategory: typeof import('./components/gallery/GalleryFilterCategory.vue')['default']
     GalleryFilterSearch: typeof import('./components/gallery/GalleryFilterSearch.vue')['default']
     GalleryGrid: typeof import('./components/gallery/GalleryGrid.vue')['default']
     GallerySearch: typeof import('./components/gallery/GallerySearch.vue')['default']
