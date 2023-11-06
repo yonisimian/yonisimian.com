@@ -1,8 +1,6 @@
 <template>
   <header class="text-center text-md">
-    <h1 class="font-serif font-bold font-bold text-4xl mb-8">
-      Hello 👋 there, welcome my portfolio!
-    </h1>
+    <h1 class="font-serif font-bold text-4xl mb-8">Hello 👋 there, welcome my portfolio!</h1>
 
     <p>Maybe write a bit about myself? Maybe add some <a href="#">links</a> as well?</p>
   </header>
