@@ -1,15 +1,15 @@
-import { createApp } from 'vue';
-import '@unocss/reset/tailwind.css';
-import 'uno.css';
+import { createApp } from 'vue'
+import '@unocss/reset/tailwind.css'
+import 'uno.css'
 
-import App from './App.vue';
-import './styles/base.css';
+import App from './App.vue'
+import './styles/base.css'
 
 // Router
-import { Router } from '/@/router';
+import { Router } from '/@/router'
 
-const app = createApp(App);
+const app = createApp(App)
 
-app.use(Router);
+app.use(Router)
 
-app.mount('#app');
+app.mount('#app')

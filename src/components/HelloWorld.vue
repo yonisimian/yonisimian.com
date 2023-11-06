@@ -2,9 +2,9 @@
 defineProps({
   msg: {
     type: String,
-    default: '',
-  },
-});
+    default: ''
+  }
+})
 </script>
 <template>
   <div class="text-center text-md">
@@ -14,10 +14,7 @@ defineProps({
       Recommended IDE setup
       <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
       +
-      <a
-        href="https://marketplace.visualstudio.com/items?itemName=octref.vetur"
-        target="_blank"
-      >
+      <a href="https://marketplace.visualstudio.com/items?itemName=octref.vetur" target="_blank">
         Vetur
       </a>
       or
@@ -28,9 +25,7 @@ defineProps({
 
     <p>See <code>README.md</code>for more information.</p>
     <p class="mb-10">
-      <a href="https://vitejs.dev/guide/features.html" target="_blank">
-        Vite Docs
-      </a>
+      <a href="https://vitejs.dev/guide/features.html" target="_blank"> Vite Docs </a>
       |
       <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
     </p>
