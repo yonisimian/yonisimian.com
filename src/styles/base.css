@@ -4,9 +4,9 @@
 
 body {
   min-height: 100vh;
-  @apply text-gray-700 dark:bg-gray-800 dark:text-gray-200;
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  @apply text-gray-400;
   transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
 }
 
 .stars {
