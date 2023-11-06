@@ -7,19 +7,22 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    DarkThemeIcon: typeof import('./components/Footer/DarkThemeIcon.vue')['default']
-    Footer: typeof import('./components/Footer/Footer.vue')['default']
-    FooterIcons: typeof import('./components/Footer/FooterIcons.vue')['default']
+    DarkThemeIcon: typeof import('./components/footer/icons/DarkThemeIcon.vue')['default']
+    Footer: typeof import('./components/footer/Footer.vue')['default']
+    FooterIcon: typeof import('./components/footer/FooterIcon.vue')['default']
+    FooterIcons: typeof import('./components/footer/FooterIcons.vue')['default']
+    FooterIconTemplate: typeof import('./components/footer/FooterIconTemplate.vue')['default']
     Gallery: typeof import('./components/gallery/Gallery.vue')['default']
     GalleryCard: typeof import('./components/gallery/GalleryCard.vue')['default']
     GalleryFilter: typeof import('./components/gallery/GalleryFilter.vue')['default']
     GalleryFilterSearch: typeof import('./components/gallery/GalleryFilterSearch.vue')['default']
     GalleryGrid: typeof import('./components/gallery/GalleryGrid.vue')['default']
     GallerySearch: typeof import('./components/gallery/GallerySearch.vue')['default']
-    GitHubIcon: typeof import('./components/Footer/GitHubIcon.vue')['default']
+    GitHubIcon: typeof import('./components/footer/icons/GitHubIcon.vue')['default']
     HelloThere: typeof import('./components/HelloThere.vue')['default']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    YoutubeIcon: typeof import('./components/footer/icons/YoutubeIcon.vue')['default']
   }
 }
