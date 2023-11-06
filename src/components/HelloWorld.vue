@@ -1,11 +1,3 @@
-<script setup lang="ts">
-defineProps({
-  msg: {
-    type: String,
-    default: ''
-  }
-})
-</script>
 <template>
   <div class="text-center text-md">
     <h1 class="font-serif font-bold font-bold text-4xl mb-8">{{ msg }}</h1>
@@ -32,13 +24,20 @@ defineProps({
   </div>
 </template>
 
+<script setup lang="ts">
+defineProps({
+  msg: {
+    type: String,
+    default: ''
+  }
+})
+</script>
+
 <style scoped>
 a {
   @apply text-cyan-400 hover:text-cyan-500 transition-all ease-out duration-100;
 }
-</style>
 
-<style scoped>
 label {
   margin: 0 0.5em;
   font-weight: bold;
