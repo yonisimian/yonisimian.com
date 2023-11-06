@@ -12,6 +12,6 @@
 
 <style scoped>
 a {
-  @apply text-cyan-400 hover:text-cyan-500 transition-all ease-out duration-100;
+  @apply text-cyan-500 hover:text-cyan-400 transition-all ease-out duration-100;
 }
 </style>
