@@ -1,22 +1,17 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n';
-
 defineProps({
   msg: {
     type: String,
     default: '',
   },
-
-})
-
-const { t } = useI18n();
+});
 </script>
 <template>
   <div class="text-center text-md">
     <h1 class="font-serif font-bold font-bold text-4xl mb-8">{{ msg }}</h1>
 
     <p>
-      {{t('recomended-ide')}}
+      Recommended IDE setup
       <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
       +
       <a
@@ -27,11 +22,11 @@ const { t } = useI18n();
       </a>
       or
       <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
-      ({{t('if-using')}}
+      (if you are using
       <code>&lt;script setup&gt;</code>)
     </p>
 
-    <p>{{t('See')}} <code>README.md</code> {{t('more-info')}}</p>
+    <p>See <code>README.md</code>for more information.</p>
     <p class="mb-10">
       <a href="https://vitejs.dev/guide/features.html" target="_blank">
         Vite Docs

@@ -1,17 +1,6 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n';
-
-import {  ref } from 'vue';
+import { ref } from 'vue';
 import { useTheme } from '/@/composables';
-
-
-const { t, availableLocales, locale } = useI18n();
-
-const toggleLocales = () => {
-  const locales = availableLocales;
-  locale.value =
-    locales[(locales.indexOf(locale.value) + 1) % locales.length];
-};
 
 const { toggleDark } = useTheme();
 
@@ -20,7 +9,6 @@ const show = ref(false);
 setTimeout(() => {
   show.value = true;
 }, 1000);
-
 </script>
 <template>
   <div class="container max-w-3xl mx-auto mt-60">
@@ -42,26 +30,16 @@ setTimeout(() => {
       </transition>
     </div>
 
-    <HelloWorld :msg="t('hello') + ' 👋 ' + t('welcome')" />
+    <HelloWorld :msg="'Hello' + ' 👋 ' + 'there, welcome to Vitesome'" />
 
     <footer class="text-center">
       <ul class="flex justify-between w-1/3 mx-auto mb-8">
         <li class="cursor-pointer text-2xl">
           <a
             href="#"
-            @click="toggleLocales"
-            class="footer-link text-cyan-700 hover:text-cyan-500"
-            :title="t('toggle_language')"
-          >
-            <i class="i-ph-translate-bold" />
-          </a>
-        </li>
-        <li class="cursor-pointer text-2xl">
-          <a
-            href="#"
             @click="toggleDark()"
             class="text-cyan-700 hover:text-cyan-500"
-            :title="t('toggle_theme')"
+            :title="'Toggle Theme'"
           >
             <i i="ph-sun dark:ph-moon" />
           </a>
@@ -80,7 +58,7 @@ setTimeout(() => {
       </ul>
 
       <span class="text-xs"
-        >{{ t('made_by') }}
+        >Made by
         <a
           class="footer-link text-cyan-400 hover:text-cyan-500"
           href="https://github.com/alvarosabu/vitesome"
