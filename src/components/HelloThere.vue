@@ -1,11 +1,11 @@
 <template>
-  <div class="text-center text-md">
+  <header class="text-center text-md">
     <h1 class="font-serif font-bold font-bold text-4xl mb-8">
       Hello 👋 there, welcome my portfolio!
     </h1>
 
     <p>Maybe write a bit about myself? Maybe add some <a href="#">links</a> as well?</p>
-  </div>
+  </header>
 </template>
 
 <script setup lang="ts"></script>
