@@ -8,8 +8,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.45",
-    "vue-router": "^4.1.6"
+    "vue": "^3.2.45"
   },
   "devDependencies": {
     "@iconify-json/ant-design": "^1.1.4",
