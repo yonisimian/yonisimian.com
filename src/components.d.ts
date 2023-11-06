@@ -24,8 +24,6 @@ declare module '@vue/runtime-core' {
     GitHubIcon: typeof import('./components/footer/icons/GitHubIcon.vue')['default']
     HelloThere: typeof import('./components/HelloThere.vue')['default']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
-    RouterLink: typeof import('vue-router')['RouterLink']
-    RouterView: typeof import('vue-router')['RouterView']
     StarsBackground: typeof import('./components/StarsBackground.vue')['default']
     YoutubeIcon: typeof import('./components/footer/icons/YoutubeIcon.vue')['default']
   }

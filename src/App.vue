@@ -1,11 +1,23 @@
 <template>
-  <router-view />
+  <StarsBackground :showStars="showStars" />
+  <div class="container max-w-3xl mx-auto">
+    <div class="h-24" />
+    <HelloThere />
+
+    <Gallery />
+
+    <Footer />
+  </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { ref, provide } from 'vue'
 
-export default defineComponent({
-  name: 'App'
-})
+const showStars = ref(true)
+
+const toggleStars = () => {
+  showStars.value = !showStars.value
+}
+
+provide('toggleStars', toggleStars)
 </script>
