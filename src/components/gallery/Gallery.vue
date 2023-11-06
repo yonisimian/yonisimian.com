@@ -1,7 +1,8 @@
 <template>
   <article class="my-10 pt-10 sm:pt-14">
     <GalleryFilterSearch
-      :filterCategory="(text: string) => selectedCategory = text"
+      :selectedCategories="selectedCategories"
+      :toggleCategory="toggleCategory"
       :filterSearch="(text: string) => searchProject = text"
     />
 
@@ -13,16 +14,16 @@
 // import projects from '../../data/projects'
 
 import { ref, computed } from 'vue'
-import { Project } from '/@/types/types'
+import { Project, ProjectCategory } from '/@/types/types'
 import projectsData from '/@/data/projects'
 
-const selectedCategory = ref('')
+const selectedCategories = ref<ProjectCategory[]>([])
 const searchProject = ref('')
 const projects = ref<Project[]>(projectsData)
 
 const filteredProjects = computed(() => {
   let filtered = projects.value
-  if (selectedCategory.value) {
+  if (selectedCategories.value) {
     filtered = filterProjectsByCategory(filtered)
   }
   if (searchProject.value) {
@@ -31,11 +32,17 @@ const filteredProjects = computed(() => {
   return filtered
 })
 
+const toggleCategory = (category: ProjectCategory) => {
+  if (selectedCategories.value.includes(category)) {
+    selectedCategories.value = selectedCategories.value.filter((item) => item !== category)
+  } else {
+    selectedCategories.value.push(category)
+  }
+}
+
 const filterProjectsByCategory = (projects: Project[]) => {
-  return projects.filter((item) => {
-    let category = item.category.charAt(0).toUpperCase() + item.category.slice(1)
-    return category.includes(selectedCategory.value)
-  })
+  if (!selectedCategories.value.length) return projects
+  return projects.filter((item) => selectedCategories.value.includes(item.category))
 }
 
 const filterProjectsBySearch = (projects: Project[]) => {

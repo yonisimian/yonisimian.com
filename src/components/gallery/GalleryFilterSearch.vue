@@ -1,13 +1,16 @@
 <template>
   <section class="flex justify-between border-b pb-3 gap-2">
     <GallerySearch :filterSearch="filterSearch" />
-    <GalleryFilter :filterCategory="filterCategory" />
+    <GalleryFilter :selectedCategories="selectedCategories" :toggleCategory="toggleCategory" />
   </section>
 </template>
 
 <script setup lang="ts">
+import { ProjectCategory } from '/@/types/types'
+
 defineProps<{
-  filterCategory: (filter: string) => void
+  selectedCategories: ProjectCategory[]
+  toggleCategory: (category: ProjectCategory) => void
   filterSearch: (filter: string) => void
 }>()
 </script>
