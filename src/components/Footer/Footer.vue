@@ -5,7 +5,7 @@
     <span class="text-xs"
       >Made by
       <a
-        class="footer-link text-cyan-400 hover:text-cyan-500"
+        class="footer-link text-cyan-500 hover:text-cyan-400"
         href="https://github.com/yonisimian"
         rel="noreferrer"
         target="_blank"
@@ -17,8 +17,4 @@
 
 <script setup lang="ts"></script>
 
-<style scoped>
-.footer-link {
-  opacity: 0.8;
-}
-</style>
+<style scoped></style>
