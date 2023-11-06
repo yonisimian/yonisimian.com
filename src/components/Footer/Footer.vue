@@ -1,5 +1,5 @@
 <template>
-  <footer class="text-center">
+  <footer class="mb-2 text-center">
     <FooterIcons />
 
     <span class="text-xs"
