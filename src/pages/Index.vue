@@ -1,17 +1,6 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-import { useTheme } from '/@/composables'
-
-const { toggleDark } = useTheme()
-
-const show = ref(false)
-
-setTimeout(() => {
-  show.value = true
-}, 1000)
-</script>
 <template>
-  <div class="container max-w-3xl mx-auto mt-60">
+  <div class="container max-w-3xl mx-auto">
+    <div class="h-60" />
     <HelloWorld :msg="'Hello' + ' 👋 ' + 'there, welcome to Vitesome'" />
 
     <footer class="text-center">
@@ -52,6 +41,19 @@ setTimeout(() => {
     </footer>
   </div>
 </template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+import { useTheme } from '/@/composables'
+
+const { toggleDark } = useTheme()
+
+const show = ref(false)
+
+setTimeout(() => {
+  show.value = true
+}, 1000)
+</script>
 
 <style scoped>
 .footer-link {
