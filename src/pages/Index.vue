@@ -3,6 +3,8 @@
     <div class="h-48" />
     <HelloThere />
 
+    <Gallery />
+
     <Footer />
   </div>
 </template>
