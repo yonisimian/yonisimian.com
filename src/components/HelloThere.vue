@@ -4,11 +4,11 @@
       Hello 👋 there, welcome my portfolio!
     </h1>
 
-    <p>Maybe write a bit about myself?</p>
+    <p>Maybe write a bit about myself? Maybe add some links as well?</p>
     <p class="mb-10">
-      <a href="https://vitejs.dev/guide/features.html" target="_blank"> Vite Docs </a>
+      <a href="#"> Maybe a link </a>
       |
-      <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
+      <a href="#">Maybe another link</a>
     </p>
   </div>
 </template>
