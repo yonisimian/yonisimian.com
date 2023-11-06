@@ -1,5 +1,5 @@
 <template>
-  <article class="pt-10 sm:pt-14">
+  <article class="my-10 pt-10 sm:pt-14">
     <GalleryFilterSearch
       :filterCategory="(text: string) => selectedCategory = text"
       :filterSearch="(text: string) => searchProject = text"
@@ -13,17 +13,12 @@
 // import projects from '../../data/projects'
 
 import { ref, computed } from 'vue'
-import { Project, ProjectCategory } from '/@/types/types'
+import { Project } from '/@/types/types'
+import projectsData from '/@/data/projects'
 
 const selectedCategory = ref('')
 const searchProject = ref('')
-const projects = ref<Project[]>([])
-
-projects.value.push({
-  title: 'project title',
-  category: ProjectCategory.music,
-  img: 'project image'
-})
+const projects = ref<Project[]>(projectsData)
 
 const filteredProjects = computed(() => {
   let filtered = projects.value
