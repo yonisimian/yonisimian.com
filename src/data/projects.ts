@@ -1,41 +1,40 @@
-import { ProjectCategory } from '../types/types'
+import { Project, ProjectCategory } from '../types/types'
 
-const projects = [
+const projects: Project[] = [
   {
     title: '2nd March',
     category: ProjectCategory.MUSIC,
-    // img: require('@/assets/images/web-project-2.jpg')
-    img: ''
+    img: '@/data/2nd march.png'
   },
   {
     title: 'Maria, Maria',
     category: ProjectCategory.MUSIC,
-    img: ''
+    img: '@/data/maria.png'
   },
   {
     title: 'Intel',
     category: ProjectCategory.CS,
-    img: ''
+    img: '@/data/intel.png'
   },
   {
     title: 'Data Mining',
     category: ProjectCategory.ACADEMY,
-    img: ''
+    img: '@/data/sklearn.png'
   },
   {
     title: 'This very site',
     category: ProjectCategory.CS,
-    img: ''
+    img: '@/data/sonic.png'
   },
   {
     title: 'C Calculator',
     category: ProjectCategory.CS,
-    img: ''
+    img: '@/data/C.png'
   },
   {
     title: 'PacmanX10',
     category: ProjectCategory.CS,
-    img: ''
+    img: '@/data/pacmanx10.png'
   }
 ]
 
