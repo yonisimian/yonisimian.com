@@ -72,6 +72,7 @@ npx degit alvarosabu/vitesome my-vitesome-app
 cd my-vitesome-app
 pnpm i # If you don't have pnpm installed, run: npm install -g pnpm
 ```
+
 ### Project setup
 
 ```

@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useTheme } from '/@/composables';
+import { ref } from 'vue'
+import { useTheme } from '/@/composables'
 
-const { toggleDark } = useTheme();
+const { toggleDark } = useTheme()
 
-const show = ref(false);
+const show = ref(false)
 
 setTimeout(() => {
-  show.value = true;
-}, 1000);
+  show.value = true
+}, 1000)
 </script>
 <template>
   <div class="container max-w-3xl mx-auto mt-60">
@@ -21,12 +21,7 @@ setTimeout(() => {
         leave-from-class="opacity-100"
         leave-to-class="opacity-0"
       >
-        <img
-          v-if="show"
-          alt="Vitesome logo"
-          class="w-52 mx-auto mb-12"
-          :src="'imagotype.svg'"
-        />
+        <img v-if="show" alt="Vitesome logo" class="w-52 mx-auto mb-12" :src="'imagotype.svg'" />
       </transition>
     </div>
 
