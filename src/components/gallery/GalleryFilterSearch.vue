@@ -1,7 +1,5 @@
 <template>
-  <section
-    class="flex justify-between border-b border-primary-light dark:border-secondary-dark pb-3 gap-2"
-  >
+  <section class="flex justify-between border-b pb-3 gap-2">
     <GallerySearch :filterSearch="filterSearch" />
     <GalleryFilter :filterCategory="filterCategory" />
   </section>
