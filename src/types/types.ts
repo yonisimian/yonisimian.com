@@ -1,7 +1,7 @@
 export enum ProjectCategory {
-  'music' = 'Music',
-  'cs' = 'Computer Science',
-  'academy' = 'Academy'
+  MUSIC = 'Music',
+  CS = 'Computer Science',
+  ACADEMY = 'Academy'
 }
 
 export type Project = {
