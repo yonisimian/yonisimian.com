@@ -4,7 +4,7 @@
       :href="href"
       rel="noreferrer"
       target="_blank"
-      class="footer-link text-cyan-700 hover:text-cyan-500"
+      class="footer-link text-cyan-700 hover:text-cyan-500 transition-all duration-200 ease"
       :title="title"
     >
       <i :class="i" />
