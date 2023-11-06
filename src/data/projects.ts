@@ -1,40 +1,47 @@
 import { Project, ProjectCategory } from '../types/types'
+import intel from './intel.png'
+import sklearn from './sklearn.png'
+import sonic from './sonic.png'
+import c from './C.png'
+import pacmanx10 from './pacmanx10.png'
+import maria from './maria.png'
+import secondMarch from './2nd march.png'
 
 const projects: Project[] = [
   {
     title: '2nd March',
     category: ProjectCategory.MUSIC,
-    img: '@/data/2nd march.png'
+    img: secondMarch
   },
   {
     title: 'Maria, Maria',
     category: ProjectCategory.MUSIC,
-    img: '@/data/maria.png'
+    img: maria
   },
   {
     title: 'Intel',
     category: ProjectCategory.CS,
-    img: '@/data/intel.png'
+    img: intel
   },
   {
     title: 'Data Mining',
     category: ProjectCategory.ACADEMY,
-    img: '@/data/sklearn.png'
+    img: sklearn
   },
   {
     title: 'This very site',
     category: ProjectCategory.CS,
-    img: '@/data/sonic.png'
+    img: sonic
   },
   {
     title: 'C Calculator',
     category: ProjectCategory.CS,
-    img: '@/data/C.png'
+    img: c
   },
   {
     title: 'PacmanX10',
     category: ProjectCategory.CS,
-    img: '@/data/pacmanx10.png'
+    img: pacmanx10
   }
 ]
 
