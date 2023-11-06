@@ -1,5 +1,5 @@
 <template>
-  <section class="flex justify-between border-b pb-3 gap-2">
+  <section class="flex flex-col sm:flex-row justify-between border-b pb-3 gap-3">
     <GallerySearch :filterSearch="filterSearch" />
     <GalleryFilter :selectedCategories="selectedCategories" :toggleCategory="toggleCategory" />
   </section>
