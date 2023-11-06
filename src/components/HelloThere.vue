@@ -4,12 +4,7 @@
       Hello 👋 there, welcome my portfolio!
     </h1>
 
-    <p>Maybe write a bit about myself? Maybe add some links as well?</p>
-    <p class="mb-10">
-      <a href="#"> Maybe a link </a>
-      |
-      <a href="#">Maybe another link</a>
-    </p>
+    <p>Maybe write a bit about myself? Maybe add some <a href="#">links</a> as well?</p>
   </div>
 </template>
 
@@ -18,10 +13,5 @@
 <style scoped>
 a {
   @apply text-cyan-400 hover:text-cyan-500 transition-all ease-out duration-100;
-}
-
-label {
-  margin: 0 0.5em;
-  font-weight: bold;
 }
 </style>
