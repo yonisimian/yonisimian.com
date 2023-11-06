@@ -1,6 +1,6 @@
 <template>
   <div class="container max-w-3xl mx-auto">
-    <div class="h-48" />
+    <div class="h-24" />
     <HelloThere />
 
     <Gallery />
