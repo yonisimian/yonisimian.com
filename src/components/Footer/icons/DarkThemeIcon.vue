@@ -1,6 +1,6 @@
 <template>
   <li class="cursor-pointer text-2xl">
-    <a class="text-cyan-700 hover:text-cyan-500" :title="'Toggle Theme'" @click="toggleStars">
+    <a class="text-cyan-700 hover:text-cyan-500" :title="'Toggle Stars'" @click="toggleStars">
       <i class="i-ph-moon" />
     </a>
   </li>
