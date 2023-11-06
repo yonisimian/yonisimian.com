@@ -1,8 +1,6 @@
 <template>
-  <router-link
-    to="/projects/single-project"
-    class="rounded-xl shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0"
-    aria-label="Single Project"
+  <div
+    class="rounded-xl bg-sky-400/5 shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 transform transition-all duration-500 hover:scale-110"
   >
     <div>
       <img :src="project.img" :alt="project.title" class="rounded-t-xl border-none" />
@@ -13,7 +11,7 @@
       </p>
       <span class="font-general-medium text-lg">{{ project.category }}</span>
     </div>
-  </router-link>
+  </div>
 </template>
 
 <script setup lang="ts">
