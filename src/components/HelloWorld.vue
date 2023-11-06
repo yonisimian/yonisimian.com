@@ -1,21 +1,10 @@
 <template>
   <div class="text-center text-md">
-    <h1 class="font-serif font-bold font-bold text-4xl mb-8">{{ msg }}</h1>
+    <h1 class="font-serif font-bold font-bold text-4xl mb-8">
+      Hello 👋 there, welcome my portfolio!
+    </h1>
 
-    <p>
-      Recommended IDE setup
-      <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
-      +
-      <a href="https://marketplace.visualstudio.com/items?itemName=octref.vetur" target="_blank">
-        Vetur
-      </a>
-      or
-      <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
-      (if you are using
-      <code>&lt;script setup&gt;</code>)
-    </p>
-
-    <p>See <code>README.md</code>for more information.</p>
+    <p>Maybe write a bit about myself?</p>
     <p class="mb-10">
       <a href="https://vitejs.dev/guide/features.html" target="_blank"> Vite Docs </a>
       |
@@ -24,14 +13,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
-defineProps({
-  msg: {
-    type: String,
-    default: ''
-  }
-})
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 a {
@@ -41,9 +23,5 @@ a {
 label {
   margin: 0 0.5em;
   font-weight: bold;
-}
-
-code {
-  @apply text-xs font-mono bg-yellow-200 text-yellow-700 rounded px-0.5 py-0.5;
 }
 </style>
