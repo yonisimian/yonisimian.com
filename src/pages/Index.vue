@@ -1,7 +1,7 @@
 <template>
   <div class="container max-w-3xl mx-auto">
-    <div class="h-60" />
-    <HelloWorld :msg="'Hello' + ' 👋 ' + 'there, welcome to Vitesome'" />
+    <div class="h-48" />
+    <HelloWorld />
 
     <footer class="text-center">
       <ul class="flex justify-between w-1/3 mx-auto mb-8">
