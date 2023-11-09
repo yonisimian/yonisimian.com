@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap gap-2">
+  <div class="flex flex-wrap gap-2 justify-between">
     <GalleryFilterBadge
       v-for="category in ProjectCategory"
       :key="category"
