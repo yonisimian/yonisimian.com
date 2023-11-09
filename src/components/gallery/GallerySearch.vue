@@ -2,7 +2,7 @@
   <div class="flex justify-between gap-2">
     <input
       @input="(event) => filterSearch((event.target as HTMLInputElement).value)"
-      class="font-general-medium pl-3 pr-1 sm:px-4 py-2 min-w-full border-1 border-gray-200 dark:border-secondary-dark rounded-full text-sm sm:text-md bg-secondary-light dark:bg-ternary-dark text-primary-dark dark:text-ternary-light"
+      class="pl-3 pr-1 sm:px-4 py-2 min-w-full border-1 border-sky-900 dark:border-gray-200 rounded-full text-sm sm:text-md"
       id="name"
       name="name"
       type="search"
