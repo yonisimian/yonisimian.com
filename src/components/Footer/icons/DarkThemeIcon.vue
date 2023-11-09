@@ -1,15 +1,26 @@
 <template>
   <li class="cursor-pointer text-2xl">
-    <a class="text-cyan-700 hover:text-cyan-500" :title="'Toggle Stars'" @click="toggleStars">
-      <i class="i-ph-moon" />
+    <a @click="toggleDark()" class="text-cyan-700 hover:text-cyan-500" :title="'Toggle Theme'">
+      <i i="ph-sun dark:ph-moon" />
     </a>
   </li>
 </template>
 
 <script setup lang="ts">
-import { inject } from 'vue'
+import { ref } from 'vue'
+import { useTheme } from '/@/composables'
 
-const toggleStars = inject('toggleStars') as () => void
+const { toggleDark } = useTheme()
+
+const show = ref(false)
+
+setTimeout(() => {
+  show.value = true
+}, 1000)
 </script>
 
-<style scoped></style>
+<style scoped>
+.footer-link {
+  opacity: 0.8;
+}
+</style>
