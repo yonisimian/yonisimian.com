@@ -12,4 +12,21 @@ body {
   /* @apply dark:bg-gradient-to-b dark:from-black dark:to-gray-900; */
   transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
   margin: auto;
+  overflow-y: scroll;
+}
+
+/* ScrollBar */
+body::-webkit-scrollbar-track
+{
+	background-color: transparent;
+}
+body::-webkit-scrollbar
+{
+  width: 10px;
+	background-color: transparent;
+}
+body::-webkit-scrollbar-thumb
+{
+  @apply rounded-full;
+  background-image: linear-gradient(to bottom, transparent, rgba(50,50,150,.1), transparent);
 }
