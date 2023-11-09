@@ -1,6 +1,7 @@
 <template>
   <Transition name="fade">
     <div v-if="isDark" class="stars" />
+    <div v-else class="triangles" />
   </Transition>
 </template>
 
@@ -11,6 +12,32 @@ const { isDark } = useTheme()
 </script>
 
 <style scoped>
+.triangles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -100;
+
+  /***** triangles *****/
+  /* background: linear-gradient(45deg, rgba(174, 190, 200, 0.075) 25%, transparent 25%) 0 0,
+  linear-gradient(135deg, rgba(174, 190, 200, 0.075) 25%, transparent 25%) 0 0,
+  linear-gradient(45deg, transparent 75%, rgba(174, 190, 200, 0.075) 75%) 0 0,
+  linear-gradient(135deg, transparent 75%, rgba(174, 190, 200, 0.075) 75%) 0 0;
+  background-size: 30px 30px;
+  background-repeat: repeat; */
+
+  /***** blueprint *****/
+  background-color: #eee;
+  background-image: linear-gradient(rgba(245, 245, 245, 0.4) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(245, 245, 245, 0.4) 2px, transparent 2px),
+    linear-gradient(rgba(245, 245, 245, 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 245, 245, 0.5) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
+
 .stars {
   position: fixed;
   top: 50%;
