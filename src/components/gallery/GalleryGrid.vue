@@ -1,5 +1,5 @@
 <template>
-  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-6 sm:gap-10">
+  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6 sm:gap-10">
     <TransitionGroup name="slide">
       <GalleryCard v-for="(project, index) in projects" :key="index" :project="project" />
     </TransitionGroup>
