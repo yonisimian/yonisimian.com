@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Background: typeof import('./components/Background.vue')['default']
     DarkThemeIcon: typeof import('./components/footer/icons/DarkThemeIcon.vue')['default']
     Footer: typeof import('./components/footer/Footer.vue')['default']
     FooterIcon: typeof import('./components/footer/FooterIcon.vue')['default']
