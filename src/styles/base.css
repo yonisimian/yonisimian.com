@@ -8,8 +8,8 @@
 
 body {
   min-height: 100vh;
-  @apply text-gray-700 dark:bg-gray-800 dark:text-gray-200;
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  @apply text-gray-700 dark:text-gray-200 dark:bg-blue-gray-900;
+  /* @apply dark:bg-gradient-to-b dark:from-black dark:to-gray-900; */
   transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
   margin: auto;
 }
