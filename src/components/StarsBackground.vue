@@ -1,13 +1,13 @@
 <template>
   <Transition name="fade">
-    <div v-if="showStars" class="stars" />
+    <div v-if="isDark" class="stars" />
   </Transition>
 </template>
 
 <script setup lang="ts">
-defineProps<{
-  showStars: boolean
-}>()
+import { useTheme } from '/@/composables'
+
+const { isDark } = useTheme()
 </script>
 
 <style scoped>
