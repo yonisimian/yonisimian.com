@@ -1,6 +1,6 @@
 <template>
   <section
-    class="flex flex-col sm:flex-row justify-between border-b border-primary-light dark:border-secondary-dark pb-3 gap-3"
+    class="flex flex-col justify-between border-b border-primary-light dark:border-secondary-dark pb-3 gap-3 text-xs"
   >
     <GallerySearch :filterSearch="filterSearch" />
     <GalleryFilter :selectedCategories="selectedCategories" :toggleCategory="toggleCategory" />
@@ -17,4 +17,15 @@ defineProps<{
 }>()
 </script>
 
-<style scoped></style>
+<style scoped>
+@media (min-width: 400px) {
+  section {
+    @apply text-base;
+  }
+}
+@media (min-width: 596px) {
+  section {
+    @apply flex-row;
+  }
+}
+</style>
