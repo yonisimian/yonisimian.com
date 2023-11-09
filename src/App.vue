@@ -1,5 +1,5 @@
 <template>
-  <StarsBackground />
+  <Background />
   <div class="container w-3xl max-w-[83vw] mx-auto">
     <div class="h-24" />
     <HelloThere />
