@@ -1,7 +1,7 @@
 <template>
   <div
     @click="toggleCategory"
-    class="select-none px-2 py-2 text-sky-50 text-center rounded-full cursor-pointer glow transition-all duration-200 ease"
+    class="select-none px-2 py-2 text-center rounded-full cursor-pointer glow transition-shadow duration-200 ease"
     :class="{
       'bg-sky-600': isSelected
     }"
