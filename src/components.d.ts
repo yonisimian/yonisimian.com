@@ -21,6 +21,7 @@ declare module '@vue/runtime-core' {
     CardBackLogo: typeof import('./components/gallery/cardBack/CardBackLogo.vue')['default']
     CardBackTitle: typeof import('./components/gallery/cardBack/CardBackTitle.vue')['default']
     copy: typeof import('./components/gallery/cardBack/CardBackTitle copy.vue')['default']
+    DarkBackground: typeof import('./components/gallery/cardBack/DarkBackground.vue')['default']
     DarkThemeIcon: typeof import('./components/footer/icons/DarkThemeIcon.vue')['default']
     Footer: typeof import('./components/footer/Footer.vue')['default']
     FooterIcon: typeof import('./components/footer/FooterIcon.vue')['default']

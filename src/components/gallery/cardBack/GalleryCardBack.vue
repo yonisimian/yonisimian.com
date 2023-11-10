@@ -1,4 +1,5 @@
 <template>
+  <DarkBackground />
   <BackBackground @click="discard">
     <BackCard @click.stop>
       <BackLogo class="sm:block hidden" :src="project.img" :alt="project.title" />
