@@ -1,31 +1,62 @@
 <template>
-  <div
-    class="grid grid-rows-3 rounded-xl bg-sky-400/5 shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 backdrop-filter backdrop-blur-[3px] hover:backdrop-blur-[4px] transform transition-transform transition-shadow transition-opacity transition-colors duration-500 hover:scale-107 dark:bg-ternary-dark"
-  >
-    <div class="row-span-2 flex justify-center items-center">
-      <img
-        :src="project.img"
-        :alt="project.title"
-        class="rounded-t-xl border-none px-4 pt-4 max-h-48"
-      />
+  <!-- <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <GalleryCardFront :project="project" />
+      </div>
+      <div class="flip-card-back">
+        <GalleryCardBack :project="project" />
+      </div>
     </div>
-    <div class="row-span-1 text-center px-4 py-6">
-      <p class="font-general-semibold text-xl dark:text-ternary-light font-semibold mb-2">
-        {{ project.title }}
-      </p>
-      <span class="font-general-medium text-lg text-ternary-dark dark:text-ternary-light">{{
-        project.category
-      }}</span>
-    </div>
+  </div> -->
+
+  <div>
+    <GalleryCardBack v-if="isChosen" :discard="() => (isChosen = false)" :project="project" />
+    <GalleryCardFront @click="isChosen = true" :project="project" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { Project } from '/@/types/types'
+import { ref } from 'vue'
 
 defineProps<{
   project: Project
 }>()
+
+// @ts-ignore
+const isChosen = ref(false)
 </script>
 
-<style scoped></style>
+<style scoped>
+.flip-card {
+  background-color: transparent;
+  height: 100%;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+</style>
