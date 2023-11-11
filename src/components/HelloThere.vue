@@ -8,7 +8,7 @@
     </p>
     <p>
       Please enjoy this showcase of my key skills, competencies, and experience in music, computer
-      science and academic research 😊.
+      science and academic research 😊
     </p>
   </header>
 </template>
