@@ -1,5 +1,5 @@
 <template>
-  <p class="py-1">
+  <p class="text-justify max-w-4xl">
     {{ description }}
   </p>
 </template>

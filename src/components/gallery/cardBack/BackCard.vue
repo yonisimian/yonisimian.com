@@ -3,7 +3,11 @@
     <div
       class="relative flex flex-col justify-start items-center rounded-xl min-h-lg w-[88vw] sm:w-[60vw] bg-sky-50/50 dark:bg-sky-100/10 shadow-md mb-10 sm:mb-0 backdrop-filter backdrop-blur-[12px]"
     >
-      <slot />
+      <div
+        class="px-2 sm:px-4 lg:px-8 h-full text-lg flex flex-col flex-grow justify-start items-center"
+      >
+        <slot />
+      </div>
     </div>
   </Transition>
 </template>

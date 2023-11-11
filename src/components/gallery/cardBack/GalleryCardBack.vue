@@ -5,10 +5,18 @@
       <BackLogo class="sm:block hidden" :src="project.img" :alt="project.title" />
       <BackCategory :category="project.category" />
       <BackTitle :title="project.title" />
-      <BackDesc v-for="_ in [1, 2, 3, 4, 5]" :description="'description'" />
-      <BackDesc :description="'what skills I\'ve aquired'" />
-      <BackDesc :description="'what I\'d do differently'" />
-      <BackDesc :description="'links and stuff'" />
+      <BackDesc :description="project.description" />
+      <BackTitledDesc
+        v-if="project.wilfi"
+        :title="'what I\'ve learn from it'"
+        :desc="project.wilfi"
+      />
+      <BackTitledDesc
+        v-if="project.wiwdd"
+        :title="'What I\'d do differently'"
+        :desc="project.wiwdd"
+      />
+      <BackLinks v-if="project.links" :links="project.links" />
     </BackCard>
   </BackBackground>
 </template>
