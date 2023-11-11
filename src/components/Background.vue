@@ -1,5 +1,5 @@
 <template>
-  <Transition name="fade">
+  <Transition name="background">
     <div v-if="isDark" class="stars" />
     <div v-else class="triangles" />
   </Transition>
@@ -113,12 +113,12 @@ const { isDark } = useTheme()
   }
 }
 
-.fade-enter-active,
-.fade-leave-active {
+.background-enter-active,
+.background-leave-active {
   transition: opacity 1s;
 }
-.fade-enter-from,
-.fade-leave-to {
+.background-enter-from,
+.background-leave-to {
   opacity: 0;
 }
 </style>
