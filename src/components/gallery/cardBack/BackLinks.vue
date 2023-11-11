@@ -1,6 +1,6 @@
 <template>
   <p class="pt-1 pb-4 mt-auto text-left w-full max-w-4xl">
-    links:
+    <b>links:</b>
     <span v-for="(link, index) in links" :key="index">
       <a :href="link.url" target="_blank" rel="noopener">
         {{ link.title }}
