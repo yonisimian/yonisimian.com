@@ -10,7 +10,10 @@ import { useTheme } from '/@/composables'
 
 const { isDark } = useTheme()
 
-isDark.value = false
+if (!localStorage.getItem('firstVisit')) {
+  isDark.value = false
+  localStorage.setItem('firstVisit', 'nocap')
+}
 </script>
 
 <style scoped>
