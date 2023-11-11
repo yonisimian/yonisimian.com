@@ -1,7 +1,7 @@
 <template>
   <Transition name="backCard" appear>
     <div
-      class="relative flex flex-col justify-start items-center rounded-xl min-h-lg w-[88vw] sm:w-[60vw] bg-sky-50/70 dark:bg-sky-100/10 shadow-md mb-10 sm:mb-0 backdrop-filter backdrop-blur-[12px]"
+      class="relative flex flex-col justify-start items-center rounded-xl min-h-lg overflow-y-auto max-h-[80vh] w-[88vw] sm:w-[60vw] bg-sky-50/70 dark:bg-sky-100/10 shadow-md mb-10 sm:mb-0 backdrop-filter backdrop-blur-[12px]"
     >
       <div
         class="px-2 sm:px-4 lg:px-8 h-full text-lg flex flex-col flex-grow justify-start items-center"
