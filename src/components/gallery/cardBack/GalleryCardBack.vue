@@ -16,6 +16,7 @@
         :title="'What I\'d do differently'"
         :desc="project.wiwdd"
       />
+      <BackTitledDesc v-if="project.notes" :title="'Notes'" :desc="project.notes" />
       <BackLinks v-if="project.links" :links="project.links" />
     </BackCard>
   </BackBackground>

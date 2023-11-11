@@ -16,5 +16,6 @@ export type Project = {
   description: string
   wilfi?: string // What I learned from it
   wiwdd?: string // What I would do differently
+  notes?: string
   links?: ProjectLink[]
 }
