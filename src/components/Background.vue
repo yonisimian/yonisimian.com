@@ -9,6 +9,8 @@
 import { useTheme } from '/@/composables'
 
 const { isDark } = useTheme()
+
+isDark.value = false
 </script>
 
 <style scoped>
