@@ -13,10 +13,9 @@ const projects: Project[] = [
     category: ProjectCategory.MUSIC,
     img: secondMarch,
     description: `
-      This march started as an improvisation on my trombone when I was about 17 years old.
-      At this time I began to experiment with composing for a whole orchestra, and I liked this improvised melody,
-      so I wrote it as a march for a wind orchestra.
-      In 2022 we played this march at the Technion Orchestra's concert, and the result is available in the link below.
+      This march originated from a spontaneous trombone improvisation when I was 17 years old.
+      My foray into orchestral composition led me to experiment with orchestrating the improvised melody, ultimately formalizing it into a march tailored for a wind orchestra.
+      The composition premiered in 2022 during a notable performance by the Technion Orchestra, and a recording of this premiere is accessible through the link below.
     `,
     wilfi:
       'composition, orchestration. The ability to listen to live rehearsals and make changes accordingly. Also, gained experience in the Sibelius notation software.',
@@ -34,11 +33,12 @@ const projects: Project[] = [
     img: maria,
     description: `
       This is a song I wrote about a girl I knew.
-      It is the second song I've recorded by myself, so I used the knowledge I gained from previous mistakes to make this one more professional.
-      Every part of this song was played by me, except for the drums which I wrote and let the computer play.
+      It is the second song I've recorded by myself.
+      Drawing from the lessons of previous attempts, I endeavored to elevate the professionalism of this project.
+      Each musical component was performed by me, except for the drum section - which I composed and executed digitally.
     `,
     wilfi:
-      'recording, mixing, mastering. Great emphasis on blending the different instruments together to make it sound as a whole.',
+      'recording, mixing, mastering. A particular emphasis on achieving a harmonious integration by blending the instruments correctly.',
     wiwdd:
       'sing a bit more lively and less monotonous. Mix the singer to blend it more properly with the song.',
     links: [
@@ -54,11 +54,11 @@ const projects: Project[] = [
     img: intel,
     description: `
       I started working at Intel in 2022 as an R&D software development student.
-      Our team is responsible for developing a compiler that helps the validation teams to test the newest chips.
-      Aside from my role, I also prepare riddles / short-lectures for the team's weekly meetings.
+      Our team is responsible for developing a compiler designed to facilitate the validation of cutting-edge chips by our validation teams.
+      Aside from my role, I also prepare riddles and short lectures for our team's weekly meetings.
     `,
     wilfi:
-      'C++17, Python, Git, tcsh, LLVM, how to write tests, and many aspects of operating systems as well (not to forget the team work of course 😄).',
+      'C++17, Python, Git, tcsh, LLVM, how to write tests, and various aspects of operating systems as well (not to forget the teamwork dynamics 😄).',
     notes:
       "of course, I can't provide any code from this project, but I can talk about it in more detail in person :)"
   },
@@ -68,8 +68,8 @@ const projects: Project[] = [
     img: sklearn,
     description: `
       As part of my B.Sc. in Computer Science, I took a course in Data Mining.
-      In this course we learned about different data mining algorithms, with an emphasis on how and when to use them for our needs.
-      In the final project (which is available in the link below), we were asked to analyze a dataset using the methods and algorithms we learned.
+      In this course we learned about various data mining algorithms, emphasizing their strategic application based on contextual considerations.
+      The final project, accessible through the links below, required the application of learned methods and algorithms to analyze a dataset.
     `,
     wilfi:
       'Python, Pandas, Scikit-learn, Matplotlib, Data Mining algorithms, how to analyze a dataset, how to present the results.',
@@ -89,16 +89,16 @@ const projects: Project[] = [
     category: ProjectCategory.CS,
     img: sonic,
     description: `
-      When I heard about the graduate studies positions in the Georgia Tech School of Music, I decided to create a portfolio website to present myself.
-      After working on this site for a while, I understood that it worths presenting the site itself as a project, as for I learned much from it,
-      and I think it is a good example of my work.
+      When I heard about the graduate studies positions in the Georgia Tech School of Music, I decided to create a portfolio website to effectively showcase my qualifications.
+      After working on this site for a while, I understood that it worths presenting the site itself as a project,
+      as for I believe it stands as a compelling testament to the quality of my work.
     `,
     wilfi:
       'Vue3, TypeScript, Netlify, emphasis on UI/UX and responsive design. A bit of CSS3 animations.',
     notes: `
-      The dark theme of this website is a tiny easter egg for myself, as for it hints the world of an invtrovert like me;
+      the dark theme of this website is a tiny easter egg for myself, as for it hints the world of an invtrovert like me;
       On the outside, the website is white, clean, simplistic, and if I may say - a bit boring.
-      But if you look deeper (i.e. click on the dark theme icon), you will find a whole world of colors, animations, and a lot of fun 🌈😄.
+      However, if you look deeper (i.e. click on the dark theme icon), you will find a whole world of colors, animations, and lots of fun 🌈😄.
     `
   },
   {
@@ -107,14 +107,15 @@ const projects: Project[] = [
     img: c,
     description: `
       This simplistic calculator written in C is more than just a project for me;
-      if you look at the readme markdown file in the link below, you will find a very detailed explanation on about how I wrote this calculator.
-      I think this project is a good example of my ability to express myself and explain my work to others,
+      if you look at the readme markdown file, accessible through the link below,
+      you will encounter a comprehensive exposition detailing the intricacies of how I made this calculator.
+      I think this project serves as a good example of my ability to express myself and explain my work to others,
       which is (in my mind) almost as important as writing the project itself.
     `,
     wilfi:
       'C, Git, Markdown, managing a project with a specific objective, and the hard part - finishing a project.',
     wiwdd: `
-      Study the subject more before starting to implement it.
+      delving deeper into the subject commencing implementation.
       Apparently, I've aquired a compiler developer way of thinking, but my terminology was a bit off.
       The project could have looked more professional if I knew more about lexing and parsing.
     `,
