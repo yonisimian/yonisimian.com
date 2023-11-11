@@ -1,6 +1,10 @@
 <template>
   <div>
-    <GalleryCardBack v-if="isChosen" :discard="() => (isChosen = false)" :project="project" />
+    <Transition name="slide">
+      <div v-if="isChosen">
+        <GalleryCardBack :discard="() => (isChosen = false)" :project="project" />
+      </div>
+    </Transition>
     <GalleryCardFront @click="isChosen = true" :project="project" />
   </div>
 </template>
@@ -16,4 +20,8 @@ defineProps<{
 const isChosen = ref(false)
 </script>
 
-<style scoped></style>
+<style scoped>
+/* .slide-leave-active {
+  transition: all 0.5s;
+} */
+</style>

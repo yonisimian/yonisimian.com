@@ -1,5 +1,5 @@
 <template>
-  <Transition name="fade" appear>
+  <Transition name="darkBackground" appear>
     <div
       class="bg-black bg-opacity-30 fixed top-0 left-0 z-10 w-screen h-screen overflow-hidden select-none"
     />
@@ -9,19 +9,19 @@
 <script setup lang="ts"></script>
 
 <style scoped>
-.fade-enter-active,
-.fade-leave-active,
-.fade-appear-active {
+.darkBackground-enter-active,
+.darkBackground-leave-active,
+.darkBackground-appear-active {
   transition: opacity 0.5s;
 }
-.fade-enter-from,
-.fade-leave-to,
-.fade-appear-from {
+.darkBackground-enter-from,
+.darkBackground-leave-to,
+.darkBackground-appear-from {
   opacity: 0;
 }
-.fade-enter-to,
-.fade-leave-from,
-.fade-appear-to {
+.darkBackground-enter-to,
+.darkBackground-leave-from,
+.darkBackground-appear-to {
   opacity: 1;
 }
 </style>
