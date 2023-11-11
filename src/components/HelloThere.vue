@@ -8,8 +8,4 @@
 
 <script setup lang="ts"></script>
 
-<style scoped>
-a {
-  @apply text-cyan-500 hover:text-cyan-400 transition-all ease-out duration-100;
-}
-</style>
+<style scoped></style>
