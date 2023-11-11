@@ -54,6 +54,7 @@ if (!localStorage.getItem('firstVisit')) {
   height: 1px;
   width: 1px;
   border-radius: 50%;
+  z-index: -1;
   box-shadow: -42vw -4vh 0px 0px #888, 25vw -41vh 0px 0px #ddd, -20vw 49vh 0px 1px #fff,
     5vw 40vh 1px 1px #999, 29vw 19vh 1px 0px #777, -44vw -13vh 0px 0px #222, 46vw 41vh 0px 1px #999,
     -3vw -45vh 0px 1px #999, 47vw 35vh 1px 0px #fff, 12vw -8vh 1px 0px #444, -34vw 48vh 1px 1px #fff,
