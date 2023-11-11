@@ -19,7 +19,7 @@ const projects: Project[] = [
       In 2022 we played this march at the Technion Orchestra's concert, and the result is available in the link below.
     `,
     wilfi:
-      'Composition, orchestration. The ability to listen to live rehearsals and make changes accordingly. Also, gained experience in the Sibelius notation software.',
+      'composition, orchestration. The ability to listen to live rehearsals and make changes accordingly. Also, gained experience in the Sibelius notation software.',
     wiwdd: 'Nothing :)',
     links: [
       {
@@ -32,7 +32,21 @@ const projects: Project[] = [
     title: 'Maria, Maria',
     category: ProjectCategory.MUSIC,
     img: maria,
-    description: ``
+    description: `
+      This is a song I wrote about a girl I knew.
+      It is the second song I've recorded by myself, so I used the knowledge I gained from previous mistakes to make this one more professional.
+      Every part of this song was played by me, except for the drums which I wrote and let the computer play.
+    `,
+    wilfi:
+      'recording, mixing, mastering. Great emphasis on blending the different instruments together to make it sound as a whole.',
+    wiwdd:
+      'sing a bit more lively and less monotonous. Mix the singer to blend it more properly with the song.',
+    links: [
+      {
+        title: 'Maria, Maria - YouTube',
+        url: 'https://youtu.be/EsBlRcusFIc?si=v3Yebt8qBeFgMFOC'
+      }
+    ]
   },
   {
     title: 'Intel',
