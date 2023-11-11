@@ -16,7 +16,7 @@
 <script setup lang="ts"></script>
 
 <style scoped>
-strong {
+.dark strong {
   color: #00b3ff;
 }
 </style>
