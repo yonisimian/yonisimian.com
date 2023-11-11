@@ -1,5 +1,5 @@
 <template>
-  <p class="pt-1 pb-3 mt-auto text-left w-full max-w-4xl">
+  <p class="pt-1 pb-4 mt-auto text-left w-full max-w-4xl">
     links:
     <span v-for="(link, index) in links" :key="index">
       <a :href="link.url" target="_blank" rel="noopener">
