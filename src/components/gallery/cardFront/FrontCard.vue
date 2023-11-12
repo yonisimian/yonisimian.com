@@ -28,13 +28,13 @@
   visibility: hidden;
 }
 
-/* .dark .card:hover {
+.dark .card:hover {
   box-shadow: 0 0 1px #00b3ff, 0 0 2px #00b3ff, 0 0 3px #00b3ff, 0 0 4px #00b3ff;
-} */
-
-.card:hover::before {
-  visibility: visible;
 }
+
+/* .card:hover::before {
+  visibility: visible;
+} */
 
 @keyframes glow {
   0% {
