@@ -8,7 +8,7 @@
       <BackDesc :description="project.description" />
       <BackTitledDesc
         v-if="project.wilfi"
-        :title="'what I\'ve learn from it'"
+        :title="'What I\'ve learn from it'"
         :desc="project.wilfi"
       />
       <BackTitledDesc
