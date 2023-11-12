@@ -1,6 +1,6 @@
 <template>
   <div
-    class="grid grid-rows-3 rounded-xl bg-sky-400/5 shadow-lg hover:shadow-xl cursor-pointer select-none mb-10 sm:mb-0 backdrop-filter backdrop-blur-[3px] hover:backdrop-blur-[4px] transform transition-transform transition-shadow transition-opacity transition-colors duration-500 hover:scale-107 dark:bg-ternary-dark"
+    class="card grid grid-rows-3 rounded-xl bg-sky-400/5 shadow-lg hover:shadow-xl cursor-pointer select-none mb-10 sm:mb-0 backdrop-filter backdrop-blur-[3px] hover:backdrop-blur-[4px] transform transition-transform transition-shadow transition-opacity transition-colors duration-500 hover:scale-107 dark:bg-ternary-dark"
   >
     <slot />
   </div>
@@ -9,12 +9,12 @@
 <script setup lang="ts"></script>
 
 <style scoped>
-.grid {
+.card {
   position: relative;
   overflow: hidden;
 }
 
-.dark .grid::before {
+.dark .card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -28,7 +28,11 @@
   visibility: hidden;
 }
 
-.grid:hover::before {
+/* .dark .card:hover {
+  box-shadow: 0 0 1px #00b3ff, 0 0 2px #00b3ff, 0 0 3px #00b3ff, 0 0 4px #00b3ff;
+} */
+
+.card:hover::before {
   visibility: visible;
 }
 
