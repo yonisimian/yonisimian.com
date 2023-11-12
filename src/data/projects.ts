@@ -60,7 +60,7 @@ const projects: Project[] = [
     wilfi:
       'C++17, Python, Git, tcsh, LLVM, how to write tests, and various aspects of operating systems as well (not to forget the teamwork dynamics 😄).',
     notes:
-      "of course, I can't provide any code from this project, but I can talk about it in more detail in person :)"
+      "For clear reasons, I can't provide any code from this project; however, I can talk about it in more detail in person :)"
   },
   {
     title: 'Data Mining',
