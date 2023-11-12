@@ -19,7 +19,7 @@ const projects: Project[] = [
     `,
     wilfi:
       'composition, orchestration. The ability to listen to live rehearsals and make changes accordingly. Also, gained experience in the Sibelius notation software.',
-    wiwdd: 'Nothing :)',
+    wiwdd: 'nothing :)',
     links: [
       {
         title: '2nd March - YouTube',
