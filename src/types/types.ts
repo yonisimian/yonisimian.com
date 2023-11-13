@@ -1,7 +1,7 @@
 export enum ProjectCategory {
   MUSIC = 'Music',
   CS = 'Computer Science',
-  ACADEMY = 'Academy'
+  ACADEMY = 'Academia'
 }
 
 export type ProjectLink = {
