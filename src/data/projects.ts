@@ -1,11 +1,11 @@
-import { Project, ProjectCategory } from '../types/types'
-import intel from './intel.png'
-import sklearn from './sklearn.png'
-import sonic from './sonic.png'
-import c from './C.png'
-import pacmanx10 from './pacmanx10.png'
-import maria from './maria.png'
-import secondMarch from './2nd march.png'
+import { Project, ProjectCategory } from '/@/types/types'
+import intel from '/@/assets/projects/intel.png'
+import sklearn from '/@/assets/projects/sklearn.png'
+import sonic from '/@/assets/projects/sonic.png'
+import c from '/@/assets/projects/C.png'
+import pacmanx10 from '/@/assets/projects/pacmanx10.png'
+import maria from '/@/assets/projects/maria.png'
+import secondMarch from '/@/assets/projects/2nd march.png'
 
 const projects: Project[] = [
   {
@@ -23,7 +23,7 @@ const projects: Project[] = [
     links: [
       {
         title: '2nd March - YouTube',
-        url: 'https://youtu.be/qWQg7MT8oYc?si=MsKHYVbDBERA3CbO'
+        url: 'https:/youtu.be/qWQg7MT8oYc?si=MsKHYVbDBERA3CbO'
       }
     ]
   },
@@ -44,7 +44,7 @@ const projects: Project[] = [
     links: [
       {
         title: 'Maria, Maria - YouTube',
-        url: 'https://youtu.be/EsBlRcusFIc?si=v3Yebt8qBeFgMFOC'
+        url: 'https:/youtu.be/EsBlRcusFIc?si=v3Yebt8qBeFgMFOC'
       }
     ]
   },
@@ -76,11 +76,11 @@ const projects: Project[] = [
     links: [
       {
         title: 'Final Project - Part 1',
-        url: 'https://www.docdroid.net/tdVhPku/206584021-data-mining-20595-maman-21-pdf'
+        url: 'https:/www.docdroid.net/tdVhPku/206584021-data-mining-20595-maman-21-pdf'
       },
       {
         title: 'Final Project - Part 2',
-        url: 'https://www.docdroid.net/GjM3WAp/206584021-data-mining-20595-maman-22-pdf'
+        url: 'https:/www.docdroid.net/GjM3WAp/206584021-data-mining-20595-maman-22-pdf'
       }
     ]
   },
@@ -122,7 +122,7 @@ const projects: Project[] = [
     links: [
       {
         title: 'GitHub',
-        url: 'https://github.com/yonisimian/c-calculator'
+        url: 'https:/github.com/yonisimian/c-calculator'
       }
     ]
   },
@@ -142,15 +142,15 @@ const projects: Project[] = [
     links: [
       {
         title: 'GitHub',
-        url: 'https://github.com/yonisimian/Pacmanx10'
+        url: 'https:/github.com/yonisimian/Pacmanx10'
       },
       {
         title: 'CODEJAM entry',
-        url: 'https://itch.io/jam/olc-codejam-2021/rate/1187635'
+        url: 'https:/itch.io/jam/olc-codejam-2021/rate/1187635'
       },
       {
         title: 'itch.io',
-        url: 'https://yonisimian.itch.io/pacmanx10'
+        url: 'https:/yonisimian.itch.io/pacmanx10'
       }
     ]
   }
