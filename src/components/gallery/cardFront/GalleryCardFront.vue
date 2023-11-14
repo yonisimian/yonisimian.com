@@ -1,5 +1,5 @@
 <template>
-  <FrontCard>
+  <FrontCard data-aos="fade-zoom-in">
     <FrontLogo :src="project.img" :alt="project.title" />
     <FrontTitle :title="project.title" :category="project.category" />
   </FrontCard>
