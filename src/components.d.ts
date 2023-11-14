@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    About: typeof import('./components/About.vue')['default']
     BackBackground: typeof import('./components/gallery/cardBack/BackBackground.vue')['default']
     BackCard: typeof import('./components/gallery/cardBack/BackCard.vue')['default']
     BackCategory: typeof import('./components/gallery/cardBack/BackCategory.vue')['default']
@@ -27,6 +28,7 @@ declare module '@vue/runtime-core' {
     CardBackTitle: typeof import('./components/gallery/cardBack/CardBackTitle.vue')['default']
     copy: typeof import('./components/gallery/cardBack/CardBackTitle copy.vue')['default']
     DarkBackground: typeof import('./components/gallery/cardBack/DarkBackground.vue')['default']
+    DarkTheme: typeof import('./components/header/DarkTheme.vue')['default']
     DarkThemeIcon: typeof import('./components/footer/icons/DarkThemeIcon.vue')['default']
     Footer: typeof import('./components/footer/Footer.vue')['default']
     FooterIcon: typeof import('./components/footer/FooterIcon.vue')['default']
@@ -44,8 +46,12 @@ declare module '@vue/runtime-core' {
     GalleryGrid: typeof import('./components/gallery/GalleryGrid.vue')['default']
     GallerySearch: typeof import('./components/gallery/GallerySearch.vue')['default']
     GitHubIcon: typeof import('./components/footer/icons/GitHubIcon.vue')['default']
+    Header: typeof import('./components/header/Header.vue')['default']
     HelloThere: typeof import('./components/HelloThere.vue')['default']
+    ProfileImage: typeof import('./components/header/ProfileImage.vue')['default']
+    ScrollDown: typeof import('./components/header/ScrollDown.vue')['default']
     StarsBackground: typeof import('./components/StarsBackground.vue')['default']
+    Title: typeof import('./components/header/Title.vue')['default']
     YoutubeIcon: typeof import('./components/footer/icons/YoutubeIcon.vue')['default']
   }
 }

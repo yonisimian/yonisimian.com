@@ -1,11 +1,9 @@
 <template>
   <Background />
   <div class="container w-6xl max-w-[83vw] mx-auto">
-    <div class="h-12 sm:h-24" />
-    <HelloThere />
-
+    <Header />
+    <About />
     <Gallery />
-
     <Footer />
   </div>
 </template>
