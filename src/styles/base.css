@@ -1,5 +1,6 @@
 * {
   background-color: transparent;
+  overflow-x: hidden;
 }
 
 :root {
