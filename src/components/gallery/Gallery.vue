@@ -1,5 +1,5 @@
 <template>
-  <main class="my-10 pt-10 sm:pt-14 min-h-screen">
+  <main class="pt-6 sm:pt-14 min-h-screen">
     <GalleryFilterSearch
       :selectedCategories="selectedCategories"
       :toggleCategory="toggleCategory"
