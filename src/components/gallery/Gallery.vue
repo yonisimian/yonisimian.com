@@ -1,5 +1,5 @@
 <template>
-  <main class="pt-6 sm:pt-14 min-h-screen" data-aos="fade-zoom-in">
+  <main class="pt-6 sm:pt-14 min-h-screen">
     <GalleryFilterSearch
       :selectedCategories="selectedCategories"
       :toggleCategory="toggleCategory"
