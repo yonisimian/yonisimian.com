@@ -1,5 +1,6 @@
 <template>
   <section
+    data-aos="fade-up"
     class="flex flex-col justify-between border-b border-primary-light dark:border-secondary-dark pb-3 gap-3 text-xs"
   >
     <GallerySearch :filterSearch="filterSearch" />
