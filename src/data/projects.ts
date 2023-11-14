@@ -99,7 +99,13 @@ const projects: Project[] = [
       the dark theme of this website is a tiny easter egg for myself, as for it hints the world of an invtrovert like me;
       On the outside, the website is white, clean, simplistic, and if I may say - a bit boring.
       However, if you look deeper (i.e. click on the dark theme icon), you will find a whole world of colors, animations, and lots of fun 🌈😄.
-    `
+    `,
+    links: [
+      {
+        title: 'GitHub',
+        url: 'https://github.com/yonisimian/georgia-portfolio'
+      }
+    ]
   },
   {
     title: 'C Calculator',
