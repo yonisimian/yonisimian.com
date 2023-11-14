@@ -5,7 +5,7 @@
     <section>
       <h2 data-aos="zoom-in-up" class="text-4xl font-bold my-8">About Me</h2>
       <p data-aos="fade-left">
-        I am a <strong>Computer Science strong.Sc. student</strong> at The Open University of
+        I am a <strong>Computer Science B.Sc. student</strong> at The Open University of
         Israel, slated to complete my degree in the summer of 2024. Currently employed as an
         <strong>R&D Software Developer</strong>
         at Intel since 2022, I possess a strong foundation in software development and coding. In my
