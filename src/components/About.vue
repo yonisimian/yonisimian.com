@@ -28,7 +28,7 @@
         science and academic research 😊
       </p>
     </section>
-    <ScrollDown :text="'see my works!'" :selector="'main'" class="mt-16" />
+    <ScrollDown :text="'see my works!'" :selector="'main'" />
   </article>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="sm:absolute sm:bottom-6">
     <h3 class="text-2xl mb-2">{{ text }}</h3>
     <button class="animate-bounce" @click="scrollToNextArticle">
       <svg

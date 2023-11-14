@@ -49,7 +49,7 @@ declare module '@vue/runtime-core' {
     Header: typeof import('./components/header/Header.vue')['default']
     HelloThere: typeof import('./components/HelloThere.vue')['default']
     ProfileImage: typeof import('./components/header/ProfileImage.vue')['default']
-    ScrollDown: typeof import('./components/header/ScrollDown.vue')['default']
+    ScrollDown: typeof import('./components/ScrollDown.vue')['default']
     StarsBackground: typeof import('./components/StarsBackground.vue')['default']
     Title: typeof import('./components/header/Title.vue')['default']
     YoutubeIcon: typeof import('./components/footer/icons/YoutubeIcon.vue')['default']
