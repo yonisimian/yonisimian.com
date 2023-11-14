@@ -17,20 +17,10 @@ body {
   overflow-x: hidden;
 }
 
-/* ScrollBar */
-body::-webkit-scrollbar-track
-{
-	background-color: transparent;
-}
 body::-webkit-scrollbar
 {
-  width: 10px;
+  width: 0;
 	background-color: transparent;
-}
-body::-webkit-scrollbar-thumb
-{
-  @apply rounded-full;
-  background-image: linear-gradient(to bottom, transparent, rgba(50,50,150,.1), transparent);
 }
 
 a {
