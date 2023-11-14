@@ -1,6 +1,6 @@
 <template>
   <div
-    class="card grid grid-rows-3 rounded-xl bg-sky-400/5 shadow-lg hover:shadow-xl cursor-pointer select-none mb-10 sm:mb-0 backdrop-filter backdrop-blur-[3px] hover:backdrop-blur-[4px] transform hover:scale-107 dark:bg-ternary-dark"
+    class="card grid grid-rows-3 rounded-xl bg-sky-400/5 shadow-lg hover:shadow-xl cursor-pointer select-none mb-10 sm:mb-0 backdrop-filter backdrop-blur-[3px] hover:backdrop-blur-[4px] dark:bg-ternary-dark"
   >
     <slot />
   </div>
@@ -12,14 +12,31 @@
 .card {
   position: relative;
   overflow: hidden;
-  transition-duration: 0.5s, 0.2s, 0.5s;
-  transition-timing-function: ease, ease, ease;
-  transition-property: transform, box-shadow, color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-property: opacity, box-shadow, color, background-color;
+  border: 1px solid transparent;
 }
 
-.dark .card:hover {
-  border: 1px solid #00b3ff;
-  box-shadow: 0 0 4px #00b3ff;
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to bottom, #9ee1fe99, #00000000);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.dark .card::before {
+  background: linear-gradient(to bottom, #00b3ff88, #00000000);
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 @keyframes glow {
