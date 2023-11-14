@@ -3,7 +3,7 @@
     <img
       src="/@/assets/pp.png"
       alt="Yehonatan Simian"
-      class="rounded-full aspect-w-1 aspect-h-1 h-[40vh] mb-16 m-auto transition-shadow"
+      class="rounded-full aspect-w-1 aspect-h-1 h-[40vh] sm:mb-8 m-auto transition-shadow"
     />
   </div>
 </template>
