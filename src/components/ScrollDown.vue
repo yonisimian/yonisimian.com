@@ -1,5 +1,5 @@
 <template>
-  <div class="sm:absolute sm:bottom-6">
+  <div :class="{ 'absolute bottom-4': absolute }">
     <h3 class="text-2xl mb-2">{{ text }}</h3>
     <button class="animate-bounce" @click="scrollToNextArticle">
       <svg
@@ -26,6 +26,7 @@ import { ref, onMounted } from 'vue'
 const props = defineProps<{
   text: string
   selector: string
+  absolute?: boolean
 }>()
 
 let nextArticle = ref<HTMLElement | null>(null)
