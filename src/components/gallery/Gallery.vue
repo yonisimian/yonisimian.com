@@ -1,5 +1,5 @@
 <template>
-  <article class="my-10 pt-10 sm:pt-14">
+  <main class="my-10 pt-10 sm:pt-14 min-h-screen">
     <GalleryFilterSearch
       :selectedCategories="selectedCategories"
       :toggleCategory="toggleCategory"
@@ -7,7 +7,7 @@
     />
 
     <GalleryGrid :projects="filteredProjects" />
-  </article>
+  </main>
 </template>
 
 <script setup lang="ts">
