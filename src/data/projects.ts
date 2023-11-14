@@ -85,29 +85,6 @@ const projects: Project[] = [
     ]
   },
   {
-    title: 'This very site',
-    category: ProjectCategory.CS,
-    img: sonic,
-    description: `
-      When I heard about the graduate studies positions in the Georgia Tech School of Music, I decided to create a portfolio website to effectively showcase my qualifications.
-      After working on this site for a while, I understood that it worths presenting the site itself as a project,
-      as for I believe it stands as a compelling testament to the quality of my work.
-    `,
-    wilfi:
-      'Vue3, TypeScript, Netlify, emphasis on UI/UX and responsive design. A bit of CSS3 animations.',
-    notes: `
-      the dark theme of this website is a tiny easter egg for myself, as for it hints the world of an invtrovert like me;
-      On the outside, the website is white, clean, simplistic, and if I may say - a bit boring.
-      However, if you look deeper (i.e. click on the dark theme icon), you will find a whole world of colors, animations, and lots of fun 🌈😄.
-    `,
-    links: [
-      {
-        title: 'GitHub',
-        url: 'https://github.com/yonisimian/georgia-portfolio'
-      }
-    ]
-  },
-  {
     title: 'C Calculator',
     category: ProjectCategory.CS,
     img: c,
@@ -157,6 +134,29 @@ const projects: Project[] = [
       {
         title: 'itch.io',
         url: 'https:/yonisimian.itch.io/pacmanx10'
+      }
+    ]
+  },
+  {
+    title: 'This very site',
+    category: ProjectCategory.CS,
+    img: sonic,
+    description: `
+      When I heard about the graduate studies positions in the Georgia Tech School of Music, I decided to create a portfolio website to effectively showcase my qualifications.
+      After working on this site for a while, I understood that it worths presenting the site itself as a project,
+      as for I believe it stands as a compelling testament to the quality of my work.
+    `,
+    wilfi:
+      'Vue3, TypeScript, Netlify, emphasis on UI/UX and responsive design. A bit of CSS3 animations.',
+    notes: `
+      the dark theme of this website is a tiny easter egg for myself, as for it hints the world of an invtrovert like me;
+      On the outside, the website is white, clean, simplistic, and if I may say - a bit boring.
+      However, if you look deeper (i.e. click on the dark theme icon), you will find a whole world of colors, animations, and lots of fun 🌈😄.
+    `,
+    links: [
+      {
+        title: 'GitHub',
+        url: 'https://github.com/yonisimian/georgia-portfolio'
       }
     ]
   }
