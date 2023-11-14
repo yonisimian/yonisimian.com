@@ -47,7 +47,7 @@ const filterProjectsByCategory = (projects: Project[]) => {
 
 const filterProjectsBySearch = (projects: Project[]) => {
   let project = new RegExp(searchProject.value, 'i')
-  return projects.filter((el) => el.title.match(project))
+  return projects.filter((el) => el.title.match(project) || el.category.match(project))
 }
 </script>
 
