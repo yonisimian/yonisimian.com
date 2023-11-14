@@ -18,7 +18,8 @@
 }
 
 .dark .card:hover {
-  box-shadow: 0 0 8px #00b3ff;
+  border: 1px solid #00b3ff;
+  box-shadow: 0 0 4px #00b3ff;
 }
 
 @keyframes glow {
