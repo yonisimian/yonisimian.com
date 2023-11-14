@@ -1,12 +1,12 @@
 <template>
   <article
-    class="relative flex flex-col justify-center items-center text-center text-md min-h-screen"
+    class="relative flex flex-col justify-center items-center text-center text-md min-h-[100svh]"
   >
-    <section>
+    <section ref="aboutSection">
       <h2 data-aos="zoom-in-up" class="text-4xl font-bold my-8">About Me</h2>
       <p data-aos="fade-left">
-        I am a <strong>Computer Science B.Sc. student</strong> at The Open University of
-        Israel, slated to complete my degree in the summer of 2024. Currently employed as an
+        I am a <strong>Computer Science B.Sc. student</strong> at The Open University of Israel,
+        slated to complete my degree in the summer of 2024. Currently employed as an
         <strong>R&D Software Developer</strong>
         at Intel since 2022, I possess a strong foundation in software development and coding. In my
         free time, I am an avid coder, with a particular focus on video game development.
@@ -28,11 +28,27 @@
         science and academic research 😊
       </p>
     </section>
-    <ScrollDown :text="'see my works!'" :selector="'main'" />
+    <ScrollDown
+      data-aos="zoom-in-down"
+      :text="'see my works!'"
+      :selector="'main'"
+      :absolute="isSectionShort"
+    />
   </article>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
+
+const aboutSection = ref<HTMLElement | null>(null)
+const isSectionShort = ref(false)
+
+onMounted(() => {
+  if (aboutSection.value && aboutSection.value.offsetHeight < window.innerHeight - 60) {
+    isSectionShort.value = true
+  }
+})
+</script>
 
 <style scoped>
 p {
