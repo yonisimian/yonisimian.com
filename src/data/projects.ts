@@ -1,11 +1,13 @@
 import { Project, ProjectCategory } from '/@/types/types'
 import intel from '/@/assets/projects/intel.png'
 import sklearn from '/@/assets/projects/sklearn.png'
-import sonic from '/@/assets/projects/sonic.png'
+import sonic from '/@/assets/projects/site.png'
 import c from '/@/assets/projects/C.png'
 import pacmanx10 from '/@/assets/projects/pacmanx10.png'
 import maria from '/@/assets/projects/maria.png'
 import secondMarch from '/@/assets/projects/2nd march.png'
+import octavarium from '/@/assets/projects/octavarium.png'
+import band from '/@/assets/projects/band.png'
 
 const projects: Project[] = [
   {
@@ -156,6 +158,45 @@ const projects: Project[] = [
       {
         title: 'YouTube',
         url: 'https://youtu.be/ssSFOpgSOfI?si=ButuRB2VA03LAvWB'
+      }
+    ]
+  },
+  {
+    title: 'Octavarium',
+    category: ProjectCategory.MUSIC,
+    img: octavarium,
+    description: `
+      A symphonic cover I made for the song Octavarium by Dream Theater.
+      Specifically, it is written for whole symphonic orchestra, along with an electric guitar, electric bass, piano and a drum set.
+      The cover is not full, some solos were omitted, and the song was shortened from 24 minutes to 16.
+      
+    `,
+    notes: `
+      The cover was to be played by the Technion Orchestra, but due to the Iron Swords war in Israel, the performance was cancelled.
+    `,
+    links: [
+      {
+        title: 'Original (YouTube)',
+        url: 'https://youtu.be/XYV8Zt2k0RQ?si=ipvusKEI-23KUm6B'
+      },
+      {
+        title: 'Cover (PDF)',
+        url: 'TODO'
+      }
+    ]
+  },
+  {
+    title: 'RHCP Cover Band',
+    category: ProjectCategory.MUSIC,
+    img: band,
+    description: `
+      I was the bassist of a Red Hot Chili Peppers cover band.
+      We played in several venues, mostly small pubs in TLV, covering their most famous songs.
+    `,
+    links: [
+      {
+        title: 'Instragram',
+        url: 'https://www.instagram.com/p/CYw-T53MZbx/'
       }
     ]
   },
