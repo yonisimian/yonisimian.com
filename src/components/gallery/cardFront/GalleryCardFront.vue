@@ -1,5 +1,6 @@
 <template>
   <FrontCard data-aos="fade-zoom-in">
+    <div v-if="project.highlight" class="absolute top-0.5 left-2 text-orange-300">★</div>
     <FrontLogo :src="project.img" :alt="project.title" />
     <FrontTitle :title="project.title" :category="project.category" />
   </FrontCard>

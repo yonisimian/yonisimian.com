@@ -5,7 +5,12 @@
     class="flex flex-col justify-between border-b border-primary-light dark:border-secondary-dark pb-3 gap-3 text-xs"
   >
     <GallerySearch :filterSearch="filterSearch" />
-    <GalleryFilter :selectedCategories="selectedCategories" :toggleCategory="toggleCategory" />
+    <GalleryFilter
+      :selectedCategories="selectedCategories"
+      :toggleCategory="toggleCategory"
+      :toggleHighlights="toggleHighlights"
+      :isHighlightsSelected="isHighlightsSelected"
+    />
   </section>
 </template>
 
@@ -16,16 +21,18 @@ defineProps<{
   selectedCategories: ProjectCategory[]
   toggleCategory: (category: ProjectCategory) => void
   filterSearch: (filter: string) => void
+  toggleHighlights: () => void
+  isHighlightsSelected: boolean
 }>()
 </script>
 
 <style scoped>
-@media (min-width: 400px) {
+@media (min-width: 432px) {
   section {
     @apply text-base;
   }
 }
-@media (min-width: 596px) {
+@media (min-width: 684px) {
   section {
     @apply flex-row;
   }

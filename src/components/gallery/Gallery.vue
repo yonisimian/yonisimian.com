@@ -4,6 +4,8 @@
       :selectedCategories="selectedCategories"
       :toggleCategory="toggleCategory"
       :filterSearch="(text: string) => searchProject = text"
+      :isHighlightsSelected="selectedHighlights"
+      :toggleHighlights="toggleHighlights"
     />
 
     <GalleryGrid :projects="filteredProjects" />
@@ -18,11 +20,15 @@ import { Project, ProjectCategory } from '/@/types/types'
 import projectsData from '/@/data/projects'
 
 const selectedCategories = ref<ProjectCategory[]>([])
+const selectedHighlights = ref(false)
 const searchProject = ref('')
 const projects = ref<Project[]>(projectsData)
 
 const filteredProjects = computed(() => {
   let filtered = projects.value
+  if (selectedHighlights.value) {
+    filtered = filterProjectsByHighlights(filtered)
+  }
   if (selectedCategories.value) {
     filtered = filterProjectsByCategory(filtered)
   }
@@ -31,6 +37,10 @@ const filteredProjects = computed(() => {
   }
   return filtered
 })
+
+const toggleHighlights = () => {
+  selectedHighlights.value = !selectedHighlights.value
+}
 
 const toggleCategory = (category: ProjectCategory) => {
   if (selectedCategories.value.includes(category)) {
@@ -48,6 +58,10 @@ const filterProjectsByCategory = (projects: Project[]) => {
 const filterProjectsBySearch = (projects: Project[]) => {
   let project = new RegExp(searchProject.value, 'i')
   return projects.filter((el) => el.title.match(project) || el.category.match(project))
+}
+
+const filterProjectsByHighlights = (projects: Project[]) => {
+  return projects.filter((item) => item.highlight === true)
 }
 </script>
 
