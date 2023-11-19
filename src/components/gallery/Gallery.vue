@@ -1,5 +1,5 @@
 <template>
-  <main class="pt-6 sm:pt-14 min-h-[100svh]">
+  <main class="pt-6 sm:pt-14 pb-16 min-h-[100svh]">
     <GalleryBar
       :selectedCategories="selectedCategories"
       :toggleCategory="toggleCategory"
