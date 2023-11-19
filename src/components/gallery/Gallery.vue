@@ -1,6 +1,6 @@
 <template>
   <main class="pt-6 sm:pt-14 min-h-[100svh]">
-    <GalleryFilterSearch
+    <GalleryBar
       :selectedCategories="selectedCategories"
       :toggleCategory="toggleCategory"
       :filterSearch="(text: string) => searchProject = text"

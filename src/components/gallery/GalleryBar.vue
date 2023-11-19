@@ -4,8 +4,8 @@
     data-aos-once="true"
     class="flex flex-col justify-between border-b border-primary-light dark:border-secondary-dark pb-3 gap-3 text-xs"
   >
-    <GallerySearch :filterSearch="filterSearch" />
-    <GalleryFilter
+    <GalleryBarSearch :filterSearch="filterSearch" />
+    <GalleryBarBadges
       :selectedCategories="selectedCategories"
       :toggleCategory="toggleCategory"
       :toggleHighlights="toggleHighlights"
