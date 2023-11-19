@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute w-[67%] top-4 left-4 z-[-5] opacity-15 blur-sm">
+  <div class="absolute w-[67%] top-5 left-5 z-[-5] opacity-15 blur-sm">
     <img :src="src" :alt="alt" />
   </div>
 </template>
