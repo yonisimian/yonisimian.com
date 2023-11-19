@@ -1,17 +1,17 @@
 <template>
   <div class="flex flex-wrap gap-2 justify-between">
     <GalleryBarBadge
+      :text="HighlightSymbol"
+      :toggleCategory="toggleHighlights"
+      :isSelected="isHighlightsSelected"
+      :class="'text-orange-300'"
+    />
+    <GalleryBarBadge
       v-for="category in ProjectCategory"
       :key="category"
       :text="category"
       :toggleCategory="() => toggleCategory(category)"
       :isSelected="selectedCategories.includes(category)"
-    />
-    <GalleryBarBadge
-      :text="HighlightSymbol"
-      :toggleCategory="toggleHighlights"
-      :isSelected="isHighlightsSelected"
-      :class="'text-orange-300'"
     />
   </div>
 </template>
