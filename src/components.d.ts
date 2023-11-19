@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
     BackBackground: typeof import('./components/gallery/cardBack/BackBackground.vue')['default']
     BackCard: typeof import('./components/gallery/cardBack/BackCard.vue')['default']
     BackCategory: typeof import('./components/gallery/cardBack/BackCategory.vue')['default']
+    BackCloseButton: typeof import('./components/gallery/cardBack/BackCloseButton.vue')['default']
     BackDesc: typeof import('./components/gallery/cardBack/BackDesc.vue')['default']
     Background: typeof import('./components/Background.vue')['default']
     BackLinks: typeof import('./components/gallery/cardBack/BackLinks.vue')['default']
