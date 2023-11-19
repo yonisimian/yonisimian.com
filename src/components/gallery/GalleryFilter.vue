@@ -3,12 +3,12 @@
     <GalleryFilterBadge
       v-for="category in ProjectCategory"
       :key="category"
-      :category="category"
+      :text="category"
       :toggleCategory="() => toggleCategory(category)"
       :isSelected="selectedCategories.includes(category)"
     />
     <GalleryFilterBadge
-      :category="'★'"
+      :text="HighlightSymbol"
       :toggleCategory="toggleHighlights"
       :isSelected="isHighlightsSelected"
       :class="'text-orange-300'"
@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { ProjectCategory } from '/@/types/types'
+import { ProjectCategory, HighlightSymbol } from '/@/types/types'
 
 defineProps<{
   selectedCategories: ProjectCategory[]

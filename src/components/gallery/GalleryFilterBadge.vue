@@ -6,16 +6,16 @@
       'text-light-50 bg-sky-900 dark:bg-sky-600': isSelected
     }"
   >
-    {{ category }}
+    {{ text }}
   </div>
 </template>
 
 <script setup lang="ts">
-import { ProjectCategory } from '/@/types/types'
+import { CategoryFilter } from '/@/types/types'
 
 defineProps<{
   isSelected: boolean
-  category: ProjectCategory | '★'
+  text: CategoryFilter
   toggleCategory: () => void
 }>()
 </script>

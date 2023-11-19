@@ -4,6 +4,10 @@ export enum ProjectCategory {
   ACADEMY = 'Academia'
 }
 
+export const HighlightSymbol = '★'
+
+export type CategoryFilter = ProjectCategory | typeof HighlightSymbol
+
 export type ProjectLink = {
   title: string
   url: string
