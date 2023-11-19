@@ -25,7 +25,8 @@ const projects: Project[] = [
         title: '2nd March - YouTube',
         url: 'https:/youtu.be/qWQg7MT8oYc?si=MsKHYVbDBERA3CbO'
       }
-    ]
+    ],
+    highlight: true
   },
   {
     title: 'Maria, Maria',
@@ -43,10 +44,11 @@ const projects: Project[] = [
       'sing a bit more lively and less monotonous. Mix the singer to blend it more properly with the song.',
     links: [
       {
-        title: 'Maria, Maria - YouTube',
+        title: 'YouTube',
         url: 'https:/youtu.be/EsBlRcusFIc?si=v3Yebt8qBeFgMFOC'
       }
-    ]
+    ],
+    highlight: true
   },
   {
     title: 'Intel',
@@ -82,7 +84,8 @@ const projects: Project[] = [
         title: 'Final Project - Part 2',
         url: 'https:/www.docdroid.net/GjM3WAp/206584021-data-mining-20595-maman-22-pdf'
       }
-    ]
+    ],
+    highlight: true
   },
   {
     title: 'C Calculator',
@@ -107,7 +110,8 @@ const projects: Project[] = [
         title: 'GitHub',
         url: 'https:/github.com/yonisimian/c-calculator'
       }
-    ]
+    ],
+    highlight: true
   },
   {
     title: 'PacmanX10',
