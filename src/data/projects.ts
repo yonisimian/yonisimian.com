@@ -139,6 +139,24 @@ const projects: Project[] = [
         title: 'itch.io',
         url: 'https:/yonisimian.itch.io/pacmanx10'
       }
+    ],
+    highlight: true
+  },
+  {
+    title: 'Eli',
+    category: ProjectCategory.MUSIC,
+    img: maria,
+    description: `
+      This is the first song I've recorded by myself...
+    `,
+    wilfi: 'fundamentals of recording and mixing.',
+    wiwdd:
+      'play more confidently and with more energy, write the drums differently, use different approach of mixing. Luckily, all of these improvments show in my next song - Maria, Maria.',
+    links: [
+      {
+        title: 'YouTube',
+        url: 'https://youtu.be/ssSFOpgSOfI?si=ButuRB2VA03LAvWB'
+      }
     ]
   },
   {
