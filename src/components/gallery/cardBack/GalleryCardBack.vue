@@ -1,7 +1,7 @@
 <template>
   <DarkBackground />
   <BackBackground @click="discard">
-    <BackCard @click.stop>
+    <BackCard @click.stop class="relative">
       <BackLogo class="sm:block hidden" :src="project.img" :alt="project.title" />
       <BackCloseButton @click="discard" />
       <BackCategory :category="project.category" />
