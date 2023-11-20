@@ -8,6 +8,7 @@ import maria from '/@/assets/projects/maria.png'
 import secondMarch from '/@/assets/projects/2nd march.png'
 import octavarium from '/@/assets/projects/octavarium.png'
 import band from '/@/assets/projects/band.png'
+import ShiftsUI from '/@/assets/projects/shifts-ui.png'
 
 const projects: Project[] = [
   {
@@ -197,6 +198,28 @@ const projects: Project[] = [
       {
         title: 'Instragram',
         url: 'https://www.instagram.com/p/CYw-T53MZbx/'
+      }
+    ]
+  },
+  {
+    title: 'Shifts UI',
+    category: ProjectCategory.CS,
+    img: ShiftsUI,
+    description: `
+      Shifts UI is a platform for managing shifts, meant to be used in my previous workplace.
+      I did this project with a friend-colleague of mine, who was responsible for the back-end, which was written using Python and the library Flask.
+      I was responsible for developing the front-end of the platform, which was written in React.
+      The projects was never finished - we actually managed to make it work locally, but the lack on knowledge in DevOps and cloud computing prevented us from deploying it.
+    `,
+    wilfi:
+      'React, Python, Git, npm/yarn, how to work in another person, how websites work. A little of UI/UX.',
+    wiwdd: 'use FireBase or Netlify for deployment. Use npm instead of yarn.',
+    notes:
+      "Although the project never came to be, I was very proud of it. It could have been a great tool for my previous workplace, and I've learned a lot from it.",
+    links: [
+      {
+        title: 'GitHub',
+        url: 'https://github.com/yonisimian/shifts-ui'
       }
     ]
   },
