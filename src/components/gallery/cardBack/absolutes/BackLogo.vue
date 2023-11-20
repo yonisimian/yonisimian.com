@@ -1,6 +1,6 @@
 <template>
-  <div class="absolute w-[67%] top-5 left-5 z-[-5] opacity-15 blur-sm">
-    <img :src="src" :alt="alt" />
+  <div class="absolute top-5 left-5 z-[-5] opacity-15 blur-sm">
+    <img :src="src" :alt="alt" class="h-[40vh] max-w-[40vw] object-contain" />
   </div>
 </template>
 
