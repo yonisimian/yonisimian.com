@@ -9,6 +9,8 @@ import secondMarch from '/@/assets/projects/2nd march.png'
 import octavarium from '/@/assets/projects/octavarium.png'
 import band from '/@/assets/projects/band.png'
 import ShiftsUI from '/@/assets/projects/shifts-ui.png'
+import RedHedgehog from '/@/assets/projects/the red hedgehog.png'
+import SecondChance from '/@/assets/projects/a second chance.png'
 
 const projects: Project[] = [
   {
@@ -220,6 +222,50 @@ const projects: Project[] = [
       {
         title: 'GitHub',
         url: 'https://github.com/yonisimian/shifts-ui'
+      }
+    ]
+  },
+  {
+    title: 'The Red Hedgehog',
+    category: ProjectCategory.MUSIC,
+    img: RedHedgehog,
+    description: `
+      The Red Hedgehog is the first music album I've ever released.
+      I wrote the songs when I was 16-17 years old, using Guitar Pro 5 as my tablature software.
+      Most of the songs started as an improvisation on the guitar, and then I wrote them down as part of
+      my desire to learn how to write music and combine different instrument together into one greater thing.
+      I put low to zero effort on mixing and mastering, as for I didn't know those terms back then, as well as the importance of them.
+    `,
+    links: [
+      {
+        title: 'YouTube',
+        url: 'https://youtube.com/playlist?list=PL2_PPpf0L5n092bZCgY-nOPXN3-yVsbvG&si=FouSLMVUNfNHCq6B'
+      },
+      {
+        title: 'Favorite song',
+        url: 'https://youtu.be/pq4uIMAWRQU?si=9ahqb0FPU-v_YkmO'
+      }
+    ]
+  },
+  {
+    title: 'A Second Chance',
+    category: ProjectCategory.MUSIC,
+    img: SecondChance,
+    description: `
+      A Second Chance is my second unmixed album :)
+      This one was never completed due to my joinning to the army service, but I'm still proud of it.
+      I released it about a year after the first album (The Red Hedgehog), this time using Guitar Pro 6 as my tablature software.
+      I think that this album shows a great improvement in my songwriting skills,
+      as well as mixing and mastering which I encountered the first time in my life.
+    `,
+    links: [
+      {
+        title: 'YouTube',
+        url: 'https://youtube.com/playlist?list=PL2_PPpf0L5n1rvPtW6PGnQM5wxVJIakbB&si=H5Kvj78lf1FoJAIZ'
+      },
+      {
+        title: 'Favorite song',
+        url: 'https://youtu.be/HkXwNQ4TOOI?si=0CK7BX1em0IJMAd5'
       }
     ]
   },
