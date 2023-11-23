@@ -11,6 +11,7 @@ import band from '/@/assets/projects/band.png'
 import ShiftsUI from '/@/assets/projects/shifts-ui.png'
 import RedHedgehog from '/@/assets/projects/the red hedgehog.png'
 import SecondChance from '/@/assets/projects/a second chance.png'
+import Bachelor from '/@/assets/projects/bachelor.png'
 
 const projects: Project[] = [
   {
@@ -68,6 +69,23 @@ const projects: Project[] = [
       'C++17, Python, Git, tcsh, LLVM, how to write tests, and various aspects of operating systems as well (not to forget the teamwork dynamics 😄).',
     notes:
       "For clear reasons, I can't provide any code from this project; however, I can talk about it in more detail in person :)"
+  },
+  {
+    title: "Bachelor's Degree",
+    category: ProjectCategory.ACADEMY,
+    img: Bachelor,
+    description: `
+      I am currently studying for my B.Sc. in Computer Science at The Open University of Israel.
+      I am expected to graduate in summer 2024, with a current GPA of 91.
+    `,
+    notes:
+      "Tell about my past at the Technion...? (TODO) Also, convince Lior that it's worth mentioning that I'm crazy regarding the way I write essays",
+    links: [
+      {
+        title: 'Grade Sheet',
+        url: 'TODO'
+      }
+    ]
   },
   {
     title: 'Data Mining',
