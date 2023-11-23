@@ -39,6 +39,16 @@
   opacity: 1;
 }
 
+.card >>> img {
+  transform: scale(1);
+  transition: transform 0.5s ease;
+}
+
+.card:hover >>> img {
+  transform: scale(1.05);
+  transition: transform 0.5s ease;
+}
+
 @keyframes glow {
   0% {
     top: -5px;
