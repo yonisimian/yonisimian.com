@@ -3,6 +3,7 @@
     <DarkThemeIcon />
     <YoutubeIcon />
     <GitHubIcon />
+    <EmailIcon />
   </ul>
 </template>
 
