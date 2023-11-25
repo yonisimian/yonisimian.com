@@ -29,7 +29,7 @@ const projects: Project[] = [
     links: [
       {
         title: '2nd March - YouTube',
-        url: 'https:/youtu.be/qWQg7MT8oYc?si=MsKHYVbDBERA3CbO'
+        url: 'https://youtu.be/qWQg7MT8oYc?si=MsKHYVbDBERA3CbO'
       }
     ],
     highlight: true
@@ -51,7 +51,7 @@ const projects: Project[] = [
     links: [
       {
         title: 'YouTube',
-        url: 'https:/youtu.be/EsBlRcusFIc?si=v3Yebt8qBeFgMFOC'
+        url: 'https://youtu.be/EsBlRcusFIc?si=v3Yebt8qBeFgMFOC'
       }
     ],
     highlight: true
@@ -101,11 +101,11 @@ const projects: Project[] = [
     links: [
       {
         title: 'Final Project - Part 1',
-        url: 'https:/www.docdroid.net/tdVhPku/206584021-data-mining-20595-maman-21-pdf'
+        url: 'https://www.docdroid.net/tdVhPku/206584021-data-mining-20595-maman-21-pdf'
       },
       {
         title: 'Final Project - Part 2',
-        url: 'https:/www.docdroid.net/GjM3WAp/206584021-data-mining-20595-maman-22-pdf'
+        url: 'https://www.docdroid.net/GjM3WAp/206584021-data-mining-20595-maman-22-pdf'
       }
     ],
     highlight: true
@@ -131,7 +131,7 @@ const projects: Project[] = [
     links: [
       {
         title: 'GitHub',
-        url: 'https:/github.com/yonisimian/c-calculator'
+        url: 'https://github.com/yonisimian/c-calculator'
       }
     ],
     highlight: true
@@ -152,15 +152,15 @@ const projects: Project[] = [
     links: [
       {
         title: 'GitHub',
-        url: 'https:/github.com/yonisimian/Pacmanx10'
+        url: 'https://github.com/yonisimian/Pacmanx10'
       },
       {
         title: 'CODEJAM entry',
-        url: 'https:/itch.io/jam/olc-codejam-2021/rate/1187635'
+        url: 'https://itch.io/jam/olc-codejam-2021/rate/1187635'
       },
       {
         title: 'itch.io',
-        url: 'https:/yonisimian.itch.io/pacmanx10'
+        url: 'https://yonisimian.itch.io/pacmanx10'
       }
     ],
     highlight: true
