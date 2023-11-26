@@ -39,12 +39,12 @@
   opacity: 1;
 }
 
-.card >>> img {
+.card :deep(img) {
   transform: scale(1);
   transition: transform 0.5s ease;
 }
 
-.card:hover >>> img {
+.card:hover :deep(img) {
   transform: scale(1.05);
   transition: transform 0.5s ease;
 }
