@@ -22,5 +22,6 @@ export type Project = {
   wiwdd?: string // What I would do differently
   notes?: string
   links?: ProjectLink[]
+  embed?: string // for embedded videos / pdfs
   highlight?: boolean
 }

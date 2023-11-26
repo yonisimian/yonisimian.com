@@ -17,6 +17,7 @@
         :title="'What I\'d do differently'"
         :desc="project.wiwdd"
       />
+      <BackEmbed v-if="project.embed" :link="project.embed" />
       <BackTitledDesc v-if="project.notes" :title="'Notes'" :desc="project.notes" />
       <BackLinks v-if="project.links" :links="project.links" />
     </BackCard>
