@@ -5,6 +5,7 @@
       :toggleCategory="toggleHighlights"
       :isSelected="isHighlightsSelected"
       :class="'text-orange-300'"
+      :title="'Toggle highlighted projects'"
     />
     <GalleryBarBadge
       v-for="category in ProjectCategory"
@@ -12,6 +13,7 @@
       :text="category"
       :toggleCategory="() => toggleCategory(category)"
       :isSelected="selectedCategories.includes(category)"
+      :title="'Toggle ' + category + ' projects'"
     />
   </div>
 </template>
