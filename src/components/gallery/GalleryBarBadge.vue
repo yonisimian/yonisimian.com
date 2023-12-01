@@ -5,6 +5,7 @@
     :class="{
       'text-light-50 bg-sky-900 dark:bg-sky-600': isSelected
     }"
+    :title="title"
   >
     {{ text }}
   </div>
@@ -16,6 +17,7 @@ import { CategoryFilter } from '/@/types/types'
 defineProps<{
   isSelected: boolean
   text: CategoryFilter
+  title: string
   toggleCategory: () => void
 }>()
 </script>
