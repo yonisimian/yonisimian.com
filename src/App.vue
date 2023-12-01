@@ -6,6 +6,7 @@
     <Gallery />
     <Footer />
   </div>
+  <ScrollUp />
 </template>
 
 <script setup lang="ts">
