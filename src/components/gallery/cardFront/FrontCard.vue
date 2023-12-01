@@ -48,27 +48,4 @@
   transform: scale(1.05);
   transition: transform 0.5s ease;
 }
-
-@keyframes glow {
-  0% {
-    top: -5px;
-    left: -10px;
-  }
-  25% {
-    top: -5px;
-    left: 100%;
-  }
-  50% {
-    top: 100%;
-    left: 100%;
-  }
-  75% {
-    top: 100%;
-    left: -5px;
-  }
-  100% {
-    top: 0;
-    left: -5px;
-  }
-}
 </style>
