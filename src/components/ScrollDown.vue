@@ -13,7 +13,7 @@
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="3"
-          d="M19 14l-7 7m0 0l-7-7m7 0"
+          d="M19 14l-7 7 l-7-7"
         ></path>
       </svg>
     </button>
