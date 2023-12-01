@@ -60,37 +60,6 @@ const projects: Project[] = [
     highlight: true
   },
   {
-    title: 'Intel',
-    category: ProjectCategory.CS,
-    img: intel,
-    description: `
-    I started working at Intel in 2022 as an R&D software development student.
-    Our team is responsible for developing a compiler designed to facilitate the validation of cutting-edge chips by our validation teams.
-    Aside from my role, I also prepare riddles and short lectures for our team's weekly meetings.
-    `,
-    wilfi:
-      'C++17, Python, Git, tcsh, LLVM, how to write tests, and various aspects of operating systems as well (not to forget the teamwork dynamics 😄).',
-    notes:
-      "For clear reasons, I can't provide any code from this project; however, I can talk about it in more detail in person :)"
-  },
-  {
-    title: "Bachelor's Degree",
-    category: ProjectCategory.ACADEMY,
-    img: Bachelor,
-    description: `
-    I am currently studying for my B.Sc. in Computer Science at The Open University of Israel.
-    I am expected to graduate in summer 2024, with a current GPA of 91.
-    `,
-    notes:
-      "Tell about my past at the Technion...? (TODO) Also, convince Lior that it's worth mentioning that I'm crazy regarding the way I write essays",
-    links: [
-      {
-        title: 'Grade Sheet',
-        url: 'TODO'
-      }
-    ]
-  },
-  {
     title: 'Data Mining',
     category: ProjectCategory.ACADEMY,
     img: sklearn,
@@ -170,20 +139,33 @@ const projects: Project[] = [
     highlight: true
   },
   {
-    title: 'Eli',
-    category: ProjectCategory.MUSIC,
-    img: maria,
+    title: 'Intel',
+    category: ProjectCategory.CS,
+    img: intel,
     description: `
-    This is the first song I've recorded by myself...
+    I started working at Intel in 2022 as an R&D software development student.
+    Our team is responsible for developing a compiler designed to facilitate the validation of cutting-edge chips by our validation teams.
+    Aside from my role, I also prepare riddles and short lectures for our team's weekly meetings.
     `,
-    wilfi: 'fundamentals of recording and mixing.',
-    wiwdd:
-      'play more confidently and with more energy, write the drums differently, use different approach of mixing. Luckily, all of these improvments show in my next song - Maria, Maria.',
-    embed: 'https://www.youtube.com/embed/ssSFOpgSOfI?si=pH2pAfbAaCrH7_8R',
+    wilfi:
+      'C++17, Python, Git, tcsh, LLVM, how to write tests, and various aspects of operating systems as well (not to forget the teamwork dynamics 😄).',
+    notes:
+      "For clear reasons, I can't provide any code from this project; however, I can talk about it in more detail in person :)"
+  },
+  {
+    title: "Bachelor's Degree",
+    category: ProjectCategory.ACADEMY,
+    img: Bachelor,
+    description: `
+    I am currently studying for my B.Sc. in Computer Science at The Open University of Israel.
+    I am expected to graduate in summer 2024, with a current GPA of 91.
+    `,
+    notes:
+      "Tell about my past at the Technion...? (TODO) Also, convince Lior that it's worth mentioning that I'm crazy regarding the way I write essays",
     links: [
       {
-        title: 'YouTube',
-        url: 'https://youtu.be/ssSFOpgSOfI?si=ButuRB2VA03LAvWB'
+        title: 'Grade Sheet',
+        url: 'TODO'
       }
     ]
   },
@@ -209,6 +191,24 @@ const projects: Project[] = [
       {
         title: 'Sample #3',
         url: 'https://www.docdroid.net/yEhYMJW/assignment-sample-3-pdf'
+      }
+    ]
+  },
+  {
+    title: 'Eli',
+    category: ProjectCategory.MUSIC,
+    img: maria,
+    description: `
+    This is the first song I've recorded by myself...
+    `,
+    wilfi: 'fundamentals of recording and mixing.',
+    wiwdd:
+      'play more confidently and with more energy, write the drums differently, use different approach of mixing. Luckily, all of these improvments show in my next song - Maria, Maria.',
+    embed: 'https://www.youtube.com/embed/ssSFOpgSOfI?si=pH2pAfbAaCrH7_8R',
+    links: [
+      {
+        title: 'YouTube',
+        url: 'https://youtu.be/ssSFOpgSOfI?si=ButuRB2VA03LAvWB'
       }
     ]
   },
