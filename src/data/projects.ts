@@ -8,12 +8,12 @@ import maria from '/@/assets/projects/maria.png'
 import secondMarch from '/@/assets/projects/2nd march.png'
 import octavarium from '/@/assets/projects/octavarium.png'
 import band from '/@/assets/projects/band.png'
-import ShiftsUI from '/@/assets/projects/shifts-ui.png'
-import RedHedgehog from '/@/assets/projects/the red hedgehog.png'
-import SecondChance from '/@/assets/projects/a second chance.png'
-import Bachelor from '/@/assets/projects/bachelor.png'
+import shiftsUI from '/@/assets/projects/shifts-ui.png'
+import redHedgehog from '/@/assets/projects/the red hedgehog.png'
+import secondChance from '/@/assets/projects/a second chance.png'
+import bachelor from '/@/assets/projects/bachelor.png'
 import LaTeX from '/@/assets/projects/LaTeX.png'
-import Psycho from '/@/assets/projects/psycho.png'
+import psycho from '/@/assets/projects/psycho.png'
 
 const projects: Project[] = [
   {
@@ -156,7 +156,7 @@ const projects: Project[] = [
   {
     title: "Bachelor's Degree",
     category: ProjectCategory.ACADEMY,
-    img: Bachelor,
+    img: bachelor,
     description: `
     I am currently studying for my B.Sc. in Computer Science at The Open University of Israel.
     I am expected to graduate in summer 2024, with a current GPA of 91.
@@ -260,7 +260,7 @@ const projects: Project[] = [
   {
     title: 'Psycho App - WIP',
     category: ProjectCategory.CS,
-    img: Psycho,
+    img: psycho,
     description: `
     Psycho App is a temporary name for a psychometric test studying web app I'm currently working on.
     It is meant to be used by students and perhaps also high-schoolers.
@@ -282,7 +282,7 @@ const projects: Project[] = [
   {
     title: 'Shifts UI',
     category: ProjectCategory.CS,
-    img: ShiftsUI,
+    img: shiftsUI,
     description: `
     Shifts UI is a platform for managing shifts, meant to be used in my previous workplace.
       I did this project with a friend-colleague of mine, who was responsible for the back-end, which was written using Python and the library Flask.
@@ -304,7 +304,7 @@ const projects: Project[] = [
   {
     title: 'The Red Hedgehog',
     category: ProjectCategory.MUSIC,
-    img: RedHedgehog,
+    img: redHedgehog,
     description: `
       The Red Hedgehog is the first music album I've ever released.
       I wrote the songs when I was 16-17 years old, using Guitar Pro 5 as my tablature software.
@@ -327,7 +327,7 @@ const projects: Project[] = [
   {
     title: 'A Second Chance',
     category: ProjectCategory.MUSIC,
-    img: SecondChance,
+    img: secondChance,
     description: `
     A Second Chance is my second unmixed album :)
     This one was never completed due to my joinning to the army service, but I'm still proud of it.
