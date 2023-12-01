@@ -12,6 +12,7 @@ import ShiftsUI from '/@/assets/projects/shifts-ui.png'
 import RedHedgehog from '/@/assets/projects/the red hedgehog.png'
 import SecondChance from '/@/assets/projects/a second chance.png'
 import Bachelor from '/@/assets/projects/bachelor.png'
+import LaTeX from '/@/assets/projects/LaTeX.png'
 
 const projects: Project[] = [
   {
@@ -183,6 +184,31 @@ const projects: Project[] = [
       {
         title: 'YouTube',
         url: 'https://youtu.be/ssSFOpgSOfI?si=ButuRB2VA03LAvWB'
+      }
+    ]
+  },
+  {
+    title: 'LaTeX',
+    category: ProjectCategory.ACADEMY,
+    img: LaTeX,
+    description: `
+    Most of the assignment in my Computer Science degree I made using the MS Word software.
+    At some point, I decided to learn LaTeX, as for I heard it is a better tool for writing academic assignments.
+    Below are links to three samples of assignments in different courses, that I wrote using LaTeX.
+    `,
+    embed: 'https://www.docdroid.net/wXeq6T3/assignment-sample-1-pdf',
+    links: [
+      {
+        title: 'Sample #1',
+        url: 'https://www.docdroid.net/wXeq6T3/assignment-sample-1-pdf'
+      },
+      {
+        title: 'Sample #2',
+        url: 'https://www.docdroid.net/VnW7wBU/assignment-sample-2-pdf'
+      },
+      {
+        title: 'Sample #3',
+        url: 'https://www.docdroid.net/yEhYMJW/assignment-sample-3-pdf'
       }
     ]
   },
