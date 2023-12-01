@@ -13,6 +13,7 @@ import RedHedgehog from '/@/assets/projects/the red hedgehog.png'
 import SecondChance from '/@/assets/projects/a second chance.png'
 import Bachelor from '/@/assets/projects/bachelor.png'
 import LaTeX from '/@/assets/projects/LaTeX.png'
+import Psycho from '/@/assets/projects/psycho.png'
 
 const projects: Project[] = [
   {
@@ -253,6 +254,28 @@ const projects: Project[] = [
       {
         title: 'Instragram - Part 2',
         url: 'https://www.instagram.com/p/CZDBPQPsLTi'
+      }
+    ]
+  },
+  {
+    title: 'Psycho App - WIP',
+    category: ProjectCategory.CS,
+    img: Psycho,
+    description: `
+    Psycho App is a temporary name for a psychometric test studying web app I'm currently working on.
+    It is meant to be used by students and perhaps also high-schoolers.
+    The app is in early stages of development, but has already reached 4000 lines of code that I'm proud of enough to present here.
+    `,
+    wilfi: `
+    Vue3, TypeScript, Tailwind CSS, FireBase, Hosting, Deploying, CI/CD, UI/UX, AC/DC (just kidding).
+    I also expect to implement data mining algorithms in the future, and learn how to analyze the app's usage for better efficiency and UX.
+    `,
+    notes:
+      'The code is not yet available on GitHub, but a POC is available on the link below. The app is not yet ready for production, but it is already usable.',
+    links: [
+      {
+        title: 'Psycho App',
+        url: 'https://psycho-app-69420.web.app/'
       }
     ]
   },
