@@ -5,7 +5,7 @@
         <GalleryCardBack :discard="() => (isChosen = false)" :project="project" />
       </div>
     </Transition>
-    <GalleryCardFront @click="isChosen = true" :project="project" />
+    <GalleryCardFront @click="onClick" @touchend="onClick" :project="project" />
   </div>
 </template>
 
@@ -18,6 +18,10 @@ defineProps<{
 }>()
 
 const isChosen = ref(false)
+
+const onClick = () => {
+  isChosen.value = true
+}
 </script>
 
 <style scoped>
