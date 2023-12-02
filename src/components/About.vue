@@ -1,6 +1,6 @@
 <template>
   <article
-    class="relative flex flex-col justify-center items-center text-center text-md min-h-[100svh]"
+    class="relative flex flex-col justify-start items-center text-center text-md min-h-[100svh]"
   >
     <section ref="aboutSection">
       <h2 data-aos="zoom-in-up" class="text-4xl font-bold my-8">About Me</h2>
@@ -36,7 +36,10 @@
     </section>
     <ScrollDown
       data-aos="zoom-in-down"
-      :text="'see my works!'"
+      data-aos-anchor-placement="top-bottom"
+      data-aos-mirror="true"
+      data-aos-offset="60"
+      :text="'let\'s start exploring!'"
       :selector="'main'"
       :absolute="isSectionShort"
     />
