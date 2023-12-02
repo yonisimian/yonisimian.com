@@ -21,7 +21,8 @@ const projects: Project[] = [
     category: ProjectCategory.MUSIC,
     img: secondMarch,
     description: `
-      This march originated from a spontaneous trombone improvisation when I was 17 years old.
+      This is the second march I have ever composed, hence the name.
+      It was originated from a spontaneous trombone improvisation when I was 17 years old.
       My foray into orchestral composition led me to experiment with orchestrating the improvised melody, ultimately formalizing it into a march tailored for a wind orchestra.
       The composition premiered in 2022 during a notable performance by the Technion Orchestra, and a recording of this premiere is accessible through the link below.
     `,
@@ -162,13 +163,7 @@ const projects: Project[] = [
     I am expected to graduate in summer 2024, with a current GPA of 91.
     `,
     notes:
-      "Tell about my past at the Technion...? (TODO) Also, convince Lior that it's worth mentioning that I'm crazy regarding the way I write essays",
-    links: [
-      {
-        title: 'Grade Sheet',
-        url: 'TODO'
-      }
-    ]
+      "Tell about my past at the Technion...? (TODO) Also, convince Lior that it's worth mentioning that I'm crazy regarding the way I write essays"
   },
   {
     title: 'LaTeX',
@@ -205,11 +200,11 @@ const projects: Project[] = [
     wilfi: 'fundamentals of recording and mixing.',
     wiwdd:
       'play more confidently and with more energy, write the drums differently, use different approach of mixing. Luckily, all of these improvments show in my next song - Maria, Maria.',
-    embed: 'https://www.youtube.com/embed/ssSFOpgSOfI?si=pH2pAfbAaCrH7_8R',
+    embed: 'https://www.youtube.com/embed/MJBjzEIoYDo?si=zSror3bOdFtM1nao',
     links: [
       {
         title: 'YouTube',
-        url: 'https://youtu.be/ssSFOpgSOfI?si=ButuRB2VA03LAvWB'
+        url: 'https://youtu.be/MJBjzEIoYDo'
       }
     ]
   },
@@ -221,8 +216,8 @@ const projects: Project[] = [
     A symphonic cover I made for the song Octavarium by Dream Theater.
     Specifically, it is written for whole symphonic orchestra, along with an electric guitar, electric bass, piano and a drum set.
     The cover is not full, some solos were omitted, and the song was shortened from 24 minutes to 16.
-    
     `,
+    embed: 'https://musescore.com/user/2563941/scores/13304740/embed',
     notes: `
     The cover was to be played by the Technion Orchestra, but due to the Iron Swords war in Israel, the performance was cancelled.
     `,
@@ -232,8 +227,8 @@ const projects: Project[] = [
         url: 'https://youtu.be/XYV8Zt2k0RQ?si=ipvusKEI-23KUm6B'
       },
       {
-        title: 'Cover (PDF)',
-        url: 'TODO'
+        title: 'Cover (MuseScore)',
+        url: 'https://musescore.com/user/2563941/scores/13304740'
       }
     ]
   },
