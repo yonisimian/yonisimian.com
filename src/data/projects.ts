@@ -195,7 +195,12 @@ const projects: Project[] = [
     category: ProjectCategory.MUSIC,
     img: maria,
     description: `
-    This is the first song I've recorded by myself...
+    This is a rock song I composed, and the very first one that I've recorded fully.
+    The song features electric guitars (lead and backing), bass guitar, trombone and backing vocals - all performed by myself, as well as virtual drums.
+    The song was recorded in multiple live takes, without written score, produced and mixed in Cubase.
+    The song's melody, harmony and sound show my greatest influence - the late 90’s alternative rock band Red Hot Chilli Peppers.
+    My goal was to get a light and clean mix, while combining the electric guitars with my main instrument - the trombone.
+    The song also features original lyrics, which have not been recorded due to lack of knowledge in voice recording and mixing.
     `,
     wilfi: 'fundamentals of recording and mixing.',
     wiwdd:
