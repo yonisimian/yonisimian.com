@@ -24,6 +24,7 @@ const projects: Project[] = [
       This is the second march I have ever composed, hence the name.
       It was originated from a spontaneous trombone improvisation when I was 17 years old.
       My foray into orchestral composition led me to experiment with orchestrating the improvised melody, ultimately formalizing it into a march tailored for a wind orchestra.
+      
       The composition premiered in 2022 during a notable performance by the Technion Orchestra, and a recording of this premiere is accessible through the link below.
     `,
     wilfi:
