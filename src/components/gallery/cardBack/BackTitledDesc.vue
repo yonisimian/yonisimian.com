@@ -1,5 +1,5 @@
 <template>
-  <p class="pt-2 text-justify mr-auto max-w-4xl">
+  <p class="text-justify mr-auto max-w-4xl">
     <span>
       <b>{{ title }}:</b>
       {{ desc }}

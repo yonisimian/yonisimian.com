@@ -11,6 +11,7 @@
         v-if="project.wilfi"
         :title="'What I\'ve learned from it'"
         :desc="project.wilfi"
+        :class="{ 'pb-2': project.wiwdd }"
       />
       <BackTitledDesc
         v-if="project.wiwdd"
