@@ -7,14 +7,18 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { Project } from '/@/types/types'
 
 const props = defineProps<{
   projects: Project[]
 }>()
 
-const sortedProjects = props.projects.sort(
-  (a: Project, b: Project) => (b.year ?? Number.MIN_SAFE_INTEGER) - (a.year ?? Number.MIN_SAFE_INTEGER)
+const sortedProjects = computed(() =>
+  props.projects.sort(
+    (a: Project, b: Project) =>
+      (b.year ?? Number.MIN_SAFE_INTEGER) - (a.year ?? Number.MIN_SAFE_INTEGER)
+  )
 )
 </script>
 
