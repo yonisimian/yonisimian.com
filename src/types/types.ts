@@ -14,6 +14,7 @@ export type ProjectLink = {
 }
 
 export type Project = {
+  year?: number
   title: string
   category: ProjectCategory
   img: string

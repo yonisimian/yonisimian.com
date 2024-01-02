@@ -17,6 +17,7 @@ import psycho from '/@/assets/projects/psycho.png'
 
 const projects: Project[] = [
   {
+    year: 2015,
     title: '2nd March',
     category: ProjectCategory.MUSIC,
     img: secondMarch,
@@ -47,6 +48,7 @@ const projects: Project[] = [
     highlight: true
   },
   {
+    year: 2021,
     title: 'Maria, Maria',
     category: ProjectCategory.MUSIC,
     img: maria,
@@ -77,6 +79,7 @@ const projects: Project[] = [
     highlight: true
   },
   {
+    year: 2023,
     title: 'Data Mining',
     category: ProjectCategory.ACADEMY,
     img: sklearn,
@@ -107,6 +110,7 @@ const projects: Project[] = [
     highlight: true
   },
   {
+    year: 2021,
     title: 'C Calculator',
     category: ProjectCategory.CS,
     img: c,
@@ -138,6 +142,7 @@ const projects: Project[] = [
     highlight: true
   },
   {
+    year: 2021,
     title: 'PacmanX10',
     category: ProjectCategory.CS,
     img: pacmanx10,
@@ -241,6 +246,7 @@ const projects: Project[] = [
     ]
   },
   {
+    year: 2018,
     title: 'Eli',
     category: ProjectCategory.MUSIC,
     img: maria,
@@ -265,6 +271,7 @@ const projects: Project[] = [
     ]
   },
   {
+    year: 2023,
     title: 'Octavarium',
     category: ProjectCategory.MUSIC,
     img: octavarium,
@@ -323,6 +330,7 @@ const projects: Project[] = [
     ]
   },
   {
+    year: 2023,
     title: 'Psycho App - WIP',
     category: ProjectCategory.CS,
     img: psycho,
@@ -348,6 +356,7 @@ const projects: Project[] = [
     ]
   },
   {
+    year: 2020,
     title: 'Shifts UI',
     category: ProjectCategory.CS,
     img: shiftsUI,
