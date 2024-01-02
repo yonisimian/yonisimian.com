@@ -382,6 +382,7 @@ const projects: Project[] = [
     ]
   },
   {
+    year: 2016,
     title: 'The Red Hedgehog',
     category: ProjectCategory.MUSIC,
     img: redHedgehog,
@@ -407,6 +408,7 @@ const projects: Project[] = [
     ]
   },
   {
+    year: 2017,
     title: 'A Second Chance',
     category: ProjectCategory.MUSIC,
     img: secondChance,
