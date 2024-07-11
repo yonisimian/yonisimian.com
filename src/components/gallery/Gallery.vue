@@ -1,5 +1,6 @@
 <template>
   <main class="pt-6 sm:pt-14 pb-16 min-h-[100svh]">
+    <h2 class="text-4xl font-bold mb-8 text-center">My Projects</h2>
     <GalleryBar
       :selectedCategories="selectedCategories"
       :toggleCategory="toggleCategory"
@@ -13,8 +14,6 @@
 </template>
 
 <script setup lang="ts">
-// import projects from '../../data/projects'
-
 import { ref, computed } from 'vue'
 import { Project, ProjectCategory } from '/@/types/types'
 import projectsData from '/@/data/projects'
