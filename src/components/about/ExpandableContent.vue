@@ -2,8 +2,7 @@
   <div class="block overflow-hidden">
     <div
       ref="contentWrapper"
-      class="content-wrapper"
-      :class="{ 'partial-content': !expanded }"
+      class="overflow-hidden transition-[max-height] duration-[1010ms] ease-in-out"
       :style="{
         maskImage: gradientStyle,
         WebkitMaskImage: gradientStyle
@@ -65,15 +64,3 @@ watch(expanded, () => {
   }
 })
 </script>
-
-<style scoped>
-.content-wrapper {
-  transition: max-height 1.01s ease-in-out;
-  overflow: hidden;
-}
-
-.partial-content {
-  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-}
-</style>
