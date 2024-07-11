@@ -28,10 +28,12 @@
       </p>
       <p data-aos="fade-right">
         If you would like to learn more about me or collaborate on exciting projects, please feel
-        free to <button @click="scrollToFooter" title="Click me!"><u>reach out</u></button>. I look
-        forward to connecting with you! In the meanwhile, please explore my portfolio and learn more
-        about my key skills, competencies, and experience in music, computer science and academic
-        research 😊
+        free to
+        <button class="hover:color-[#cdf0ff]" @click="scrollToFooter" title="Click me!">
+          <u>reach out</u></button
+        >. I look forward to connecting with you! In the meanwhile, please explore my portfolio and
+        learn more about my key skills, competencies, and experience in music, computer science and
+        academic research 😊
       </p>
     </section>
     <ScrollDown
