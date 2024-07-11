@@ -1,7 +1,7 @@
 <template>
   <div :class="{ 'absolute bottom-4': absolute }">
     <h3 class="text-2xl mb-2">{{ text }}</h3>
-    <ScrollButton :direction="'down'" :handleClick="scrollToSelector" />
+    <ScrollButton direction="down" :handleClick="scrollToSelector" bounce />
   </div>
 </template>
 
