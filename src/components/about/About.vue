@@ -2,7 +2,7 @@
   <article class="relative flex flex-col justify-start items-center text-center text-md">
     <section ref="aboutSection">
       <h2 class="text-4xl font-bold my-8">About Me</h2>
-      <ToggleableFieldset>
+      <ExpandableContent>
         <p>
           I'm a 25 years old <strong>Computer Science B.Sc. student</strong> at The Open University
           of Israel. I'm currently pursuing my degree and am set to complete it in the summer of
@@ -34,7 +34,7 @@
           and learn more about my key skills, competencies, and experience in music, computer
           science and academic research 😊
         </p>
-      </ToggleableFieldset>
+      </ExpandableContent>
     </section>
   </article>
 </template>

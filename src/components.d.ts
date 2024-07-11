@@ -47,7 +47,6 @@ declare module '@vue/runtime-core' {
     ScrollDown: typeof import('./components/scrolling/ScrollDown.vue')['default']
     ScrollToEdge: typeof import('./components/scrolling/ScrollToEdge.vue')['default']
     Title: typeof import('./components/header/Title.vue')['default']
-    ToggleableFieldset: typeof import('./components/about/ToggleableFieldset.vue')['default']
     YoutubeIcon: typeof import('./components/footer/icons/YoutubeIcon.vue')['default']
   }
 }
