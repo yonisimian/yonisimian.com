@@ -7,7 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    About: typeof import('./components/About.vue')['default']
+    About: typeof import('./components/about/About.vue')['default']
     BackBackground: typeof import('./components/gallery/cardBack/BackBackground.vue')['default']
     BackCard: typeof import('./components/gallery/cardBack/BackCard.vue')['default']
     BackCategory: typeof import('./components/gallery/cardBack/absolutes/BackCategory.vue')['default']
@@ -23,6 +23,7 @@ declare module '@vue/runtime-core' {
     DarkTheme: typeof import('./components/header/DarkTheme.vue')['default']
     DarkThemeIcon: typeof import('./components/footer/icons/DarkThemeIcon.vue')['default']
     EmailIcon: typeof import('./components/footer/icons/EmailIcon.vue')['default']
+    ExpandableContent: typeof import('./components/about/ExpandableContent.vue')['default']
     Footer: typeof import('./components/footer/Footer.vue')['default']
     FooterIcon: typeof import('./components/footer/FooterIcon.vue')['default']
     FooterIcons: typeof import('./components/footer/FooterIcons.vue')['default']
@@ -46,6 +47,7 @@ declare module '@vue/runtime-core' {
     ScrollDown: typeof import('./components/scrolling/ScrollDown.vue')['default']
     ScrollToEdge: typeof import('./components/scrolling/ScrollToEdge.vue')['default']
     Title: typeof import('./components/header/Title.vue')['default']
+    ToggleableFieldset: typeof import('./components/about/ToggleableFieldset.vue')['default']
     YoutubeIcon: typeof import('./components/footer/icons/YoutubeIcon.vue')['default']
   }
 }
