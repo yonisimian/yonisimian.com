@@ -6,7 +6,9 @@
     <Gallery />
     <Footer />
   </div>
-  <ScrollUp />
+
+  <ScrollToEdge direction="up" class="fixed top-2 right-6 sm:right-4" />
+  <ScrollToEdge direction="down" class="fixed bottom-2 right-6 sm:right-4" />
 </template>
 
 <script setup lang="ts">

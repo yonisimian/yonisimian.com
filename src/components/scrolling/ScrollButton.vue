@@ -15,9 +15,10 @@
 <script setup lang="ts">
 const props = defineProps<{
   direction: 'up' | 'down'
+  bounce?: boolean
   handleClick?: () => void
 }>()
 
 const d = props.direction === 'up' ? 'M19 14 l-7-7 l-7 7' : 'M19 14l-7 7 l-7-7'
-const btnClass = props.direction === 'up' ? '' : 'animate-bounce'
+const btnClass = props.bounce ? 'animate-bounce' : ''
 </script>
