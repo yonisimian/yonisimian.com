@@ -7,7 +7,7 @@
     <Footer />
   </div>
 
-  <ScrollToEdge direction="up" class="fixed top-2 right-1 sm:right-2 safe" />
+  <ScrollToEdge direction="up" class="fixed top-2 right-1 sm:right-2" />
   <ScrollToEdge direction="down" class="fixed bottom-2 right-1 sm:right-2 safe" />
 </template>
 
@@ -22,9 +22,6 @@ AOS.init({
 
 <style scoped>
 .safe {
-  margin-top: env(safe-area-inset-top);
-  margin-right: env(safe-area-inset-right);
-  margin-left: env(safe-area-inset-left);
-  margin-bottom: env(safe-area-inset-bottom);
+  padding-right: calc(0.5 * env(safe-area-inset-bottom));
 }
 </style>
