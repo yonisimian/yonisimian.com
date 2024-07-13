@@ -4,9 +4,10 @@
       <h2 class="text-4xl font-bold my-8">About Me</h2>
       <ExpandableContent>
         <p>
-          I'm a 25 years old <strong>Computer Science B.Sc. student</strong> at The Open University
-          of Israel. I'm currently pursuing my degree and am set to complete it in the summer of
-          2024. Alongside my studies, I have had the incredible opportunity to work as a
+          I'm a {{ age }} years old <strong>Computer Science B.Sc. student</strong>
+          {{ isBirthday ? '(today is my birthday 🥳)' : '' }} at The Open University of Israel. I'm
+          currently pursuing my degree and am set to complete it in the summer of 2024. Alongside my
+          studies, I have had the incredible opportunity to work as a
           <strong>R&D Software Development student</strong> at Intel since 2022, where I get to
           explore my passion for coding and software development.
         </p>
@@ -61,6 +62,11 @@ const scrollToFooter = () => {
     reachOut(footerSection.value)
   }
 }
+
+const BIRTHDAY = new Date('1998-08-23')
+const age = Math.floor((Date.now() - BIRTHDAY.getTime()) / 31556952000)
+const isBirthday =
+  new Date().getDate() === BIRTHDAY.getDate() && new Date().getMonth() === BIRTHDAY.getMonth()
 </script>
 
 <style scoped>
