@@ -189,7 +189,7 @@ const projects: Project[] = [
     As a part of my role, I extensively employ C++ as the primary programming language, complemented by occasional use of Python and Assembly.
 
     In addition to my primary responsibilities, I take the initiative to prepare riddles and short lectures for our team's weekly meetings,
-    typically focusing on the subject of modern C++ to encourage its adoption within the team.
+    typically focusing on the subject of modern C++ to encourage its adoption within the team. In the YouTube video below, you can find a demonstration of such a riddle.
 
     At Intel I learned how to work in a team, and how to engage with other teams as well.
     I have acquired and continue to refine the ability to conceive a feature idea, implement it, conduct thorough testing,
@@ -197,6 +197,7 @@ const projects: Project[] = [
     `,
     wilfi:
       'C++17, Python, Git, tcsh, LLVM, how to write tests, and various aspects of operating systems as well (not to forget the teamwork dynamics 😄).',
+    embed: 'https://youtube.com/embed/XMI8ZZLw_So?si=r4eO7wUnbmvIByAz',
     notes:
       "For clear reasons, I can't provide any code from this project; however, I can talk about it in more detail in person :)"
   },
