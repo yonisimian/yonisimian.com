@@ -11,13 +11,21 @@
 
 <script setup lang="ts">
 import { Project } from '/@/types/types'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
-defineProps<{
+const props = defineProps<{
+  id: string
   project: Project
 }>()
 
 const isChosen = ref(false)
+
+onMounted(() => {
+  const hash = window.location.hash
+  if (hash.substring(1) === props.id) {
+    isChosen.value = true
+  }
+})
 </script>
 
 <style scoped>
