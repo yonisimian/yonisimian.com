@@ -4,6 +4,7 @@
     <YoutubeIcon />
     <GitHubIcon />
     <EmailIcon />
+    <WhatsAppIcon />
   </ul>
 </template>
 
