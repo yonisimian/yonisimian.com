@@ -9,7 +9,14 @@
           currently pursuing my degree and am set to complete it in the summer of 2024. Alongside my
           studies, I have had the incredible opportunity to work as a
           <strong>R&D Software Development student</strong> at Intel since 2022, where I get to
-          explore my passion for coding and software development.
+          explore my passion for coding and software development. Visit my
+          <a
+            :href="Resume"
+            target="_blank"
+            title="Not so interesting. Better visit my GitHub instead!"
+            >resume</a
+          >
+          to learn more.
         </p>
         <p>
           In addition to my technical interests, I am a <strong>seasoned musician</strong>, having
@@ -30,7 +37,7 @@
           If you would like to learn more about me or collaborate on exciting projects, please feel
           free to
           <button class="hover:color-[#cdf0ff]" @click="scrollToFooter" title="Click me!">
-            <u>reach out</u></button
+            <a><u>reach out</u></a></button
           >. I look forward to connecting with you! In the meanwhile, please explore my portfolio
           and learn more about my key skills, competencies, and experience in music, computer
           science and academic research 😊
@@ -43,6 +50,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { useReachOutAnimation } from '/@/composables/useReachOut'
+import Resume from '/@/assets/Yehonatan Simian - Resume.pdf'
 
 const { reachOut } = useReachOutAnimation()
 
@@ -70,6 +78,11 @@ const isBirthday =
 </script>
 
 <style scoped>
+a {
+  color: inherit;
+  text-decoration: none;
+  text-decoration-line: underline;
+}
 p {
   @apply text-xl max-w-5xl pb-8 m-auto text-justify;
 }
