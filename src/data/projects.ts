@@ -1,4 +1,5 @@
 import { Project, ProjectCategory } from '/@/types/types'
+
 import intel from '/@/assets/projects/intel.png'
 import sklearn from '/@/assets/projects/sklearn.png'
 import sonic from '/@/assets/projects/site.png'
@@ -14,6 +15,13 @@ import secondChance from '/@/assets/projects/a second chance.png'
 import bachelor from '/@/assets/projects/bachelor.png'
 import LaTeX from '/@/assets/projects/LaTeX.png'
 import psycho from '/@/assets/projects/psycho.png'
+
+import dataminingmmn21 from '/@/data/pdf/20595 - Maman 21.pdf'
+import dataminingmmn22 from '/@/data/pdf/20595 - Maman 22.pdf'
+import lin2mmn13 from '/@/data/pdf/20229 - Maman 13.pdf'
+import computationmmn15 from '/@/data/pdf/20585 - Maman 15.pdf'
+import defensivemmn12 from '/@/data/pdf/20937 - Maman 12.pdf'
+import imageprocessingmmn12 from '/@/data/pdf/22913 - Maman 12.pdf'
 
 const projects: Project[] = [
   {
@@ -96,15 +104,15 @@ const projects: Project[] = [
     `,
     wilfi:
       'Python, Pandas, Scikit-learn, Matplotlib, Data Mining algorithms, how to analyze a dataset, how to present the results.',
-    embed: 'https://www.docdroid.net/tdVhPku/206584021-data-mining-20595-maman-21-pdf',
+    embed: dataminingmmn21,
     links: [
       {
         title: 'Final Project - Part 1',
-        url: 'https://www.docdroid.net/tdVhPku/206584021-data-mining-20595-maman-21-pdf'
+        url: dataminingmmn21
       },
       {
         title: 'Final Project - Part 2',
-        url: 'https://www.docdroid.net/GjM3WAp/206584021-data-mining-20595-maman-22-pdf'
+        url: dataminingmmn22
       }
     ],
     highlight: true
@@ -228,21 +236,25 @@ const projects: Project[] = [
     that excels in areas where Word may fall short, such as managing graphics, sectioning, bibliography, and maintaining a cohesive aesthetic throughout the document.
 
     My LaTeX assignments are composed using the online platform Overleaf.
-    Below, you'll find links to three samples of assignments from different courses that I authored using LaTeX.
+    Below, you'll find links to samples of assignments from different courses that I authored using LaTeX.
     `,
-    embed: 'https://www.docdroid.net/wXeq6T3/assignment-sample-1-pdf',
+    embed: imageprocessingmmn12,
     links: [
       {
         title: 'Sample #1',
-        url: 'https://www.docdroid.net/wXeq6T3/assignment-sample-1-pdf'
+        url: imageprocessingmmn12
       },
       {
         title: 'Sample #2',
-        url: 'https://www.docdroid.net/VnW7wBU/assignment-sample-2-pdf'
+        url: computationmmn15
       },
       {
         title: 'Sample #3',
-        url: 'https://www.docdroid.net/yEhYMJW/assignment-sample-3-pdf'
+        url: defensivemmn12
+      },
+      {
+        title: 'Sample #4',
+        url: lin2mmn13
       }
     ]
   },
