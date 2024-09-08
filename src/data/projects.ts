@@ -16,12 +16,12 @@ import bachelor from '/@/assets/projects/bachelor.png'
 import LaTeX from '/@/assets/projects/LaTeX.png'
 import psycho from '/@/assets/projects/psycho.png'
 
-import dataminingmmn21 from '/@/data/pdf/20595 - Maman 21.pdf'
-import dataminingmmn22 from '/@/data/pdf/20595 - Maman 22.pdf'
-import lin2mmn13 from '/@/data/pdf/20229 - Maman 13.pdf'
-import computationmmn15 from '/@/data/pdf/20585 - Maman 15.pdf'
-import defensivemmn12 from '/@/data/pdf/20937 - Maman 12.pdf'
-import imageprocessingmmn12 from '/@/data/pdf/22913 - Maman 12.pdf'
+import dataminingmmn21 from '/@/assets/mamans/20595 - Maman 21.pdf'
+import dataminingmmn22 from '/@/assets/mamans/20595 - Maman 22.pdf'
+import lin2mmn13 from '/@/assets/mamans/20229 - Maman 13.pdf'
+import computationmmn15 from '/@/assets/mamans/20585 - Maman 15.pdf'
+import defensivemmn12 from '/@/assets/mamans/20937 - Maman 12.pdf'
+import imageprocessingmmn12 from '/@/assets/mamans/22913 - Maman 12.pdf'
 
 const projects: Project[] = [
   {
