@@ -3,7 +3,7 @@ import Unocss from 'unocss/vite'
 import { resolve } from 'pathe'
 import vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
-import ViteFonts from 'vite-plugin-fonts'
+import FontInstaller from 'unplugin-fonts/vite'
 import svgLoader from 'vite-svg-loader'
 
 // https://vitejs.dev/config/
@@ -25,10 +25,23 @@ export default defineConfig({
       extensions: ['vue'],
       dts: 'src/components.d.ts'
     }),
-    // https://github.com/stafyniaksacha/vite-plugin-fonts#readme
-    ViteFonts({
+    // Replace ViteFonts with FontInstaller
+    FontInstaller({
       google: {
-        families: ['Open Sans', 'Montserrat', 'Fira Sans']
+        families: [
+          {
+            name: 'Open Sans',
+            styles: 'wght@400;700'
+          },
+          {
+            name: 'Montserrat',
+            styles: 'wght@400;700'
+          },
+          {
+            name: 'Fira Sans',
+            styles: 'wght@400;700'
+          }
+        ]
       }
     }),
 
