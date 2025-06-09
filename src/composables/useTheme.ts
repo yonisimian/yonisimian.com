@@ -7,7 +7,7 @@ export interface ThemeComposition {
 }
 
 export function useTheme(): ThemeComposition {
-  const isDark = useDark()
+  const isDark = useDark({ disableTransition: false })
   const toggleDark = useToggle(isDark)
 
   return {
