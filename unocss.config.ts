@@ -3,7 +3,7 @@ import {
   presetAttributify,
   presetIcons,
   presetTypography,
-  presetUno,
+  presetWind3,
   presetWebFonts,
   transformerDirectives,
   transformerVariantGroup
@@ -11,7 +11,7 @@ import {
 
 export default defineConfig({
   presets: [
-    presetUno(),
+    presetWind3(),
     presetAttributify(),
     presetIcons({
       scale: 1.2,
@@ -20,6 +20,12 @@ export default defineConfig({
         display: 'inline-block',
         'vertical-align': 'middle'
         // ...
+      },
+      collections: {
+        ph: () =>
+          import('@iconify-json/ph/icons.json').then(
+            (i) => i.default as import('@iconify/types').IconifyJSON
+          )
       }
     }),
     presetTypography(),
