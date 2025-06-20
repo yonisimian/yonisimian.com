@@ -4,7 +4,12 @@
     @click.self="closeFullscreen"
   >
     <div class="max-w-5xl h-max bg-black flex items-center justify-center overflow-hidden">
-      <Carousel id="gallery" v-bind="galleryConfig" v-model="currentSlideLocal">
+      <Carousel
+        id="gallery"
+        v-bind="galleryConfig"
+        :modelValue="props.currentSlide"
+        @update:modelValue="(val) => emit('update:currentSlide', val)"
+      >
         <Slide v-for="(url, index) in step.media" :key="index">
           <div class="w-full h-full bg-black flex items-center justify-center">
             <img
@@ -25,7 +30,6 @@
 import 'vue3-carousel/carousel.css'
 import { Carousel, Slide } from 'vue3-carousel'
 import { Step } from '/@/types/trip'
-import { ref, watch } from 'vue'
 
 const props = defineProps<{
   step: Step
@@ -44,21 +48,6 @@ const galleryConfig = {
 }
 
 const emit = defineEmits(['update:currentSlide'])
-
-const currentSlideLocal = ref(props.currentSlide)
-
-watch(
-  () => props.currentSlide,
-  (val) => {
-    currentSlideLocal.value = val
-  }
-)
-
-watch(currentSlideLocal, (val) => {
-  if (val !== props.currentSlide) {
-    emit('update:currentSlide', val)
-  }
-})
 </script>
 
 <style scoped></style>
