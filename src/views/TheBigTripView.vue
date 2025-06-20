@@ -10,7 +10,12 @@
     <DestBar :destinations="countries" :currDest="currCountry" :chooseDest="chooseCountry" />
     <DestBar :destinations="steps" :dates :currDest="currStep" :chooseDest="chooseStep" />
 
-    <StepView :step="currStep" :country="currCountry" />
+    <StepView
+      :step="currStep"
+      :country="currCountry"
+      @prevStep="choosePrevStep"
+      @nextStep="chooseNextStep"
+    />
 
     <ScrollToEdge direction="up" class="fixed top-2 right-1 sm:right-2" />
     <ScrollToEdge direction="down" class="fixed bottom-2 right-1 sm:right-2 safe" />
@@ -34,6 +39,7 @@ import type { Continent, Country, Step } from '/@/types/trip'
 const router = useRouter()
 
 const currStep = ref<Step>(steps[0])
+const currStepIndex = computed<number>(() => steps.findIndex((s) => s.id === currStep.value.id))
 const currCountry = computed<Country>(() => getCountryByStep(currStep.value))
 const currContinent = computed<Continent>(() => getContinentByStep(currStep.value))
 
@@ -71,6 +77,20 @@ const chooseCountry = (country: Country) => {
 const chooseStep = (step: Step) => {
   currStep.value = step
   updateURL()
+}
+
+const choosePrevStep = () => {
+  const prevIndex = currStepIndex.value - 1
+  if (prevIndex >= 0) {
+    chooseStep(steps[prevIndex])
+  }
+}
+
+const chooseNextStep = () => {
+  const nextIndex = currStepIndex.value + 1
+  if (nextIndex < steps.length) {
+    chooseStep(steps[nextIndex])
+  }
 }
 </script>
 
