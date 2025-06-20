@@ -140,4 +140,16 @@ const onDragEnd = () => {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.h-scroll-outer {
+  /* Add a fade effect using mask-image */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 20%,
+    black 80%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+}
+</style>
