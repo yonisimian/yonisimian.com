@@ -5,7 +5,7 @@
       <b>{{ country.name }}</b> • {{ step.date }} • {{ step.degrees }}c
     </p>
     <p v-html="step.description" dir="rtl" class="w-full text-justify" />
-    <MediaCarousel v-if="step.media && step.media.length" :media-urls="step.media" />
+    <MediaCarousel :step />
   </div>
 </template>
 
