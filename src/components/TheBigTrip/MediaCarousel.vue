@@ -26,9 +26,9 @@
 <script setup lang="ts">
 import 'vue3-carousel/carousel.css'
 import { Carousel, Slide, Navigation } from 'vue3-carousel'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
-defineProps<{
+const props = defineProps<{
   mediaUrls: string[]
 }>()
 
@@ -54,6 +54,14 @@ const thumbnailsConfig = {
 }
 
 const currentSlide = ref<number>(0)
+
+// Reset carousel whenever dest changes
+watch(
+  () => props.mediaUrls,
+  () => {
+    currentSlide.value = 0
+  }
+)
 
 const slideTo = (nextSlide: number) => (currentSlide.value = nextSlide)
 
