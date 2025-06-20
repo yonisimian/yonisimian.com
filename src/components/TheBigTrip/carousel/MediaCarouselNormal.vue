@@ -18,7 +18,7 @@
       <Slide v-for="(url, index) in step.media" :key="index">
         <template #default="{ currentIndex, isActive }">
           <div :class="['thumbnail', { 'is-active': isActive }]" @click="slideTo(currentIndex)">
-            <img :src="url" alt="Thumbnail Image" class="thumbnail-image" />
+            <img :src="url" alt="Thumbnail Image" class="h-full w-full object-cover block" />
           </div>
         </template>
       </Slide>
