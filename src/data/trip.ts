@@ -1790,6 +1790,16 @@ export const steps: Step[] = countries.flatMap((country) =>
   country.steps.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
 )
 
+export const getNextStep = (step: Step): Step | undefined => {
+  const currentIndex = steps.findIndex((s) => s.id === step.id)
+  return currentIndex >= 0 && currentIndex < steps.length - 1 ? steps[currentIndex + 1] : undefined
+}
+
+export const getPrevStep = (step: Step): Step | undefined => {
+  const currentIndex = steps.findIndex((s) => s.id === step.id)
+  return currentIndex > 0 ? steps[currentIndex - 1] : undefined
+}
+
 export const getCountryByStep = (step: Step): Country =>
   countries.find((country) => country.steps.some((s) => s.id === step.id)) || {
     name: 'Unknown Country',

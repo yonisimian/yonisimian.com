@@ -6,11 +6,21 @@
     </p>
     <p v-html="step.description" dir="rtl" class="w-full text-justify" />
     <MediaCarousel :step />
+    <!-- prev and next step buttons with arrow -->
+    <div class="flex items-center justify-between w-full mt-4">
+      <span @click="$emit('prevStep')" class="hover:text-cyan-600 hover:cursor-pointer">
+        ← {{ getPrevStep(step)?.name }}
+      </span>
+      <span @click="$emit('nextStep')" class="hover:text-cyan-600 hover:cursor-pointer">
+        {{ getNextStep(step)?.name }} →
+      </span>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { Country, Step } from '/@/types/trip'
+import { getPrevStep, getNextStep } from '/@/data/trip'
 defineProps<{
   country: Country
   step: Step
