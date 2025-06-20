@@ -90,10 +90,10 @@ const onWheel = (e: WheelEvent) => {
   const idx = currIdx.value
   if (idx === -1) return
 
-  if ((e.deltaY < 0 || e.deltaX < 0) && idx > 0) {
+  if ((e.deltaY < 0 || e.deltaX > 0) && idx > 0) {
     // Scroll up / left: previous destination
     props.chooseDest(props.destinations[idx - 1])
-  } else if ((e.deltaY > 0 || e.deltaX > 0) && idx < props.destinations.length - 1) {
+  } else if ((e.deltaY > 0 || e.deltaX < 0) && idx < props.destinations.length - 1) {
     // Scroll down / right: next destination
     props.chooseDest(props.destinations[idx + 1])
   }
