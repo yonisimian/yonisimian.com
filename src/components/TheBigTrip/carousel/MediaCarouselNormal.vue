@@ -3,7 +3,8 @@
     <Carousel
       id="gallery"
       v-bind="galleryConfig"
-      v-model="currentSlideLocal"
+      :modelValue="props.currentSlide"
+      @update:modelValue="(val) => emit('update:currentSlide', val)"
       @mousedown="openFullscreen"
     >
       <Slide v-for="(url, index) in step.media" :key="index">
@@ -14,7 +15,12 @@
       </Slide>
     </Carousel>
 
-    <Carousel id="thumbnails" v-bind="thumbnailsConfig" v-model="currentSlideLocal">
+    <Carousel
+      id="thumbnails"
+      v-bind="thumbnailsConfig"
+      :modelValue="props.currentSlide"
+      @update:modelValue="(val) => emit('update:currentSlide', val)"
+    >
       <Slide v-for="(url, index) in step.media" :key="index">
         <template #default="{ currentIndex, isActive }">
           <div :class="['thumbnail', { 'is-active': isActive }]" @click="slideTo(currentIndex)">
@@ -34,7 +40,6 @@
 import 'vue3-carousel/carousel.css'
 import { Carousel, Slide, Navigation } from 'vue3-carousel'
 import { Step } from '/@/types/trip'
-import { ref, watch } from 'vue'
 
 const props = defineProps<{
   step: Step
@@ -66,21 +71,6 @@ const thumbnailsConfig = {
 }
 
 const emit = defineEmits(['update:currentSlide'])
-
-const currentSlideLocal = ref(props.currentSlide)
-
-watch(
-  () => props.currentSlide,
-  (val) => {
-    currentSlideLocal.value = val
-  }
-)
-
-watch(currentSlideLocal, (val) => {
-  if (val !== props.currentSlide) {
-    emit('update:currentSlide', val)
-  }
-})
 </script>
 
 <style scoped>
