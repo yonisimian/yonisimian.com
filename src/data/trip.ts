@@ -31,6 +31,7 @@ export const trip: Trip = {
             {
               id: 1,
               name: 'נתב"ג',
+              shortName: 'TLV',
               date: '2024-10-27',
               degrees: '30',
               description: '<p>עברתי ב-״דרך צלחה״ וקיבלתי 200₪ מהבנק.</p>',
@@ -49,6 +50,7 @@ export const trip: Trip = {
             {
               id: 2,
               name: 'Addis Ababa',
+              shortName: 'Addis Ababa',
               date: '2024-10-27',
               degrees: '22',
               description: `
@@ -80,6 +82,7 @@ export const trip: Trip = {
               date: 'October 28, 2024',
               degrees: '21°',
               name: 'Seoul',
+              shortName: 'Seoul',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/2905155C-8817-427E-8F4E-042F7FD0B667_F3587B93-379D-413E-B0F1-C5E0726D0DF6.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/85E26C53-B2A1-4124-8B73-407595A855E9_487060BB-52AE-4E29-828E-7E3CECF39DEA.jpg',
@@ -101,6 +104,7 @@ export const trip: Trip = {
               date: 'October 29, 2024',
               degrees: '21°',
               name: 'Akihabara, Tokyo',
+              shortName: 'Akihabara',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/4C440683-8FAC-4420-83A5-81DBCA69D952_4F5CAA90-5611-403D-ACE6-CC916A8F70DA.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/40175D66-CA65-4C66-A078-E473251BF11D_98A8C0EA-CE6E-48AE-ABD6-45B1F5A7FE66.jpg',
@@ -119,6 +123,7 @@ export const trip: Trip = {
               date: 'October 31, 2024',
               degrees: '21°',
               name: 'Chiyoda',
+              shortName: 'Chiyoda',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/055B5006-42CA-4F47-BE5B-8FB9D0CF42B4_D9A6ACE8-60E3-493F-A308-C035571A8C29.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/D2CE4427-7ED9-4B67-9491-9E2EA161BD17_8BD92524-36D1-4A54-8053-18230B0872B6.jpg',
@@ -135,6 +140,7 @@ export const trip: Trip = {
               date: 'October 31, 2024',
               degrees: '23°',
               name: 'Shibuya',
+              shortName: 'Shibuya',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/FBE4E9FB-5121-469E-8C3D-921406A80FE9_3D57D67D-CB65-4A26-AF93-8CE07D67D28B.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/D1223EE4-E9EC-4C21-9D35-361936CE8E46_815856EA-3E91-4633-9C81-A36B9109082B.jpg'
@@ -149,6 +155,7 @@ export const trip: Trip = {
               date: 'November 1, 2024',
               degrees: '23°',
               name: 'Tokyo Tower',
+              shortName: 'Tokyo Tower',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/B823164C-01B2-4C65-870B-FA7B304BB67E_909D6A66-396B-4547-899F-C4F89904AA31.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/93F8ED28-5E23-470B-9CD2-86F5BC29C779_FEF80BA1-070A-47F7-A1CE-2818635DB120.jpg',
@@ -167,6 +174,7 @@ export const trip: Trip = {
               date: 'November 3, 2024',
               degrees: '22°',
               name: 'Shinjuku',
+              shortName: 'Shinjuku',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/CB4ED4A4-5CFF-488C-A4AD-8ED4C519D0E5_5A58EEA9-6B6D-4A4F-8142-CE37EC26DDFB.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/CD410018-1AF2-4F1E-9183-1A7017236B71_54F33270-07ED-46DA-BA5D-3781C5C32ACC.jpg',
@@ -184,6 +192,7 @@ export const trip: Trip = {
               date: 'November 4, 2024',
               degrees: '20°',
               name: 'TeamLab',
+              shortName: 'TeamLab',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/EC22396E-494C-4F68-8590-2377A1A1C7AD_8F0B5FD0-3E5E-4C8E-9ACF-B2B7A0942B3E.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/9D5DDFB4-6C6B-4D6F-954B-709D29C7D4BC_D5762A1E-91BD-4F3E-8799-D81594A66356.jpg',
@@ -207,6 +216,7 @@ export const trip: Trip = {
               date: 'November 5, 2024',
               degrees: '16°',
               name: 'LaQua / Shibuya',
+              shortName: 'LaQua',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/FFCE0807-469D-4A12-875E-F9C3DF67003F_BB9DC293-2050-4E50-B21F-CC75C8248628.jpg'
               ],
@@ -220,6 +230,7 @@ export const trip: Trip = {
               date: 'November 7, 2024',
               degrees: '17°',
               name: 'Hakone',
+              shortName: 'Hakone',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/6B3E2DB8-7058-489A-9BB1-A6110BE972C6_15373184-7E42-4427-9AAB-45F684FD057D.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/9E626D2E-E22A-405A-AD42-F36027134D41_1787C089-A9B1-4D27-B6D5-2BA66874A5B0.jpg',
@@ -239,6 +250,7 @@ export const trip: Trip = {
               date: 'November 7, 2024',
               degrees: '17°',
               name: 'Hakone #2',
+              shortName: 'Hakone',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/EB88C6C4-6DC3-4A5D-AC28-F533D19D3CC2_1F89294F-A4D0-4456-914F-5D8B804EA602.jpg'
               ],
@@ -252,6 +264,7 @@ export const trip: Trip = {
               date: 'November 8, 2024',
               degrees: '17°',
               name: 'Kyoto',
+              shortName: 'Kyoto',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/2EC40128-B3BA-4137-8BD0-6C1968E14545_770CE62C-70FF-498F-9D3E-3265726F85A0.jpg'
               ],
@@ -265,6 +278,7 @@ export const trip: Trip = {
               date: 'November 9, 2024',
               degrees: '21°',
               name: 'Ibaraki',
+              shortName: 'Ibaraki',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/FBD2CDF5-CA4F-4130-AADD-E071E2B7EA9F_BED1191C-CD9E-4DC1-9513-5BA9B5A447F8.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/2989F3DA-E617-4E39-8337-743FEE43C479_EC4A99C4-EC07-4FF8-A713-1DBAFADBC6A1.jpg'
@@ -279,6 +293,7 @@ export const trip: Trip = {
               date: 'November 10, 2024',
               degrees: '23°',
               name: 'Osaka-shi',
+              shortName: 'Osaka-shi',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/70C5533B-38DC-4B8E-946C-A48E6B0ADF23_146AEE58-A5AB-4F35-A183-7FAC15CF42FB.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/C4AB8549-7D3E-4D0A-AF0E-2F82FFFBEF02_92B6B53F-40FB-4FF3-B7D5-6775C25F006E.jpg',
@@ -297,6 +312,7 @@ export const trip: Trip = {
               date: 'November 11, 2024',
               degrees: '23°',
               name: 'Ibaraki',
+              shortName: 'Ibaraki',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/7526D327-DE5E-42B9-956B-6DF587996729_F0EEDCEB-43DD-465E-B102-3B69FF453018.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/3407BE02-FFBA-4C3A-AF38-218C3E557E22_E842A14E-D9DE-4373-9014-B198E10B5B3E.jpg',
@@ -313,6 +329,7 @@ export const trip: Trip = {
               date: 'November 12, 2024',
               degrees: '22°',
               name: 'Universal Studios 👾🎯⛳️',
+              shortName: 'Universal Studios',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/02E2929B-5504-4810-960C-B0CE3CB76344_44630B30-CC6D-43D5-B491-CA79D1CC8BA6.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/F6B66FBC-9D1C-48BB-AB1E-41D29CDFFFF0_BD4C4D2D-6A6E-4946-A78E-065E28EC9718.jpg',
@@ -340,6 +357,7 @@ export const trip: Trip = {
               date: 'November 12, 2024',
               degrees: '21°',
               name: 'Jamming 🎸🎤🎶',
+              shortName: 'Jamming',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/C2247D88-195B-43F6-9449-FCB7C9B2B355_37D1E518-B290-4C50-BDB7-6D27F62C07A1.jpg'
               ],
@@ -353,6 +371,7 @@ export const trip: Trip = {
               date: 'November 13, 2024',
               degrees: '21°',
               name: 'My Heart',
+              shortName: 'My Heart',
               media: [],
               description: 'Show more',
               id: 19
@@ -361,6 +380,7 @@ export const trip: Trip = {
               date: 'November 13, 2024',
               degrees: '21°',
               name: 'Kyoto #2',
+              shortName: 'Kyoto',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/B8115031-E740-45BB-B48D-7EFEECB005DD_59FD7044-48E5-4EE7-97A5-EF246A53D8DF.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/B8A2DFD1-0DAE-4B9C-9EF0-BD5ECFFF17C4_87FF50EF-A897-406B-975A-94086ABC8E72.jpg',
@@ -378,6 +398,7 @@ export const trip: Trip = {
               date: 'November 14, 2024',
               degrees: '21°',
               name: 'Kyoto #2.5',
+              shortName: 'Kyoto',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/D15FFF41-4054-4063-95D5-1DC41431218C_B4C5E07E-F0C9-475D-AE12-DF20A8C0AF92.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/6497932D-51D2-4892-812F-5C84F2262C01_A3FBFBE9-1A6E-4ADE-B2A8-910AD4C0680F.jpg'
@@ -392,6 +413,7 @@ export const trip: Trip = {
               date: 'November 15, 2024',
               degrees: '21°',
               name: 'Osaka #2',
+              shortName: 'Osaka',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/6FE83919-7D61-460E-BBD9-065B54652D18_C9A50D60-ED9D-4EF8-A967-9C21DEA4B0B1.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/70928444-50DA-427E-BE15-8EBBBD7048B6_4194D6DA-DD4A-45D4-B17E-D6DDC05FB920.jpg',
@@ -411,6 +433,7 @@ export const trip: Trip = {
               date: 'November 16, 2024',
               degrees: '19°',
               name: 'Kobe 🥩',
+              shortName: 'Kobe',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/25494134-F608-4DB8-99F9-4BED8B51BC9F_76228550-1867-46F0-8EEF-038AB760A2A9.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/91B679F9-2069-443A-A320-38AC3462F2C7_5EEA4CB6-F87C-47BD-81CC-50E80C778D24.jpg',
@@ -436,6 +459,7 @@ export const trip: Trip = {
               date: 'November 17, 2024',
               degrees: '22°',
               name: 'Goodbye Kobe',
+              shortName: 'Kobe',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/0551BBF1-13A7-4BDF-BE6B-48AF9054ECA2_9000BEEB-E463-4E56-B5F9-4A35BF5A6D7D.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/0F458203-E2F4-4A1C-8618-4DEEBC4F717B_981E7487-B72F-4185-9A98-E6CE750ADDF9.jpg',
@@ -452,6 +476,7 @@ export const trip: Trip = {
               date: 'November 18, 2024',
               degrees: '16°',
               name: 'Ōtsu',
+              shortName: 'Ōtsu',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/00C1D925-994D-410C-ABD1-F563265F4AFD_F81274F5-9ACC-434E-B57C-A620794BA581.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/D8953E41-B15A-4817-8F64-B3AE381A0A08_E74245F9-EF6F-4B59-9474-B9ECD4E706AA.jpg',
@@ -474,6 +499,7 @@ export const trip: Trip = {
               date: 'November 19, 2024',
               degrees: '12°',
               name: 'Otsu #2.5',
+              shortName: 'Otsu',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/A6D4C1A9-4AF3-4E80-8762-3A9D7E8F3310_8F66C2C0-1656-445F-91F8-C80B1BBF2405.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/9A6E0FA0-FFBE-4EB3-8A1A-79DA7FD12528_062A39F2-A8DE-44A8-BB6B-480176EE40B0.jpg',
@@ -501,6 +527,7 @@ export const trip: Trip = {
               date: 'November 20, 2024',
               degrees: '9°',
               name: 'Otsu #3⅓',
+              shortName: 'Otsu',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/B074EBA6-63CE-4464-8879-FCD0F64D06F5_9C94E299-6E9A-492E-879D-907609744BEF.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/E114B4ED-13B3-463C-8904-7B7990D9AE84_D0BD9CB2-8818-4577-B4AF-26AE5F614ACD.jpg',
@@ -519,6 +546,7 @@ export const trip: Trip = {
               date: 'November 21, 2024',
               degrees: '13°',
               name: 'Yudanaka',
+              shortName: 'Yudanaka',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/3B45CB78-E298-4296-9658-71CDE2E701DC_208574D5-6113-42CD-8BEB-DEAAA82579C7.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/40567F40-1B04-44DD-93F4-B73DBB7DD067_91CB152F-26B3-44E5-9740-2258651F46D2.jpg',
@@ -534,6 +562,7 @@ export const trip: Trip = {
               date: 'November 22, 2024',
               degrees: '13°',
               name: 'Snow Monkey Park, Nagano',
+              shortName: 'Nagano',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/A35D4426-3F39-4A31-AEB7-FEA27E809C8F_3BD08C83-B32A-4BFD-BED5-1F378FFC863D.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/EA304472-5BDB-4282-81CC-F9449656C47D_A52D38E9-C6D6-486F-AA9D-68FA7321F5E5.jpg',
@@ -558,6 +587,7 @@ export const trip: Trip = {
               date: 'November 23, 2024',
               degrees: '16°',
               name: 'Arriving at Yokohama',
+              shortName: 'Yokohama',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/8129F1C7-8D45-48C7-9E88-214038C102CD_A46B68B8-94D4-436F-8794-A4A00ED35B7D.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/74DE12B5-3BA6-4CFD-8EB7-B7E1880FC266_FA280698-D3A6-477F-A08B-830C8D97AB4A.jpg',
@@ -573,6 +603,7 @@ export const trip: Trip = {
               date: 'November 24, 2024',
               degrees: '14°',
               name: 'Kamakura',
+              shortName: 'Kamakura',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/9905D1D1-9333-4129-9E71-4B41DDE74804_A674B704-D761-49EC-952D-0EF3FB015FFF.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/12822057-2050-4401-89AA-7794C18754E7_23D39AF0-11B4-45D3-AB29-076BF270579E.jpg',
@@ -594,6 +625,7 @@ export const trip: Trip = {
               date: 'November 25, 2024',
               degrees: '14°',
               name: 'Yokohama',
+              shortName: 'Yokohama',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/DF003376-9A11-4AC9-809E-72C7466D4BA2_D7E3CBB0-0EB6-475A-8A8D-DC193B23E592.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/842AAD6C-36B7-408A-8BAE-FA5D6B5D4FAA_3D5D43AE-FEF9-4149-8345-D088425E3FDA.jpg',
@@ -614,6 +646,7 @@ export const trip: Trip = {
               date: 'November 26, 2024',
               degrees: '14°',
               name: 'Bye-bye Yokohama!',
+              shortName: 'Yokohama',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/BB66CCAD-5896-40FC-99A3-53F834448D90_7C460434-3B01-4666-A3BC-343D5402D3E4.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/BB0F62C0-7C42-4EB3-AE3C-37A7690F1519_C1098474-7554-47F6-8FFC-F20EBEB1DF58.jpg',
@@ -630,6 +663,7 @@ export const trip: Trip = {
               date: 'November 27, 2024',
               degrees: '21°',
               name: 'Tokyo Opera City Concert Hall #1',
+              shortName: 'Tokyo',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/0ED4CFF8-DF5B-4FFC-845D-51518BE61CCB_C368EE3F-5261-4501-B6F4-B06F3168C119.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/7E756DFB-97B0-4859-84DB-891CA6BA5F5C_C6A8D6DA-406D-4851-A629-2646D5440AD5.jpg',
@@ -646,6 +680,7 @@ export const trip: Trip = {
               date: 'November 28, 2024',
               degrees: '18°',
               name: 'Tokyo Opera City Concert Hall #2',
+              shortName: 'Tokyo',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/B4CC96AE-C462-4BD7-92BF-4F81A28DE21C_F34CD77D-B20A-4E79-BC67-F0724E1F228F.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/CB422E9B-FD1B-449E-ADAC-CC634B77E927_23DD2A3F-9C78-413B-B277-03C9D39EE7A2.jpg',
@@ -666,6 +701,7 @@ export const trip: Trip = {
               date: 'November 29, 2024',
               degrees: '16°',
               name: 'SEGA Joypolis',
+              shortName: 'Joypolis',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/4297313F-D8AE-4AA4-BA5E-C4010F5CA54F_0AE85053-B7BE-4E1B-8510-6B5BF95F3DA0.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/7FB7E834-D8A4-4E55-8AD5-133DA4CAF5C6_B4280F08-60C8-46EF-BB13-EA2D9900E6BF.jpg',
@@ -687,6 +723,7 @@ export const trip: Trip = {
               date: 'November 30, 2024',
               degrees: '16°',
               name: 'Baba Ramen',
+              shortName: 'Baba Ramen',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/E6E8F83A-0F76-4590-B18C-EB1B93E30E99_4EAF60F6-D1AF-4F87-9B7C-4E21D3C778D6.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/4B17E212-9E30-4C96-9730-F35C34408844_BCC1D8C4-CA4D-4A9A-BD99-C63FADE286CC.jpg',
@@ -706,6 +743,7 @@ export const trip: Trip = {
               date: 'December 1, 2024',
               degrees: '16°',
               name: 'Sugamo',
+              shortName: 'Sugamo',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/BFC5F68B-3A58-4A11-AFC6-82D09BF7E2DE_022A1322-EF22-4B4A-A56B-59C8C48B32EE.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/F3A9E1B2-69A9-4C50-B4B6-9910AB33A60B_1B063147-D74A-419C-A1CC-153258C8DCE5.jpg',
@@ -728,6 +766,7 @@ export const trip: Trip = {
               date: 'December 2, 2024',
               degrees: '15°',
               name: 'JAPAN SUMMARY 🏯🎌🍣',
+              shortName: 'Japan Summary',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/6150B808-DB0B-4798-91CD-DCE33769BBB3_ACBCDDEF-E8B6-4416-B224-5E28239C4397.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/13B5F6E7-209B-47E1-8B82-42557455B649_15F44B3B-98B1-4C69-BDCF-76AD4DF891C8.jpg',
@@ -757,6 +796,7 @@ export const trip: Trip = {
               date: 'December 3, 2024',
               degrees: '29°',
               name: 'Diamond Head Volcanic Peak',
+              shortName: 'Diamond Head',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/ED8AE979-35E3-4B53-8E72-63CDA6ED7AA1_AE51ACF6-B835-4C58-BD1B-3360309B8CBA.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/8CC8EDE9-3A4A-4A9C-B76D-E90BC0F533D6_98FA4725-ED65-4BD3-8900-EF873DAC7B3D.jpg',
@@ -784,6 +824,7 @@ export const trip: Trip = {
               date: 'December 4, 2024',
               degrees: '30°',
               name: 'Moanalua Park',
+              shortName: 'Moanalua Park',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/7FEB619C-E2E1-4018-BC07-A188E20B5506_C50E013F-A4C8-4C20-B798-230095BFD584.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/4A7D66FE-2D06-4D43-AF39-DC03D218D26A_FFBD1FF4-7403-44B5-9A4B-F1891E36C37A.jpg',
@@ -803,6 +844,7 @@ export const trip: Trip = {
               date: 'December 5, 2024',
               degrees: '30°',
               name: 'Kaneohe',
+              shortName: 'Kaneohe',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/1EDD8CBE-DE2D-4EF7-BA17-6AA664142260_4164170D-C5E7-4C01-8A2E-4FB9086B2664.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/190FDDA7-D677-417F-8C5F-617F7F0166DD_32DCCC51-7B7F-410D-8322-C7FF51AD8805.jpg',
@@ -818,6 +860,7 @@ export const trip: Trip = {
               date: 'December 6, 2024',
               degrees: '27°',
               name: 'Kaneohe #2',
+              shortName: 'Kaneohe',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/D9A8E04D-82D3-429F-A6EB-81870C3D0C81_B8B728BD-8EA4-4554-A9C6-E1EDEE2D1AB9.jpg'
               ],
@@ -831,6 +874,7 @@ export const trip: Trip = {
               date: 'December 7, 2024',
               degrees: '28°',
               name: 'Aloha Stadium Swap Meet',
+              shortName: 'Aloha Stadium',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/FDAABB16-3AD0-497C-A797-5A5A444DFF16_02E37CFC-8076-477C-94C6-8F1E13C7B417.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/164DAA59-0684-4FC0-ACDD-14C38C1AE38C_F4391AD2-7BA3-4493-B513-C6F662A61AA0.jpg',
@@ -851,6 +895,7 @@ export const trip: Trip = {
               date: 'December 8, 2024',
               degrees: '29°',
               name: 'Kaneohe #3',
+              shortName: 'Kaneohe',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/D32E99CD-E229-4B80-A8A4-FE6D7C6DA289_BB07A759-D8F5-47CB-ABCC-416B8015D3BA.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/5E3DD912-75FB-492E-8E2E-55BF21345651_A2C4D188-5FA0-40CB-B858-09C364326FE5.jpg',
@@ -881,6 +926,7 @@ export const trip: Trip = {
               date: 'December 9, 2024',
               degrees: '29°',
               name: 'Los Angeles 🎸',
+              shortName: 'Los Angeles',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/2B1DECC4-10D3-4DAB-B01A-FFAEE040D415_F825E0E7-E124-4027-B1A6-269F1F07849B.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/3F8F771D-6D0B-482F-8F10-375F7BB94F9C_2259B041-C077-438D-8173-A2594F7B8FE0.jpg',
@@ -900,6 +946,7 @@ export const trip: Trip = {
               date: 'December 10, 2024',
               degrees: '22°',
               name: 'Venice Beach',
+              shortName: 'Venice Beach',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/66594189-E4CF-45D1-9740-3A64A9704EC0_E5DD67CD-DF80-4AB9-870E-5C570747CCF0.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/592DF16E-5F78-4150-A4EB-5226081BF97A_847B463B-F26E-48D8-907D-CDF1528CADF9.jpg',
@@ -918,6 +965,7 @@ export const trip: Trip = {
               date: 'December 11, 2024',
               degrees: '22°',
               name: 'Hollywood',
+              shortName: 'Hollywood',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/9EFDF4A5-05A6-431E-AA7D-5D5976EE4869_916AA69B-ED92-4E14-BC5A-7A269E74A48F.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/8AC27F27-5600-42EE-BC9C-B4929ABB0FA6_F6A977BD-55F5-456F-9DF9-43A435748B02.jpg',
@@ -942,6 +990,7 @@ export const trip: Trip = {
               date: 'December 11, 2024',
               degrees: '22°',
               name: 'My Heart #2',
+              shortName: 'My Heart',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/3FFBDB8F-9B04-46DF-BE18-AA3835A245E5_5C2C3DBE-CE18-4712-A160-7117278D89C8.jpg'
               ],
@@ -955,6 +1004,7 @@ export const trip: Trip = {
               date: 'December 12, 2024',
               degrees: '16°',
               name: 'Santa Monica',
+              shortName: 'Santa Monica',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/5BA5F5DC-4CCA-44B7-84C0-59599B663358_9DC2BD1F-C27B-40CB-A32B-E409749121BB.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/0EC18D90-F673-490F-8401-4BE048C404E0_B37B5F04-2F4C-421F-8ABE-A40C261C997B.jpg'
@@ -975,6 +1025,7 @@ export const trip: Trip = {
               date: 'December 13, 2024',
               degrees: '2°',
               name: 'Newark',
+              shortName: 'Newark',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/D4E92A89-E4C3-494A-A691-DC1160515EF0_6F8B77D6-5D03-4562-AF30-298FD889D7C2.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/0A2AEC9A-C0DA-4E6E-B8EA-2892FF2B55E4_4404713A-3A3B-4A05-A3BE-8DD9C19EE2D7.jpg',
@@ -990,6 +1041,7 @@ export const trip: Trip = {
               date: 'December 14, 2024',
               degrees: '2°',
               name: 'Newark #2',
+              shortName: 'Newark',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/989E65E9-B45D-4E87-8389-53ED29183A18_8E559950-C35E-493F-95E1-AAE6781D621A.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/BAC3F8F8-03B8-4655-A159-740D051B748E_1B98D6B1-7413-40F4-9F43-35E198341CE2.jpg',
@@ -1006,6 +1058,7 @@ export const trip: Trip = {
               date: 'December 14, 2024',
               degrees: '2°',
               name: '🌟 SONIC SYMPHONY 🌟',
+              shortName: 'Sonic Symphony',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/0134F707-DEFE-4280-8584-1F1BC017ADF9_6DD076C3-F1BD-4809-BD75-A4575513572E.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/CE2C753E-A346-40B8-A104-8736C471DCB9_0DF76BEB-396E-4A70-8E46-2EF70C6B2E07.jpg',
@@ -1036,6 +1089,7 @@ export const trip: Trip = {
               date: 'December 15, 2024',
               degrees: '6°',
               name: 'Arriving at New York',
+              shortName: 'New York',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/F8DC90F9-61EE-428E-80FE-D79C23328DA4_7E023866-E077-4760-A6A2-8F8787066D5F.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/9ECF567E-E9E6-4375-B45C-FDD128C3BF83_64753658-496A-473C-BE0F-5145E6F67CC3.jpg',
@@ -1056,6 +1110,7 @@ export const trip: Trip = {
               date: 'December 16, 2024',
               degrees: '11°',
               name: 'New York, New York 🍂',
+              shortName: 'New York',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/A9A13D37-0F00-4551-98ED-D8198B7C246F_5FA3AEAA-17C6-4F42-A758-22B222AC9EF9.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/AFDE8DBE-135F-4CD5-B8FF-9983F894021B_2B9D64BE-42E7-4532-8C9F-8DF5028B9A0F.jpg',
@@ -1089,6 +1144,7 @@ export const trip: Trip = {
               date: 'December 17, 2024',
               degrees: '15°',
               name: 'Princeton…?',
+              shortName: 'Princeton',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/86ED9C28-D220-4D0E-A49B-013496D180AC_78DB3D21-E986-4A2A-A30D-9CEC2D9B02FE.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/8CEC1BA8-8D3F-4E47-AB2E-8F8C879A647F_39C96A1B-29B0-4003-BD45-0C6419E7AC4D.jpg',
@@ -1110,6 +1166,7 @@ export const trip: Trip = {
               date: 'December 18, 2024',
               degrees: '14°',
               name: 'Philadelphia',
+              shortName: 'Philadelphia',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/CC8D93D1-C94D-4107-B707-7AE0C88F6C76_1E6391B5-49F5-4F89-97B5-4604F5E46F89.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/206CA9F7-1FA1-4305-8A18-38B9444AAD83_36860F08-6BB4-4FB3-B4CE-6C84F2F1D28B.jpg',
@@ -1128,6 +1185,7 @@ export const trip: Trip = {
               date: 'December 19, 2024',
               degrees: '7°',
               name: 'Princeton(!)',
+              shortName: 'Princeton',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/86D0761D-7ABB-4053-916D-22E751BDE099_395F834C-8083-4E38-93B6-DE1B06387FBF.jpg'
               ],
@@ -1141,6 +1199,7 @@ export const trip: Trip = {
               date: 'December 20, 2024',
               degrees: '2°',
               name: '🤧🤒😷',
+              shortName: 'Achoo',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/42F67ABF-2BA9-4572-B8DA-B88035307139_5015E8FD-9DAC-473A-A669-1F21F2194203.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/967B0BC9-F1E6-4A17-9A9A-36128FD1DF77_F774CE47-E48B-4316-B825-414E98E76068.jpg',
@@ -1156,6 +1215,7 @@ export const trip: Trip = {
               date: 'December 24, 2024',
               degrees: '3°',
               name: 'Christmas Eve 🎄',
+              shortName: 'Christmas Eve',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/F24DD5E2-F87E-4DA4-926E-42C96D0FFCDA_54FE14B5-E045-4426-819C-4F7786520109.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/21D5FC38-72D3-43F9-94E4-8474D8F605B3_2D3FEA41-E725-41C7-83E4-BF6BBE0872DF.jpg',
@@ -1180,6 +1240,7 @@ export const trip: Trip = {
               date: 'December 25, 2024',
               degrees: '3°',
               name: 'Christmas Day 🎅🏻',
+              shortName: 'Christmas Day',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/542361B3-F792-4525-9C7A-740E77B070B1_762CF59F-EDF1-4B61-A6AC-8E9A1EB26440.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/10971769-AA64-4F4E-9C12-6BC107B45DB3_6A7438B1-8B8D-4EE5-8F57-84D8CB7F8F76.jpg'
@@ -1194,6 +1255,7 @@ export const trip: Trip = {
               date: 'December 26, 2024',
               degrees: '4°',
               name: 'Jamison City 🃏',
+              shortName: 'Jamison City',
               media: [],
               bgImage:
                 'https://i0.wp.com/cascadescasinokamloops.com/wp-content/uploads/2021/01/Homepage-GamingPage-PokerImage-scaled.jpg?fit=2560%2C1787&ssl=1',
@@ -1205,6 +1267,7 @@ export const trip: Trip = {
               date: 'December 28, 2024',
               degrees: '9°',
               name: 'Hatboro',
+              shortName: 'Hatboro',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/CABBCA14-913E-43F4-A379-DE1E7F96A707_6A4B5B27-C11E-446F-8A19-9CEBF7F630AF.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/D3F94B5A-D05A-4B39-92F9-61B4782AB6E0_AB686ED1-60F2-4D67-8E5D-AE6E5097F897.jpg',
@@ -1220,6 +1283,7 @@ export const trip: Trip = {
               date: 'December 29, 2024',
               degrees: '18°',
               name: 'Doylestown',
+              shortName: 'Doylestown',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/2509A0B7-FEA2-408A-B114-FD068BE7A37C_66CDCA6F-0741-4FAE-AC8C-D9075BDFC1D2.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/BF4F8632-41AB-4700-8760-7997CF7042E5_9CF9DCD0-B1B8-46E4-9188-4A9639210023.jpg',
@@ -1235,6 +1299,7 @@ export const trip: Trip = {
               date: 'December 30, 2024',
               degrees: '15°',
               name: 'Hamilton',
+              shortName: 'Hamilton',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/237504FF-C040-464D-98C4-6C9066017554_C153BFF6-F78E-4079-A6B5-2A03839FE29B.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/D8602DDB-7E2F-4960-8631-85374D320D90_4237D0E4-58CC-4556-9CC4-0FA056AD8C57.jpg',
@@ -1255,6 +1320,7 @@ export const trip: Trip = {
               date: 'December 31, 2024',
               degrees: '15°',
               name: 'USA SUMMARY 🇺🇸🗽',
+              shortName: 'USA Summary',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/F15305F6-C600-4781-A035-53B05BA03A51_6E41F531-A002-4C2F-8F49-91A73E4AB938.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/F03A0940-17CF-41F1-9061-F112FC9C8CF2_F29F2174-5989-4E71-8CB9-B08D65F6DC2B.jpg',
@@ -1282,6 +1348,7 @@ export const trip: Trip = {
               date: 'January 1, 2025',
               degrees: '9°',
               name: 'Amsterdam',
+              shortName: 'Amsterdam',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/3548C7A3-DB9C-4D4F-B0EC-C5B70FC01361_080992A4-0D9F-4F5C-A0A8-3AC39DC55FD4.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/454810C7-0C0F-41E3-8119-D247B5C38AA1_70D9C473-F5EE-49EC-AF9B-42AAC7B26470.jpg',
@@ -1301,6 +1368,7 @@ export const trip: Trip = {
               date: 'January 3, 2025',
               degrees: '5°',
               name: 'Rijksmuseum 🖼️',
+              shortName: 'Rijksmuseum',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/8926EECA-B580-4AA4-9C0D-70353AFF55D1_FEBE0594-ED3B-4862-9027-69A7D94E41A6.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/C5C39293-D462-41A5-9E80-94FCB7EF490D_B933A650-8D1D-4545-9D8A-D595566AA115.jpg',
@@ -1329,6 +1397,7 @@ export const trip: Trip = {
               date: 'January 4, 2025',
               degrees: '4°',
               name: 'Gouda',
+              shortName: 'Gouda',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/90DA35B4-BBB2-400F-8C6D-AD89D52402B1_B3BF4064-4997-48B5-BF60-137A496C2196.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/5A678391-E08F-4774-9FAE-72EA3F728A6F_D14ECDEB-2594-477E-BB3E-95D5401C3AAE.jpg',
@@ -1344,6 +1413,7 @@ export const trip: Trip = {
               date: 'January 5, 2025',
               degrees: '12°',
               name: '🍄‍🟫 Wunderland 🍄',
+              shortName: 'Wunderland',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/460D3B8A-8BE8-460F-8D3A-A0CBFAC4E4CC_A187FEC9-506E-47FC-964F-653382EF1940.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/C22AC7FA-03BB-4C33-8A89-4D1DAF4AE7EB_85CECA4E-B3A5-47F4-97C7-43CC746DE9AA.jpg'
@@ -1358,6 +1428,7 @@ export const trip: Trip = {
               date: 'January 6, 2025',
               degrees: '12°',
               name: 'Utrecht',
+              shortName: 'Utrecht',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/11429ac0-fca0-4c79-9a71-10d29d0c4f48_43fb46f5-d970-4b6f-8b5b-94a62b2f87db.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/eab88128-78c0-44c0-8c14-c1de2a628163_69848fec-5c72-42eb-ad1a-1e578ac808c2.jpg',
@@ -1380,6 +1451,7 @@ export const trip: Trip = {
               date: 'January 10, 2025',
               degrees: '4°',
               name: 'Eindhoven',
+              shortName: 'Eindhoven',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/85127220-346e-410d-92b7-d8c495ce2a58_202f34ac-4d7c-4d6e-84e2-09ffd9f4442f.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/ebc5f0eb-f382-4084-9982-ce094268106c_fe81327e-80bd-418b-ab19-fb16da1ee4c5.jpg',
@@ -1410,6 +1482,7 @@ export const trip: Trip = {
               date: 'January 13, 2025',
               degrees: '0°',
               name: 'Nürnberg',
+              shortName: 'Nürnberg',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/f8d27da7-527a-46aa-b044-a14d49f52bad_790ce635-3f02-40e0-8f2a-8b6cdcfde3cd.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/e4918cee-bfda-41d0-ba55-3ae2bdacd2b6_824b45ec-23e2-4fda-ac4e-d37717e6d50b.jpg',
@@ -1427,6 +1500,7 @@ export const trip: Trip = {
               date: 'January 16, 2025',
               degrees: '6°',
               name: 'Nürnberg #2.5',
+              shortName: 'Nürnberg',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/8f61a5a1-f43d-4592-a080-5b629576b720_44a76d05-b5b2-4474-a6ce-d555672c0b25.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/ae6e8411-a065-447e-967a-0aa54b0e78c2_18f7d7a6-1117-4092-972c-21baed79946c.jpg',
@@ -1450,6 +1524,7 @@ export const trip: Trip = {
               date: 'January 18, 2025',
               degrees: '6°',
               name: 'Nürnberg #3⅓',
+              shortName: 'Nürnberg',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/85059e4f-1042-44ff-962d-149dee82e716_608b4b4c-b320-4671-9c84-7df3f627e81a.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/c1b016fe-2cac-42de-abf7-6b7aa54f9bb8_5bea9a39-5c64-49e3-b7f0-a7ad390ad37d.jpg',
@@ -1470,6 +1545,7 @@ export const trip: Trip = {
               date: 'January 19, 2025',
               degrees: '7°',
               name: 'Last day in Nürnberg 🇩🇪',
+              shortName: 'Nürnberg',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/4c913e61-eecc-4e1b-bde3-bd3fea8fd6f8_0aaf431b-6f3d-468c-ae81-bd0e95d2b5d5.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/19bcb7fe-7d22-4060-b977-1fb526e3a553_06d9b082-c5c4-4e20-89d0-d5e52f28b7b6.jpg',
@@ -1493,6 +1569,7 @@ export const trip: Trip = {
               date: 'January 20, 2025',
               degrees: '-2°',
               name: 'Vienna 🎻🇦🇹',
+              shortName: 'Vienna',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/f8476ae7-b09e-4e72-a6b2-87c54d08b744_a5fece7a-d039-42a7-9629-0a5357535457.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/9685714f-3fa3-4010-92b4-72e9ca7a6f13_68fa600d-de87-4d12-a9a9-11eaa2604df9.jpg',
@@ -1515,6 +1592,7 @@ export const trip: Trip = {
               date: 'January 21, 2025',
               degrees: '0°',
               name: 'More Vienna!',
+              shortName: 'More Vienna',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/8b9edaf8-1061-472c-ac38-01746c5d0a2d_904bedeb-f95a-4355-93ec-165583a87d41.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/0c3b7576-66c9-480f-ad79-6e3e811eee6e_886e3b7b-8ff0-45fb-996b-f7e479d7a508.jpg',
@@ -1538,6 +1616,7 @@ export const trip: Trip = {
               date: 'January 21, 2025',
               degrees: '-1°',
               name: 'Johann Strauss Dinner',
+              shortName: 'Strauss Dinner',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/40fdc604-d35f-4174-a5e5-03ded8c1365e_080d6138-1e58-49f8-bd3e-adb89b7158a4.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/40b71250-1e83-4022-9d55-0cdfdf4bf1b4_38e78457-8805-43be-b7f3-b6a33356be87.jpg',
@@ -1568,6 +1647,7 @@ export const trip: Trip = {
               date: 'January 22, 2025',
               degrees: '-1°',
               name: 'Bratislava',
+              shortName: 'Bratislava',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/59325f66-6960-4a77-817a-35107c3c7654_32eed8c5-f8ba-4bcb-8f15-6ffebc9c44b5.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/300406b6-8d10-4250-85c4-8f1a483d0e90_b7f58843-b36c-4a8a-812f-9e6b0fab24aa.jpg',
@@ -1592,6 +1672,7 @@ export const trip: Trip = {
               date: 'January 23, 2025',
               degrees: '4°',
               name: 'Prague',
+              shortName: 'Prague',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/f68f7ea8-97ee-47c4-9b68-596677891c7d_8909f463-5627-4204-9633-bc0c503d34aa.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/b363a0e9-aa2b-4805-8de7-b1673e99985e_1720ad56-d807-4f9a-b9dd-80e7622def8f.jpg',
@@ -1611,6 +1692,7 @@ export const trip: Trip = {
               date: 'January 24, 2025',
               degrees: '7°',
               name: 'Praha',
+              shortName: 'Praha',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/8180b648-9f2c-4a76-bedb-0052fead4c0e_2af4750d-af35-4afc-8950-6fdccecb9e6a.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/7202cdb3-504a-4a26-b785-6d523ee3b640_86db3e6b-e0da-47d0-8c04-ecac32a67423.jpg',
@@ -1635,6 +1717,7 @@ export const trip: Trip = {
               date: 'January 25, 2025',
               degrees: '10°',
               name: 'Praגa',
+              shortName: 'Praגa',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/21eb852b-8434-4984-b00f-328971a8fda8_fda87ab4-c506-4b8c-84e7-2f9bd2ecaf38.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/2737f7e0-0686-48c6-aa54-d9a29a601146_ac1e9b50-c5d7-4eff-89b6-a7c011d31edb.jpg',
@@ -1654,6 +1737,7 @@ export const trip: Trip = {
               date: 'January 26, 2025',
               degrees: '8°',
               name: 'Vietnamese Respite 🇻🇳',
+              shortName: 'Vietnam??',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/a64730d0-8345-41db-a257-af12697519b6_2301bf81-114a-4436-accb-d68583eb1cc8.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/5afee968-ff19-4cf3-a255-8ee140921b8f_6809b122-c0eb-445c-8edf-9aad3e43eae6.jpg',
@@ -1680,6 +1764,7 @@ export const trip: Trip = {
               date: 'January 27, 2025',
               degrees: '20°',
               name: 'Summary 🇯🇵🇺🇸🇺🇳🇮🇱',
+              shortName: 'Home',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/2e9ac0b3-3531-40d5-bfaa-f955848b4471_df76251d-ff15-4693-b25a-50ad51bd72a9.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/783ae469-1139-4b14-86a8-627581d6f3d1_9844ccea-5358-4a51-8940-0069dd789f48.jpg'
@@ -1720,7 +1805,31 @@ export const getContinentByStep = (step: Step): Continent =>
     countries: []
   }
 
-export const encodeURIStep = (step: Step) => `${step.id}-${encodeURIComponent(step.name)}`
+// Formats a long date string like "January 1, 2025" to "1-1-2025"
+export const formatDate = (longDateString: string): string => {
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ]
+  const match = longDateString.match(/^([A-Za-z]+) (\d{1,2}), (\d{4})$/)
+  if (!match) return longDateString
+  const month = months.indexOf(match[1]) + 1
+  const day = parseInt(match[2], 10)
+  const year = match[3]
+  return `${day}-${month}-${year}`
+}
+
+export const encodeURIStep = (step: Step) => `${step.id}-${encodeURIComponent(step.shortName)}`
 
 export const decodeURIStep = (id: string) => {
   const [stepId, _] = id.split('-')

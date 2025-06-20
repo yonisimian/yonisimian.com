@@ -5,41 +5,20 @@
     :style="flagStyle"
     @click="chooseDest(dest)"
   >
-    <div>{{ dest.name }}</div>
+    <div>{{ dest.shortName || dest.name }}</div>
     <div v-if="date" class="text-xs text-gray-300">{{ formatDate(date) }}</div>
   </div>
 </template>
 
-<script setup lang="ts" generic="T extends { name: string }">
+<script setup lang="ts" generic="T extends { name: string, shortName?: string }">
+import { formatDate } from '/@/data/trip'
+
 const props = defineProps<{
   dest: T
   date?: string
   isCurrDest: boolean
   chooseDest: (dest: T) => void
 }>()
-
-const formatDate = (dateStr: string): string => {
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
-  ]
-  const match = dateStr.match(/^([A-Za-z]+) (\d{1,2}), (\d{4})$/)
-  if (!match) return dateStr
-  const month = months.indexOf(match[1]) + 1
-  const day = parseInt(match[2], 10)
-  const year = match[3]
-  return `${day}-${month}-${year}`
-}
 
 const flagStyle =
   'bgImage' in props.dest
