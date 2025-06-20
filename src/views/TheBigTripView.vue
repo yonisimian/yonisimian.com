@@ -18,10 +18,18 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import { continents, countries, steps, getCountryByStep, getContinentByStep } from '/@/data/trip'
+import { computed, onMounted, ref, watch } from 'vue'
+import {
+  continents,
+  countries,
+  steps,
+  getCountryByStep,
+  getContinentByStep,
+  encodeURIStep,
+  decodeURIStep
+} from '/@/data/trip'
 import { useRouter } from 'vue-router'
-import type { Continent, Country, Step } from '../types/trip'
+import type { Continent, Country, Step } from '/@/types/trip'
 
 const router = useRouter()
 
@@ -31,7 +39,22 @@ const currContinent = computed<Continent>(() => getContinentByStep(currStep.valu
 
 const dates: string[] = steps.map((step) => step.date)
 
-const encodeURIStep = (step: Step) => encodeURIComponent(step.name)
+const setStepFromRoute = () => {
+  const id = router.currentRoute.value.params.id as string | undefined
+  const found = id && decodeURIStep(id)
+  if (found) currStep.value = found
+}
+
+onMounted(() => {
+  setStepFromRoute()
+})
+
+watch(
+  () => router.currentRoute.value.params.id,
+  () => {
+    setStepFromRoute()
+  }
+)
 
 const updateURL = () => {
   router.push(`/thebigtrip/${encodeURIStep(currStep.value)}`)

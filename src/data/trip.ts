@@ -1719,3 +1719,10 @@ export const getContinentByStep = (step: Step): Continent =>
     bgImage: '',
     countries: []
   }
+
+export const encodeURIStep = (step: Step) => `${step.id}-${encodeURIComponent(step.name)}`
+
+export const decodeURIStep = (id: string) => {
+  const [stepId, _] = id.split('-')
+  return steps.find((step) => step.id === Number(stepId))
+}

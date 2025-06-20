@@ -10,7 +10,7 @@ const routes = [
   {
     path: '/thebigtrip',
     component: TheBigTripView,
-    children: [{ path: ':step', component: StepView }]
+    children: [{ path: ':id', component: StepView }]
   }
 ]
 
