@@ -146,10 +146,10 @@ const onDragEnd = () => {
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0%,
-    black 20%,
-    black 80%,
+    black 15%,
+    black 85%,
     transparent 100%
   );
-  mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
 }
 </style>
