@@ -50,7 +50,7 @@ const galleryConfig = {
   // loop: true,
   itemsToShow: 1,
   touchDrag: true,
-  mouseDrag: true,
+  // mouseDrag: true,
   mouseWheel: true,
   transition: 500,
   height: 640
