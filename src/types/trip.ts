@@ -17,6 +17,7 @@ export interface Country {
 export interface Step {
   id: number // Unique identifier for the step
   name: string
+  shortName: string // Short name for the step, used in DestBars
   date: string // ISO format: '2025-06-17'
   degrees: string // Temperature in degrees Celsius
   description: string // HTML
