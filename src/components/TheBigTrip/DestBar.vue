@@ -1,5 +1,8 @@
 <template>
-  <div class="h-scroll-outer w-full overflow-hidden flex items-center justify-center">
+  <div
+    class="h-scroll-outer w-full overflow-hidden flex items-center justify-center"
+    ref="containerRef"
+  >
     <div
       class="h-scroll w-full flex"
       :style="scrollStyle"
@@ -25,7 +28,7 @@
 </template>
 
 <script setup lang="ts" generic="T extends { name: string }">
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 
 const props = defineProps<{
   destinations: T[]
@@ -46,12 +49,35 @@ const isCurrDest = (dest: T) => {
 
 const currIdx = computed(() => props.destinations.findIndex(isCurrDest))
 
+// === Fixture: initial position of the DestBarItems was not correct ===
+const containerRef = ref<HTMLElement | null>(null)
+const containerWidth = ref<number | null>(null)
+
+onMounted(() => {
+  if (containerRef.value) {
+    containerWidth.value = containerRef.value.clientWidth
+  }
+})
+
+// Optional: Update width on window resize
+window.addEventListener('resize', () => {
+  if (containerRef.value) {
+    containerWidth.value = containerRef.value.clientWidth
+  }
+})
+
+// Watch for changes in currIdx or containerWidth and update scroll
+watch([currIdx, containerWidth], () => {
+  // This will trigger recomputation of scrollStyle
+})
+// === End Fixture ===
+
 const scrollStyle = computed(() => {
   // Center the current destination
   const centerIdx = currIdx.value
-  const containerWidth = document.querySelector('.h-scroll-outer')?.clientWidth
-  if (centerIdx === -1 || !containerWidth) return {}
-  const offset = centerIdx * ITEM_WIDTH + ITEM_WIDTH / 2 - containerWidth / 2
+  // const containerWidth = document.querySelector('.h-scroll-outer')?.clientWidth
+  if (centerIdx === -1 || !containerWidth.value) return {}
+  const offset = centerIdx * ITEM_WIDTH + ITEM_WIDTH / 2 - containerWidth.value / 2
   return {
     transform: `translateX(${-offset}px)`,
     // transition: 'transform 0.6s cubic-bezier(.4,1.4,.6,1)' // a bit harsh
@@ -64,11 +90,11 @@ const onWheel = (e: WheelEvent) => {
   const idx = currIdx.value
   if (idx === -1) return
 
-  if (e.deltaY < 0 && idx > 0) {
-    // Scroll up: previous destination (move right)
+  if ((e.deltaY < 0 || e.deltaX < 0) && idx > 0) {
+    // Scroll up / left: previous destination
     props.chooseDest(props.destinations[idx - 1])
-  } else if (e.deltaY > 0 && idx < props.destinations.length - 1) {
-    // Scroll down: next destination (move left)
+  } else if ((e.deltaY > 0 || e.deltaX > 0) && idx < props.destinations.length - 1) {
+    // Scroll down / right: next destination
     props.chooseDest(props.destinations[idx + 1])
   }
 }
