@@ -8,6 +8,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    2: typeof import('./components/TheBigTrip/carousel/MediaCarousel copy 2.vue')['default']
     About: typeof import('./components/about/About.vue')['default']
     BackBackground: typeof import('./components/gallery/cardBack/BackBackground.vue')['default']
     BackCard: typeof import('./components/gallery/cardBack/BackCard.vue')['default']
@@ -21,7 +22,7 @@ declare module 'vue' {
     BackTitle: typeof import('./components/gallery/cardBack/BackTitle.vue')['default']
     BackTitledDesc: typeof import('./components/gallery/cardBack/BackTitledDesc.vue')['default']
     ContinentsBar: typeof import('./components/TheBigTrip/ContinentsBar.vue')['default']
-    copy: typeof import('./components/TheBigTrip/ContinentsBar copy.vue')['default']
+    copy: typeof import('./components/TheBigTrip/carousel/MediaCarousel copy.vue')['default']
     DarkBackground: typeof import('./components/gallery/cardBack/DarkBackground.vue')['default']
     DarkTheme: typeof import('./components/header/DarkTheme.vue')['default']
     DarkThemeIcon: typeof import('./components/footer/icons/DarkThemeIcon.vue')['default']
@@ -48,7 +49,10 @@ declare module 'vue' {
     GalleryGrid: typeof import('./components/gallery/GalleryGrid.vue')['default']
     GitHubIcon: typeof import('./components/footer/icons/GitHubIcon.vue')['default']
     Header: typeof import('./components/header/Header.vue')['default']
-    MediaCarousel: typeof import('./components/TheBigTrip/MediaCarousel.vue')['default']
+    MediaCarousel: typeof import('./components/TheBigTrip/carousel/MediaCarousel.vue')['default']
+    MediaCarouselFullscreen: typeof import('./components/TheBigTrip/carousel/MediaCarouselFullscreen.vue')['default']
+    MediaCarouselFullscrenn: typeof import('./components/TheBigTrip/carousel/MediaCarouselFullscrenn.vue')['default']
+    MediaCarouselNormal: typeof import('./components/TheBigTrip/carousel/MediaCarouselNormal.vue')['default']
     ProfileImage: typeof import('./components/header/ProfileImage.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
