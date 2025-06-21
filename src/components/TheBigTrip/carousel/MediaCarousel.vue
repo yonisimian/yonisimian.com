@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div v-if="step.media && step.media.length">
-      <MediaCarouselFullscreen v-if="fullscreen" :step :isImage />
-      <MediaCarouselNormal :class="{ inactive: fullscreen }" :step :isImage />
+    <div v-if="currStep.media && currStep.media.length">
+      <MediaCarouselFullscreen v-if="fullscreen" />
+      <MediaCarouselNormal :class="{ inactive: fullscreen }" />
     </div>
   </div>
 </template>
@@ -10,24 +10,15 @@
 <script setup lang="ts">
 import 'vue3-carousel/carousel.css'
 import { watch } from 'vue'
-import { Step } from '/@/types/trip'
-import { useTripQueryParams } from '/@/composables/useTripQueryParams'
+import { useTripState } from '/@/composables/useTripState'
 
-const props = defineProps<{
-  step: Step
-}>()
-
-const { slide, fullscreen } = useTripQueryParams()
+const { currStep, slide, fullscreen } = useTripState()
 
 // reset slide when step changes
 watch(
-  () => props.step,
+  () => currStep.value,
   () => (slide.value = 0)
 )
-
-const isImage = (url: string): boolean => {
-  return /\.(jpg|jpeg|png|gif|webp|svg)$/i.test(url)
-}
 </script>
 
 <style scoped>
