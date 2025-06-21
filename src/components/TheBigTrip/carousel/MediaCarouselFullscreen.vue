@@ -5,7 +5,7 @@
   >
     <div class="max-w-5xl h-max bg-black flex items-center justify-center overflow-hidden">
       <Carousel id="gallery" v-bind="galleryConfig" v-model="slide">
-        <Slide v-for="(url, index) in step.media" :key="index">
+        <Slide v-for="(url, index) in currStep.media" :key="index">
           <div class="w-full h-full bg-black flex items-center justify-center">
             <img
               v-if="isImage(url)"
@@ -24,15 +24,10 @@
 <script setup lang="ts">
 import 'vue3-carousel/carousel.css'
 import { Carousel, Slide } from 'vue3-carousel'
-import { Step } from '/@/types/trip'
-import { useTripQueryParams } from '/@/composables/useTripQueryParams'
+import { useTripState } from '/@/composables/useTripState'
+import { isImage } from '/@/data/trip'
 
-defineProps<{
-  step: Step
-  isImage: (url: string) => boolean
-}>()
-
-const { slide, fullscreen } = useTripQueryParams()
+const { currStep, slide, fullscreen } = useTripState()
 
 const galleryConfig = {
   itemsToShow: 1,

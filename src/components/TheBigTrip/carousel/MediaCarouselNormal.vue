@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-center justify-center select-none">
     <Carousel id="gallery" v-bind="galleryConfig" v-model="slide" @click="fullscreen = true">
-      <Slide v-for="(url, index) in step.media" :key="index">
+      <Slide v-for="(url, index) in currStep.media" :key="index">
         <div class="w-full h-full bg-black flex items-center justify-center cursor-pointer">
           <img v-if="isImage(url)" :src="url" alt="Media" />
           <video v-else controls :src="url" />
@@ -10,7 +10,7 @@
     </Carousel>
 
     <Carousel id="thumbnails" v-bind="thumbnailsConfig" v-model="slide">
-      <Slide v-for="(url, index) in step.media" :key="index">
+      <Slide v-for="(url, index) in currStep.media" :key="index">
         <template #default="{ currentIndex, isActive }">
           <div :class="['thumbnail', { 'is-active': isActive }]" @click="slide = currentIndex">
             <img :src="url" alt="Thumbnail Image" class="h-full w-full object-cover block" />
@@ -28,15 +28,10 @@
 <script setup lang="ts">
 import 'vue3-carousel/carousel.css'
 import { Carousel, Slide, Navigation } from 'vue3-carousel'
-import { Step } from '/@/types/trip'
-import { useTripQueryParams } from '/@/composables/useTripQueryParams'
+import { useTripState } from '/@/composables/useTripState'
+import { isImage } from '/@/data/trip'
 
-defineProps<{
-  step: Step
-  isImage: (url: string) => boolean
-}>()
-
-const { slide, fullscreen } = useTripQueryParams()
+const { currStep, slide, fullscreen } = useTripState()
 
 const galleryConfig = {
   // autoplay: 5000,

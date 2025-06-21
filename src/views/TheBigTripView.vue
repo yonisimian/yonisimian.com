@@ -10,12 +10,7 @@
     <DestBar :destinations="countries" :currDest="currCountry" :chooseDest="chooseCountry" />
     <DestBar :destinations="steps" :dates :currDest="currStep" :chooseDest="chooseStep" />
 
-    <StepView
-      :step="currStep"
-      :country="currCountry"
-      @prevStep="choosePrevStep"
-      @nextStep="chooseNextStep"
-    />
+    <StepView :step="currStep" :country="currCountry" />
 
     <ScrollToEdge direction="up" class="fixed top-2 right-1 sm:right-2" />
     <ScrollToEdge direction="down" class="fixed bottom-2 right-1 sm:right-2 safe" />
@@ -23,42 +18,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import {
-  continents,
-  countries,
-  steps,
-  dates,
-  getCountryByStep,
-  getContinentByStep,
-  encodeURIStep,
-  decodeURIStep
-} from '/@/data/trip'
-import { useRouter } from 'vue-router'
-import type { Continent, Country, Step } from '/@/types/trip'
+import { continents, countries, steps, dates } from '/@/data/trip'
+import { useTripState } from '/@/composables/useTripState'
 
-const router = useRouter()
-
-const currStep = computed<Step>(() => {
-  const id = router.currentRoute.value.params.id as string | undefined
-  const found = id && decodeURIStep(id)
-  return found || steps[0]
-})
-const currStepIndex = computed<number>(() => steps.indexOf(currStep.value))
-const currCountry = computed<Country>(() => getCountryByStep(currStep.value))
-const currContinent = computed<Continent>(() => getContinentByStep(currStep.value))
-
-const chooseStep = (step: Step) => {
-  const newId = encodeURIStep(step)
-  if (router.currentRoute.value.params.id !== newId) {
-    router.push(`/thebigtrip/${newId}`)
-  }
-}
-const chooseCountry = (country: Country) => chooseStep(country.steps[0])
-const chooseContinent = (continent: Continent) => chooseStep(continent.countries[0].steps[0])
-const choosePrevStep = () => currStepIndex.value > 0 && chooseStep(steps[currStepIndex.value - 1])
-const chooseNextStep = () =>
-  currStepIndex.value < steps.length - 1 && chooseStep(steps[currStepIndex.value + 1])
+const { currStep, currCountry, currContinent, chooseStep, chooseCountry, chooseContinent } =
+  useTripState()
 </script>
 
 <style scoped>
