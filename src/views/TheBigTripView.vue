@@ -23,11 +23,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed } from 'vue'
 import {
   continents,
   countries,
   steps,
+  dates,
   getCountryByStep,
   getContinentByStep,
   encodeURIStep,
@@ -38,60 +39,26 @@ import type { Continent, Country, Step } from '/@/types/trip'
 
 const router = useRouter()
 
-const currStep = ref<Step>(steps[0])
-const currStepIndex = computed<number>(() => steps.findIndex((s) => s.id === currStep.value.id))
+const currStep = computed<Step>(() => {
+  const id = router.currentRoute.value.params.id as string | undefined
+  const found = id && decodeURIStep(id)
+  return found || steps[0]
+})
+const currStepIndex = computed<number>(() => steps.indexOf(currStep.value))
 const currCountry = computed<Country>(() => getCountryByStep(currStep.value))
 const currContinent = computed<Continent>(() => getContinentByStep(currStep.value))
 
-const dates: string[] = steps.map((step) => step.date)
-
-const setStepFromRoute = () => {
-  const id = router.currentRoute.value.params.id as string | undefined
-  const found = id && decodeURIStep(id)
-  if (found) currStep.value = found
-}
-
-onMounted(() => {
-  setStepFromRoute()
-})
-
-watch(
-  () => router.currentRoute.value.params.id,
-  () => {
-    setStepFromRoute()
-  }
-)
-
-const updateURL = () => {
-  router.push(`/thebigtrip/${encodeURIStep(currStep.value)}`)
-}
-
-const chooseContinent = (continent: Continent) => {
-  currStep.value = continent.countries[0].steps[0]
-  updateURL()
-}
-const chooseCountry = (country: Country) => {
-  currStep.value = country.steps[0]
-  updateURL()
-}
 const chooseStep = (step: Step) => {
-  currStep.value = step
-  updateURL()
-}
-
-const choosePrevStep = () => {
-  const prevIndex = currStepIndex.value - 1
-  if (prevIndex >= 0) {
-    chooseStep(steps[prevIndex])
+  const newId = encodeURIStep(step)
+  if (router.currentRoute.value.params.id !== newId) {
+    router.push(`/thebigtrip/${newId}`)
   }
 }
-
-const chooseNextStep = () => {
-  const nextIndex = currStepIndex.value + 1
-  if (nextIndex < steps.length) {
-    chooseStep(steps[nextIndex])
-  }
-}
+const chooseCountry = (country: Country) => chooseStep(country.steps[0])
+const chooseContinent = (continent: Continent) => chooseStep(continent.countries[0].steps[0])
+const choosePrevStep = () => currStepIndex.value > 0 && chooseStep(steps[currStepIndex.value - 1])
+const chooseNextStep = () =>
+  currStepIndex.value < steps.length - 1 && chooseStep(steps[currStepIndex.value + 1])
 </script>
 
 <style scoped>
