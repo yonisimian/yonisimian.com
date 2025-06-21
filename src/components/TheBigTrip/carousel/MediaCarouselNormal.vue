@@ -3,8 +3,8 @@
     <Carousel id="gallery" v-bind="galleryConfig" v-model="slide" @click="fullscreen = true">
       <Slide v-for="(url, index) in currStep.media" :key="index">
         <div class="w-full h-full bg-black flex items-center justify-center cursor-pointer">
-          <img v-if="isImage(url)" :src="url" alt="Media" />
-          <video v-else controls :src="url" />
+          <img v-if="isImage(url)" :src="url as PhotoURL" alt="Media" />
+          <video v-else controls :src="(url as VideoURL).video" @click.prevent />
         </div>
       </Slide>
     </Carousel>
@@ -13,7 +13,11 @@
       <Slide v-for="(url, index) in currStep.media" :key="index">
         <template #default="{ currentIndex, isActive }">
           <div :class="['thumbnail', { 'is-active': isActive }]" @click="slide = currentIndex">
-            <img :src="url" alt="Thumbnail Image" class="h-full w-full object-cover block" />
+            <img
+              :src="isImage(url) ? (url as PhotoURL) : (url as VideoURL).thumbnail"
+              alt="Thumbnail Image"
+              class="h-full w-full object-cover block"
+            />
           </div>
         </template>
       </Slide>
@@ -30,6 +34,7 @@ import 'vue3-carousel/carousel.css'
 import { Carousel, Slide, Navigation } from 'vue3-carousel'
 import { useTripState } from '/@/composables/useTripState'
 import { isImage } from '/@/data/trip'
+import { PhotoURL, VideoURL } from '/@/types/trip'
 
 const { currStep, slide, fullscreen } = useTripState()
 

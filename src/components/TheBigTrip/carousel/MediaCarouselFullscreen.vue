@@ -10,10 +10,10 @@
             <img
               v-if="isImage(url)"
               class="max-h-[640px] max-w-full object-contain"
-              :src="url"
+              :src="url as PhotoURL"
               alt="Media"
             />
-            <video v-else controls :src="url" />
+            <video v-else controls :src="(url as VideoURL).video" />
           </div>
         </Slide>
       </Carousel>
@@ -26,6 +26,7 @@ import 'vue3-carousel/carousel.css'
 import { Carousel, Slide } from 'vue3-carousel'
 import { useTripState } from '/@/composables/useTripState'
 import { isImage } from '/@/data/trip'
+import { PhotoURL, VideoURL } from '/@/types/trip'
 
 const { currStep, slide, fullscreen } = useTripState()
 
