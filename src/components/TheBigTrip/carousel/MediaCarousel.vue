@@ -2,7 +2,7 @@
   <div>
     <div v-if="currStep.media && currStep.media.length">
       <MediaCarouselFullscreen v-if="fullscreen" />
-      <MediaCarouselNormal :class="{ inactive: fullscreen }" />
+      <MediaCarouselNormal v-else" />
     </div>
   </div>
 </template>
@@ -32,10 +32,5 @@ img {
   height: 100%;
   object-fit: contain;
   background: black;
-}
-
-.inactive {
-  pointer-events: none;
-  user-select: none;
 }
 </style>

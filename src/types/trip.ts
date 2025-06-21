@@ -14,6 +14,10 @@ export interface Country {
   steps: Step[]
 }
 
+export type PhotoURL = string
+export type VideoURL = { thumbnail: string; video: string }
+export type MediaType = PhotoURL | VideoURL
+
 export interface Step {
   id: number // Unique identifier for the step
   name: string
@@ -21,6 +25,6 @@ export interface Step {
   date: string // ISO format: '2025-06-17'
   degrees: string // Temperature in degrees Celsius
   description: string // HTML
-  media: string[] // URLs to photos and videos
+  media: MediaType[] // photos and videos
   bgImage?: string // URL to the step's background image
 }
