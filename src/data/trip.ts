@@ -1789,6 +1789,7 @@ export const countries: Country[] = continents.flatMap((continent) => continent.
 export const steps: Step[] = countries.flatMap((country) =>
   country.steps.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
 )
+export const dates: string[] = steps.map((step) => step.date)
 
 export const getNextStep = (step: Step): Step | undefined => {
   const currentIndex = steps.findIndex((s) => s.id === step.id)

@@ -1,12 +1,6 @@
 <template>
   <div class="flex flex-col items-center justify-center select-none">
-    <Carousel
-      id="gallery"
-      v-bind="galleryConfig"
-      :modelValue="props.currentSlide"
-      @update:modelValue="(val) => emit('update:currentSlide', val)"
-      @mousedown="openFullscreen"
-    >
+    <Carousel id="gallery" v-bind="galleryConfig" v-model="slide" @click="fullscreen = true">
       <Slide v-for="(url, index) in step.media" :key="index">
         <div class="w-full h-full bg-black flex items-center justify-center cursor-pointer">
           <img v-if="isImage(url)" :src="url" alt="Media" />
@@ -15,15 +9,10 @@
       </Slide>
     </Carousel>
 
-    <Carousel
-      id="thumbnails"
-      v-bind="thumbnailsConfig"
-      :modelValue="props.currentSlide"
-      @update:modelValue="(val) => emit('update:currentSlide', val)"
-    >
+    <Carousel id="thumbnails" v-bind="thumbnailsConfig" v-model="slide">
       <Slide v-for="(url, index) in step.media" :key="index">
         <template #default="{ currentIndex, isActive }">
-          <div :class="['thumbnail', { 'is-active': isActive }]" @click="slideTo(currentIndex)">
+          <div :class="['thumbnail', { 'is-active': isActive }]" @click="slide = currentIndex">
             <img :src="url" alt="Thumbnail Image" class="h-full w-full object-cover block" />
           </div>
         </template>
@@ -40,14 +29,14 @@
 import 'vue3-carousel/carousel.css'
 import { Carousel, Slide, Navigation } from 'vue3-carousel'
 import { Step } from '/@/types/trip'
+import { useTripQueryParams } from '/@/composables/useTripQueryParams'
 
-const props = defineProps<{
+defineProps<{
   step: Step
-  currentSlide: number
-  openFullscreen: () => void
-  slideTo: (index: number) => void
   isImage: (url: string) => boolean
 }>()
+
+const { slide, fullscreen } = useTripQueryParams()
 
 const galleryConfig = {
   // autoplay: 5000,
@@ -69,8 +58,6 @@ const thumbnailsConfig = {
   mouseWheel: true
   // gap: 12
 }
-
-const emit = defineEmits(['update:currentSlide'])
 </script>
 
 <style scoped>
