@@ -4,7 +4,11 @@
     <p class="text-lg">
       <b>{{ currCountry.name }}</b> • {{ currStep.date }} • {{ currStep.degrees }}c
     </p>
-    <p v-html="currStep.description" dir="rtl" class="w-full text-justify" />
+    <div
+      v-html="currStep.description"
+      dir="rtl"
+      class="w-full max-w-full text-justify prose prose-ul:pr-8 prose-ol:pr-8 prose-p:mb-2 prose-p:leading-relaxed"
+    />
     <MediaCarousel />
     <!-- prev and next step buttons with arrows -->
     <div class="flex items-center justify-between w-full mt-4">
