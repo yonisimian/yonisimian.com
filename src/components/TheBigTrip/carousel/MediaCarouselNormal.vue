@@ -1,16 +1,10 @@
 <template>
   <div class="flex flex-col items-center justify-center select-none">
-    <Carousel id="gallery" v-bind="galleryConfig" v-model="slide" @click="fullscreen = true">
+    <Carousel id="gallery" v-bind="galleryConfig" v-model="slide">
       <Slide v-for="(url, index) in currStep.media" :key="index">
         <div class="w-full h-full bg-black flex items-center justify-center cursor-pointer">
-          <img v-if="isImage(url)" :src="url as PhotoURL" alt="Media" />
-          <video
-            v-else
-            controls
-            class="max-h-full max-w-full object-contain"
-            :src="(url as VideoURL).video"
-            @click.prevent
-          />
+          <img v-if="isImage(url)" :src="url as PhotoURL" alt="Media" @click="fullscreen = true" />
+          <video v-else controls class="max-h-full object-contain" :src="(url as VideoURL).video" />
         </div>
       </Slide>
     </Carousel>
