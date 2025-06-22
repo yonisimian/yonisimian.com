@@ -6,14 +6,19 @@
     <div class="max-w-5xl h-max bg-black flex items-center justify-center overflow-hidden">
       <Carousel id="gallery" v-bind="galleryConfig" v-model="slide">
         <Slide v-for="(url, index) in currStep.media" :key="index">
-          <div class="w-full h-full bg-black flex items-center justify-center">
+          <div class="w-full h-full max-h-[640px] bg-black flex items-center justify-center">
             <img
               v-if="isImage(url)"
-              class="max-h-[640px] max-w-full object-contain"
+              class="max-h-full max-w-full object-contain"
               :src="url as PhotoURL"
               alt="Media"
             />
-            <video v-else controls :src="(url as VideoURL).video" />
+            <video
+              v-else
+              controls
+              class="max-h-full max-w-full object-contain"
+              :src="(url as VideoURL).video"
+            />
           </div>
         </Slide>
       </Carousel>
