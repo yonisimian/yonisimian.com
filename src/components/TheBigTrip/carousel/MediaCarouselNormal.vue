@@ -4,7 +4,13 @@
       <Slide v-for="(url, index) in currStep.media" :key="index">
         <div class="w-full h-full bg-black flex items-center justify-center cursor-pointer">
           <img v-if="isImage(url)" :src="url as PhotoURL" alt="Media" />
-          <video v-else controls :src="(url as VideoURL).video" @click.prevent />
+          <video
+            v-else
+            controls
+            class="max-h-full max-w-full object-contain"
+            :src="(url as VideoURL).video"
+            @click.prevent
+          />
         </div>
       </Slide>
     </Carousel>
