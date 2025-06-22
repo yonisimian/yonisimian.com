@@ -1348,16 +1348,66 @@ export const trip: Trip = {
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/0134F707-DEFE-4280-8584-1F1BC017ADF9_6DD076C3-F1BD-4809-BD75-A4575513572E.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/CE2C753E-A346-40B8-A104-8736C471DCB9_0DF76BEB-396E-4A70-8E46-2EF70C6B2E07.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/4764AC6A-24F7-419C-AA19-E1EB4D30EE04_FB70BE4E-CEF3-4543-B39E-6A86477D382A.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/E21B2543-5161-4BD1-8A7A-30D896145767_AC8ED37F-F24B-498E-8D7A-AF7264FE850C.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/471C8D56-C292-405A-B6DB-15B58CF24B81_A5A2D77C-7A4D-43A8-BEBF-11452B55C5FB.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/BEE05463-297F-435A-A276-2E98E8A973CE_C7C21DF9-B444-472F-859F-D870C0EA7C50.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/3BBEA1BC-C37C-4F98-BD3C-AB68528772EA_1A27F9CB-04BB-475F-A9D9-56342C304176.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/82BCBF1C-7206-4526-9E72-5B7CAACD8742_B62AE278-B6E6-400E-96B3-C3E2C4FADDA3.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/EF9FE81A-F97E-4233-B5BD-29E6B19C521F_B7FEC10A-738E-49D5-A86F-A8F4716F721A.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/84320E20-F4D9-4970-8093-86D2D1D17695_B379E4F7-FC0A-4F4B-860D-C185F39EF040.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/7373D008-FBCC-4AA0-8D1A-45ADA3050D6E_55822C80-581B-4617-A6A8-D611D01A8BF6.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/B3DCD221-4254-4EB8-A602-3328E98521AF_1A29473B-6A50-4AD7-8AA6-1BDD73D979A9.jpg'
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/4764AC6A-24F7-419C-AA19-E1EB4D30EE04_FB70BE4E-CEF3-4543-B39E-6A86477D382A.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/fb5888ea-2cfa-4d63-ac8e-50af976ffba4_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/E21B2543-5161-4BD1-8A7A-30D896145767_AC8ED37F-F24B-498E-8D7A-AF7264FE850C.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/61c1f37b-5c82-490c-8e23-87cfcbc56dbc_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/471C8D56-C292-405A-B6DB-15B58CF24B81_A5A2D77C-7A4D-43A8-BEBF-11452B55C5FB.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/1551dad4-94f6-42ab-bb33-785cf714f252_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/BEE05463-297F-435A-A276-2E98E8A973CE_C7C21DF9-B444-472F-859F-D870C0EA7C50.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/96e6b91d-79d8-4078-bb61-beda8b21522a_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/3BBEA1BC-C37C-4F98-BD3C-AB68528772EA_1A27F9CB-04BB-475F-A9D9-56342C304176.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/f3212e1b-bb0d-4b9d-9a82-f08e4bcbdae2_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/82BCBF1C-7206-4526-9E72-5B7CAACD8742_B62AE278-B6E6-400E-96B3-C3E2C4FADDA3.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/8ad2ba7b-a48c-4131-bdd7-d3f154458953_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/EF9FE81A-F97E-4233-B5BD-29E6B19C521F_B7FEC10A-738E-49D5-A86F-A8F4716F721A.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/8ad2ba7b-a48c-4131-bdd7-d3f154458953_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/84320E20-F4D9-4970-8093-86D2D1D17695_B379E4F7-FC0A-4F4B-860D-C185F39EF040.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/868c2d8a-d2a4-4a95-a27b-07b0f51683df_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/7373D008-FBCC-4AA0-8D1A-45ADA3050D6E_55822C80-581B-4617-A6A8-D611D01A8BF6.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/c816d1aa-8899-4d1d-9698-b6ffaeaf755f_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/B3DCD221-4254-4EB8-A602-3328E98521AF_1A29473B-6A50-4AD7-8AA6-1BDD73D979A9.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/c53bf93b-8199-4053-bd99-fe6d951e3ec5_video'
+                }
               ],
               bgImage:
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/CE2C753E-A346-40B8-A104-8736C471DCB9_0DF76BEB-396E-4A70-8E46-2EF70C6B2E07.jpg',
@@ -1379,12 +1429,22 @@ export const trip: Trip = {
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/F8DC90F9-61EE-428E-80FE-D79C23328DA4_7E023866-E077-4760-A6A2-8F8787066D5F.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/9ECF567E-E9E6-4375-B45C-FDD128C3BF83_64753658-496A-473C-BE0F-5145E6F67CC3.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/5B15B026-9F86-42D8-9145-36E776F4DAA7_B65F5C5C-176E-42DF-BA08-7B499962AF19.jpg',
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/5B15B026-9F86-42D8-9145-36E776F4DAA7_B65F5C5C-176E-42DF-BA08-7B499962AF19.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/b0ff7170-e875-4204-ac0c-13ff5e3ce9db_video'
+                },
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/9E44BE78-2AB0-458B-BC6F-91BF1DA532F8_10FF2C25-456D-4526-9CF4-5362865D34A0.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/6E26F82D-BB02-4140-A086-6E1E03402FF4_00571678-0DF3-4345-BBD9-90EF8E5C5692.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/DEF32579-1E9E-4BAD-A43F-51B005317794_76FB7A1C-E79E-43A2-8ABE-98DA39F91AE2.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/71128BFA-53A5-4525-A2EC-59E84674D0B8_C0E0DCF4-E359-4CD9-826E-E02EF8205530.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/48B162F7-B13E-4E35-82BE-20F22A71A94B_9F857FBB-440C-4AA5-8AC6-704FC323E2BD.jpg'
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/48B162F7-B13E-4E35-82BE-20F22A71A94B_9F857FBB-440C-4AA5-8AC6-704FC323E2BD.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/b11dbe89-157a-468c-939d-d0eb2485f92f_video'
+                }
               ],
               bgImage:
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/9E44BE78-2AB0-458B-BC6F-91BF1DA532F8_10FF2C25-456D-4526-9CF4-5362865D34A0.jpg',
@@ -1404,7 +1464,12 @@ export const trip: Trip = {
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/C788FA75-FA2F-4190-899A-F1CAFD30FF2F_4CBCEEB4-2126-4F61-A8A8-21C9F6FC9923.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/125970D7-B527-4FAD-AE5F-CEE81E3AB7FD_820FA907-75FF-460E-98CB-F0EC9884D946.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/92EB5495-A285-49A2-BAA9-746FBC35F3F6_16ADA685-7BFB-403B-B259-9E732020D4EB.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/CE06B0A9-2875-4077-A951-CBF26FBEB24F_CDA53836-3D74-4BD3-827A-4CC032782033.jpg',
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/CE06B0A9-2875-4077-A951-CBF26FBEB24F_CDA53836-3D74-4BD3-827A-4CC032782033.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/3a37bd43-7cc2-4677-bbac-9f9a29394388_video'
+                },
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/A37E41ED-E526-4A18-8B7E-3CDC61EDD444_9D7AD60E-86F0-43FF-A028-681821640AC3.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/9EE323F6-7E7B-4ACA-8A1C-E03BE2067036_71F630DB-F54E-4672-9380-CC1DB9C6BAF1.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/AD183E6A-8FE1-4049-846E-B567073CF8A1_C74FDF47-C4AD-41C8-BBBA-5A94B0FC7686.jpg',
@@ -1458,7 +1523,12 @@ export const trip: Trip = {
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/206CA9F7-1FA1-4305-8A18-38B9444AAD83_36860F08-6BB4-4FB3-B4CE-6C84F2F1D28B.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/05C11C89-F450-46BB-B0C8-CD81FCD531E9_73AA0828-ED95-4E39-8D3E-4EB9A8BCDC21.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/D1375B7F-BB25-4FE3-9D6D-95A45426DBE3_A23756F5-7DF5-4FB2-A91D-A0088F6DCB66.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/2D308EBE-86EA-49D5-8DC1-BB57835BEE07_8C71BCA3-EC3C-4D19-9B99-7FC3D4596F38.jpg',
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/2D308EBE-86EA-49D5-8DC1-BB57835BEE07_8C71BCA3-EC3C-4D19-9B99-7FC3D4596F38.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/390781be-7643-4469-8b7d-9cfbd44d8c02_video'
+                },
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/41F2195F-E308-4672-AA58-D17CE0751C06_350F5421-F6A3-481C-970F-3A84FE517BCB.jpg'
               ],
               bgImage:
@@ -1487,7 +1557,12 @@ export const trip: Trip = {
               name: '🤧🤒😷',
               shortName: 'Achoo',
               media: [
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/42F67ABF-2BA9-4572-B8DA-B88035307139_5015E8FD-9DAC-473A-A669-1F21F2194203.jpg',
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/42F67ABF-2BA9-4572-B8DA-B88035307139_5015E8FD-9DAC-473A-A669-1F21F2194203.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/1fdb827f-dfc1-460b-b469-22d15408b86d_video'
+                },
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/967B0BC9-F1E6-4A17-9A9A-36128FD1DF77_F774CE47-E48B-4316-B825-414E98E76068.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/01B5BE61-45B4-45A4-AFB1-7577FDD242E5_DAF55FC2-529E-49BB-99F6-041B20233C72.jpg'
               ],
@@ -1505,12 +1580,37 @@ export const trip: Trip = {
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/F24DD5E2-F87E-4DA4-926E-42C96D0FFCDA_54FE14B5-E045-4426-819C-4F7786520109.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/21D5FC38-72D3-43F9-94E4-8474D8F605B3_2D3FEA41-E725-41C7-83E4-BF6BBE0872DF.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/38781BE3-F371-4639-9770-2977A56745B8_D18A9613-D11E-4BBD-98A7-685EEF702561.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/BE557489-5365-4F3C-B95C-2D9087B9B157_A339956D-3598-47C7-8111-EEB878023AEB.jpg',
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/38781BE3-F371-4639-9770-2977A56745B8_D18A9613-D11E-4BBD-98A7-685EEF702561.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/57b26097-2aee-4305-b812-3d1afbaa2e29_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/BE557489-5365-4F3C-B95C-2D9087B9B157_A339956D-3598-47C7-8111-EEB878023AEB.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/f189814a-79a2-47df-aaf3-df1c83b5924a_video'
+                },
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/4B211A10-F002-490B-854A-FC8340B6E657_11661FE3-8329-464C-8CE6-718A52177AB0.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/394F42F8-71E6-44A4-BF6F-9A47DCA9D517_AC9B6DFC-BC82-456B-B3E6-8A086F4D4674.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/57404117-A714-48DE-894C-13A39AF0E0C7_15D42D8D-713F-46E5-93EC-20FE67DF1127.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/30317685-0E57-4357-97E3-0FDD293CE77E_6D366EC5-8FB1-460D-A6BC-92BD86D11090.jpg',
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/394F42F8-71E6-44A4-BF6F-9A47DCA9D517_AC9B6DFC-BC82-456B-B3E6-8A086F4D4674.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/fccf3ce5-0203-463b-9a7b-3913f8058063_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/57404117-A714-48DE-894C-13A39AF0E0C7_15D42D8D-713F-46E5-93EC-20FE67DF1127.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/ebde46a6-1449-423e-a537-e0b796ea7f07_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/30317685-0E57-4357-97E3-0FDD293CE77E_6D366EC5-8FB1-460D-A6BC-92BD86D11090.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/eca863d9-bace-46e5-ac33-1ca2b0787582_video'
+                },
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/23DAC418-5378-4F1A-9FCA-2A63DE819F67_4C7447FD-192C-4ADD-AA0A-6D4CDBB16061.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/9ACF4AAF-D130-4D92-9C63-FA53389951FE_9AAFBB14-B197-4B6A-8B98-137015D00648.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/55A29175-EFF4-4505-901C-B119AB232852_DC83F3A9-B8ED-4E46-A5AA-7C8DACDF0FDC.jpg',
@@ -1555,9 +1655,24 @@ export const trip: Trip = {
               name: 'Hatboro',
               shortName: 'Hatboro',
               media: [
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/CABBCA14-913E-43F4-A379-DE1E7F96A707_6A4B5B27-C11E-446F-8A19-9CEBF7F630AF.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/D3F94B5A-D05A-4B39-92F9-61B4782AB6E0_AB686ED1-60F2-4D67-8E5D-AE6E5097F897.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/0FCDAB58-E4D2-4A8B-BE68-8D946D1C2D70_7414BBC5-92EC-4735-B574-A0567A0C913A.jpg'
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/CABBCA14-913E-43F4-A379-DE1E7F96A707_6A4B5B27-C11E-446F-8A19-9CEBF7F630AF.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/d8bf55b4-c502-47e6-9774-1878aef994b4_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/D3F94B5A-D05A-4B39-92F9-61B4782AB6E0_AB686ED1-60F2-4D67-8E5D-AE6E5097F897.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/d917ce0b-f424-4440-9b95-ebc222116dda_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/0FCDAB58-E4D2-4A8B-BE68-8D946D1C2D70_7414BBC5-92EC-4735-B574-A0567A0C913A.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/f39d89fe-0e20-4a9f-aaa1-66931c8c0e10_video'
+                }
               ],
               bgImage:
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/CABBCA14-913E-43F4-A379-DE1E7F96A707_6A4B5B27-C11E-446F-8A19-9CEBF7F630AF.jpg',
@@ -1571,8 +1686,18 @@ export const trip: Trip = {
               name: 'Doylestown',
               shortName: 'Doylestown',
               media: [
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/2509A0B7-FEA2-408A-B114-FD068BE7A37C_66CDCA6F-0741-4FAE-AC8C-D9075BDFC1D2.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/BF4F8632-41AB-4700-8760-7997CF7042E5_9CF9DCD0-B1B8-46E4-9188-4A9639210023.jpg',
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/2509A0B7-FEA2-408A-B114-FD068BE7A37C_66CDCA6F-0741-4FAE-AC8C-D9075BDFC1D2.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/f024644f-d71b-4310-bc34-7ec2c07e72c7_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/BF4F8632-41AB-4700-8760-7997CF7042E5_9CF9DCD0-B1B8-46E4-9188-4A9639210023.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/8001581e-dba5-425c-9299-8999ffb0ccf2_video'
+                },
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/E09C839E-2EF9-495F-9E3A-19B078D85B87_39942432-AC49-4F6B-AC26-045B8E8E704A.jpg'
               ],
               bgImage:
@@ -1591,7 +1716,12 @@ export const trip: Trip = {
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/D8602DDB-7E2F-4960-8631-85374D320D90_4237D0E4-58CC-4556-9CC4-0FA056AD8C57.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/C678DBCC-5E94-43DA-AC20-3313221CE5B6_B686ACFF-2D5C-4CA8-87EF-7564245BDAFA.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/9BDC4FCC-2EDC-41FB-A392-3AF83B57347E_D7D6A443-6A0B-4439-A8A5-05BEDADACBBC.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/0FE73194-774E-4B0D-AFA1-810FBA0A42EC_BEF1BA81-20AA-410E-A349-0002CEF67728.jpg',
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/0FE73194-774E-4B0D-AFA1-810FBA0A42EC_BEF1BA81-20AA-410E-A349-0002CEF67728.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/a7f556c0-f09a-45a4-8d21-34f9f45fe44c_video'
+                },
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/0745E943-355F-4A87-B74A-A89AE0137DC3_61911198-599F-4119-8D3E-9702CF9CF707.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/963E55EB-33A6-4745-99F8-B16210C73B6D_FB71BB9E-5137-43D9-B76A-F49840BD0BE5.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/DC53E538-2282-4C1F-BFCE-DB94DDC3ED81_C63A0C57-0E54-472D-8260-325AA18F3B0A.jpg'
@@ -1638,9 +1768,24 @@ export const trip: Trip = {
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/3548C7A3-DB9C-4D4F-B0EC-C5B70FC01361_080992A4-0D9F-4F5C-A0A8-3AC39DC55FD4.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/454810C7-0C0F-41E3-8119-D247B5C38AA1_70D9C473-F5EE-49EC-AF9B-42AAC7B26470.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/0F35E099-4E78-4272-8556-5A013D2F34ED_03A06A4C-2B0C-4CA9-8BAD-142A960FB9CB.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/3E61AEB9-3708-4ED2-96D3-10727E10DBCF_438C7C04-1445-4C74-8702-93C8FC974C35.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/1F53378D-857D-4770-A55D-17A39D16D6FA_E1731669-31A9-4234-8CB8-79166D7705F2.jpg',
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/0F35E099-4E78-4272-8556-5A013D2F34ED_03A06A4C-2B0C-4CA9-8BAD-142A960FB9CB.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/205b4366-ef59-4a30-8146-f14987412956_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/3E61AEB9-3708-4ED2-96D3-10727E10DBCF_438C7C04-1445-4C74-8702-93C8FC974C35.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/0dda735a-01cc-4c7d-80cf-486227a21e88_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/1F53378D-857D-4770-A55D-17A39D16D6FA_E1731669-31A9-4234-8CB8-79166D7705F2.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/eec57078-b77e-4d94-b450-a3ab185d587e_video'
+                },
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/7A8A332F-71EE-4387-BBFD-7A931957DBF8_A63DEEF9-C8D9-4296-AA32-A11297EB8664.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/60E43EE3-6269-4C91-A9F0-9927126180AC_5D09431D-446E-4C9B-9C5A-010F8AEC9BFC.jpg'
               ],
@@ -1665,11 +1810,21 @@ export const trip: Trip = {
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/F32AE719-A40C-4FC8-96EE-A03946D79763_DB670946-2A78-4CCC-9576-CBDC416AB11A.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/F90A2339-6EC8-44D2-8FC2-BF19B26E427D_36C3E2A4-A2AE-4FA9-A212-B5937FE99CF3.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/D80819A3-5B2E-499C-8B87-C6486F9DD295_AEB97E54-6FB8-4852-A8F6-976B16C29DB0.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/538C416F-C2AF-429E-9558-A11710B62AFB_FC5DA59B-1EF2-496A-B318-6E4D68C24D7F.jpg',
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/538C416F-C2AF-429E-9558-A11710B62AFB_FC5DA59B-1EF2-496A-B318-6E4D68C24D7F.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/fadcccbf-8bf8-4602-8b60-68daa274a090_video'
+                },
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/CA2A1026-2DD1-4CB0-97BC-D3C2B9CBB4EE_FE767CC7-EE2C-4C33-91A8-2171D786560F.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/91775020-2855-42AC-B6A6-4388977C6853_D8E81543-F6BD-409E-A66D-8AFA78DAA9E3.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/784BA7CB-757E-44EB-BF84-3AEBC3EF08A8_2E949639-B8A5-4839-B143-23AE9E4F414E.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/485182BA-513B-4D41-AEED-9E73CBEBC4F6_45AA8156-1792-4376-B2E2-FBBE361B0905.jpg',
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/485182BA-513B-4D41-AEED-9E73CBEBC4F6_45AA8156-1792-4376-B2E2-FBBE361B0905.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/e5551df7-fc32-4c96-b39e-e056c76f0293_video'
+                },
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/EF1D6B1A-5D30-4A35-9D6B-7A9D69FF0E51_0ADF5481-6A81-4147-A5B1-52032F4C4DB6.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/5175315A-59C4-4B34-9CC9-8CACBB9765CE_2CD6FBE4-56EA-45E0-914D-5848B9CE6DE6.jpg'
               ],
@@ -1719,12 +1874,42 @@ export const trip: Trip = {
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/11429ac0-fca0-4c79-9a71-10d29d0c4f48_43fb46f5-d970-4b6f-8b5b-94a62b2f87db.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/eab88128-78c0-44c0-8c14-c1de2a628163_69848fec-5c72-42eb-ad1a-1e578ac808c2.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/516caef6-c5a6-45ec-a418-4799a1a523f9_ae13e187-b4c8-466f-868b-d2ebb76a285c.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/c0925af7-d886-4cab-9158-eeb4248fe654_3d99ebfa-d985-4d9b-b4ea-2386bfd13545.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/78f85022-f96d-4fd9-873c-fc7ff122c8a5_94cf0a39-d0a3-4cfe-8723-a5e1c5493a9f.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/dfec5d83-45e6-4dfc-b13a-2299e63438b7_dd9e74f4-610f-4629-9e34-2a814f89ac24.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/1030c989-eb41-483b-a1a4-d08eea796cc4_24373513-34fd-4e38-b7f6-410f609a6399.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/3bbd294e-02de-4563-8e9b-8fd70d389f60_1fa20766-f9fc-4b61-80d1-be1122c54c83.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/97427a82-1bdc-42cf-9115-e33321d961e4_9d701c19-35e9-4889-8444-07dda72874e8.jpg',
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/c0925af7-d886-4cab-9158-eeb4248fe654_3d99ebfa-d985-4d9b-b4ea-2386bfd13545.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/2f1eee4c-bac7-4869-9f7a-287f1ae9731a_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/78f85022-f96d-4fd9-873c-fc7ff122c8a5_94cf0a39-d0a3-4cfe-8723-a5e1c5493a9f.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/fe1aa8fb-db71-41bb-8f6b-e68201e47b0e_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/dfec5d83-45e6-4dfc-b13a-2299e63438b7_dd9e74f4-610f-4629-9e34-2a814f89ac24.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/754a7b43-207f-454b-9165-1225e633ae96_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/1030c989-eb41-483b-a1a4-d08eea796cc4_24373513-34fd-4e38-b7f6-410f609a6399.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/3d28360f-a4ac-4748-9c85-07738650f554_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/3bbd294e-02de-4563-8e9b-8fd70d389f60_1fa20766-f9fc-4b61-80d1-be1122c54c83.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/05207caf-2164-44b3-a718-b37f92ffe6de_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/97427a82-1bdc-42cf-9115-e33321d961e4_9d701c19-35e9-4889-8444-07dda72874e8.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/c294adc8-d5d0-48f8-8a06-38278695f452_video'
+                },
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/188e1b34-6e09-4324-b8f7-c714e2ec0139_1077f105-6a6e-45da-8f61-f2f4f97b9515.jpg'
               ],
               bgImage:
@@ -1747,7 +1932,12 @@ export const trip: Trip = {
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/8ba37d4d-e29e-44a8-9e86-7b2fc60d638c_3013b3f3-ff27-4353-88f2-464880751961.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/7b7a6249-83a2-44d1-b693-a2feb792c59d_6986866e-5e31-459a-9e25-7d93f48bf209.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/1239a8a8-fbb3-4a23-950a-c8dabe89d676_a87453b4-7cc0-4f28-9558-23278440eb51.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/d1f86259-3b42-453b-bbe3-55a710341716_4e7468da-7956-4087-96df-5fa8f92c8229.jpg',
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/d1f86259-3b42-453b-bbe3-55a710341716_4e7468da-7956-4087-96df-5fa8f92c8229.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/68e457fe-90ad-44da-99e6-8136695c5378_video'
+                },
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/8889c830-26b1-4ca8-a4fd-e7a876dd424a_521d105b-56ce-4b64-a216-ae0c2e1e429d.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/cfe777f0-3b24-4db0-8f6b-22bbf03b11f1_e42e0e43-a58a-45a2-9505-3d1300a3c73e.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/b44386c5-96fb-4fb8-9179-d8c7e782096d_12ffe54d-d414-4b3d-9b17-ae505b8da1cf.jpg'
@@ -1771,7 +1961,12 @@ export const trip: Trip = {
               shortName: 'Nürnberg',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/f8d27da7-527a-46aa-b044-a14d49f52bad_790ce635-3f02-40e0-8f2a-8b6cdcfde3cd.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/e4918cee-bfda-41d0-ba55-3ae2bdacd2b6_824b45ec-23e2-4fda-ac4e-d37717e6d50b.jpg',
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/e4918cee-bfda-41d0-ba55-3ae2bdacd2b6_824b45ec-23e2-4fda-ac4e-d37717e6d50b.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/1b311d8d-54b5-4ab8-bc7d-1aae0ee2b4da_video'
+                },
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/a9178a6b-7d5b-4c1b-944a-9e4bbb604a10_03e9e742-00bf-4c80-a639-f4cba135c393.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/81824b4b-6d30-4d8f-8a2d-ec2d94a439d3_88b064f0-cb47-47aa-917e-7ed81314294e.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/41098d10-089c-4a8a-ad86-367f9d25ea1d_d03db8ca-7bbc-4d6e-878a-894e5dc5e9c2.jpg'
@@ -1814,11 +2009,21 @@ export const trip: Trip = {
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/85059e4f-1042-44ff-962d-149dee82e716_608b4b4c-b320-4671-9c84-7df3f627e81a.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/c1b016fe-2cac-42de-abf7-6b7aa54f9bb8_5bea9a39-5c64-49e3-b7f0-a7ad390ad37d.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/ce44af54-b62a-4754-8108-285028dfcac6_8b6fd84e-214d-417f-9bb8-a7584a8b9c86.jpg',
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/ce44af54-b62a-4754-8108-285028dfcac6_8b6fd84e-214d-417f-9bb8-a7584a8b9c86.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/ff2cbf38-3e5d-4af5-88a0-b8b1be332596_video'
+                },
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/72752df3-9554-48e4-a74c-3e7b641f19a4_cf2e952d-27a1-4ad7-a6ef-b05ee4335bfb.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/7d71d13f-a688-4faa-abca-1b869ccea805_6a183b93-05e8-497d-ae3a-86fde9849f1b.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/3781ff31-f1d3-40c2-b655-48ea435203cb_da1aa4c6-7f53-462a-a530-7bba46f6dbcb.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/677bc8ba-9443-47bc-b131-cb0f1faf8556_5f7f93b6-ab1a-4608-9323-629e22030e28.jpg',
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/677bc8ba-9443-47bc-b131-cb0f1faf8556_5f7f93b6-ab1a-4608-9323-629e22030e28.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/d1f87d5e-eb88-432e-b0ee-e2a3b0c0baaa_video'
+                },
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/33804cb9-2a08-411a-a169-c4990883c579_0f3a234e-5a28-4a30-9b36-e02bef29f565.jpg'
               ],
               bgImage:
@@ -1833,10 +2038,25 @@ export const trip: Trip = {
               name: 'Last day in Nürnberg 🇩🇪',
               shortName: 'Nürnberg',
               media: [
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/4c913e61-eecc-4e1b-bde3-bd3fea8fd6f8_0aaf431b-6f3d-468c-ae81-bd0e95d2b5d5.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/19bcb7fe-7d22-4060-b977-1fb526e3a553_06d9b082-c5c4-4e20-89d0-d5e52f28b7b6.jpg',
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/4c913e61-eecc-4e1b-bde3-bd3fea8fd6f8_0aaf431b-6f3d-468c-ae81-bd0e95d2b5d5.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/f21b6e92-bc9a-48d4-9311-fe77b547de03_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/19bcb7fe-7d22-4060-b977-1fb526e3a553_06d9b082-c5c4-4e20-89d0-d5e52f28b7b6.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/9697dd18-53e5-4971-83c7-e44995eed0bc_video'
+                },
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/aa8e4915-1abe-48d0-b352-a4dc4d827faa_d386fe12-9d62-4fc7-a285-43abb6f120a7.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/86ae1919-271f-491e-94ed-eb21c1f4e310_60197a6a-c861-4c1b-b6d5-be9129332dcd.jpg',
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/86ae1919-271f-491e-94ed-eb21c1f4e310_60197a6a-c861-4c1b-b6d5-be9129332dcd.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/dde50554-b803-45be-831f-63a58097732b_video'
+                },
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/e9925148-200b-46ac-a593-8b6045a01036_e321611f-0409-45bc-95a3-7d5bf26257f8.jpg'
               ],
               bgImage:
@@ -1858,7 +2078,12 @@ export const trip: Trip = {
               shortName: 'Vienna',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/f8476ae7-b09e-4e72-a6b2-87c54d08b744_a5fece7a-d039-42a7-9629-0a5357535457.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/9685714f-3fa3-4010-92b4-72e9ca7a6f13_68fa600d-de87-4d12-a9a9-11eaa2604df9.jpg',
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/9685714f-3fa3-4010-92b4-72e9ca7a6f13_68fa600d-de87-4d12-a9a9-11eaa2604df9.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/1e4cd745-1a81-4e65-865c-5298072667f4_video'
+                },
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/4408e800-5eb7-4036-bdca-fc09b21fd2b5_486ecc8e-676b-4d74-ad8f-672991d03850.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/034ce4ab-e0c8-4fb3-bd4c-898443a93807_398f62d3-152b-449d-9ac6-411ce3f32180.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/9e70f838-e185-4af3-8ae5-6b76f7abcf17_41ff700a-8dd9-4e9d-888d-34846e76b8fe.jpg',
@@ -1884,11 +2109,31 @@ export const trip: Trip = {
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/0c3b7576-66c9-480f-ad79-6e3e811eee6e_886e3b7b-8ff0-45fb-996b-f7e479d7a508.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/7c2d0cdf-d0fe-4829-b396-df193167eda8_5eb51d46-553e-4738-ad9a-45956df9cdd9.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/dbd33bf4-eeab-4bde-8edd-43c5cc4d6cf3_e9a0b7a0-a452-4630-b560-6acc60b73174.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/d40dcd64-8920-492e-ad99-69f9fd6201a6_617c88c1-0764-4eb7-9e75-0edb988f2383.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/a9b44006-4ed0-45b3-929a-495f1acf447e_aee3083d-6eb6-4cdd-8882-5422eac28d12.jpg',
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/d40dcd64-8920-492e-ad99-69f9fd6201a6_617c88c1-0764-4eb7-9e75-0edb988f2383.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/109bcdea-37c6-4624-affd-f3cdb531a666_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/a9b44006-4ed0-45b3-929a-495f1acf447e_aee3083d-6eb6-4cdd-8882-5422eac28d12.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/79e3422e-0e30-4318-9daf-5777dc224d9b_video'
+                },
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/7fd9ed8b-d78f-45fa-a601-8cb83ad649cb_397cbe40-ba71-4cce-95e5-0b1b3f8adfcc.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/098c5a13-696d-4108-8b5a-ff20f4555ca2_4fdb1a2e-51d0-4e2e-aa7d-3376c8ce6c13.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/5c700004-b1d9-442f-8de8-8dcbb69918d9_c5defe44-37b5-4071-940d-26542f7c9736.jpg',
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/098c5a13-696d-4108-8b5a-ff20f4555ca2_4fdb1a2e-51d0-4e2e-aa7d-3376c8ce6c13.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/32f221f4-0f0d-42d5-aeb8-d0164740d4ea_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/5c700004-b1d9-442f-8de8-8dcbb69918d9_c5defe44-37b5-4071-940d-26542f7c9736.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/107148bf-34e5-4e91-bc19-37f5c2299cad_video'
+                },
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/48e1a93b-8c62-40d1-9052-83f593a3aedf_9d26f7d5-568b-49bb-aec5-8c7317613f1e.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/dcb24b7b-ab16-4f84-be0c-7824b85d8585_816e27d3-575e-4c85-b842-562cc4be55f2.jpg'
               ],
@@ -1905,17 +2150,72 @@ export const trip: Trip = {
               shortName: 'Strauss Dinner',
               media: [
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/40fdc604-d35f-4174-a5e5-03ded8c1365e_080d6138-1e58-49f8-bd3e-adb89b7158a4.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/40b71250-1e83-4022-9d55-0cdfdf4bf1b4_38e78457-8805-43be-b7f3-b6a33356be87.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/26f47422-9099-4ec6-99c0-06579189df59_38c6596f-f4f5-48ca-a14e-67bf1c6175c8.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/1582d6ab-79c2-4214-9fd1-d7c499e5d64d_f7a83aa6-f13a-4e08-9bdb-01446e296c49.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/5e857502-d514-4e9d-af58-9ab91d97571b_837c4900-e9ba-4b73-afc0-d3b4a1c52694.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/6961eec3-d5cb-4a00-b50b-f77665bb65fc_faba694b-1f64-4dc2-83da-e75882a60cbd.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/9fe306a9-939e-4b2e-bad0-26d5c6098a3c_e22702fe-f58f-48d8-ab21-d770558db82a.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/102dae97-fbc3-4cb3-b935-1676a344343d_b6ba30df-96fb-4175-9416-281d18cfb34d.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/a6d55428-dacd-4e92-8f7d-c28e22368fd9_10220589-eb9f-433d-b0e8-c58816cff2c6.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/2cc6694a-31ec-4b55-b7d2-6afce662c84e_18b40d4b-49e6-40d6-9997-fb3653db2ffb.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/2b02dccb-a31a-4afc-8cee-f8a874fe232f_4d80cab9-8e1b-4cb2-9ebf-4dd0581750c8.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/9c14c57c-5b2b-41f2-90c7-a3d7aab5f293_b56142ce-161e-4698-995d-6f28052ae6e7.jpg'
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/40b71250-1e83-4022-9d55-0cdfdf4bf1b4_38e78457-8805-43be-b7f3-b6a33356be87.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/ebd08974-6d15-4266-9caf-aa9e79d712d5_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/26f47422-9099-4ec6-99c0-06579189df59_38c6596f-f4f5-48ca-a14e-67bf1c6175c8.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/621114ef-99f0-4a29-bf19-34773bc93097_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/1582d6ab-79c2-4214-9fd1-d7c499e5d64d_f7a83aa6-f13a-4e08-9bdb-01446e296c49.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/28c2a2f8-c6de-423a-a027-297ff63d17df_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/5e857502-d514-4e9d-af58-9ab91d97571b_837c4900-e9ba-4b73-afc0-d3b4a1c52694.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/9027def0-6c3a-4e76-bfe4-05edffab5afa_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/6961eec3-d5cb-4a00-b50b-f77665bb65fc_faba694b-1f64-4dc2-83da-e75882a60cbd.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/e1758599-b518-44b2-8f08-2c292f8a4643_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/9fe306a9-939e-4b2e-bad0-26d5c6098a3c_e22702fe-f58f-48d8-ab21-d770558db82a.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/4b7c62c3-89ba-4d3c-86d9-a7ebfd6c5933_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/102dae97-fbc3-4cb3-b935-1676a344343d_b6ba30df-96fb-4175-9416-281d18cfb34d.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/da9f5891-6ca5-4789-a52b-43d48b3ee954_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/a6d55428-dacd-4e92-8f7d-c28e22368fd9_10220589-eb9f-433d-b0e8-c58816cff2c6.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/984b3a7d-6288-4daa-975f-53aef9ea5aba_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/2cc6694a-31ec-4b55-b7d2-6afce662c84e_18b40d4b-49e6-40d6-9997-fb3653db2ffb.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/8f6fe748-ec06-4870-b7f3-7092b030f9e1_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/2b02dccb-a31a-4afc-8cee-f8a874fe232f_4d80cab9-8e1b-4cb2-9ebf-4dd0581750c8.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/e4fe9ba3-a66d-4dea-aec2-3b1d24048787_video'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/9c14c57c-5b2b-41f2-90c7-a3d7aab5f293_b56142ce-161e-4698-995d-6f28052ae6e7.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/1d33e6a9-d0ac-4de8-b463-8c632fe5e361_video'
+                }
               ],
               bgImage:
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/40fdc604-d35f-4174-a5e5-03ded8c1365e_080d6138-1e58-49f8-bd3e-adb89b7158a4.jpg',
@@ -1965,7 +2265,12 @@ export const trip: Trip = {
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/09166b11-ce30-4213-b48f-c1f18f3b7d70_9fd20a84-957d-4c5a-972a-01572891225b.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/59b08cd5-5784-4157-926f-ea04120e6ec0_f03eb782-2783-4e85-a96b-cdc9e1a61d5a.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/d4f29f5c-e974-4548-bb0d-c2587e230bfc_a98de633-1249-45db-88f2-c8efaadb9c2c.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/4ea66f68-2acd-4baf-ae2e-a366ff71bb13_25d64880-1c8c-4f5e-a5cb-23a1a35c90ff.jpg',
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/4ea66f68-2acd-4baf-ae2e-a366ff71bb13_25d64880-1c8c-4f5e-a5cb-23a1a35c90ff.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/86180bc0-9e79-4b96-a81e-1c30b007143a_4ea66f68-2acd-4baf-ae2e-a366ff71bb13'
+                },
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/bbd4d944-656b-421b-be28-61f0cfee4f59_f57e8cf9-571d-4f09-a1cc-d4d88aaf101b.jpg'
               ],
               bgImage:
@@ -1988,9 +2293,24 @@ export const trip: Trip = {
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/3e8cf5d9-7456-45f7-ae14-c68fdbc2c9a8_4069c550-146c-4dee-956a-062e88610214.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/85153e6d-1de9-499a-954d-1fa095acdfb5_660262ec-13bb-4d23-8cd4-f086896fcc68.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/b603315e-d439-449c-9cbc-85e8730d8135_f4bf6739-2ab2-45c2-b9ab-93fc9f11396d.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/bcc6e28f-49f1-4a6d-ad0b-5ed10783ee61_eba9a57f-7a6f-43a5-ae20-bc589cd3a441.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/b3f6e512-fbf0-4771-afaf-43731f23b509_7716e0c2-8563-481a-93a5-80edab8cdf13.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/fa34ac8d-a6f8-4728-9f09-626f38dc4d97_d1e68531-4e9d-4b78-9331-8fe9c53d6729.jpg',
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/bcc6e28f-49f1-4a6d-ad0b-5ed10783ee61_eba9a57f-7a6f-43a5-ae20-bc589cd3a441.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/232f5961-9a20-4065-8165-70b33962353f_bcc6e28f-49f1-4a6d-ad0b-5ed10783ee61'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/b3f6e512-fbf0-4771-afaf-43731f23b509_7716e0c2-8563-481a-93a5-80edab8cdf13.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/24760492-0e09-418f-bd55-d04e19beccd7_b3f6e512-fbf0-4771-afaf-43731f23b509'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/fa34ac8d-a6f8-4728-9f09-626f38dc4d97_d1e68531-4e9d-4b78-9331-8fe9c53d6729.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/94be4b06-daa5-4319-927b-d0c63e6041c6_fa34ac8d-a6f8-4728-9f09-626f38dc4d97'
+                },
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/266d6b65-6981-4f36-a6c5-9b93d2645535_c9e64590-3a9f-40b4-8659-cb56091e75cb.jpg'
               ],
               bgImage:
@@ -2030,8 +2350,18 @@ export const trip: Trip = {
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/1972471d-5c0b-4e76-8cf8-d3c26d1f4b20_7355d821-435e-48a9-8e9f-b6ce8425b4aa.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/7d86dd81-0db0-4155-8d88-c7b63d95a968_e69d3db1-f235-49cb-baa6-30d6cc205d83.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/5b978115-1cc7-4a35-b7c5-8e7c86459137_f7ad2987-e2fc-4d63-bcb2-5b85974d3530.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/85de169c-978f-44d9-a793-5b442882b60f_b9867f89-5019-41e3-9a25-d4064459fe4a.jpg',
-                'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/52ed3512-7ee6-4118-b64f-e56ff1f85b01_599bc9af-ad12-4502-bf40-57cd9a1f84c5.jpg',
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/85de169c-978f-44d9-a793-5b442882b60f_b9867f89-5019-41e3-9a25-d4064459fe4a.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/95a492d5-60af-4542-993c-b50bf70d87af_85de169c-978f-44d9-a793-5b442882b60f'
+                },
+                {
+                  thumbnail:
+                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/52ed3512-7ee6-4118-b64f-e56ff1f85b01_599bc9af-ad12-4502-bf40-57cd9a1f84c5.jpg',
+                  video:
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/172d61a5-cc09-4a4a-8c83-2c6bd26758b6_52ed3512-7ee6-4118-b64f-e56ff1f85b01'
+                },
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/1a1a59f9-a42c-4824-b506-811b123a7c16_2215985f-adfa-48ff-94d1-da16c5f945b5.jpg'
               ],
               bgImage:
