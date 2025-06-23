@@ -5,6 +5,7 @@
     @touchend="onTouchEnd"
     @mousedown="onMouseDown"
     @mouseup="onMouseUp"
+    @wheel="onWheel"
   >
     <h2 class="text-3xl">{{ currStep.name }}</h2>
     <p class="text-lg">
@@ -41,6 +42,16 @@ const handleSwipe = (endX: number) => {
     chooseNextStep()
   } else if (deltaX > 0) {
     choosePrevStep()
+  }
+}
+
+const onWheel = (e: WheelEvent) => {
+  if (e.deltaY !== 0) return // Ignore vertical scroll
+  e.preventDefault() // Prevent default scrolling behavior
+  if (e.deltaX < 0) {
+    choosePrevStep()
+  } else if (e.deltaX > 0) {
+    chooseNextStep()
   }
 }
 </script>
