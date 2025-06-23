@@ -16,12 +16,14 @@
 
     <nav class="flex flex-col">
       <RouterLink to="/">Go to Home</RouterLink>
-      <RouterLink to="/portfolio">My Portfolio</RouterLink>
-      <RouterLink to="/thebigtrip">The Big Trip</RouterLink>
+      <RouterLink :to="'/' + PortfolioRoute">My Portfolio</RouterLink>
+      <RouterLink :to="'/' + TripRoute">The Big Trip</RouterLink>
     </nav>
   </footer>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { TripRoute, PortfolioRoute } from '/@/data/globals'
+</script>
 
 <style scoped></style>

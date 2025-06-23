@@ -27,7 +27,7 @@
 
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted } from 'vue'
-import { Project } from '/@/types/types'
+import { Project } from '/@/types/portfolio'
 
 defineProps<{
   project: Project

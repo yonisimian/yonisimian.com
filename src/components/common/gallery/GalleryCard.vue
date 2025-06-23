@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { Project } from '/@/types/types'
+import { Project } from '/@/types/portfolio'
 import { onMounted, ref } from 'vue'
 
 const props = defineProps<{

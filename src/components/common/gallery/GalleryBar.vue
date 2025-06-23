@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { ProjectCategory } from '/@/types/types'
+import { ProjectCategory } from '/@/types/portfolio'
 
 defineProps<{
   selectedCategories: ProjectCategory[]
