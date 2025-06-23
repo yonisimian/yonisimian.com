@@ -1,5 +1,11 @@
 <template>
-  <div class="notebook-bg flex flex-col items-center justify-center gap-1 w-full">
+  <div
+    class="notebook-bg flex flex-col items-center justify-center gap-1 w-full"
+    @touchstart="onTouchStart"
+    @touchend="onTouchEnd"
+    @mousedown="onMouseDown"
+    @mouseup="onMouseUp"
+  >
     <h2 class="text-3xl">{{ currStep.name }}</h2>
     <p class="text-lg">
       <b>{{ currCountry.name }}</b> • {{ currStep.date }} • {{ currStep.degrees }}c
@@ -14,9 +20,29 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import { useTripState } from '/@/composables/useTripState'
 
-const { currStep, currCountry } = useTripState()
+const { currStep, currCountry, choosePrevStep, chooseNextStep } = useTripState()
+
+const startX = ref(0)
+
+const minSwipeDistance = 50 // px
+
+const onTouchStart = (e: TouchEvent) => (startX.value = e.changedTouches[0].screenX)
+const onTouchEnd = (e: TouchEvent) => handleSwipe(e.changedTouches[0].screenX)
+const onMouseDown = (e: MouseEvent) => (startX.value = e.screenX)
+const onMouseUp = (e: MouseEvent) => handleSwipe(e.screenX)
+
+const handleSwipe = (endX: number) => {
+  const deltaX = endX - startX.value
+  if (Math.abs(deltaX) < minSwipeDistance) return
+  if (deltaX < 0) {
+    chooseNextStep()
+  } else if (deltaX > 0) {
+    choosePrevStep()
+  }
+}
 </script>
 
 <style scoped>
@@ -26,6 +52,7 @@ const { currStep, currCountry } = useTripState()
   padding: 1.5rem 5.5rem 1.5rem 2.5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   position: relative;
+  user-select: none; /* Prevent text selection during drag */
 }
 
 .notebook-bg::before {
