@@ -7,23 +7,22 @@ import {
   CustomSlidesType
 } from '/@/types/trip'
 
-import auflag from '/@/assets/flags/au-flag.png'
-import czflag from '/@/assets/flags/cz-flag.png'
-import hiflag from '/@/assets/flags/hi-flag.png'
-import laflag from '/@/assets/flags/la-flag.png'
-import njflag from '/@/assets/flags/nj-flag.png'
-import nyflag from '/@/assets/flags/ny-flag.png'
-import slflag from '/@/assets/flags/sl-flag.png'
-import paflag from '/@/assets/flags/pa-flag.png'
-import deflag from '/@/assets/flags/de-flag.png'
-import usflag from '/@/assets/flags/us-flag.png'
-import etflag from '/@/assets/flags/et-flag.png'
-import skflag from '/@/assets/flags/sk-flag.png'
-
+import auflag from '/@/assets/flags/au-flag.jpg'
+import czflag from '/@/assets/flags/cz-flag.jpg'
+import hiflag from '/@/assets/flags/hi-flag.jpg'
+import laflag from '/@/assets/flags/la-flag.jpg'
+import njflag from '/@/assets/flags/nj-flag.jpg'
+import nyflag from '/@/assets/flags/ny-flag.jpg'
+import slflag from '/@/assets/flags/sl-flag.jpg'
+import paflag from '/@/assets/flags/pa-flag.jpg'
+import deflag from '/@/assets/flags/de-flag.jpg'
+import usflag from '/@/assets/flags/us-flag.jpg'
+import etflag from '/@/assets/flags/et-flag.jpg'
+import skflag from '/@/assets/flags/sk-flag.jpg'
+import ilflag from '/@/assets/flags/il-flag.jpg'
 import duflag from '/@/assets/flags/du-flag.jpg'
 import jpflag from '/@/assets/flags/jp-flag.jpg'
 import euflag from '/@/assets/flags/eu-flag.jpg'
-import ilflag from '/@/assets/flags/il-flag.jpg'
 
 export const trip: Trip = {
   continents: [
