@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { ProjectCategory, HighlightSymbol } from '/@/types/types'
+import { ProjectCategory, HighlightSymbol } from '/@/types/portfolio'
 
 defineProps<{
   selectedCategories: ProjectCategory[]

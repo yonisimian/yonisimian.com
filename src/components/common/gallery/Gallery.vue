@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { Project, ProjectCategory } from '/@/types/types'
+import { Project, ProjectCategory } from '/@/types/portfolio'
 import projectsData from '/@/data/projects'
 
 const selectedCategories = ref<ProjectCategory[]>([])

@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { HighlightSymbol, Project } from '/@/types/types'
+import { HighlightSymbol, Project } from '/@/types/portfolio'
 
 defineProps<{
   project: Project

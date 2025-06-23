@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="w-full">
     <div v-if="currStep.media && currStep.media.length">
       <MediaCarouselFullscreen v-if="fullscreen || customSlides" />
       <MediaCarouselNormal :style="{ display: fullscreen ? 'none' : 'block' }" />

@@ -1,18 +1,18 @@
 <template>
   <div class="flex flex-col items-center justify-center mx-auto max-w-5xl">
-    <TheTitle />
+    <TripHeader />
 
-    <div class="flex flex-col items-center justify-center w-full">
+    <article class="flex flex-col items-center justify-center w-full">
       <DestBar :destinations="continents" :currDest="currContinent" :chooseDest="chooseContinent" />
       <DestBar :destinations="countries" :currDest="currCountry" :chooseDest="chooseCountry" />
       <DestBar :destinations="steps" :dates :currDest="currStep" :chooseDest="chooseStep" />
-    </div>
+    </article>
 
-    <div class="flex flex-col items-center justify-center w-full gap-4 my-4">
+    <article class="flex flex-col items-center justify-center w-full gap-4 my-4">
       <StepDescription />
       <MediaCarousel />
       <StepNavigationButtons />
-    </div>
+    </article>
   </div>
 </template>
 

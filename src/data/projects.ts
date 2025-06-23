@@ -1,4 +1,4 @@
-import { Project, ProjectCategory } from '/@/types/types'
+import { Project, ProjectCategory } from '/@/types/portfolio'
 
 import intel from '/@/assets/projects/intel.png'
 import sklearn from '/@/assets/projects/sklearn.png'

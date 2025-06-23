@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { CategoryFilter } from '/@/types/types'
+import { CategoryFilter } from '/@/types/portfolio'
 
 defineProps<{
   isSelected: boolean

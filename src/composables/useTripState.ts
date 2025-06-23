@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { useQueryParam } from './useQueryParam'
 import { useRouter, useRoute } from 'vue-router'
 import { Continent, Country, Step, CustomSlidesType } from '/@/types/trip'
+import { TripRoute } from '/@/data/globals'
 import {
   decodeURIStep,
   encodeURIStep,
@@ -37,7 +38,7 @@ export const useTripState = () => {
   const chooseStep = (step: Step) => {
     const newId = encodeURIStep(step)
     if (route.params.id !== newId) {
-      router.push(`/thebigtrip/${newId}`)
+      router.push(`/${TripRoute}/${newId}`)
     }
   }
   const chooseCountry = (country: Country) => chooseStep(country.steps[0])

@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { ProjectLink } from '/@/types/types'
+import { ProjectLink } from '/@/types/portfolio'
 
 defineProps<{
   links: ProjectLink[]

@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { Project } from '/@/types/types'
+import { Project } from '/@/types/portfolio'
 
 const props = defineProps<{
   projects: Project[]
