@@ -31,21 +31,16 @@ import 'vue3-carousel/carousel.css'
 import { Carousel, Slide } from 'vue3-carousel'
 import { useTripState } from '/@/composables/useTripState'
 import { isImage, getCustomSlides } from '/@/data/trip'
-import { CustomSlidesType, MediaType, PhotoURL, VideoURL } from '/@/types/trip'
+import { MediaType, PhotoURL, VideoURL } from '/@/types/trip'
 import { computed } from 'vue'
 
-const { currStep, slide, fullscreen, customSlides } = useTripState()
+const { currStep, slide, closeFullscreen, customSlides } = useTripState()
 
 const currSlides = computed<MediaType[]>(() => {
   const s = getCustomSlides(customSlides.value)
   if (s) return s
   return currStep.value.media
 })
-
-const closeFullscreen = () => {
-  fullscreen.value = false
-  customSlides.value = CustomSlidesType.None
-}
 
 const galleryConfig = {
   itemsToShow: 1,

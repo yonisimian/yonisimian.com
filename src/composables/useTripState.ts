@@ -83,6 +83,17 @@ export const useTripState = () => {
     }
   })
 
+  // batching updates to prevent race conditions
+  const closeFullscreen = () => {
+    router.push({
+      query: {
+        ...route.query,
+        fullscreen: undefined,
+        custom: undefined
+      }
+    })
+  }
+
   return {
     currStep,
     prevStep,
@@ -96,6 +107,7 @@ export const useTripState = () => {
     chooseNextStep,
     slide,
     fullscreen,
-    customSlides
+    customSlides,
+    closeFullscreen
   }
 }
