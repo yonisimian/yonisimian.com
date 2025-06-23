@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteLocationNormalizedGeneric } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import { encodeURIStep, steps } from '/@/data/trip'
 
 import PortfolioView from '/@/views/PortfolioView.vue'
