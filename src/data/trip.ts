@@ -1,4 +1,11 @@
-import type { Trip, Step, Country, Continent, MediaType } from '/@/types/trip'
+import {
+  type Trip,
+  type Step,
+  type Country,
+  type Continent,
+  type MediaType,
+  CustomSlidesType
+} from '/@/types/trip'
 
 import auflag from '/@/assets/TheBigTrip/flags/au-flag.png'
 import czflag from '/@/assets/TheBigTrip/flags/cz-flag.png'
@@ -8,15 +15,15 @@ import njflag from '/@/assets/TheBigTrip/flags/nj-flag.png'
 import nyflag from '/@/assets/TheBigTrip/flags/ny-flag.png'
 import slflag from '/@/assets/TheBigTrip/flags/sl-flag.png'
 import paflag from '/@/assets/TheBigTrip/flags/pa-flag.png'
+import deflag from '/@/assets/TheBigTrip/flags/de-flag.png'
+import usflag from '/@/assets/TheBigTrip/flags/us-flag.png'
+import etflag from '/@/assets/TheBigTrip/flags/et-flag.png'
+import skflag from '/@/assets/TheBigTrip/flags/sk-flag.png'
 
-import deflag from '/@/assets/TheBigTrip/flags/de-flag.jpg'
 import duflag from '/@/assets/TheBigTrip/flags/du-flag.jpg'
-import etflag from '/@/assets/TheBigTrip/flags/et-flag.jpg'
 import jpflag from '/@/assets/TheBigTrip/flags/jp-flag.jpg'
 import euflag from '/@/assets/TheBigTrip/flags/eu-flag.jpg'
-import usflag from '/@/assets/TheBigTrip/flags/us-flag.jpg'
 import ilflag from '/@/assets/TheBigTrip/flags/il-flag.jpg'
-import skflag from '/@/assets/TheBigTrip/flags/sk-flag.jpg'
 
 export const trip: Trip = {
   continents: [
@@ -1329,7 +1336,7 @@ export const trip: Trip = {
                   thumbnail:
                     'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/EF9FE81A-F97E-4233-B5BD-29E6B19C521F_B7FEC10A-738E-49D5-A86F-A8F4716F721A.jpg',
                   video:
-                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/8ad2ba7b-a48c-4131-bdd7-d3f154458953_video'
+                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/db8a211d-5f94-4e66-87ad-ba9ac2c743a3_video'
                 },
                 {
                   thumbnail:
