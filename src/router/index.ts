@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, RouteLocationNormalizedGeneric } from 'vue-router'
 import { encodeURIStep, steps } from '/@/data/trip'
 
 import PortfolioView from '/@/views/PortfolioView.vue'
@@ -19,5 +19,9 @@ const routes = [
 
 export const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (to.fullPath.startsWith(`/${TripRoute}`) && to.fullPath !== defaultTripPath) return
+    return { top: 0, left: 0, behavior: 'smooth' }
+  }
 })
