@@ -3,7 +3,8 @@ import { encodeURIStep, steps } from '/@/data/trip'
 
 import PortfolioView from '/@/views/PortfolioView.vue'
 import TripView from '/@/views/TripView.vue'
-import { TripRoute, PortfolioRoute } from '/@/data/globals'
+import CookbookView from '/@/views/CookbookView.vue'
+import { TripRoute, PortfolioRoute, CookbookRoute } from '/@/data/globals'
 
 const defaultTripPath = `/${TripRoute}/${encodeURIStep(steps[0])}`
 
@@ -14,7 +15,8 @@ const routes = [
   {
     path: `/${TripRoute}/:id`,
     component: TripView
-  }
+  },
+  { path: `/${CookbookRoute}`, component: CookbookView }
 ]
 
 export const router = createRouter({
