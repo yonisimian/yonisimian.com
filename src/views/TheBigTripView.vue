@@ -3,11 +3,17 @@
   <div class="flex flex-col items-center justify-center mx-auto max-w-5xl">
     <TheTitle />
 
-    <DestBar :destinations="continents" :currDest="currContinent" :chooseDest="chooseContinent" />
-    <DestBar :destinations="countries" :currDest="currCountry" :chooseDest="chooseCountry" />
-    <DestBar :destinations="steps" :dates :currDest="currStep" :chooseDest="chooseStep" />
+    <div class="flex flex-col items-center justify-center w-full">
+      <DestBar :destinations="continents" :currDest="currContinent" :chooseDest="chooseContinent" />
+      <DestBar :destinations="countries" :currDest="currCountry" :chooseDest="chooseCountry" />
+      <DestBar :destinations="steps" :dates :currDest="currStep" :chooseDest="chooseStep" />
+    </div>
 
-    <StepView :step="currStep" :country="currCountry" />
+    <div class="flex flex-col items-center justify-center w-full gap-4 my-4">
+      <StepDescription />
+      <MediaCarousel />
+      <StepNavigationButtons />
+    </div>
 
     <ScrollToEdge direction="up" class="fixed top-2 right-1 sm:right-2" />
     <ScrollToEdge direction="down" class="fixed bottom-2 right-1 sm:right-2 safe" />
