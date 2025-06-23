@@ -5,13 +5,20 @@
     <span class="text-xs"
       >Made by
       <a
-        class="footer-link text-cyan-500 hover:text-cyan-400"
+        class="opacity-80 text-cyan-500 hover:text-cyan-400"
         href="https://github.com/yonisimian"
         rel="noreferrer"
         target="_blank"
-        >Yehonatan Simian</a
-      ></span
-    >
+      >
+        Yehonatan Simian
+      </a>
+    </span>
+
+    <nav class="flex flex-col">
+      <RouterLink to="/">Go to Home</RouterLink>
+      <RouterLink to="/portfolio">My Portfolio</RouterLink>
+      <RouterLink to="/thebigtrip">The Big Trip</RouterLink>
+    </nav>
   </footer>
 </template>
 

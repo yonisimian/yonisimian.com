@@ -6,8 +6,4 @@
 
 <script setup lang="ts"></script>
 
-<style scoped>
-.footer-link {
-  opacity: 0.8;
-}
-</style>
+<style scoped></style>

@@ -1,5 +1,4 @@
 <template>
-  <Background />
   <div class="flex flex-col items-center justify-center mx-auto max-w-5xl">
     <TheTitle />
 
@@ -14,9 +13,6 @@
       <MediaCarousel />
       <StepNavigationButtons />
     </div>
-
-    <ScrollToEdge direction="up" class="fixed top-2 right-1 sm:right-2" />
-    <ScrollToEdge direction="down" class="fixed bottom-2 right-1 sm:right-2 safe" />
   </div>
 </template>
 
@@ -28,8 +24,4 @@ const { currStep, currCountry, currContinent, chooseStep, chooseCountry, chooseC
   useTripState()
 </script>
 
-<style scoped>
-.safe {
-  padding-right: calc(0.5 * env(safe-area-inset-bottom));
-}
-</style>
+<style scoped></style>
