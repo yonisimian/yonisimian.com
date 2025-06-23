@@ -4,11 +4,13 @@
     <FooterIcons />
 
     <nav class="flex flex-row justify-center gap-2 text-xs">
-      <RouterLink to="/">Home</RouterLink>
-      <p>•</p>
+      <!-- <RouterLink to="/">Home</RouterLink>
+      <p>•</p> -->
       <RouterLink :to="'/' + PortfolioRoute">My Portfolio</RouterLink>
       <p>•</p>
       <RouterLink :to="'/' + TripRoute">The Big Trip</RouterLink>
+      <p>•</p>
+      <RouterLink :to="'/' + CookbookRoute">Michal's Cookbook</RouterLink>
     </nav>
 
     <span class="text-xs">
@@ -26,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { TripRoute, PortfolioRoute } from '/@/data/globals'
+import { TripRoute, PortfolioRoute, CookbookRoute } from '/@/data/globals'
 </script>
 
 <style scoped></style>
