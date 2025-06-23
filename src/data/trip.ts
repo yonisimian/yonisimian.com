@@ -92,7 +92,7 @@ export const trip: Trip = {
           steps: [
             {
               date: 'October 28, 2024',
-              degrees: '21°',
+              degrees: '21',
               name: 'Seoul',
               shortName: 'Seoul',
               media: [
@@ -113,7 +113,7 @@ export const trip: Trip = {
           steps: [
             {
               date: 'October 29, 2024',
-              degrees: '21°',
+              degrees: '21',
               name: 'Akihabara, Tokyo',
               shortName: 'Akihabara',
               media: [
@@ -131,7 +131,7 @@ export const trip: Trip = {
             },
             {
               date: 'October 31, 2024',
-              degrees: '21°',
+              degrees: '21',
               name: 'Chiyoda',
               shortName: 'Chiyoda',
               media: [
@@ -147,7 +147,7 @@ export const trip: Trip = {
             },
             {
               date: 'October 31, 2024',
-              degrees: '23°',
+              degrees: '23',
               name: 'Shibuya',
               shortName: 'Shibuya',
               media: [
@@ -161,7 +161,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 1, 2024',
-              degrees: '23°',
+              degrees: '23',
               name: 'Tokyo Tower',
               shortName: 'Tokyo Tower',
               media: [
@@ -184,7 +184,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 3, 2024',
-              degrees: '22°',
+              degrees: '22',
               name: 'Shinjuku',
               shortName: 'Shinjuku',
               media: [
@@ -201,7 +201,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 4, 2024',
-              degrees: '20°',
+              degrees: '20',
               name: 'TeamLab',
               shortName: 'TeamLab',
               media: [
@@ -240,7 +240,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 5, 2024',
-              degrees: '16°',
+              degrees: '16',
               name: 'LaQua / Shibuya',
               shortName: 'LaQua',
               media: [
@@ -253,7 +253,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 7, 2024',
-              degrees: '17°',
+              degrees: '17',
               name: 'Hakone',
               shortName: 'Hakone',
               media: [
@@ -272,7 +272,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 7, 2024',
-              degrees: '17°',
+              degrees: '17',
               name: 'Hakone #2',
               shortName: 'Hakone',
               media: [
@@ -285,7 +285,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 8, 2024',
-              degrees: '17°',
+              degrees: '17',
               name: 'Kyoto',
               shortName: 'Kyoto',
               media: [
@@ -298,7 +298,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 9, 2024',
-              degrees: '21°',
+              degrees: '21',
               name: 'Ibaraki',
               shortName: 'Ibaraki',
               media: [
@@ -312,7 +312,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 10, 2024',
-              degrees: '23°',
+              degrees: '23',
               name: 'Osaka-shi',
               shortName: 'Osaka-shi',
               media: [
@@ -330,7 +330,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 11, 2024',
-              degrees: '23°',
+              degrees: '23',
               name: 'Ibaraki',
               shortName: 'Ibaraki',
               media: [
@@ -346,7 +346,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 12, 2024',
-              degrees: '22°',
+              degrees: '22',
               name: 'Universal Studios 👾🎯⛳️',
               shortName: 'Universal Studios',
               media: [
@@ -388,7 +388,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 12, 2024',
-              degrees: '21°',
+              degrees: '21',
               name: 'Jamming 🎸🎤🎶',
               shortName: 'Jamming',
               media: [
@@ -406,7 +406,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 13, 2024',
-              degrees: '21°',
+              degrees: '21',
               name: 'My Heart',
               shortName: 'My Heart',
               media: [],
@@ -415,7 +415,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 13, 2024',
-              degrees: '21°',
+              degrees: '21',
               name: 'Kyoto #2',
               shortName: 'Kyoto',
               media: [
@@ -437,7 +437,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 14, 2024',
-              degrees: '21°',
+              degrees: '21',
               name: 'Kyoto #2.5',
               shortName: 'Kyoto',
               media: [
@@ -451,7 +451,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 15, 2024',
-              degrees: '21°',
+              degrees: '21',
               name: 'Osaka #2',
               shortName: 'Osaka',
               media: [
@@ -470,7 +470,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 16, 2024',
-              degrees: '19°',
+              degrees: '19',
               name: 'Kobe 🥩',
               shortName: 'Kobe',
               media: [
@@ -515,7 +515,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 17, 2024',
-              degrees: '22°',
+              degrees: '22',
               name: 'Goodbye Kobe',
               shortName: 'Kobe',
               media: [
@@ -536,7 +536,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 18, 2024',
-              degrees: '16°',
+              degrees: '16',
               name: 'Ōtsu',
               shortName: 'Ōtsu',
               media: [
@@ -583,7 +583,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 19, 2024',
-              degrees: '12°',
+              degrees: '12',
               name: 'Otsu #2.5',
               shortName: 'Otsu',
               media: [
@@ -630,7 +630,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 20, 2024',
-              degrees: '9°',
+              degrees: '9',
               name: 'Otsu #3⅓',
               shortName: 'Otsu',
               media: [
@@ -663,7 +663,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 21, 2024',
-              degrees: '13°',
+              degrees: '13',
               name: 'Yudanaka',
               shortName: 'Yudanaka',
               media: [
@@ -678,7 +678,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 22, 2024',
-              degrees: '13°',
+              degrees: '13',
               name: 'Snow Monkey Park, Nagano',
               shortName: 'Nagano',
               media: [
@@ -712,7 +712,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 23, 2024',
-              degrees: '16°',
+              degrees: '16',
               name: 'Arriving at Yokohama',
               shortName: 'Yokohama',
               media: [
@@ -727,7 +727,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 24, 2024',
-              degrees: '14°',
+              degrees: '14',
               name: 'Kamakura',
               shortName: 'Kamakura',
               media: [
@@ -748,7 +748,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 25, 2024',
-              degrees: '14°',
+              degrees: '14',
               name: 'Yokohama',
               shortName: 'Yokohama',
               media: [
@@ -768,7 +768,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 26, 2024',
-              degrees: '14°',
+              degrees: '14',
               name: 'Bye-bye Yokohama!',
               shortName: 'Yokohama',
               media: [
@@ -784,7 +784,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 27, 2024',
-              degrees: '21°',
+              degrees: '21',
               name: 'Tokyo Opera City Concert Hall #1',
               shortName: 'Tokyo',
               media: [
@@ -800,7 +800,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 28, 2024',
-              degrees: '18°',
+              degrees: '18',
               name: 'Tokyo Opera City Concert Hall #2',
               shortName: 'Tokyo',
               media: [
@@ -825,7 +825,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 29, 2024',
-              degrees: '16°',
+              degrees: '16',
               name: 'SEGA Joypolis',
               shortName: 'Joypolis',
               media: [
@@ -856,7 +856,7 @@ export const trip: Trip = {
             },
             {
               date: 'November 30, 2024',
-              degrees: '16°',
+              degrees: '16',
               name: 'Baba Ramen',
               shortName: 'Baba Ramen',
               media: [
@@ -880,7 +880,7 @@ export const trip: Trip = {
             },
             {
               date: 'December 1, 2024',
-              degrees: '16°',
+              degrees: '16',
               name: 'Sugamo',
               shortName: 'Sugamo',
               media: [
@@ -927,7 +927,7 @@ export const trip: Trip = {
             },
             {
               date: 'December 2, 2024',
-              degrees: '15°',
+              degrees: '15',
               name: 'JAPAN SUMMARY 🏯🎌🍣',
               shortName: 'Japan Summary',
               media: [
@@ -956,7 +956,7 @@ export const trip: Trip = {
           steps: [
             {
               date: 'December 3, 2024',
-              degrees: '29°',
+              degrees: '29',
               name: 'Diamond Head Volcanic Peak',
               shortName: 'Diamond Head',
               media: [
@@ -1008,7 +1008,7 @@ export const trip: Trip = {
             },
             {
               date: 'December 4, 2024',
-              degrees: '30°',
+              degrees: '30',
               name: 'Moanalua Park',
               shortName: 'Moanalua Park',
               media: [
@@ -1027,7 +1027,7 @@ export const trip: Trip = {
             },
             {
               date: 'December 5, 2024',
-              degrees: '30°',
+              degrees: '30',
               name: 'Kaneohe',
               shortName: 'Kaneohe',
               media: [
@@ -1052,7 +1052,7 @@ export const trip: Trip = {
             },
             {
               date: 'December 6, 2024',
-              degrees: '27°',
+              degrees: '27',
               name: 'Kaneohe #2',
               shortName: 'Kaneohe',
               media: [
@@ -1070,7 +1070,7 @@ export const trip: Trip = {
             },
             {
               date: 'December 7, 2024',
-              degrees: '28°',
+              degrees: '28',
               name: 'Aloha Stadium Swap Meet',
               shortName: 'Aloha Stadium',
               media: [
@@ -1095,7 +1095,7 @@ export const trip: Trip = {
             },
             {
               date: 'December 8, 2024',
-              degrees: '29°',
+              degrees: '29',
               name: 'Kaneohe #3',
               shortName: 'Kaneohe',
               media: [
@@ -1140,7 +1140,7 @@ export const trip: Trip = {
           steps: [
             {
               date: 'December 9, 2024',
-              degrees: '29°',
+              degrees: '29',
               name: 'Los Angeles 🎸',
               shortName: 'Los Angeles',
               media: [
@@ -1169,7 +1169,7 @@ export const trip: Trip = {
             },
             {
               date: 'December 10, 2024',
-              degrees: '22°',
+              degrees: '22',
               name: 'Venice Beach',
               shortName: 'Venice Beach',
               media: [
@@ -1192,7 +1192,7 @@ export const trip: Trip = {
             },
             {
               date: 'December 11, 2024',
-              degrees: '22°',
+              degrees: '22',
               name: 'Hollywood',
               shortName: 'Hollywood',
               media: [
@@ -1226,7 +1226,7 @@ export const trip: Trip = {
             },
             {
               date: 'December 11, 2024',
-              degrees: '22°',
+              degrees: '22',
               name: 'My Heart #2',
               shortName: 'My Heart',
               media: [
@@ -1239,7 +1239,7 @@ export const trip: Trip = {
             },
             {
               date: 'December 12, 2024',
-              degrees: '16°',
+              degrees: '16',
               name: 'Santa Monica',
               shortName: 'Santa Monica',
               media: [
@@ -1259,7 +1259,7 @@ export const trip: Trip = {
           steps: [
             {
               date: 'December 13, 2024',
-              degrees: '2°',
+              degrees: '2',
               name: 'Newark',
               shortName: 'Newark',
               media: [
@@ -1274,7 +1274,7 @@ export const trip: Trip = {
             },
             {
               date: 'December 14, 2024',
-              degrees: '2°',
+              degrees: '2',
               name: 'Newark #2',
               shortName: 'Newark',
               media: [
@@ -1290,7 +1290,7 @@ export const trip: Trip = {
             },
             {
               date: 'December 14, 2024',
-              degrees: '2°',
+              degrees: '2',
               name: '🌟 SONIC SYMPHONY 🌟',
               shortName: 'Sonic Symphony',
               media: [
@@ -1370,7 +1370,7 @@ export const trip: Trip = {
           steps: [
             {
               date: 'December 15, 2024',
-              degrees: '6°',
+              degrees: '6',
               name: 'Arriving at New York',
               shortName: 'New York',
               media: [
@@ -1400,7 +1400,7 @@ export const trip: Trip = {
             },
             {
               date: 'December 16, 2024',
-              degrees: '11°',
+              degrees: '11',
               name: 'New York, New York 🍂',
               shortName: 'New York',
               media: [
@@ -1438,7 +1438,7 @@ export const trip: Trip = {
           steps: [
             {
               date: 'December 17, 2024',
-              degrees: '15°',
+              degrees: '15',
               name: 'Princeton…?',
               shortName: 'Princeton',
               media: [
@@ -1459,7 +1459,7 @@ export const trip: Trip = {
             },
             {
               date: 'December 18, 2024',
-              degrees: '14°',
+              degrees: '14',
               name: 'Philadelphia',
               shortName: 'Philadelphia',
               media: [
@@ -1482,7 +1482,7 @@ export const trip: Trip = {
             },
             {
               date: 'December 19, 2024',
-              degrees: '7°',
+              degrees: '7',
               name: 'Princeton(!)',
               shortName: 'Princeton',
               media: [
@@ -1495,7 +1495,7 @@ export const trip: Trip = {
             },
             {
               date: 'December 20, 2024',
-              degrees: '2°',
+              degrees: '2',
               name: '🤧🤒😷',
               shortName: 'Achoo',
               media: [
@@ -1515,7 +1515,7 @@ export const trip: Trip = {
             },
             {
               date: 'December 24, 2024',
-              degrees: '3°',
+              degrees: '3',
               name: 'Christmas Eve 🎄',
               shortName: 'Christmas Eve',
               media: [
@@ -1564,7 +1564,7 @@ export const trip: Trip = {
             },
             {
               date: 'December 25, 2024',
-              degrees: '3°',
+              degrees: '3',
               name: 'Christmas Day 🎅🏻',
               shortName: 'Christmas Day',
               media: [
@@ -1578,7 +1578,7 @@ export const trip: Trip = {
             },
             {
               date: 'December 26, 2024',
-              degrees: '4°',
+              degrees: '4',
               name: 'Jamison City 🃏',
               shortName: 'Jamison City',
               media: [],
@@ -1589,7 +1589,7 @@ export const trip: Trip = {
             },
             {
               date: 'December 28, 2024',
-              degrees: '9°',
+              degrees: '9',
               name: 'Hatboro',
               shortName: 'Hatboro',
               media: [
@@ -1619,7 +1619,7 @@ export const trip: Trip = {
             },
             {
               date: 'December 29, 2024',
-              degrees: '18°',
+              degrees: '18',
               name: 'Doylestown',
               shortName: 'Doylestown',
               media: [
@@ -1644,7 +1644,7 @@ export const trip: Trip = {
             },
             {
               date: 'December 30, 2024',
-              degrees: '15°',
+              degrees: '15',
               name: 'Hamilton',
               shortName: 'Hamilton',
               media: [
@@ -1669,7 +1669,7 @@ export const trip: Trip = {
             },
             {
               date: 'December 31, 2024',
-              degrees: '15°',
+              degrees: '15',
               name: 'USA SUMMARY 🇺🇸🗽',
               shortName: 'USA Summary',
               media: [
@@ -1696,7 +1696,7 @@ export const trip: Trip = {
           steps: [
             {
               date: 'January 1, 2025',
-              degrees: '9°',
+              degrees: '9',
               name: 'Amsterdam',
               shortName: 'Amsterdam',
               media: [
@@ -1730,7 +1730,7 @@ export const trip: Trip = {
             },
             {
               date: 'January 3, 2025',
-              degrees: '5°',
+              degrees: '5',
               name: 'Rijksmuseum 🖼️',
               shortName: 'Rijksmuseum',
               media: [
@@ -1768,7 +1768,7 @@ export const trip: Trip = {
             },
             {
               date: 'January 4, 2025',
-              degrees: '4°',
+              degrees: '4',
               name: 'Gouda',
               shortName: 'Gouda',
               media: [
@@ -1783,7 +1783,7 @@ export const trip: Trip = {
             },
             {
               date: 'January 5, 2025',
-              degrees: '12°',
+              degrees: '12',
               name: '🍄‍🟫 Wunderland 🍄',
               shortName: 'Wunderland',
               media: [
@@ -1797,7 +1797,7 @@ export const trip: Trip = {
             },
             {
               date: 'January 6, 2025',
-              degrees: '12°',
+              degrees: '12',
               name: 'Utrecht',
               shortName: 'Utrecht',
               media: [
@@ -1849,7 +1849,7 @@ export const trip: Trip = {
             },
             {
               date: 'January 10, 2025',
-              degrees: '4°',
+              degrees: '4',
               name: 'Eindhoven',
               shortName: 'Eindhoven',
               media: [
@@ -1884,7 +1884,7 @@ export const trip: Trip = {
           steps: [
             {
               date: 'January 13, 2025',
-              degrees: '0°',
+              degrees: '0',
               name: 'Nürnberg',
               shortName: 'Nürnberg',
               media: [
@@ -1906,7 +1906,7 @@ export const trip: Trip = {
             },
             {
               date: 'January 16, 2025',
-              degrees: '6°',
+              degrees: '6',
               name: 'Nürnberg #2.5',
               shortName: 'Nürnberg',
               media: [
@@ -1929,7 +1929,7 @@ export const trip: Trip = {
             },
             {
               date: 'January 18, 2025',
-              degrees: '6°',
+              degrees: '6',
               name: 'Nürnberg #3⅓',
               shortName: 'Nürnberg',
               media: [
@@ -1959,7 +1959,7 @@ export const trip: Trip = {
             },
             {
               date: 'January 19, 2025',
-              degrees: '7°',
+              degrees: '7',
               name: 'Last day in Nürnberg 🇩🇪',
               shortName: 'Nürnberg',
               media: [
@@ -1997,7 +1997,7 @@ export const trip: Trip = {
           steps: [
             {
               date: 'January 20, 2025',
-              degrees: '-2°',
+              degrees: '-2',
               name: 'Vienna 🎻🇦🇹',
               shortName: 'Vienna',
               media: [
@@ -2024,7 +2024,7 @@ export const trip: Trip = {
             },
             {
               date: 'January 21, 2025',
-              degrees: '0°',
+              degrees: '0',
               name: 'More Vienna!',
               shortName: 'More Vienna',
               media: [
@@ -2067,7 +2067,7 @@ export const trip: Trip = {
             },
             {
               date: 'January 21, 2025',
-              degrees: '-1°',
+              degrees: '-1',
               name: 'Johann Strauss Dinner',
               shortName: 'Strauss Dinner',
               media: [
@@ -2152,7 +2152,7 @@ export const trip: Trip = {
           steps: [
             {
               date: 'January 22, 2025',
-              degrees: '-1°',
+              degrees: '-1',
               name: 'Bratislava',
               shortName: 'Bratislava',
               media: [
@@ -2176,7 +2176,7 @@ export const trip: Trip = {
           steps: [
             {
               date: 'January 23, 2025',
-              degrees: '4°',
+              degrees: '4',
               name: 'Prague',
               shortName: 'Prague',
               media: [
@@ -2200,7 +2200,7 @@ export const trip: Trip = {
             },
             {
               date: 'January 24, 2025',
-              degrees: '7°',
+              degrees: '7',
               name: 'Praha',
               shortName: 'Praha',
               media: [
@@ -2239,7 +2239,7 @@ export const trip: Trip = {
             },
             {
               date: 'January 25, 2025',
-              degrees: '10°',
+              degrees: '10',
               name: 'Praגa',
               shortName: 'Praגa',
               media: [
@@ -2258,7 +2258,7 @@ export const trip: Trip = {
             },
             {
               date: 'January 26, 2025',
-              degrees: '8°',
+              degrees: '8',
               name: 'Vietnamese Respite 🇻🇳',
               shortName: 'Vietnam??',
               media: [
@@ -2294,7 +2294,7 @@ export const trip: Trip = {
           steps: [
             {
               date: 'January 27, 2025',
-              degrees: '20°',
+              degrees: '20',
               name: 'Summary 🇯🇵🇺🇸🇺🇳🇮🇱',
               shortName: 'Home',
               media: [

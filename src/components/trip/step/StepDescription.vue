@@ -8,7 +8,7 @@
   >
     <h2 class="text-3xl">{{ currStep.name }}</h2>
     <p class="text-lg">
-      <b>{{ currCountry.name }}</b> • {{ currStep.date }} • {{ currStep.degrees }}c
+      <b>{{ currCountry.name }}</b> • {{ currStep.date }} • {{ currStep.degrees }}°c
     </p>
     <div
       v-html="currStep.description"
