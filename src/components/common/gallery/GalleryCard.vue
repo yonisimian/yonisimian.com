@@ -2,34 +2,34 @@
   <div>
     <Transition name="slide">
       <div v-if="isChosen">
-        <GalleryCardBack :discard="() => (isChosen = false)" :project="project" />
+        <slot name="CardBack" :discard="discard" :item="item" />
       </div>
     </Transition>
-    <GalleryCardFront @click="isChosen = true" :project="project" />
+    <slot name="CardFront" :onClick="select" :item="item" />
   </div>
 </template>
 
-<script setup lang="ts">
-import { Project } from '/@/types/portfolio'
-import { onMounted, ref } from 'vue'
+<script setup lang="ts" generic="T">
+import { ref, onMounted } from 'vue'
 
 const props = defineProps<{
   id: string
-  project: Project
+  item: T
 }>()
 
 const isChosen = ref(false)
 
+function discard() {
+  isChosen.value = false
+}
+
+function select() {
+  isChosen.value = true
+}
+
 onMounted(() => {
-  const hash = window.location.hash
-  if (hash.substring(1) === props.id) {
+  if (window.location.hash.substring(1) === props.id) {
     isChosen.value = true
   }
 })
 </script>
-
-<style scoped>
-/* .slide-leave-active {
-  transition: all 0.5s;
-} */
-</style>

@@ -1,28 +1,28 @@
 <template>
   <DarkBackground />
-  <BackBackground @click="discard">
-    <BackCard @click.stop class="relative">
-      <BackLogo class="sm:block hidden" :src="project.img" :alt="project.title" />
-      <BackCloseButton @click="discard" />
-      <BackCategory :category="project.category" />
-      <BackTitle :title="project.title" />
-      <BackDesc :description="project.description" />
-      <BackTitledDesc
+  <CardBackBackground @click="discard">
+    <PortfolioBackCard @click.stop class="relative">
+      <PortfolioBackLogo class="sm:block hidden" :src="project.img" :alt="project.title" />
+      <CardBackCloseButton @click="discard" />
+      <PortfolioBackCategory :category="project.category" />
+      <PortfolioBackTitle :title="project.title" />
+      <PortfolioBackDesc :description="project.description" />
+      <PortfolioBackTitledDesc
         v-if="project.wilfi"
         :title="'What I\'ve learned from it'"
         :desc="project.wilfi"
         :class="{ 'pb-2': project.wiwdd }"
       />
-      <BackTitledDesc
+      <PortfolioBackTitledDesc
         v-if="project.wiwdd"
         :title="'What I\'d do differently'"
         :desc="project.wiwdd"
       />
-      <BackEmbed v-if="project.embed" :link="project.embed" />
-      <BackTitledDesc v-if="project.notes" :title="'Notes'" :desc="project.notes" />
-      <BackLinks v-if="project.links" :links="project.links" />
-    </BackCard>
-  </BackBackground>
+      <PortfolioBackEmbed v-if="project.embed" :link="project.embed" />
+      <PortfolioBackTitledDesc v-if="project.notes" :title="'Notes'" :desc="project.notes" />
+      <PortfolioBackLinks v-if="project.links" :links="project.links" />
+    </PortfolioBackCard>
+  </CardBackBackground>
 </template>
 
 <script setup lang="ts">
