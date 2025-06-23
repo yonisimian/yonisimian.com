@@ -67,4 +67,21 @@ const handleSwipe = (endX: number) => {
   border-radius: 1px;
   opacity: 0.1;
 }
+
+.dark .notebook-bg {
+  color: #ded6c7;
+  background: repeating-linear-gradient(
+    to bottom,
+    #23272e,
+    #23272e 28px,
+    #2d323b 29px,
+    #23272e 30px
+  );
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.dark .notebook-bg::before {
+  background: #852413;
+  opacity: 0.25;
+}
 </style>
