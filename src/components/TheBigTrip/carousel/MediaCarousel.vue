@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="currStep.media && currStep.media.length">
-      <MediaCarouselFullscreen v-if="fullscreen" />
+      <MediaCarouselFullscreen v-if="fullscreen || customSlides" />
       <MediaCarouselNormal :style="{ display: fullscreen ? 'none' : 'block' }" />
       <!-- Note: I used to go `v-else` here, but I got warnings from Vue :( -->
     </div>
@@ -13,13 +13,10 @@ import 'vue3-carousel/carousel.css'
 import { watch } from 'vue'
 import { useTripState } from '/@/composables/useTripState'
 
-const { currStep, slide, fullscreen } = useTripState()
+const { currStep, slide, fullscreen, customSlides } = useTripState()
 
-// reset slide when step changes
-watch(
-  () => currStep.value,
-  () => (slide.value = 0)
-)
+// reset slide when step changes or entering custom slides mode
+watch([() => currStep.value, () => customSlides.value], () => (slide.value = 0))
 </script>
 
 <style scoped>

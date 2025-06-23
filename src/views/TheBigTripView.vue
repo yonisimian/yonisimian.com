@@ -1,11 +1,8 @@
 <template>
   <Background />
   <div class="flex flex-col items-center justify-center mx-auto max-w-5xl">
-    <div class="flex flex-col items-center justify-center gap-4 p-4 w-full">
-      <h1 class="text-6xl font-bold">The Big Trip</h1>
-      <p class="text-lg">Explore the world through my journey</p>
-      <p class="text-sm text-gray-500 -mt-3">Click on a destination to start exploring</p>
-    </div>
+    <TheTitle />
+
     <DestBar :destinations="continents" :currDest="currContinent" :chooseDest="chooseContinent" />
     <DestBar :destinations="countries" :currDest="currCountry" :chooseDest="chooseCountry" />
     <DestBar :destinations="steps" :dates :currDest="currStep" :chooseDest="chooseStep" />

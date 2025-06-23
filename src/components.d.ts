@@ -60,6 +60,7 @@ declare module 'vue' {
     ScrollDown: typeof import('./components/scrolling/ScrollDown.vue')['default']
     ScrollToEdge: typeof import('./components/scrolling/ScrollToEdge.vue')['default']
     StepView: typeof import('./components/TheBigTrip/StepView.vue')['default']
+    TheTitle: typeof import('./components/TheBigTrip/TheTitle.vue')['default']
     Title: typeof import('./components/header/Title.vue')['default']
     WhatsAppIcon: typeof import('./components/footer/icons/WhatsAppIcon.vue')['default']
     YoutubeIcon: typeof import('./components/footer/icons/YoutubeIcon.vue')['default']

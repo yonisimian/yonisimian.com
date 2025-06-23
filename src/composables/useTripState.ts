@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { useQueryParam } from './useQueryParam'
 import { useRouter, useRoute } from 'vue-router'
-import { Continent, Country, Step } from '/@/types/trip'
+import { Continent, Country, Step, CustomSlidesType } from '/@/types/trip'
 import {
   decodeURIStep,
   encodeURIStep,
@@ -59,11 +59,27 @@ export const useTripState = () => {
     parse: (v) => v || ''
   })
 
-  // Clean boolean wrapper for fullscreen
   const fullscreen = computed<boolean>({
     get: () => fullscreenRaw.value === 'true',
     set: (val: boolean) => {
       fullscreenRaw.value = val ? 'true' : ''
+    }
+  })
+
+  const customSlidesRaw = useQueryParam('custom', {
+    default: '',
+    parse: (v) => v || ''
+  })
+
+  const customSlidesValues = Object.values(CustomSlidesType) as CustomSlidesType[]
+
+  const customSlides = computed<CustomSlidesType>({
+    get: () =>
+      customSlidesValues.includes(customSlidesRaw.value as CustomSlidesType)
+        ? (customSlidesRaw.value as CustomSlidesType)
+        : CustomSlidesType.None,
+    set: (val: CustomSlidesType) => {
+      customSlidesRaw.value = val
     }
   })
 
@@ -79,6 +95,7 @@ export const useTripState = () => {
     choosePrevStep,
     chooseNextStep,
     slide,
-    fullscreen
+    fullscreen,
+    customSlides
   }
 }
