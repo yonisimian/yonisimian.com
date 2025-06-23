@@ -1,11 +1,11 @@
 <template>
   <div
     class="flex items-center justify-center fixed z-10 inset-0 bg-black bg-opacity-80 backdrop-blur-[2px]"
-    @click.self="fullscreen = false"
+    @click.self="closeFullscreen"
   >
     <div class="max-w-5xl h-max bg-black flex items-center justify-center overflow-hidden">
       <Carousel id="gallery" v-bind="galleryConfig" v-model="slide">
-        <Slide v-for="(url, index) in currStep.media" :key="index">
+        <Slide v-for="(url, index) in currSlides" :key="index">
           <div class="w-full h-full max-h-[640px] bg-black flex items-center justify-center">
             <img
               v-if="isImage(url)"
@@ -30,10 +30,22 @@
 import 'vue3-carousel/carousel.css'
 import { Carousel, Slide } from 'vue3-carousel'
 import { useTripState } from '/@/composables/useTripState'
-import { isImage } from '/@/data/trip'
-import { PhotoURL, VideoURL } from '/@/types/trip'
+import { isImage, getCustomSlides } from '/@/data/trip'
+import { CustomSlidesType, MediaType, PhotoURL, VideoURL } from '/@/types/trip'
+import { computed } from 'vue'
 
-const { currStep, slide, fullscreen } = useTripState()
+const { currStep, slide, fullscreen, customSlides } = useTripState()
+
+const currSlides = computed<MediaType[]>(() => {
+  const s = getCustomSlides(customSlides.value)
+  if (s) return s
+  return currStep.value.media
+})
+
+const closeFullscreen = () => {
+  fullscreen.value = false
+  customSlides.value = CustomSlidesType.None
+}
 
 const galleryConfig = {
   itemsToShow: 1,

@@ -2369,3 +2369,97 @@ export const decodeURIStep = (id: string) => {
 }
 
 export const isImage = (media: MediaType): boolean => typeof media === 'string'
+
+export const highlights: MediaType[] = [
+  steps[10].media[3], // hakone
+  steps[13].media[0], // ibaraki
+  steps[15].media[1], // hiragana
+  steps[16].media[6], // universal
+  // steps[19].media[0], // flamed ramen
+  steps[19].media[4], // beautiful screensaver
+  steps[22].media[3], // kobe orchestra
+  steps[22].media[11], // note to Akiko
+  steps[24].media[9], // Otsu l'chaim
+  steps[26].media[3], // Otsu music (TODO)
+  steps[28].media[0], // snow monkeys
+  steps[28].media[5], // more monkeys
+  steps[30].media[2], // buddah
+  steps[34].media[2], // slappin'
+  steps[36].media[0], // making ramen
+  steps[37].media[1], // rocky <3
+  steps[39].media[4], // bird
+  steps[40].media[6], // moanalua
+  steps[41].media[2], // nephews
+  steps[44].media[2], // hawaii omg
+  steps[47].media[6], // hillel
+  steps[49].media[0], // lionel
+  steps[52].media[8], // his world
+  steps[54].media[14], // back to the future
+  steps[55].media[7], // princeton sunset
+  steps[59].media[9], // funny grandma
+  steps[66].media[4], // amsterdam jam
+  steps[70].media[6], // oye como va
+  steps[75].media[3], // nuremberg
+  steps[76].media[7], // jesus
+  steps[78].media[3], // strauss dinner
+  steps[79].media[3], // traffic lights beer
+  steps[80].media[3], // israeli beers
+  steps[81].media[10], // under the bridge
+  steps[82].media[5], // beer festival
+  steps[83].media[6], // brewery
+  steps[84].media[1] // peleg
+]
+
+export const music: MediaType[] = [] // ...and art / food?
+
+export const people: MediaType[] = [
+  steps[6].media[0], // yoni
+  steps[9].media[0], // jason
+  steps[10].media[6], // hakone dudes
+  steps[11].media[0], // hakone other dudes
+  // steps[15].media[0], // yoni again
+  steps[22].media[5], // she never told me her name
+  steps[24].media[5], // otsu jam
+  steps[28].media[5], // monkey
+  steps[30].media[0], // taki
+  steps[32].media[3], // graphy dudes
+  steps[34].media[6], // graphy dudes 2
+  steps[37].media[0], // rocky
+  steps[38].media[0], // arriving in hawaii
+  steps[39].media[7], // diamond head
+  steps[39].media[8], // diamond head 2
+  steps[40].media[0], // moanalua
+  steps[40].media[6], // moanalua 2
+  steps[42].media[0], // kidush
+  steps[43].media[3], // barak
+  steps[44].media[11], // michal and kids
+  steps[49].media[1], // lionel
+  steps[50].media[1], // newark bus dude
+  steps[51].media[3], // jack, lauren & sean
+  steps[54].media[14], // back-to-the-future girl
+  steps[56].media[5], // evan & anya
+  steps[57].media[0], // evan & tzipi
+  steps[58].media[2], // allen
+  steps[59].media[1], // evan
+  steps[59].media[9], // grandma
+  steps[62].media[1], // john
+  steps[64].media[0], // evan & me
+  steps[64].media[5], // bunch of jews
+  steps[64].media[6], // bunch of jews 2
+  steps[68].media[1], // lera & guy
+  steps[71].media[0], // mike
+  steps[73].media[5], // rudolf
+  steps[75].media[2], // hussners
+  steps[80].media[1], // prague dudes
+  steps[81].media[0], // dad with clock
+  steps[82].media[4], // beer festival dudes
+  steps[83].media[2], // me & dad
+  steps[84].media[0] // family
+]
+
+export const getCustomSlides = (type: CustomSlidesType) => {
+  if (type === CustomSlidesType.Highlights) return highlights
+  if (type === CustomSlidesType.Music) return music
+  if (type === CustomSlidesType.People) return people
+  return CustomSlidesType.None
+}

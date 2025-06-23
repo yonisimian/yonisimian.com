@@ -28,3 +28,10 @@ export interface Step {
   media: MediaType[] // photos and videos
   bgImage?: string // URL to the step's background image
 }
+
+export enum CustomSlidesType {
+  None = '',
+  Highlights = 'highlights',
+  Music = 'music',
+  People = 'people'
+}
