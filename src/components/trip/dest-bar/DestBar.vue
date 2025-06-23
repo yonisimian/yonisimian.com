@@ -37,7 +37,7 @@ const props = defineProps<{
   chooseDest: (dest: T) => void
 }>()
 
-const ITEM_WIDTH = 192 // px, must match DestBarItem min-width + margin in CSS
+const ITEM_WIDTH = 176 // px, must match DestBarItem min-width + margin in CSS
 
 const isCurrDest = (dest: T) => {
   if (!dest || !props.currDest) return false
