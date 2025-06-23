@@ -1,13 +1,13 @@
 <template>
   <div class="flex flex-wrap gap-2 justify-between">
-    <GalleryBarBadge
+    <PortfolioGalleryBarBadge
       :text="HighlightSymbol"
       :toggleCategory="toggleHighlights"
       :isSelected="isHighlightsSelected"
       :class="'text-orange-300'"
       :title="'Toggle highlighted projects'"
     />
-    <GalleryBarBadge
+    <PortfolioGalleryBarBadge
       v-for="category in ProjectCategory"
       :key="category"
       :text="category"

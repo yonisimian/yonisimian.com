@@ -1,7 +1,7 @@
 <template>
   <main class="pt-6 sm:pt-14 pb-16 min-h-[100svh]">
-    <h2 class="text-4xl font-bold mb-8 text-center">My Projects</h2>
-    <GalleryBar
+    <GalleryHeader>My Projects</GalleryHeader>
+    <PortfolioGalleryBar
       :selectedCategories="selectedCategories"
       :toggleCategory="toggleCategory"
       :filterSearch="(text: string) => searchProject = text"
@@ -9,7 +9,14 @@
       :toggleHighlights="toggleHighlights"
     />
 
-    <GalleryGrid :projects="filteredProjects" />
+    <GalleryGrid :items="filteredProjects" :sortFn="projectsSortFunc">
+      <template #CardFront="{ item, onClick }">
+        <PortfolioGalleryCardFront :project="item" @click="onClick" />
+      </template>
+      <template #CardBack="{ item, discard }">
+        <PortfolioGalleryCardBack :project="item" :discard="discard" />
+      </template>
+    </GalleryGrid>
   </main>
 </template>
 
@@ -22,6 +29,9 @@ const selectedCategories = ref<ProjectCategory[]>([])
 const selectedHighlights = ref(false)
 const searchProject = ref('')
 const projects = ref<Project[]>(projectsData)
+
+const projectsSortFunc = (a: Project, b: Project) =>
+  (b.year ?? Number.MIN_SAFE_INTEGER) - (a.year ?? Number.MIN_SAFE_INTEGER)
 
 const filteredProjects = computed(() => {
   let filtered = projects.value

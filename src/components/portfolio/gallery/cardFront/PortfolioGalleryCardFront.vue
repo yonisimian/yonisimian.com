@@ -1,12 +1,12 @@
 <template>
-  <FrontCard data-aos="fade-zoom-in">
+  <PortfolioFrontCard data-aos="fade-zoom-in">
     <div v-if="project.highlight" class="absolute top-0.5 left-2 text-orange-300">
       {{ HighlightSymbol }}
     </div>
-    <FrontYear :year="project.year" />
-    <FrontLogo :src="project.img" :alt="project.title" />
-    <FrontTitle :title="project.title" :category="project.category" :year="project.year" />
-  </FrontCard>
+    <PortfolioFrontYear :year="project.year" />
+    <PortfolioFrontLogo :src="project.img" :alt="project.title" />
+    <PortfolioFrontTitle :title="project.title" :category="project.category" :year="project.year" />
+  </PortfolioFrontCard>
 </template>
 
 <script setup lang="ts">
