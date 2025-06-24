@@ -1,6 +1,6 @@
 <template>
   <div
-    class="card grid grid-rows-3 rounded-xl bg-sky-400/5 shadow-lg hover:shadow-xl cursor-pointer select-none mb-10 sm:mb-0 backdrop-filter backdrop-blur-[3px] hover:backdrop-blur-[4px] dark:bg-ternary-dark"
+    class="card grid grid-rows-3 rounded-xl bg-sky-400/5 shadow-lg hover:shadow-xl cursor-pointer select-none backdrop-filter backdrop-blur-[3px] hover:backdrop-blur-[4px] dark:bg-ternary-dark"
   >
     <slot />
   </div>
