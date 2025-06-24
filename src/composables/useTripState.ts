@@ -67,7 +67,7 @@ export const useTripState = () => {
     }
   })
 
-  const customSlidesRaw = useQueryParam('custom', {
+  const customSlidesRaw = useQueryParam('collection', {
     default: '',
     parse: (v) => v || ''
   })
