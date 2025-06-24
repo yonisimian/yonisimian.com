@@ -3,25 +3,49 @@
     class="flex items-center justify-center fixed z-10 inset-0 bg-black bg-opacity-80 backdrop-blur-[2px]"
     @click.self="closeFullscreen"
   >
-    <div class="max-w-5xl h-max bg-black flex items-center justify-center overflow-hidden">
+    <div
+      class="max-w-5xl h-max bg-black flex flex-col items-center justify-center overflow-hidden select-none"
+      @click.self="closeFullscreen"
+    >
+      <h2 class="text-3xl my-4">{{ currStep.name }}</h2>
+      <div class="flex flex-row items-center justify-between w-full py-2">
+        <p>{{ currStep.date }}</p>
+        <p>slide {{ slide + 1 }} / {{ currStep.media.length }}</p>
+        <p>{{ currCountry.name }}, {{ currStep.degrees }}°c</p>
+      </div>
       <Carousel id="gallery" v-bind="galleryConfig" v-model="slide">
         <Slide v-for="(url, index) in currSlides" :key="index">
-          <div class="w-full h-full max-h-[640px] bg-black flex items-center justify-center">
-            <img
-              v-if="isImage(url)"
-              class="max-h-full max-w-full object-contain"
-              :src="url as PhotoURL"
-              alt="Media"
-            />
-            <video
-              v-else
-              controls
-              class="max-h-full max-w-full object-contain"
-              :src="(url as VideoURL).video"
-            />
+          <div
+            class="w-full h-full max-h-[640px] bg-black flex items-center justify-center relative overflow-hidden"
+          >
+            <template v-if="isImage(url)">
+              <img
+                :src="url as PhotoURL"
+                class="absolute inset-0 w-full h-full object-cover blur-xl brightness-40 scale-110 z-0"
+                aria-hidden="true"
+              />
+              <img
+                class="relative max-h-full max-w-full object-contain z-10"
+                :src="url as PhotoURL"
+                alt="Media"
+              />
+            </template>
+            <template v-else>
+              <img
+                :src="(url as VideoURL).thumbnail"
+                class="absolute inset-0 w-full h-full object-cover blur-xl brightness-40 scale-110 z-0"
+                aria-hidden="true"
+              />
+              <video
+                controls
+                class="relative max-h-full max-w-full object-contain z-10"
+                :src="(url as VideoURL).video"
+              />
+            </template>
           </div>
         </Slide>
       </Carousel>
+      <StepNavigationButtons class="mt-2" />
     </div>
   </div>
 </template>
@@ -34,7 +58,7 @@ import { isImage, getCustomSlides } from '/@/data/trip'
 import { MediaType, PhotoURL, VideoURL } from '/@/types/trip'
 import { computed } from 'vue'
 
-const { currStep, slide, closeFullscreen, customSlides } = useTripState()
+const { currStep, currCountry, slide, closeFullscreen, customSlides } = useTripState()
 
 const currSlides = computed<MediaType[]>(() => {
   const s = getCustomSlides(customSlides.value)
@@ -52,4 +76,9 @@ const galleryConfig = {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+h2 {
+  text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #e60073, 0 0 4px #e60073, 0 0 5px #e60073,
+    0 0 6px #e60073, 0 0 7px #e60073;
+}
+</style>
