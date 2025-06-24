@@ -7,6 +7,10 @@
           <video v-else controls class="max-h-full object-contain" :src="(url as VideoURL).video" />
         </div>
       </Slide>
+
+      <template #addons>
+        <Navigation />
+      </template>
     </Carousel>
 
     <Carousel id="thumbnails" v-bind="thumbnailsConfig" v-model="slide">
@@ -21,10 +25,6 @@
           </div>
         </template>
       </Slide>
-
-      <template #addons>
-        <Navigation />
-      </template>
     </Carousel>
   </div>
 </template>
@@ -72,5 +72,14 @@ const thumbnailsConfig = {
 .thumbnail.is-active,
 .thumbnail:hover {
   opacity: 1;
+}
+
+.carousel {
+  --vc-nav-background: rgba(0, 0, 0, 0.3);
+  --vc-nav-color: white;
+  --vc-nav-color-hover: #e5e5e5;
+  --vc-nav-border-radius: 50%;
+  --vc-nav-width: 40px;
+  --vc-nav-height: 40px;
 }
 </style>
