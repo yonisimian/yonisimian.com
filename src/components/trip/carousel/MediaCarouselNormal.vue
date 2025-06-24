@@ -3,8 +3,33 @@
     <Carousel id="gallery" v-bind="galleryConfig" v-model="slide">
       <Slide v-for="(url, index) in currStep.media" :key="index">
         <div class="w-full h-full bg-black flex items-center justify-center cursor-pointer">
-          <img v-if="isImage(url)" :src="url as PhotoURL" alt="Media" @click="fullscreen = true" />
-          <video v-else controls class="max-h-full object-contain" :src="(url as VideoURL).video" />
+          <template v-if="isImage(url)">
+            <img
+              :src="url as PhotoURL"
+              class="absolute inset-0 w-full h-full object-cover blur-xl brightness-40 scale-110 z-0"
+              aria-hidden="true"
+              @click="fullscreen = true"
+            />
+            <img
+              class="relative max-h-full max-w-full object-contain z-10"
+              :src="url as PhotoURL"
+              alt="Media"
+              @click="fullscreen = true"
+            />
+          </template>
+          <template v-else>
+            <img
+              :src="(url as VideoURL).thumbnail"
+              class="absolute inset-0 w-full h-full object-cover blur-xl brightness-40 scale-110 z-0"
+              aria-hidden="true"
+              @click="fullscreen = true"
+            />
+            <video
+              controls
+              class="relative max-h-full max-w-full object-contain z-10"
+              :src="(url as VideoURL).video"
+            />
+          </template>
         </div>
       </Slide>
 
