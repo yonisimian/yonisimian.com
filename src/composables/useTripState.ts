@@ -69,7 +69,14 @@ export const useTripState = () => {
         ? (customSlidesRaw.value as CustomSlidesType)
         : CustomSlidesType.None,
     set: (val: CustomSlidesType) => {
-      customSlidesRaw.value = val
+      // batching updates to prevent race conditions
+      router.push({
+        query: {
+          ...route.query,
+          [QUERY_PARAM_FULLSCREEN]: val !== CustomSlidesType.None ? 'true' : '',
+          [QUERY_PARAM_CUSTOM_SLIDES]: val
+        }
+      })
     }
   })
 
@@ -99,6 +106,7 @@ export const useTripState = () => {
 
   // batching updates to prevent race conditions
   const closeFullscreen = () => {
+    if (!fullscreen.value) return
     router.push({
       query: {
         ...route.query,

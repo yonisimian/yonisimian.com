@@ -1,7 +1,7 @@
 <template>
   <div class="w-full">
     <div v-if="currStep.media && currStep.media.length">
-      <MediaCarouselFullscreen v-if="fullscreen || customSlides" />
+      <MediaCarouselFullscreen v-if="fullscreen" />
       <MediaCarouselNormal :style="{ display: fullscreen ? 'none' : 'block' }" />
       <!-- Note: I used to go `v-else` here, but I got warnings from Vue :( -->
     </div>
