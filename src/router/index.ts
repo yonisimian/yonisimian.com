@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { encodeURIStep, steps } from '/@/data/trip'
 import { TripRoute, PortfolioRoute, CookbookRoute } from '/@/data/globals'
-import { isRouteLoading } from '/@/data/loading'
+import { startLoadingSpinner, stopLoadingSpinner } from '/@/data/loading'
 
 const defaultTripPath = `/${TripRoute}/${encodeURIStep(steps[0])}`
 const isTripRoute = (path: string) => path.startsWith(`/${TripRoute}`)
@@ -43,10 +43,10 @@ export const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  if (!isSameSegment(to.fullPath, from.fullPath)) isRouteLoading.value = true
+  if (!isSameSegment(to.fullPath, from.fullPath)) startLoadingSpinner()
   next()
 })
 
 router.afterEach(() => {
-  isRouteLoading.value = false
+  stopLoadingSpinner()
 })
