@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-between w-full mt-4">
+  <div class="flex items-center justify-between w-full">
     <div @click="choosePrevStep" class="hover:text-cyan-600 hover:cursor-pointer">
       <span v-if="prevStep">← {{ prevStep.shortName }}</span>
     </div>

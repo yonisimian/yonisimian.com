@@ -16,7 +16,7 @@
       dir="rtl"
       class="w-full max-w-full text-justify prose prose-ul:pr-8 prose-ol:pr-8 prose-p:mb-2 prose-p:leading-relaxed"
     />
-    <StepNavigationButtons />
+    <StepNavigationButtons class="mt-4" />
   </div>
 </template>
 
