@@ -3,7 +3,6 @@ import { computed } from 'vue'
 import { useQueryParam } from './useQueryParam'
 import { useRouter, useRoute } from 'vue-router'
 import { Continent, Country, Step, CustomSlidesType } from '/@/types/trip'
-import { TripRoute } from '/@/data/globals'
 import {
   decodeURIStep,
   encodeURIStep,
@@ -33,29 +32,19 @@ export const useTripState = () => {
   const currCountry = computed<Country>(() => getCountryByStep(currStep.value))
   const currContinent = computed<Continent>(() => getContinentByStep(currStep.value))
 
-  // ===== Navigation logic ===== //
-
-  const chooseStep = (step: Step) => {
-    const newId = encodeURIStep(step)
-    if (route.params.id !== newId) {
-      router.push(`/${TripRoute}/${newId}`)
-    }
-  }
-  const chooseCountry = (country: Country) => chooseStep(country.steps[0])
-  const chooseContinent = (continent: Continent) => chooseStep(continent.countries[0].steps[0])
-  const choosePrevStep = () => currStepIndex.value > 0 && chooseStep(steps[currStepIndex.value - 1])
-  const chooseNextStep = () =>
-    currStepIndex.value < steps.length - 1 && chooseStep(steps[currStepIndex.value + 1])
-
   // ===== Query string state ===== //
 
-  const slide = useQueryParam('slide', {
+  const QUERY_PARAM_SLIDE = 'slide'
+  const QUERY_PARAM_FULLSCREEN = 'fullscreen'
+  const QUERY_PARAM_CUSTOM_SLIDES = 'collection'
+
+  const slide = useQueryParam(QUERY_PARAM_SLIDE, {
     default: 0,
     parse: (v) => parseInt(v || '0'),
     stringify: (v) => v.toString()
   })
 
-  const fullscreenRaw = useQueryParam('fullscreen', {
+  const fullscreenRaw = useQueryParam(QUERY_PARAM_FULLSCREEN, {
     default: '',
     parse: (v) => v || ''
   })
@@ -67,7 +56,7 @@ export const useTripState = () => {
     }
   })
 
-  const customSlidesRaw = useQueryParam('collection', {
+  const customSlidesRaw = useQueryParam(QUERY_PARAM_CUSTOM_SLIDES, {
     default: '',
     parse: (v) => v || ''
   })
@@ -84,13 +73,37 @@ export const useTripState = () => {
     }
   })
 
+  // ===== Navigation logic ===== //
+
+  const chooseStep = (step: Step) => {
+    const newId = encodeURIStep(step)
+    const segments = route.path.split('/')
+    if (segments.length > 2) {
+      segments[2] = newId
+    } else {
+      segments.push(newId)
+    }
+    router.push({
+      path: segments.join('/'),
+      query: {
+        ...route.query,
+        [QUERY_PARAM_SLIDE]: undefined
+      }
+    })
+  }
+  const chooseCountry = (country: Country) => chooseStep(country.steps[0])
+  const chooseContinent = (continent: Continent) => chooseStep(continent.countries[0].steps[0])
+  const choosePrevStep = () => currStepIndex.value > 0 && chooseStep(steps[currStepIndex.value - 1])
+  const chooseNextStep = () =>
+    currStepIndex.value < steps.length - 1 && chooseStep(steps[currStepIndex.value + 1])
+
   // batching updates to prevent race conditions
   const closeFullscreen = () => {
     router.push({
       query: {
         ...route.query,
-        fullscreen: undefined,
-        custom: undefined
+        [QUERY_PARAM_FULLSCREEN]: undefined,
+        [QUERY_PARAM_CUSTOM_SLIDES]: undefined
       }
     })
   }
