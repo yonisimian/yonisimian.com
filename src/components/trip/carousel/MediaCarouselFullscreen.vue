@@ -44,6 +44,10 @@
             </template>
           </div>
         </Slide>
+
+        <template #addons>
+          <Navigation />
+        </template>
       </Carousel>
       <StepNavigationButtons class="mt-2" />
     </div>
@@ -52,7 +56,7 @@
 
 <script setup lang="ts">
 import 'vue3-carousel/carousel.css'
-import { Carousel, Slide } from 'vue3-carousel'
+import { Carousel, Slide, Navigation } from 'vue3-carousel'
 import { useTripState } from '/@/composables/useTripState'
 import { isImage, getCustomSlides } from '/@/data/trip'
 import { MediaType, PhotoURL, VideoURL } from '/@/types/trip'
