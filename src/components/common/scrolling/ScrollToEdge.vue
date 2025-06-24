@@ -13,12 +13,11 @@ const props = defineProps<{
   direction: 'up' | 'down'
 }>()
 
-const edge = ref<HTMLElement | null>(null)
 const isAtEdge = ref(props.direction === 'up')
 
 onMounted(() => {
-  edge.value = document.querySelector(props.direction === 'up' ? 'header' : 'footer')
   window.addEventListener('scroll', handleScroll)
+  handleScroll() // Set initial state
 })
 
 onUnmounted(() => {
@@ -26,14 +25,17 @@ onUnmounted(() => {
 })
 
 const handleScroll = () => {
-  isAtEdge.value =
-    props.direction === 'up'
-      ? window.scrollY === 0
-      : window.scrollY + window.innerHeight === document.body.scrollHeight
+  const atTop = window.scrollY === 0
+  const atBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 1
+  isAtEdge.value = props.direction === 'up' ? atTop : atBottom
 }
 
 const scrollToEdge = () => {
-  edge.value?.scrollIntoView({ behavior: 'smooth' })
+  if (props.direction === 'up') {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  } else {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
+  }
 }
 </script>
 
