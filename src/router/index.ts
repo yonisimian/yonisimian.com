@@ -16,7 +16,8 @@ const routes = [
     path: `/${TripRoute}/:id`,
     component: TripView
   },
-  { path: `/${CookbookRoute}`, component: CookbookView }
+  { path: `/${CookbookRoute}`, component: CookbookView },
+  { path: '/:pathMatch(.*)*', redirect: '/' }
 ]
 
 export const router = createRouter({
