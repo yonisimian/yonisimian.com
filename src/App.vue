@@ -4,7 +4,8 @@
 
     <DarkTheme class="absolute top-3 left-4" />
 
-    <RouterView />
+    <LoadingView v-if="isRouteLoading" />
+    <RouterView v-else />
 
     <Footer />
 
@@ -12,6 +13,11 @@
     <ScrollToEdge direction="down" class="fixed bottom-2 right-1 sm:right-2 safe" />
   </div>
 </template>
+
+<script setup lang="ts">
+import LoadingView from './views/LoadingView.vue'
+import { isRouteLoading } from '/@/data/loading'
+</script>
 
 <style scoped>
 .safe {
