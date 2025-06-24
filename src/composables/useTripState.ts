@@ -2,12 +2,13 @@
 import { computed } from 'vue'
 import { useQueryParam } from './useQueryParam'
 import { useRouter, useRoute } from 'vue-router'
-import { Continent, Country, Step, CustomSlidesType } from '/@/types/trip'
+import { Continent, Country, Step, CustomSlidesType, MediaType } from '/@/types/trip'
 import {
   decodeURIStep,
   encodeURIStep,
   getContinentByStep,
   getCountryByStep,
+  getCustomSlides,
   steps
 } from '/@/data/trip'
 
@@ -31,6 +32,11 @@ export const useTripState = () => {
   )
   const currCountry = computed<Country>(() => getCountryByStep(currStep.value))
   const currContinent = computed<Continent>(() => getContinentByStep(currStep.value))
+  const currSlides = computed<MediaType[]>(() => {
+    const s = getCustomSlides(customSlides.value)
+    if (s) return s
+    return currStep.value.media
+  })
 
   // ===== Query string state ===== //
 
@@ -125,6 +131,7 @@ export const useTripState = () => {
     currStep,
     prevStep,
     nextStep,
+    currSlides,
     currCountry,
     currContinent,
     chooseStep,
