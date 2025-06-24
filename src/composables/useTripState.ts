@@ -104,6 +104,11 @@ export const useTripState = () => {
   const chooseNextStep = () =>
     currStepIndex.value < steps.length - 1 && chooseStep(steps[currStepIndex.value + 1])
 
+  const openFullscreen = () => {
+    if (fullscreen.value) return
+    fullscreen.value = true
+  }
+
   // batching updates to prevent race conditions
   const closeFullscreen = () => {
     if (!fullscreen.value) return
@@ -130,6 +135,7 @@ export const useTripState = () => {
     slide,
     fullscreen,
     customSlides,
+    openFullscreen,
     closeFullscreen
   }
 }
