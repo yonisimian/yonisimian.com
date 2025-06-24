@@ -6,29 +6,18 @@
         :class="{ 'cursor-pointer': !fullscreen }"
       >
         <template v-if="isImage(url)">
+          <SlideBlurBackground :src="url as PhotoURL" />
           <img
+            class="relative h-full w-full object-contain z-10"
             :src="url as PhotoURL"
-            class="absolute inset-0 w-full h-full object-cover blur-xl brightness-40 scale-110 z-0"
-            aria-hidden="true"
-            @click="openFullscreen"
-          />
-          <img
-            class="relative max-h-full max-w-full object-contain z-10"
-            :src="url as PhotoURL"
-            alt="Media"
             @click="openFullscreen"
           />
         </template>
         <template v-else>
-          <img
-            :src="(url as VideoURL).thumbnail"
-            class="absolute inset-0 w-full h-full object-cover blur-xl brightness-40 scale-110 z-0"
-            aria-hidden="true"
-            @click="openFullscreen"
-          />
+          <SlideBlurBackground :src="(url as VideoURL).thumbnail" />
           <video
             controls
-            class="relative max-h-full max-w-full object-contain z-10"
+            class="relative h-full w-full object-contain z-10"
             :src="(url as VideoURL).video"
           />
         </template>
@@ -45,17 +34,10 @@
 import 'vue3-carousel/carousel.css'
 import { Carousel, Slide, Navigation } from 'vue3-carousel'
 import { useTripState } from '/@/composables/useTripState'
-import { isImage, getCustomSlides } from '/@/data/trip'
-import { MediaType, PhotoURL, VideoURL } from '/@/types/trip'
-import { computed } from 'vue'
+import { isImage } from '/@/data/trip'
+import { PhotoURL, VideoURL } from '/@/types/trip'
 
-const { currStep, slide, customSlides, fullscreen, openFullscreen } = useTripState()
-
-const currSlides = computed<MediaType[]>(() => {
-  const s = getCustomSlides(customSlides.value)
-  if (s) return s
-  return currStep.value.media
-})
+const { currSlides, slide, fullscreen, openFullscreen } = useTripState()
 
 const galleryConfig = {
   // autoplay: 5000,
