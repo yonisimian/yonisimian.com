@@ -38,19 +38,7 @@
       </template>
     </Carousel>
 
-    <Carousel id="thumbnails" v-bind="thumbnailsConfig" v-model="slide">
-      <Slide v-for="(url, index) in currStep.media" :key="index">
-        <template #default="{ currentIndex, isActive }">
-          <div :class="['thumbnail', { 'is-active': isActive }]" @click="slide = currentIndex">
-            <img
-              :src="isImage(url) ? (url as PhotoURL) : (url as VideoURL).thumbnail"
-              alt="Thumbnail Image"
-              class="h-full w-full object-cover block"
-            />
-          </div>
-        </template>
-      </Slide>
-    </Carousel>
+    <CarouselThumbnail />
   </div>
 </template>
 
@@ -74,31 +62,9 @@ const galleryConfig = {
   transition: 500,
   height: 640
 }
-
-const thumbnailsConfig = {
-  height: 80,
-  itemsToShow: 5,
-  touchDrag: true,
-  mouseDrag: true,
-  mouseWheel: true
-  // gap: 12
-}
 </script>
 
 <style scoped>
-.thumbnail {
-  height: 100%;
-  width: 100%;
-  cursor: pointer;
-  opacity: 0.6;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.thumbnail.is-active,
-.thumbnail:hover {
-  opacity: 1;
-}
-
 .carousel {
   --vc-nav-background: rgba(0, 0, 0, 0.3);
   --vc-nav-color: white;
