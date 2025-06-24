@@ -5,6 +5,7 @@ import vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
 import FontInstaller from 'unplugin-fonts/vite'
 import svgLoader from 'vite-svg-loader'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -47,11 +48,26 @@ export default defineConfig({
 
     Unocss({
       /* options */
+    }),
+    visualizer({
+      filename: 'dist/stats.html',
+      open: true, // auto-open in browser after build
+      gzipSize: true,
+      brotliSize: true
     })
   ],
 
   optimizeDeps: {
     include: ['vue', '@vueuse/core'],
     exclude: ['vue-demi']
+  },
+
+  build: {
+    // optional: force build to analyze all chunks
+    rollupOptions: {
+      output: {
+        manualChunks: undefined
+      }
+    }
   }
 })
