@@ -11,6 +11,7 @@ declare module 'vue' {
     Background: typeof import('./components/common/Background.vue')['default']
     CardBackBackground: typeof import('./components/common/gallery/CardBackBackground.vue')['default']
     CardBackCloseButton: typeof import('./components/common/gallery/CardBackCloseButton.vue')['default']
+    CarouselFullscreenWrapper: typeof import('./components/trip/carousel/utils/CarouselFullscreenWrapper.vue')['default']
     CarouselGallery: typeof import('./components/trip/carousel/utils/CarouselGallery.vue')['default']
     CarouselInfo: typeof import('./components/trip/carousel/utils/CarouselInfo.vue')['default']
     CarouselThumbnail: typeof import('./components/trip/carousel/utils/CarouselThumbnail.vue')['default']
