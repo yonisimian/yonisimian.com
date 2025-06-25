@@ -3,20 +3,20 @@
     <h1 class="text-4xl font-bold">The Big Trip</h1>
     <!-- <h2 class="text-lg">Scenes from a Memory</h2> -->
     <div class="w-full flex items-center justify-center text-sm text-gray-400">
-      <h3 @click="customSlides = CustomSlidesType.Highlights">highlights</h3>
+      <h3 @click="collection = CollectionType.Highlights">highlights</h3>
       <p class="mx-2">•</p>
-      <h3 @click="customSlides = CustomSlidesType.Music">music</h3>
+      <h3 @click="collection = CollectionType.Music">music</h3>
       <p class="mx-2">•</p>
-      <h3 @click="customSlides = CustomSlidesType.People">people</h3>
+      <h3 @click="collection = CollectionType.People">people</h3>
     </div>
   </header>
 </template>
 
 <script setup lang="ts">
-import { CustomSlidesType } from '/@/types/trip'
+import { CollectionType } from '/@/types/trip'
 import { useTripState } from '/@/composables/useTripState'
 
-const { customSlides } = useTripState()
+const { collection } = useTripState()
 </script>
 
 <style scoped>

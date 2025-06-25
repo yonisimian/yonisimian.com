@@ -2,13 +2,13 @@
 import { computed } from 'vue'
 import { useQueryParam } from './useQueryParam'
 import { useRouter, useRoute } from 'vue-router'
-import { Continent, Country, Step, CustomSlidesType, MediaType } from '/@/types/trip'
+import { Continent, Country, Step, CollectionType, Collection } from '/@/types/trip'
 import {
   decodeURIStep,
   encodeURIStep,
+  getCollection,
   getContinentByStep,
   getCountryByStep,
-  getCustomSlides,
   steps
 } from '/@/data/trip'
 
@@ -24,19 +24,11 @@ export const useTripState = () => {
     return found || steps[0]
   })
   const currStepIndex = computed<number>(() => steps.indexOf(currStep.value))
-  const prevStep = computed<Step | undefined>(() =>
-    currStepIndex.value > 0 ? steps[currStepIndex.value - 1] : undefined
-  )
-  const nextStep = computed<Step | undefined>(() =>
-    currStepIndex.value < steps.length - 1 ? steps[currStepIndex.value + 1] : undefined
-  )
+  const prevStep = computed<Step | undefined>(() => steps[currStepIndex.value - 1])
+  const nextStep = computed<Step | undefined>(() => steps[currStepIndex.value + 1])
   const currCountry = computed<Country>(() => getCountryByStep(currStep.value))
   const currContinent = computed<Continent>(() => getContinentByStep(currStep.value))
-  const currSlides = computed<MediaType[]>(() => {
-    const s = getCustomSlides(customSlides.value)
-    if (s) return s
-    return currStep.value.media
-  })
+  const currCollection = computed<Collection | undefined>(() => getCollection(collection.value))
 
   // ===== Query string state ===== //
 
@@ -62,24 +54,24 @@ export const useTripState = () => {
     }
   })
 
-  const customSlidesRaw = useQueryParam(QUERY_PARAM_CUSTOM_SLIDES, {
+  const collectionRaw = useQueryParam(QUERY_PARAM_CUSTOM_SLIDES, {
     default: '',
     parse: (v) => v || ''
   })
 
-  const customSlidesValues = Object.values(CustomSlidesType) as CustomSlidesType[]
+  const collectionValues = Object.values(CollectionType) as CollectionType[]
 
-  const customSlides = computed<CustomSlidesType>({
+  const collection = computed<CollectionType>({
     get: () =>
-      customSlidesValues.includes(customSlidesRaw.value as CustomSlidesType)
-        ? (customSlidesRaw.value as CustomSlidesType)
-        : CustomSlidesType.None,
-    set: (val: CustomSlidesType) => {
+      collectionValues.includes(collectionRaw.value as CollectionType)
+        ? (collectionRaw.value as CollectionType)
+        : CollectionType.None,
+    set: (val: CollectionType) => {
       // batching updates to prevent race conditions
       router.push({
         query: {
           ...route.query,
-          [QUERY_PARAM_FULLSCREEN]: val !== CustomSlidesType.None ? 'true' : '',
+          [QUERY_PARAM_FULLSCREEN]: val !== CollectionType.None ? 'true' : '',
           [QUERY_PARAM_CUSTOM_SLIDES]: val
         }
       })
@@ -131,9 +123,9 @@ export const useTripState = () => {
     currStep,
     prevStep,
     nextStep,
-    currSlides,
     currCountry,
     currContinent,
+    currCollection,
     chooseStep,
     chooseCountry,
     chooseContinent,
@@ -141,7 +133,7 @@ export const useTripState = () => {
     chooseNextStep,
     slide,
     fullscreen,
-    customSlides,
+    collection,
     openFullscreen,
     closeFullscreen
   }

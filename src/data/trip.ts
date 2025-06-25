@@ -4,7 +4,8 @@ import {
   type Country,
   type Continent,
   type MediaType,
-  CustomSlidesType
+  CollectionType,
+  Collection
 } from '/@/types/trip'
 
 import auflag from '/@/assets/flags/au-flag.jpg'
@@ -2369,96 +2370,103 @@ export const decodeURIStep = (id: string) => {
 
 export const isImage = (media: MediaType): boolean => typeof media === 'string'
 
-export const highlights: MediaType[] = [
-  steps[10].media[3], // hakone
-  steps[13].media[0], // ibaraki
-  steps[15].media[1], // hiragana
-  steps[16].media[6], // universal
-  // steps[19].media[0], // flamed ramen
-  steps[19].media[4], // beautiful screensaver
-  steps[22].media[3], // kobe orchestra
-  steps[22].media[11], // note to Akiko
-  steps[24].media[9], // Otsu l'chaim
-  steps[26].media[3], // Otsu music (TODO)
-  steps[28].media[0], // snow monkeys
-  steps[28].media[5], // more monkeys
-  steps[30].media[2], // buddah
-  steps[34].media[2], // slappin'
-  steps[36].media[0], // making ramen
-  steps[37].media[1], // rocky <3
-  steps[39].media[4], // bird
-  steps[40].media[6], // moanalua
-  steps[41].media[2], // nephews
-  steps[44].media[2], // hawaii omg
-  steps[47].media[6], // hillel
-  steps[49].media[0], // lionel
-  steps[52].media[8], // his world
-  steps[54].media[14], // back to the future
-  steps[55].media[7], // princeton sunset
-  steps[59].media[9], // funny grandma
-  steps[66].media[4], // amsterdam jam
-  steps[70].media[6], // oye como va
-  steps[75].media[3], // nuremberg
-  steps[76].media[7], // jesus
-  steps[78].media[3], // strauss dinner
-  steps[79].media[3], // traffic lights beer
-  steps[80].media[3], // israeli beers
-  steps[81].media[10], // under the bridge
-  steps[82].media[5], // beer festival
-  steps[83].media[6], // brewery
-  steps[84].media[1] // peleg
-]
+export const highlights: Collection = {
+  name: 'Highlights',
+  stepslides: [
+    { step: steps[10], slide: 3 }, // hakone
+    { step: steps[13], slide: 0 }, // ibaraki
+    { step: steps[15], slide: 1 }, // hiragana
+    { step: steps[16], slide: 6 }, // universal
+    { step: steps[19], slide: 4 }, // beautiful screensaver
+    { step: steps[22], slide: 3 }, // kobe orchestra
+    { step: steps[22], slide: 11 }, // note to Akiko
+    { step: steps[24], slide: 9 }, // Otsu l'chaim
+    { step: steps[26], slide: 3 }, // Otsu music (TODO)
+    { step: steps[28], slide: 0 }, // snow monkeys
+    { step: steps[28], slide: 5 }, // more monkeys
+    { step: steps[30], slide: 2 }, // buddah
+    { step: steps[34], slide: 2 }, // slappin'
+    { step: steps[36], slide: 0 }, // making ramen
+    { step: steps[37], slide: 1 }, // rocky <3
+    { step: steps[39], slide: 4 }, // bird
+    { step: steps[40], slide: 6 }, // moanalua
+    { step: steps[41], slide: 2 }, // nephews
+    { step: steps[44], slide: 2 }, // hawaii omg
+    { step: steps[47], slide: 6 }, // hillel
+    { step: steps[49], slide: 0 }, // lionel
+    { step: steps[52], slide: 8 }, // his world
+    { step: steps[54], slide: 14 }, // back to the future
+    { step: steps[55], slide: 7 }, // princeton sunset
+    { step: steps[59], slide: 9 }, // funny grandma
+    { step: steps[66], slide: 4 }, // amsterdam jam
+    { step: steps[70], slide: 6 }, // oye como va
+    { step: steps[75], slide: 3 }, // nuremberg
+    { step: steps[76], slide: 7 }, // jesus
+    { step: steps[78], slide: 3 }, // strauss dinner
+    { step: steps[79], slide: 3 }, // traffic lights beer
+    { step: steps[80], slide: 3 }, // israeli beers
+    { step: steps[81], slide: 10 }, // under the bridge
+    { step: steps[82], slide: 5 }, // beer festival
+    { step: steps[83], slide: 6 }, // brewery
+    { step: steps[84], slide: 1 } // peleg
+  ]
+}
 
-export const music: MediaType[] = [] // ...and art / food?
+export const music: Collection = {
+  name: 'Highlights',
+  stepslides: [] // ...and art / food?
+}
 
-export const people: MediaType[] = [
-  steps[6].media[0], // yoni
-  steps[9].media[0], // jason
-  steps[10].media[6], // hakone dudes
-  steps[11].media[0], // hakone other dudes
-  // steps[15].media[0], // yoni again
-  steps[22].media[5], // she never told me her name
-  steps[24].media[5], // otsu jam
-  steps[28].media[5], // monkey
-  steps[30].media[0], // taki
-  steps[32].media[3], // graphy dudes
-  steps[34].media[6], // graphy dudes 2
-  steps[37].media[0], // rocky
-  steps[38].media[0], // arriving in hawaii
-  steps[39].media[7], // diamond head
-  steps[39].media[8], // diamond head 2
-  steps[40].media[0], // moanalua
-  steps[40].media[6], // moanalua 2
-  steps[42].media[0], // kidush
-  steps[43].media[3], // barak
-  steps[44].media[11], // michal and kids
-  steps[49].media[1], // lionel
-  steps[50].media[1], // newark bus dude
-  steps[51].media[3], // jack, lauren & sean
-  steps[54].media[14], // back-to-the-future girl
-  steps[56].media[5], // evan & anya
-  steps[57].media[0], // evan & tzipi
-  steps[58].media[2], // allen
-  steps[59].media[1], // evan
-  steps[59].media[9], // grandma
-  steps[62].media[1], // john
-  steps[64].media[0], // evan & me
-  steps[64].media[5], // bunch of jews
-  steps[64].media[6], // bunch of jews 2
-  steps[68].media[1], // lera & guy
-  steps[71].media[0], // mike
-  steps[73].media[5], // rudolf
-  steps[75].media[2], // hussners
-  steps[80].media[1], // prague dudes
-  steps[81].media[0], // dad with clock
-  steps[82].media[4], // beer festival dudes
-  steps[83].media[2], // me & dad
-  steps[84].media[0] // family
-]
+export const people: Collection = {
+  name: 'Highlights',
+  stepslides: [
+    { step: steps[6], slide: 0 }, // yoni
+    { step: steps[9], slide: 0 }, // jason
+    { step: steps[10], slide: 6 }, // hakone dudes
+    { step: steps[11], slide: 0 }, // hakone other dudes
+    { step: steps[22], slide: 5 }, // she never told me her name
+    { step: steps[24], slide: 5 }, // otsu jam
+    { step: steps[28], slide: 5 }, // monkey
+    { step: steps[30], slide: 0 }, // taki
+    { step: steps[32], slide: 3 }, // graphy dudes
+    { step: steps[34], slide: 6 }, // graphy dudes 2
+    { step: steps[37], slide: 0 }, // rocky
+    { step: steps[38], slide: 0 }, // arriving in hawaii
+    { step: steps[39], slide: 7 }, // diamond head
+    { step: steps[39], slide: 8 }, // diamond head 2
+    { step: steps[40], slide: 0 }, // moanalua
+    { step: steps[40], slide: 6 }, // moanalua 2
+    { step: steps[42], slide: 0 }, // kidush
+    { step: steps[43], slide: 3 }, // barak
+    { step: steps[44], slide: 11 }, // michal and kids
+    { step: steps[49], slide: 1 }, // lionel
+    { step: steps[50], slide: 1 }, // newark bus dude
+    { step: steps[51], slide: 3 }, // jack, lauren & sean
+    { step: steps[54], slide: 14 }, // back-to-the-future girl
+    { step: steps[56], slide: 5 }, // evan & anya
+    { step: steps[57], slide: 0 }, // evan & tzipi
+    { step: steps[58], slide: 2 }, // allen
+    { step: steps[59], slide: 1 }, // evan
+    { step: steps[59], slide: 9 }, // grandma
+    { step: steps[62], slide: 1 }, // john
+    { step: steps[64], slide: 0 }, // evan & me
+    { step: steps[64], slide: 5 }, // bunch of jews
+    { step: steps[64], slide: 6 }, // bunch of jews 2
+    { step: steps[68], slide: 1 }, // lera & guy
+    { step: steps[71], slide: 0 }, // mike
+    { step: steps[73], slide: 5 }, // rudolf
+    { step: steps[75], slide: 2 }, // hussners
+    { step: steps[80], slide: 1 }, // prague dudes
+    { step: steps[81], slide: 0 }, // dad with clock
+    { step: steps[82], slide: 4 }, // beer festival dudes
+    { step: steps[83], slide: 2 }, // me & dad
+    { step: steps[84], slide: 0 } // family
+  ]
+}
 
-export const getCustomSlides = (type: CustomSlidesType) => {
-  if (type === CustomSlidesType.Highlights) return highlights
-  if (type === CustomSlidesType.Music) return music
-  if (type === CustomSlidesType.People) return people
-  return CustomSlidesType.None
+export const getCollection = (type: CollectionType): Collection | undefined => {
+  if (type === CollectionType.Highlights) return highlights
+  if (type === CollectionType.Music) return music
+  if (type === CollectionType.People) return people
+  return undefined
 }
