@@ -2470,3 +2470,14 @@ export const getCollection = (type: CollectionType): Collection | undefined => {
   if (type === CollectionType.People) return people
   return undefined
 }
+
+export const stepToCollection = (step: Step): Collection => {
+  return {
+    name: step.name,
+    stepslides: step.media.map((_, slide) => ({ step, slide }))
+  }
+}
+
+export const collectionToMediaArray = (collection: Collection): MediaType[] => {
+  return collection.stepslides.map(({ step, slide }) => step.media[slide])
+}

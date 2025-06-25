@@ -1,6 +1,6 @@
 <template>
   <Carousel id="thumbnails" v-bind="thumbnailsConfig" v-model="slide">
-    <Slide v-for="(url, index) in currStep.media" :key="index">
+    <Slide v-for="(url, index) in collectionToMediaArray(activeCollection)" :key="index">
       <template #default="{ currentIndex, isActive }">
         <div class="thumbnail" :class="{ 'is-active': isActive }" @click="slide = currentIndex">
           <img
@@ -18,10 +18,10 @@
 import 'vue3-carousel/carousel.css'
 import { Carousel, Slide } from 'vue3-carousel'
 import { useTripState } from '/@/composables/useTripState'
-import { isImage } from '/@/data/trip'
+import { isImage, collectionToMediaArray } from '/@/data/trip'
 import { PhotoURL, VideoURL } from '/@/types/trip'
 
-const { currStep, slide } = useTripState()
+const { activeCollection, slide } = useTripState()
 
 const thumbnailsConfig = {
   height: 80,

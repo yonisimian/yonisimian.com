@@ -1,6 +1,6 @@
 <template>
   <Carousel id="gallery" v-bind="galleryConfig" v-model="slide">
-    <Slide v-for="(url, index) in slides" :key="index">
+    <Slide v-for="(url, index) in collectionToMediaArray(activeCollection)" :key="index">
       <div
         class="w-full h-full max-h-[640px] bg-black flex items-center justify-center relative overflow-hidden"
         :class="{ 'cursor-pointer': !fullscreen }"
@@ -34,14 +34,10 @@
 import 'vue3-carousel/carousel.css'
 import { Carousel, Slide, Navigation } from 'vue3-carousel'
 import { useTripState } from '/@/composables/useTripState'
-import { isImage } from '/@/data/trip'
-import { MediaType, PhotoURL, VideoURL } from '/@/types/trip'
+import { isImage, collectionToMediaArray } from '/@/data/trip'
+import { PhotoURL, VideoURL } from '/@/types/trip'
 
-const { slide, fullscreen, openFullscreen } = useTripState()
-
-defineProps<{
-  slides: MediaType[]
-}>()
+const { slide, fullscreen, activeCollection, openFullscreen } = useTripState()
 
 const galleryConfig = {
   // autoplay: 5000,

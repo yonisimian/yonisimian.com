@@ -1,10 +1,14 @@
 <template>
   <h2 class="text-3xl my-4">
-    <slot />
+    {{ activeCollection.name }}
   </h2>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useTripState } from '/@/composables/useTripState'
+
+const { activeCollection } = useTripState()
+</script>
 
 <style scoped>
 h2 {
