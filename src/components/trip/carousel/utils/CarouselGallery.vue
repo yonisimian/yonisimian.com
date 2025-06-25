@@ -17,7 +17,7 @@
           <SlideBlurBackground :src="(url as VideoURL).thumbnail" />
           <video
             controls
-            class="relative h-full w-full object-contain z-10"
+            class="carousel-video relative h-full w-full object-contain z-10"
             :src="(url as VideoURL).video"
           />
         </template>
@@ -36,6 +36,7 @@ import { Carousel, Slide, Navigation } from 'vue3-carousel'
 import { useTripState } from '/@/composables/useTripState'
 import { isImage, collectionToMediaArray } from '/@/data/trip'
 import { PhotoURL, VideoURL } from '/@/types/trip'
+import { watch } from 'vue'
 
 const { slide, fullscreen, activeCollection, openFullscreen } = useTripState()
 
@@ -50,6 +51,12 @@ const galleryConfig = {
   transition: 500,
   height: 640
 }
+
+// Pause all videos when slide changes
+watch(slide, () => {
+  const videos = document.querySelectorAll<HTMLVideoElement>('.carousel-video')
+  videos.forEach((video) => video.pause())
+})
 </script>
 
 <style scoped>
