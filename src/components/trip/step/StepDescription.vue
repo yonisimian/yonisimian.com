@@ -1,14 +1,14 @@
 <template>
   <div
-    class="notebook-bg flex flex-col items-center justify-center gap-1 w-full"
+    class="notebook-bg flex-col items-center justify-center gap-1 w-full"
     @touchstart="onTouchStart"
     @touchend="onTouchEnd"
     @mousedown="onMouseDown"
     @mouseup="onMouseUp"
     @wheel="onWheel"
   >
-    <h2 class="text-3xl">{{ currStep.name }}</h2>
-    <p class="text-lg">
+    <h2 class="text-3xl text-center">{{ currStep.name }}</h2>
+    <p class="text-lg text-center">
       <b>{{ currCountry.name }}</b> • {{ currStep.date }} • {{ currStep.degrees }}°c
     </p>
     <div
@@ -79,14 +79,38 @@ const onWheel = (e: WheelEvent) => {
   opacity: 0.1;
 }
 
+/* TODO: thank @mikehearn https://www.transparenttextures.com/ for the textures */
+
+.notebook-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/@/assets/clean-gray-paper.png');
+  background-size: cover;
+  background-repeat: repeat;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.dark .notebook-bg::after {
+  background-image: url('/@/assets/black-paper.png');
+}
+
 .dark .notebook-bg {
-  color: #ded6c7;
-  background: repeating-linear-gradient(
+  color: #d0c8b8;
+  /* background: repeating-linear-gradient(
     to bottom,
     #23272e,
     #23272e 28px,
     #2d323b 29px,
     #23272e 30px
+  ); */
+  background: repeating-linear-gradient(
+    to bottom,
+    #0f172a,
+    #0f172a 28px,
+    #1e293b 29px,
+    #0f172a 30px
   );
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
