@@ -1,18 +1,20 @@
 <template>
   <div class="grid grid-cols-3 items-center w-full">
-    <p class="text-left">{{ step.date }}</p>
-    <p class="text-center">slide {{ slidesCount ? slide + 1 : 0 }} / {{ slidesCount }}</p>
-    <p class="text-right">{{ step.shortName }}, {{ getCountryByStep(step).name }}</p>
+    <p class="text-left">{{ activeCollection.stepslides[slide].step.date }}</p>
+    <p class="text-center">
+      slide {{ activeCollection.stepslides.length ? slide + 1 : 0 }} /
+      {{ activeCollection.stepslides.length }}
+    </p>
+    <p class="text-right">
+      {{ activeCollection.stepslides[slide].step.shortName }},
+      {{ getCountryByStep(activeCollection.stepslides[slide].step).name }}
+    </p>
   </div>
 </template>
 
 <script setup lang="ts">
 import { getCountryByStep } from '/@/data/trip'
-import { Step } from '/@/types/trip'
+import { useTripState } from '/@/composables/useTripState'
 
-defineProps<{
-  slidesCount: number
-  slide: number
-  step: Step
-}>()
+const { activeCollection, slide } = useTripState()
 </script>

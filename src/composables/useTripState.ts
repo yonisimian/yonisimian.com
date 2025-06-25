@@ -9,7 +9,8 @@ import {
   getCollection,
   getContinentByStep,
   getCountryByStep,
-  steps
+  steps,
+  stepToCollection
 } from '/@/data/trip'
 
 export const useTripState = () => {
@@ -28,8 +29,10 @@ export const useTripState = () => {
   const nextStep = computed<Step | undefined>(() => steps[currStepIndex.value + 1])
   const currCountry = computed<Country>(() => getCountryByStep(currStep.value))
   const currContinent = computed<Continent>(() => getContinentByStep(currStep.value))
-  const currCollection = computed<Collection | undefined>(() => getCollection(collection.value))
-
+  const activeCollection = computed<Collection>(
+    // If a custom collection is selected, use it; otherwise, derive from the current step
+    () => getCollection(collection.value) ?? stepToCollection(currStep.value)
+  )
   // ===== Query string state ===== //
 
   const QUERY_PARAM_SLIDE = 'slide'
@@ -125,7 +128,7 @@ export const useTripState = () => {
     nextStep,
     currCountry,
     currContinent,
-    currCollection,
+    activeCollection, // derived from currCollection or stepToCollection
     chooseStep,
     chooseCountry,
     chooseContinent,
