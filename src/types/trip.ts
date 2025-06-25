@@ -29,9 +29,18 @@ export interface Step {
   bgImage?: string // URL to the step's background image
 }
 
-export enum CustomSlidesType {
+export enum CollectionType {
   None = '',
   Highlights = 'highlights',
   Music = 'music',
   People = 'people'
+}
+
+export interface StepSlide {
+  step: Step
+  slide: number
+}
+export interface Collection {
+  name: string
+  stepslides: StepSlide[]
 }

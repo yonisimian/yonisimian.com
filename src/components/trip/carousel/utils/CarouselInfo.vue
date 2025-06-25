@@ -1,13 +1,18 @@
 <template>
-  <div class="flex flex-row items-center justify-between w-full">
-    <p>{{ currStep.date }}</p>
-    <p>slide {{ currSlides.length ? slide + 1 : 0 }} / {{ currSlides.length }}</p>
-    <p>{{ currCountry.name }}, {{ currStep.degrees }}°c</p>
+  <div class="grid grid-cols-3 items-center w-full">
+    <p class="text-left">{{ step.date }}</p>
+    <p class="text-center">slide {{ slidesCount ? slide + 1 : 0 }} / {{ slidesCount }}</p>
+    <p class="text-right">{{ step.shortName }}, {{ getCountryByStep(step).name }}</p>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useTripState } from '/@/composables/useTripState'
+import { getCountryByStep } from '/@/data/trip'
+import { Step } from '/@/types/trip'
 
-const { currStep, currSlides, currCountry, slide } = useTripState()
+defineProps<{
+  slidesCount: number
+  slide: number
+  step: Step
+}>()
 </script>

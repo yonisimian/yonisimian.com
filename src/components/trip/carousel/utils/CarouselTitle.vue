@@ -1,12 +1,10 @@
 <template>
-  <h2 class="text-3xl my-4">{{ currStep.name }}</h2>
+  <h2 class="text-3xl my-4">
+    <slot />
+  </h2>
 </template>
 
-<script setup lang="ts">
-import { useTripState } from '/@/composables/useTripState'
-
-const { currStep } = useTripState()
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 h2 {

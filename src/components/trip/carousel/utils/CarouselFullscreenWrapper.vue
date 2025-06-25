@@ -1,6 +1,7 @@
 <template>
   <!-- Outer div for "click anywhere to close fullscreen" -->
   <div
+    class="w-full h-full"
     :class="{
       'flex items-center justify-center fixed z-10 inset-0 bg-black bg-opacity-80 backdrop-blur-[2px]':
         fullscreen
@@ -9,9 +10,9 @@
   >
     <!-- Inner div for sizing the actual content -->
     <div
-      class="flex flex-col items-center justify-center select-none"
+      class="flex flex-col items-center justify-center select-none w-full"
       :class="{
-        'w-5xl bg-black overflow-hidden': fullscreen
+        'max-w-5xl bg-black overflow-hidden': fullscreen
       }"
       @click.self="closeFullscreen"
     >
