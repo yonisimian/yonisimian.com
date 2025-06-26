@@ -1,11 +1,11 @@
 <template>
   <div class="grid grid-cols-3 items-center w-full">
-    <p class="text-left">{{ step.date }}</p>
+    <p class="text-center sm:text-left">{{ step.date }}</p>
     <p class="text-center">
       slide {{ activeCollection.stepslides.length ? slide + 1 : 0 }} /
       {{ activeCollection.stepslides.length }}
     </p>
-    <p class="text-right">{{ step.shortName }}, {{ getCountryByStep(step).name }}</p>
+    <p class="text-center sm:text-right">{{ step.shortName }}, {{ getCountryByStep(step).name }}</p>
   </div>
 </template>
 
