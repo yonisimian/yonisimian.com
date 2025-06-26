@@ -2,7 +2,7 @@
   <Carousel id="gallery" v-bind="galleryConfig" v-model="slide">
     <Slide v-for="(url, index) in collectionToMediaArray(activeCollection)" :key="index">
       <div
-        class="w-full h-full max-h-[640px] bg-black flex items-center justify-center relative overflow-hidden"
+        class="w-full h-full bg-black flex items-center justify-center relative overflow-hidden"
         :class="{ 'cursor-pointer': !fullscreen }"
       >
         <template v-if="isImage(url)">
@@ -49,7 +49,7 @@ const galleryConfig = {
   mouseDrag: true,
   mouseWheel: true,
   transition: 500,
-  height: 640
+  height: '65vh' // Note: This should match the height of CarouselEmpty
 }
 
 // Pause all videos when slide changes
