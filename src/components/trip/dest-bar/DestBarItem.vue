@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts" generic="T extends { name: string, shortName?: string }">
-import { formatDate } from '/@/data/trip'
+import { formatDate } from '/@/functions/trip'
 
 const props = defineProps<{
   dest: T

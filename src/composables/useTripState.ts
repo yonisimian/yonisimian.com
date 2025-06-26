@@ -3,15 +3,15 @@ import { computed } from 'vue'
 import { useQueryParam } from './useQueryParam'
 import { useRouter, useRoute } from 'vue-router'
 import { Continent, Country, Step, CollectionType, Collection } from '/@/types/trip'
+import { steps } from '/@/data/trip'
 import {
   decodeURIStep,
   encodeURIStep,
   getCollection,
   getContinentByStep,
   getCountryByStep,
-  steps,
   stepToCollection
-} from '/@/data/trip'
+} from '/@/functions/trip'
 
 export const useTripState = () => {
   const route = useRoute()
