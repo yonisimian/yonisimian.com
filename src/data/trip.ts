@@ -2305,13 +2305,9 @@ export const trip: Trip = {
   ]
 }
 
-// Note: continents and countries must occur by the same order as in the trip object,
-// however the steps of each country are sorted by date.
 export const continents: Continent[] = trip.continents
 export const countries: Country[] = continents.flatMap((continent) => continent.countries)
-export const steps: Step[] = countries.flatMap((country) =>
-  country.steps.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-)
+export const steps: Step[] = countries.flatMap((country) => country.steps)
 export const dates: string[] = steps.map((step) => step.date)
 
 export const highlights: Collection = {
