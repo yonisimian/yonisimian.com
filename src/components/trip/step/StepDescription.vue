@@ -85,7 +85,7 @@ const onWheel = (e: WheelEvent) => {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('/@/assets/clean-gray-paper.png');
+  background-image: url('/@/assets/textures/clean-gray-paper.png');
   background-size: cover;
   background-repeat: repeat;
   opacity: 0.3;
@@ -93,7 +93,7 @@ const onWheel = (e: WheelEvent) => {
 }
 
 .dark .notebook-bg::after {
-  background-image: url('/@/assets/black-paper.png');
+  background-image: url('/@/assets/textures/black-paper.png');
 }
 
 .dark .notebook-bg {
