@@ -1,7 +1,7 @@
 <template>
   <img
     :src
-    class="absolute inset-0 w-full h-full object-cover blur-xl brightness-40 scale-110 z-0"
+    class="absolute inset-0 w-full h-full object-cover blur-xl brightness-100 dark:brightness-40 transition-all duration-[--transition-duration] scale-110 z-0"
     aria-hidden="true"
     @click="openFullscreen"
   />
