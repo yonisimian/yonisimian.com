@@ -34,7 +34,7 @@
 import 'vue3-carousel/carousel.css'
 import { Carousel, Slide, Navigation } from 'vue3-carousel'
 import { useTripState } from '/@/composables/useTripState'
-import { isImage, collectionToMediaArray } from '/@/data/trip'
+import { isImage, collectionToMediaArray } from '/@/functions/trip'
 import { PhotoURL, VideoURL } from '/@/types/trip'
 import { watch } from 'vue'
 

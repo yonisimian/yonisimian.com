@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { getCountryByStep } from '/@/data/trip'
+import { getCountryByStep } from '/@/functions/trip'
 import { useTripState } from '/@/composables/useTripState'
 import { computed } from 'vue'
 

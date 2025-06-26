@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { encodeURIStep, steps } from '/@/data/trip'
+import { steps } from '/@/data/trip'
+import { encodeURIStep } from '/@/functions/trip'
 import { TripRoute, PortfolioRoute, CookbookRoute } from '/@/data/globals'
 import { startLoadingSpinner, stopLoadingSpinner } from '/@/data/loading'
 
