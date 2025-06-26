@@ -3,7 +3,7 @@
   <div
     class="w-full h-full flex items-center justify-center"
     :class="{
-      'fixed z-10 inset-0 bg-black bg-opacity-80 backdrop-blur-[2px]': fullscreen
+      'fixed z-10 inset-0 bg-black text-light-900 bg-opacity-80 backdrop-blur-[2px]': fullscreen
     }"
     @click.self="closeFullscreen"
   >
