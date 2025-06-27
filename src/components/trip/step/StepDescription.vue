@@ -1,23 +1,24 @@
 <template>
-  <div
-    class="notebook-bg flex-col items-center justify-center gap-1 w-full"
-    @touchstart="onTouchStart"
-    @touchend="onTouchEnd"
-    @mousedown="onMouseDown"
-    @mouseup="onMouseUp"
+  <NotebookBackground
+    @touchStart="onTouchStart"
+    @touchEnd="onTouchEnd"
+    @mouseDown="onMouseDown"
+    @mouseUp="onMouseUp"
     @wheel="onWheel"
   >
-    <h2 class="text-3xl text-center">{{ currStep.name }}</h2>
-    <p class="text-lg text-center">
-      <b>{{ currCountry.name }}</b> • {{ currStep.date }} • {{ currStep.degrees }}°c
-    </p>
-    <div
-      v-html="currStep.description"
-      dir="rtl"
-      class="w-full max-w-full text-justify prose prose-ul:pr-8 prose-ol:pr-8 prose-p:mb-2 prose-p:leading-relaxed"
-    />
-    <StepNavigationButtons class="mt-4" />
-  </div>
+    <div class="flex flex-col items-center justify-center gap-1 w-full">
+      <h2 class="text-3xl text-center">{{ currStep.name }}</h2>
+      <p class="text-lg text-center">
+        <b>{{ currCountry.name }}</b> • {{ currStep.date }} • {{ currStep.degrees }}°c
+      </p>
+      <div
+        v-html="currStep.description"
+        dir="rtl"
+        class="w-full max-w-full text-justify prose prose-ul:pr-8 prose-ol:pr-8 prose-p:mb-2 prose-p:leading-relaxed"
+      />
+      <StepNavigationButtons class="mt-2" />
+    </div>
+  </NotebookBackground>
 </template>
 
 <script setup lang="ts">
@@ -34,95 +35,19 @@ const onTouchStart = (e: TouchEvent) => (startX.value = e.changedTouches[0].scre
 const onTouchEnd = (e: TouchEvent) => handleSwipe(e.changedTouches[0].screenX)
 const onMouseDown = (e: MouseEvent) => (startX.value = e.screenX)
 const onMouseUp = (e: MouseEvent) => handleSwipe(e.screenX)
+const swipeStep = (dx: number) => (dx < 0 ? chooseNextStep() : dx > 0 && choosePrevStep())
 
 const handleSwipe = (endX: number) => {
   const deltaX = endX - startX.value
   if (Math.abs(deltaX) < minSwipeDistance) return
-  if (deltaX < 0) {
-    chooseNextStep()
-  } else if (deltaX > 0) {
-    choosePrevStep()
-  }
+  swipeStep(deltaX)
 }
 
 const onWheel = (e: WheelEvent) => {
   if (e.deltaY !== 0) return // Ignore vertical scroll
   e.preventDefault() // Prevent default scrolling behavior
-  if (e.deltaX < 0) {
-    choosePrevStep()
-  } else if (e.deltaX > 0) {
-    chooseNextStep()
-  }
+  swipeStep(e.deltaX)
 }
 </script>
 
-<style scoped>
-.notebook-bg {
-  color: rgb(95, 44, 15);
-  background: repeating-linear-gradient(
-    to bottom,
-    #f5f5f5,
-    #f5f5f5 28px,
-    #e5e5e5 29px,
-    #f5f5f5 30px
-  );
-  padding: 1.5rem 5.5rem 1.5rem 2.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  position: relative;
-  user-select: none; /* Prevent text selection during drag */
-}
-
-.notebook-bg::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0.69in;
-  width: 2px;
-  height: 100%;
-  background: #e11d48;
-  z-index: 1;
-  border-radius: 1px;
-  opacity: 0.1;
-}
-
-/* TODO: thank @mikehearn https://www.transparenttextures.com/ for the textures */
-
-.notebook-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('/@/assets/textures/clean-gray-paper.png');
-  background-size: cover;
-  background-repeat: repeat;
-  opacity: 0.3;
-  z-index: 0;
-}
-
-.dark .notebook-bg::after {
-  background-image: url('/@/assets/textures/black-paper.png');
-}
-
-.dark .notebook-bg {
-  color: #d0c8b8;
-  /* background: repeating-linear-gradient(
-    to bottom,
-    #23272e,
-    #23272e 28px,
-    #2d323b 29px,
-    #23272e 30px
-  ); */
-  background: repeating-linear-gradient(
-    to bottom,
-    #0f172a,
-    #0f172a 28px,
-    #1e293b 29px,
-    #0f172a 30px
-  );
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-}
-
-.dark .notebook-bg::before {
-  background: #852413;
-  opacity: 0.25;
-}
-</style>
+<style scoped></style>
