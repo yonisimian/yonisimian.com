@@ -40,6 +40,7 @@ declare module 'vue' {
     Footer: typeof import('./components/common/footer/Footer.vue')['default']
     FooterIcon: typeof import('./components/common/footer/FooterIcon.vue')['default']
     FooterIcons: typeof import('./components/common/footer/FooterIcons.vue')['default']
+    FullscreenButton: typeof import('./components/common/FullscreenButton.vue')['default']
     GalleryCard: typeof import('./components/common/gallery/GalleryCard.vue')['default']
     GalleryGrid: typeof import('./components/common/gallery/GalleryGrid.vue')['default']
     GalleryHeader: typeof import('./components/common/gallery/GalleryHeader.vue')['default']

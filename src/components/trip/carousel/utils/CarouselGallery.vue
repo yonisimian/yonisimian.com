@@ -21,6 +21,7 @@
             :src="(url as VideoURL).video"
           />
         </template>
+        <FullscreenButton class="z-20" />
       </div>
     </Slide>
 
