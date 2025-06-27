@@ -2,7 +2,7 @@
   <Carousel id="gallery" v-bind="galleryConfig" v-model="slide">
     <Slide v-for="(url, index) in collectionToMediaArray(activeCollection)" :key="index">
       <div
-        class="w-full h-full bg-black flex items-center justify-center relative overflow-hidden"
+        class="media-wrapper w-full h-full bg-black flex items-center justify-center relative overflow-hidden"
         :class="{ 'cursor-pointer': !fullscreen }"
       >
         <template v-if="isImage(url)">
@@ -56,6 +56,15 @@ const galleryConfig = {
 watch(slide, () => {
   const videos = document.querySelectorAll<HTMLVideoElement>('.carousel-video')
   videos.forEach((video) => video.pause())
+})
+
+watch(fullscreen, (isFullscreen) => {
+  if (!isFullscreen) {
+    const mediaWrapper = document.querySelector('.media-wrapper')
+    if (mediaWrapper) {
+      mediaWrapper.scrollIntoView({ behavior: 'instant', block: 'center' })
+    }
+  }
 })
 </script>
 
