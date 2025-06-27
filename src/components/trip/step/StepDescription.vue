@@ -59,7 +59,13 @@ const onWheel = (e: WheelEvent) => {
 <style scoped>
 .notebook-bg {
   color: rgb(95, 44, 15);
-  background: repeating-linear-gradient(to bottom, #ddd, #ddd 28px, #ccc 29px, #ddd 30px);
+  background: repeating-linear-gradient(
+    to bottom,
+    #f5f5f5,
+    #f5f5f5 28px,
+    #e5e5e5 29px,
+    #f5f5f5 30px
+  );
   padding: 1.5rem 5.5rem 1.5rem 2.5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   position: relative;
