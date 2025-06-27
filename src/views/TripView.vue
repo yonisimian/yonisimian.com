@@ -11,7 +11,6 @@
     <article class="flex flex-col items-center justify-center w-full gap-4 my-4">
       <StepDescription />
       <MediaCarousel />
-      <StepNavigationButtons />
     </article>
   </div>
 </template>
