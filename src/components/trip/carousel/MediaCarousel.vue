@@ -19,7 +19,7 @@ import { useTripState } from '/@/composables/useTripState'
 const { currStep, activeCollection, slide, fullscreen, collection } = useTripState()
 
 // reset slide when step changes or entering custom slides mode
-watch([() => currStep.value, () => collection.value], () => (slide.value = 0))
+watch([currStep, collection], () => (slide.value = 0))
 </script>
 
 <style scoped></style>
