@@ -46,6 +46,7 @@ declare module 'vue' {
     GallerySearchInput: typeof import('./components/common/gallery/GallerySearchInput.vue')['default']
     GitHubIcon: typeof import('./components/common/footer/icons/GitHubIcon.vue')['default']
     MediaCarousel: typeof import('./components/trip/carousel/MediaCarousel.vue')['default']
+    NotebookBackground: typeof import('./components/common/NotebookBackground.vue')['default']
     PortfolioAbout: typeof import('./components/portfolio/PortfolioAbout.vue')['default']
     PortfolioBackCard: typeof import('./components/portfolio/gallery/cardBack/PortfolioBackCard.vue')['default']
     PortfolioBackCategory: typeof import('./components/portfolio/gallery/cardBack/absolutes/PortfolioBackCategory.vue')['default']
