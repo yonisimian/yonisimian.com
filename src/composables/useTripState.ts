@@ -37,6 +37,7 @@ export const useTripState = () => {
 
   const QUERY_PARAM_SLIDE = 'slide'
   const QUERY_PARAM_FULLSCREEN = 'fullscreen'
+  const QUERY_PARAM_FULLSCREEN_TRUE = 'true'
   const QUERY_PARAM_CUSTOM_SLIDES = 'collection'
 
   const slide = useQueryParam(QUERY_PARAM_SLIDE, {
@@ -50,12 +51,7 @@ export const useTripState = () => {
     parse: (v) => v || ''
   })
 
-  const fullscreen = computed<boolean>({
-    get: () => fullscreenRaw.value === 'true',
-    set: (val: boolean) => {
-      fullscreenRaw.value = val ? 'true' : ''
-    }
-  })
+  const fullscreen = computed<boolean>(() => fullscreenRaw.value === QUERY_PARAM_FULLSCREEN_TRUE)
 
   const collectionRaw = useQueryParam(QUERY_PARAM_CUSTOM_SLIDES, {
     default: '',
@@ -74,7 +70,7 @@ export const useTripState = () => {
       router.push({
         query: {
           ...route.query,
-          [QUERY_PARAM_FULLSCREEN]: val !== CollectionType.None ? 'true' : '',
+          [QUERY_PARAM_FULLSCREEN]: val !== CollectionType.None ? QUERY_PARAM_FULLSCREEN_TRUE : '',
           [QUERY_PARAM_CUSTOM_SLIDES]: val
         }
       })
@@ -107,7 +103,7 @@ export const useTripState = () => {
 
   const openFullscreen = () => {
     if (fullscreen.value) return
-    fullscreen.value = true
+    fullscreenRaw.value = QUERY_PARAM_FULLSCREEN_TRUE
   }
 
   // batching updates to prevent race conditions
@@ -120,6 +116,10 @@ export const useTripState = () => {
         [QUERY_PARAM_CUSTOM_SLIDES]: undefined
       }
     })
+  }
+
+  const toggleFullscreen = () => {
+    fullscreen.value ? closeFullscreen() : openFullscreen()
   }
 
   return {
@@ -138,6 +138,7 @@ export const useTripState = () => {
     fullscreen,
     collection,
     openFullscreen,
-    closeFullscreen
+    closeFullscreen,
+    toggleFullscreen
   }
 }
