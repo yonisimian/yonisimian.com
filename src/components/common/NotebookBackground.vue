@@ -23,6 +23,7 @@ defineProps<{
 
 <style scoped>
 .notebook-bg {
+  width: 100%;
   color: rgb(95, 44, 15);
   background: repeating-linear-gradient(
     to bottom,
