@@ -38,18 +38,22 @@ import { ref } from 'vue'
 
 const isSharing = ref(false)
 
+const props = defineProps<{
+  shareText?: string
+}>()
+
 const share = () => {
   if (navigator.share) {
     // Use the Web Share API if available
     navigator
       .share({
         title: document.title,
-        text: 'Check out this page!',
+        text: props.shareText || 'Check out my page!',
         url: window.location.href
       })
       .catch((err) => {
         console.error('Share failed:', err)
-        alert('Failed to share link :(')
+        // alert('Failed to share link :(') // bug: it shares but then sometimes shows this alert
       })
   } else {
     // copy link to clipboard as a fallback
