@@ -1,29 +1,10 @@
 <template>
-  <Carousel id="gallery" v-bind="galleryConfig" v-model="slide">
-    <Slide v-for="(url, index) in collectionToMediaArray(activeCollection)" :key="index">
-      <div
-        class="media-wrapper w-full h-full bg-black flex items-center justify-center relative overflow-hidden"
-        :class="{ 'cursor-pointer': !fullscreen }"
-      >
-        <template v-if="isImage(url)">
-          <SlideBlurBackground :src="url as PhotoURL" />
-          <img
-            class="relative h-full w-full object-contain z-10"
-            :src="url as PhotoURL"
-            @click="openFullscreen"
-          />
-        </template>
-        <template v-else>
-          <SlideBlurBackground :src="(url as VideoURL).thumbnail" />
-          <video
-            controls
-            class="carousel-video relative h-full w-full object-contain z-10"
-            :src="(url as VideoURL).video"
-          />
-        </template>
-        <FullscreenButton class="z-20" />
-      </div>
-    </Slide>
+  <Carousel ref="carouselEl" id="gallery" v-bind="galleryConfig" v-model="slide">
+    <CarouselSlide
+      v-for="(url, index) in collectionToMediaArray(activeCollection)"
+      :key="index"
+      :url
+    />
 
     <template #addons>
       <Navigation />
@@ -33,13 +14,12 @@
 
 <script setup lang="ts">
 import 'vue3-carousel/carousel.css'
-import { Carousel, Slide, Navigation } from 'vue3-carousel'
+import { Carousel, Navigation } from 'vue3-carousel'
 import { useTripState } from '/@/composables/useTripState'
-import { isImage, collectionToMediaArray } from '/@/functions/trip'
-import { PhotoURL, VideoURL } from '/@/types/trip'
-import { watch } from 'vue'
+import { collectionToMediaArray } from '/@/functions/trip'
+import { ref, watch } from 'vue'
 
-const { slide, fullscreen, activeCollection, openFullscreen } = useTripState()
+const { slide, activeCollection, fullscreen } = useTripState()
 
 const galleryConfig = {
   // autoplay: 5000,
@@ -53,18 +33,13 @@ const galleryConfig = {
   height: '65vh' // Note: This should match the height of CarouselEmpty
 }
 
-// Pause all videos when slide changes
-watch(slide, () => {
-  const videos = document.querySelectorAll<HTMLVideoElement>('.carousel-video')
-  videos.forEach((video) => video.pause())
-})
+const carouselEl = ref<HTMLElement | null>(null)
 
+// view the current slide in the center of the viewport when exiting fullscreen
 watch(fullscreen, (isFullscreen) => {
   if (!isFullscreen) {
-    const mediaWrapper = document.querySelector('.media-wrapper')
-    if (mediaWrapper) {
-      mediaWrapper.scrollIntoView({ behavior: 'instant', block: 'center' })
-    }
+    const el = (carouselEl.value as any)?.$el ?? carouselEl.value
+    el?.scrollIntoView({ behavior: 'instant', block: 'center' })
   }
 })
 </script>
