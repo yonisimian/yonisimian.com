@@ -20,7 +20,8 @@
         :src="(url as VideoURL).video"
       />
     </template>
-    <FullscreenButton class="z-20" />
+    <FullscreenButton class="absolute top-4 left-4 z-20" />
+    <ShareButton class="absolute top-4 right-4 z-20" />
   </Slide>
 </template>
 

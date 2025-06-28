@@ -1,5 +1,9 @@
 <template>
-  <button class="fullscreen-button" @click="toggleFullscreen" title="Toggle Fullscreen">
+  <button
+    class="inline-flex text-white bg-black bg-opacity-20 border-none rounded-full p-2"
+    @click="toggleFullscreen"
+    title="Toggle Fullscreen"
+  >
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
       <path
         :d="
@@ -18,15 +22,4 @@ import { useTripState } from '/@/composables/useTripState'
 const { fullscreen, toggleFullscreen } = useTripState()
 </script>
 
-<style scoped>
-.fullscreen-button {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  background-color: rgba(0, 0, 0, 0.2);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  padding: 0.5rem;
-}
-</style>
+<style scoped></style>

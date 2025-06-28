@@ -51,6 +51,7 @@ export const useTripState = () => {
     parse: (v) => v || ''
   })
 
+  // TODO: I think that fullscreen could be a composable of its own
   const fullscreen = computed<boolean>(() => fullscreenRaw.value === QUERY_PARAM_FULLSCREEN_TRUE)
 
   const collectionRaw = useQueryParam(QUERY_PARAM_CUSTOM_SLIDES, {
