@@ -21,7 +21,10 @@
       />
     </template>
     <FullscreenButton class="absolute top-4 left-4 z-20" />
-    <ShareButton class="absolute top-4 right-4 z-20" />
+    <ShareButton
+      class="absolute top-4 right-4 z-20"
+      :shareText="`Check out my visit to ${activeCollection.name}`!"
+    />
   </Slide>
 </template>
 
@@ -33,7 +36,7 @@ import { isImage } from '/@/functions/trip'
 import { MediaType, PhotoURL, VideoURL } from '/@/types/trip'
 import { watch, ref } from 'vue'
 
-const { slide, fullscreen, openFullscreen } = useTripState()
+const { slide, fullscreen, openFullscreen, activeCollection } = useTripState()
 
 defineProps<{
   url: MediaType
