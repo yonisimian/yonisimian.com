@@ -23,7 +23,7 @@
     <template #margin>
       <div class="flex justify-center items-center">
         <ShareButton
-          class="absolute top-2 sm:top-1 z-20"
+          class="absolute top-2 sm:top-1"
           :shareText="`Check out my visit to ${activeCollection.name}`!"
         />
       </div>
