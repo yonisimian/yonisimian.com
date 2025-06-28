@@ -1,6 +1,5 @@
 <template>
   <NotebookBackground
-    class="user-select-none"
     @touchStart="onTouchStart"
     @touchEnd="onTouchEnd"
     @mouseDown="onMouseDown"
@@ -8,7 +7,7 @@
     @wheel="onWheel"
   >
     <template #page>
-      <div class="relative flex flex-col items-center justify-center gap-1 w-full">
+      <div class="relative flex flex-col items-center justify-center gap-1 w-full select-none">
         <h2 class="text-3xl text-center">{{ currStep.name }}</h2>
         <p class="text-lg text-center">
           <b>{{ currCountry.name }}</b> • {{ currStep.date }} • {{ currStep.degrees }}°c
@@ -19,6 +18,7 @@
           class="w-full max-w-full text-justify prose prose-ul:pr-8 prose-ol:pr-8 prose-p:mb-2 prose-p:leading-relaxed"
         />
       </div>
+      <StepNavigationButtons class="mt-8 h-0" />
     </template>
     <template #margin>
       <div class="flex justify-center items-center">
@@ -28,7 +28,6 @@
         />
       </div>
     </template>
-    <StepNavigationButtons class="mt-2" />
   </NotebookBackground>
 </template>
 
