@@ -467,11 +467,11 @@ const projects: Project[] = [
     On the outside, the website is white, clean, simplistic, and if I may say - a bit boring.
     However, if you look deeper (i.e. click on the dark theme icon), you will find a whole world of colors, animations, and lots of fun 🌈😄.
     `,
-    embed: 'https://yonisimian-portfolio.netlify.app/',
+    embed: 'https://yonisimian.com/portfolio',
     links: [
       {
         title: 'GitHub',
-        url: 'https://github.com/yonisimian/georgia-portfolio'
+        url: 'https://github.com/yonisimian/yonisimian.com'
       }
     ]
   }
