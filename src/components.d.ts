@@ -81,6 +81,7 @@ declare module 'vue' {
     StepDescription: typeof import('./components/trip/step/StepDescription.vue')['default']
     StepNavigationButtons: typeof import('./components/trip/step/StepNavigationButtons.vue')['default']
     Title: typeof import('./components/portfolio/header/Title.vue')['default']
+    TitleSeeThrough: typeof import('./components/common/TitleSeeThrough.vue')['default']
     TripHeader: typeof import('./components/trip/TripHeader.vue')['default']
     WhatsAppIcon: typeof import('./components/common/footer/icons/WhatsAppIcon.vue')['default']
     YoutubeIcon: typeof import('./components/common/footer/icons/YoutubeIcon.vue')['default']
