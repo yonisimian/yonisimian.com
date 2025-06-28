@@ -7,7 +7,7 @@
     @mouseup="onMouseUp"
     @wheel="onWheel"
   >
-    <div class="write-area rows-pattern">
+    <div class="write-area rows-pattern w-full">
       <slot name="page" />
     </div>
     <div class="margin-area rows-pattern">
