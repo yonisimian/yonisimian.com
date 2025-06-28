@@ -32,6 +32,10 @@ defineProps<{
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
+.notebook-bg::before {
+  pointer-events: none; /* Prevent interaction with the background */
+}
+
 /* TODO: thank @mikehearn https://www.transparenttextures.com/ for the textures */
 
 .notebook-bg::after {
@@ -43,6 +47,7 @@ defineProps<{
   background-repeat: repeat;
   opacity: 0.3;
   z-index: 0;
+  pointer-events: none; /* <-- Add this line */
 }
 
 .dark .notebook-bg::after {
