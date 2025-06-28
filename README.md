@@ -1,1 +1,1 @@
-<p align='center'><a href="https://yonisimian.netlify.app/">Yehonatan Simian - Music Technologist - Portfolio</a></p>
+<p align='center'><a href="https://yonisimian.com/">Yehonatan Simian - Music Technologist</a></p>
