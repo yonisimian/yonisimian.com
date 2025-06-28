@@ -66,7 +66,7 @@ export const trip: Trip = {
                   thumbnail:
                     'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/FE6AEB59-A87E-49AF-9AEF-4888C5E3A621_5909964A-D732-49FA-9C08-4E50B3CE646E.jpg',
                   video:
-                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/8462bd82-364b-4b3f-ac2f-ede5f9dc65d5_video'
+                    'https://firebasestorage.googleapis.com/v0/b/psycho-app-69420.appspot.com/o/trip%2F2-1.mp4?alt=media&token=1f2fe0e8-5e22-4ecb-a983-437fce4727b4'
                 },
                 {
                   thumbnail:
@@ -222,7 +222,7 @@ export const trip: Trip = {
                   thumbnail:
                     'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/FD7BCA82-2D28-4242-A824-29764882BAB6_32CF58ED-55DF-4AE0-829A-C545C6FBA4F0.jpg',
                   video:
-                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/40ae6cf1-5857-442e-ba37-441e7d89e131_video'
+                    'https://firebasestorage.googleapis.com/v0/b/psycho-app-69420.appspot.com/o/trip%2F9-8.mp4?alt=media&token=2a4bc7f4-c5b1-4f49-bf73-a10f600e432d'
                 },
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/03D67018-2B0D-49D3-B931-1A6D055D2CAA_81E4255E-7B5A-44CA-B958-BADC9D9C7293.jpg',
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/AE5D6E80-77FE-40E0-88F1-C74DA9801D90_CBDF0600-AB77-43C9-A9ED-398B61AD2A12.jpg'
@@ -615,7 +615,7 @@ export const trip: Trip = {
                   thumbnail:
                     'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/B934F4A9-D75D-452C-9D13-643513C2BB0D_BD4D7F90-CE9B-448C-8C16-B59D36CED6AB.jpg',
                   video:
-                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/e9ae165c-2733-4eea-86f1-8442c0f1b630_video'
+                    'https://firebasestorage.googleapis.com/v0/b/psycho-app-69420.appspot.com/o/trip%2F26-14.mp4?alt=media&token=8df5eefe-68ac-414e-bfdc-581a4d5c2b9c'
                 }
               ],
               bgImage:
@@ -636,7 +636,7 @@ export const trip: Trip = {
                   thumbnail:
                     'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/8E126DA2-C114-475A-9664-23A902FCE8A1_7B54B071-1597-46EB-B68F-18A4148D4BDF.jpg',
                   video:
-                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/261766bb-23f9-4b6f-abc4-397c40144f59_video'
+                    'https://firebasestorage.googleapis.com/v0/b/psycho-app-69420.appspot.com/o/trip%2F27-3.mp4?alt=media&token=164a80b5-15b3-44de-9d93-6c9a74857ca7'
                 },
                 {
                   thumbnail:
@@ -648,7 +648,7 @@ export const trip: Trip = {
                   thumbnail:
                     'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/7D65EF97-A3E3-4741-8B44-0EFD9A20C5EC_091DBF8A-47ED-4DB7-B643-DA595CA74B40.jpg',
                   video:
-                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/688bb0e0-b57e-4373-98a9-fc0f00f90c0c_video'
+                    'https://firebasestorage.googleapis.com/v0/b/psycho-app-69420.appspot.com/o/trip%2F27-5.mp4?alt=media&token=e52ebd02-8cc6-48bb-b5ba-10c1a66dca54'
                 }
               ],
               bgImage:
@@ -1313,7 +1313,7 @@ export const trip: Trip = {
                   thumbnail:
                     'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/BEE05463-297F-435A-A276-2E98E8A973CE_C7C21DF9-B444-472F-859F-D870C0EA7C50.jpg',
                   video:
-                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/96e6b91d-79d8-4078-bb61-beda8b21522a_video'
+                    'https://firebasestorage.googleapis.com/v0/b/psycho-app-69420.appspot.com/o/trip%2F53-5.mp4?alt=media&token=7a337fa2-b587-4846-b43c-ed7bedb58fbf'
                 },
                 {
                   thumbnail:
@@ -1385,7 +1385,7 @@ export const trip: Trip = {
                   thumbnail:
                     'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/48B162F7-B13E-4E35-82BE-20F22A71A94B_9F857FBB-440C-4AA5-8AC6-704FC323E2BD.jpg',
                   video:
-                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/b11dbe89-157a-468c-939d-d0eb2485f92f_video'
+                    'https://firebasestorage.googleapis.com/v0/b/psycho-app-69420.appspot.com/o/trip%2F54-7.mp4?alt=media&token=4a7a9798-07b4-4dcc-86d8-6ba159b74c10'
                 }
               ],
               bgImage:
@@ -1968,14 +1968,14 @@ export const trip: Trip = {
                   thumbnail:
                     'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/19bcb7fe-7d22-4060-b977-1fb526e3a553_06d9b082-c5c4-4e20-89d0-d5e52f28b7b6.jpg',
                   video:
-                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/9697dd18-53e5-4971-83c7-e44995eed0bc_video'
+                    'https://firebasestorage.googleapis.com/v0/b/psycho-app-69420.appspot.com/o/trip%2F76-1.mp4?alt=media&token=88fa31b6-4bb9-4a2f-ba28-0bd026ea2248'
                 },
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/aa8e4915-1abe-48d0-b352-a4dc4d827faa_d386fe12-9d62-4fc7-a285-43abb6f120a7.jpg',
                 {
                   thumbnail:
                     'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/86ae1919-271f-491e-94ed-eb21c1f4e310_60197a6a-c861-4c1b-b6d5-be9129332dcd.jpg',
                   video:
-                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/dde50554-b803-45be-831f-63a58097732b_video'
+                    'https://firebasestorage.googleapis.com/v0/b/psycho-app-69420.appspot.com/o/trip%2F76-3.mp4?alt=media&token=969dc1ce-3c0c-48fd-99b7-0e5eaff83676'
                 },
                 'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/e9925148-200b-46ac-a593-8b6045a01036_e321611f-0409-45bc-95a3-7d5bf26257f8.jpg'
               ],
@@ -2113,7 +2113,7 @@ export const trip: Trip = {
                   thumbnail:
                     'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/a6d55428-dacd-4e92-8f7d-c28e22368fd9_10220589-eb9f-433d-b0e8-c58816cff2c6.jpg',
                   video:
-                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/984b3a7d-6288-4daa-975f-53aef9ea5aba_video'
+                    'https://firebasestorage.googleapis.com/v0/b/psycho-app-69420.appspot.com/o/trip%2F79-8.mp4?alt=media&token=8097c097-411a-4cee-9755-25d8df94d9a7'
                 },
                 {
                   thumbnail:
