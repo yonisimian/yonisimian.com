@@ -601,21 +601,9 @@ export const trip: Trip = {
                 },
                 {
                   thumbnail:
-                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/B113809D-0125-44BD-8C79-D8F0BD15D0A9_165E16DE-4A8A-4A12-BA44-55E93A8AAD5E.jpg',
-                  video:
-                    'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/dd878a74-51ef-4605-a537-55d4abd37c1b_video'
-                },
-                {
-                  thumbnail:
                     'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/4C451A07-0C82-4350-BD5E-B5EC8E0BE8EA_F593368E-D928-46FA-B6C2-E2F2D03F36A3.jpg',
                   video:
                     'https://d2pu9g51kblnwk.cloudfront.net/polarsteps-video/u_12626853/09004343-dfb5-4ae8-8308-958d1797dc79_video'
-                },
-                {
-                  thumbnail:
-                    'https://media.prod.polarsteps.com/user_images/steps/large_thumb/u_12626853/B934F4A9-D75D-452C-9D13-643513C2BB0D_BD4D7F90-CE9B-448C-8C16-B59D36CED6AB.jpg',
-                  video:
-                    'https://firebasestorage.googleapis.com/v0/b/psycho-app-69420.appspot.com/o/trip%2F26-14.mp4?alt=media&token=8df5eefe-68ac-414e-bfdc-581a4d5c2b9c'
                 }
               ],
               bgImage:
@@ -2356,8 +2344,71 @@ export const highlights: Collection = {
 }
 
 export const music: Collection = {
-  name: 'Highlights',
-  stepslides: [] // ...and art / food?
+  name: 'Live Music',
+  stepslides: [
+    { step: steps[16], slide: 7 }, // universal
+    { step: steps[17], slide: 0 }, // jam after universal
+    { step: steps[22], slide: 2 }, // kobe orchestra
+    { step: steps[22], slide: 3 }, // kobe orchestra 2
+    { step: steps[24], slide: 5 }, // otsu jam
+    { step: steps[24], slide: 6 }, // otsu jam
+    { step: steps[24], slide: 7 }, // otsu jam
+    { step: steps[25], slide: 11 }, // otsu jam #2
+    { step: steps[25], slide: 12 }, // otsu jam #2
+    { step: steps[26], slide: 3 }, // otsu jam #3
+    { step: steps[26], slide: 4 }, // otsu jam #3
+    { step: steps[26], slide: 5 }, // otsu jam #3
+    { step: steps[34], slide: 2 }, // bass shop jam
+    { step: steps[37], slide: 0 }, // rocky
+    { step: steps[37], slide: 1 }, // rocky
+    { step: steps[37], slide: 2 }, // rocky
+    { step: steps[37], slide: 3 }, // rocky
+    { step: steps[37], slide: 4 }, // rocky
+    { step: steps[41], slide: 0 }, // kaneohe
+    { step: steps[46], slide: 3 }, // venice beach evening
+    { step: steps[47], slide: 0 }, // venice beach day
+    { step: steps[52], slide: 3 }, // sonic symphony
+    { step: steps[52], slide: 4 }, // sonic symphony
+    { step: steps[52], slide: 5 }, // sonic symphony
+    { step: steps[52], slide: 6 }, // sonic symphony
+    { step: steps[52], slide: 7 }, // sonic symphony
+    { step: steps[52], slide: 8 }, // sonic symphony
+    { step: steps[52], slide: 9 }, // sonic symphony
+    { step: steps[52], slide: 10 }, // sonic symphony
+    { step: steps[52], slide: 11 }, // sonic symphony
+    { step: steps[53], slide: 7 }, // new york jazz
+    { step: steps[62], slide: 0 }, // john
+    { step: steps[62], slide: 1 }, // john
+    { step: steps[62], slide: 2 }, // john
+    { step: steps[66], slide: 4 }, // amsterdam jam
+    { step: steps[67], slide: 13 }, // rijksmuseum
+    { step: steps[70], slide: 3 }, // utrecht
+    { step: steps[70], slide: 4 }, // utrecht
+    { step: steps[70], slide: 5 }, // utrecht
+    { step: steps[70], slide: 6 }, // utrecht
+    { step: steps[70], slide: 7 }, // utrecht
+    { step: steps[70], slide: 8 }, // utrecht
+    { step: steps[75], slide: 0 }, // nuremberg
+    { step: steps[75], slide: 1 }, // nuremberg
+    { step: steps[75], slide: 3 }, // nuremberg
+    { step: steps[77], slide: 8 }, // vienna museum
+    { step: steps[78], slide: 1 }, // strauss
+    { step: steps[78], slide: 2 }, // strauss
+    { step: steps[78], slide: 3 }, // strauss
+    { step: steps[78], slide: 4 }, // strauss
+    { step: steps[78], slide: 5 }, // strauss
+    { step: steps[78], slide: 6 }, // strauss
+    { step: steps[78], slide: 7 }, // strauss
+    { step: steps[78], slide: 8 }, // strauss
+    { step: steps[78], slide: 9 }, // strauss
+    { step: steps[78], slide: 10 }, // strauss
+    { step: steps[78], slide: 11 }, // strauss
+    { step: steps[81], slide: 8 }, // prague
+    { step: steps[81], slide: 9 }, // prague
+    { step: steps[81], slide: 10 }, // prague
+    { step: steps[83], slide: 5 }, // prague brewery
+    { step: steps[83], slide: 6 } // prague brewery
+  ]
 }
 
 export const people: Collection = {
