@@ -6,7 +6,7 @@
     @mouseUp="onMouseUp"
     @wheel="onWheel"
   >
-    <div class="flex flex-col items-center justify-center gap-1 w-full">
+    <div class="relative flex flex-col items-center justify-center gap-1 w-full">
       <h2 class="text-3xl text-center">{{ currStep.name }}</h2>
       <p class="text-lg text-center">
         <b>{{ currCountry.name }}</b> • {{ currStep.date }} • {{ currStep.degrees }}°c
@@ -17,6 +17,10 @@
         class="w-full max-w-full text-justify prose prose-ul:pr-8 prose-ol:pr-8 prose-p:mb-2 prose-p:leading-relaxed"
       />
       <StepNavigationButtons class="mt-2" />
+      <ShareButton
+        class="absolute top-0 right-0 z-20"
+        :shareText="`Check out my visit to ${activeCollection.name}`!"
+      />
     </div>
   </NotebookBackground>
 </template>
@@ -25,7 +29,7 @@
 import { ref } from 'vue'
 import { useTripState } from '/@/composables/useTripState'
 
-const { currStep, currCountry, choosePrevStep, chooseNextStep } = useTripState()
+const { currStep, currCountry, activeCollection, choosePrevStep, chooseNextStep } = useTripState()
 
 const startX = ref(0)
 
