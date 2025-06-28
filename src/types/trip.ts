@@ -26,7 +26,7 @@ export interface Step {
   degrees: string // Temperature in degrees Celsius
   description: string // HTML
   media: MediaType[] // photos and videos
-  bgImage?: string // URL to the step's background image
+  bgImage: string // URL to the step's background image
 }
 
 export enum CollectionType {
