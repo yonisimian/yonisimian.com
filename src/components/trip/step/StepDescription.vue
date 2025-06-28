@@ -1,27 +1,34 @@
 <template>
   <NotebookBackground
+    class="user-select-none"
     @touchStart="onTouchStart"
     @touchEnd="onTouchEnd"
     @mouseDown="onMouseDown"
     @mouseUp="onMouseUp"
     @wheel="onWheel"
   >
-    <div class="relative flex flex-col items-center justify-center gap-1 w-full">
-      <h2 class="text-3xl text-center">{{ currStep.name }}</h2>
-      <p class="text-lg text-center">
-        <b>{{ currCountry.name }}</b> • {{ currStep.date }} • {{ currStep.degrees }}°c
-      </p>
-      <div
-        v-html="currStep.description"
-        dir="rtl"
-        class="w-full max-w-full text-justify prose prose-ul:pr-8 prose-ol:pr-8 prose-p:mb-2 prose-p:leading-relaxed"
-      />
-      <StepNavigationButtons class="mt-2" />
-      <ShareButton
-        class="absolute top-0 right-0 z-20"
-        :shareText="`Check out my visit to ${activeCollection.name}`!"
-      />
-    </div>
+    <template #page>
+      <div class="relative flex flex-col items-center justify-center gap-1 w-full">
+        <h2 class="text-3xl text-center">{{ currStep.name }}</h2>
+        <p class="text-lg text-center">
+          <b>{{ currCountry.name }}</b> • {{ currStep.date }} • {{ currStep.degrees }}°c
+        </p>
+        <div
+          v-html="currStep.description"
+          dir="rtl"
+          class="w-full max-w-full text-justify prose prose-ul:pr-8 prose-ol:pr-8 prose-p:mb-2 prose-p:leading-relaxed"
+        />
+      </div>
+    </template>
+    <template #margin>
+      <div class="flex justify-center items-center">
+        <ShareButton
+          class="absolute top-3 z-20"
+          :shareText="`Check out my visit to ${activeCollection.name}`!"
+        />
+      </div>
+    </template>
+    <StepNavigationButtons class="mt-2" />
   </NotebookBackground>
 </template>
 
