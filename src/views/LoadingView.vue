@@ -1,14 +1,18 @@
 <template>
   <div class="w-full h-[85vh] flex items-center justify-start">
     <img
-      src="/@/assets/sonic.gif"
+      :src="sonicGifSrc"
       alt="Sonic walking (because the site is not RUNNING yet ha-ha)"
-      class="sonic h-32"
+      class="sonic h-32 md:h16"
     />
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const sonicGifSrc = window.matchMedia('(min-width: 768px)').matches
+  ? '/@/assets/sonic/sonic-run.gif'
+  : '/@/assets/sonic/sonic-walk.gif'
+</script>
 
 <style scoped>
 @keyframes run-across {
@@ -21,6 +25,6 @@
 }
 
 .sonic {
-  animation: run-across 8s linear infinite;
+  animation: run-across 3s linear infinite;
 }
 </style>
