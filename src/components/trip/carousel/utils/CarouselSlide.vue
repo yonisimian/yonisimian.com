@@ -1,11 +1,18 @@
 <template>
   <Slide
     class="w-full h-full bg-black flex items-center justify-center overflow-hidden"
-    :class="{ 'cursor-pointer': !fullscreen }"
+    :class="
+      fullscreen ? isImage(url) && (zoom ? 'cursor-zoom-out' : 'cursor-zoom-in') : 'cursor-pointer'
+    "
   >
     <template v-if="isImage(url)">
       <SlideBlurBackground :src="url as PhotoURL" />
-      <img :class="mediaClass" :src="url as PhotoURL" @click="openFullscreen" :style="mediaStyle" />
+      <img
+        :class="mediaClass"
+        :src="url as PhotoURL"
+        @click="hangleImageClick"
+        :style="mediaStyle"
+      />
     </template>
     <template v-else>
       <SlideBlurBackground :src="(url as VideoURL).thumbnail" />
@@ -52,8 +59,28 @@ const rotation = ref(0)
 const rotateLeft = () => (rotation.value = (rotation.value - 90 + 360) % 360)
 const rotateRight = () => (rotation.value = (rotation.value + 90) % 360)
 
-const mediaClass = 'relative w-full h-full origin-center-center object-contain z-10'
+const zoom = ref(false)
+watch(fullscreen, (isFullscreen) => {
+  if (!isFullscreen) {
+    zoom.value = false
+  }
+})
+const toggleZoom = () => (zoom.value = !zoom.value)
 
+const hangleImageClick = () => {
+  if (fullscreen.value) {
+    toggleZoom()
+  } else {
+    openFullscreen()
+  }
+}
+
+const mediaClass = computed(
+  () =>
+    `relative w-full h-full origin-center-center z-10 ${
+      zoom.value ? 'object-cover' : 'object-contain'
+    }`
+)
 const mediaStyle = computed(() => {
   const rot = rotation.value
   const rotate = `rotate(${rot}deg)`
