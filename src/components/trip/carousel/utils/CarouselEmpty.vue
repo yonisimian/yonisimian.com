@@ -1,9 +1,9 @@
 <template>
   <div class="w-full h-full">
-    <!-- Note: min-h-[65vh] should be same as CarouselGallery's galleryConfig height value -->
     <div
       v-if="fullscreen"
-      class="flex justify-center items-center min-h-[65vh] w-full h-full"
+      class="flex justify-center items-center w-full h-full"
+      :style="{ minHeight: carouselHeight }"
       @click.prevent
     >
       <p class="text-gray-500">No media available for this step.</p>
@@ -12,6 +12,7 @@
 </template>
 
 <script setup lang="ts">
+import { carouselHeight } from '/@/data/trip'
 import { useTripState } from '/@/composables/useTripState'
 
 const { fullscreen } = useTripState()

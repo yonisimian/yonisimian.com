@@ -2,7 +2,7 @@
   <header class="flex flex-col items-center justify-center gap-2 py-4 w-full select-none">
     <TitleSeeThrough class="text-4xl" />
     <div
-      class="w-full flex items-center justify-center text-sm text-blue-gray-800 dark:text-blue-gray-300"
+      class="w-full flex gap-2 items-center justify-center text-sm text-blue-gray-800 dark:text-blue-gray-300"
     >
       <h3
         :class="{ 'animate-my-tada': bounceIndex === 5 }"
@@ -10,14 +10,14 @@
       >
         highlights
       </h3>
-      <p class="mx-2">•</p>
+      <p>•</p>
       <h3
         :class="{ 'animate-my-tada': bounceIndex === 6 }"
         @click="collection = CollectionType.Music"
       >
         music
       </h3>
-      <p class="mx-2">•</p>
+      <p>•</p>
       <h3
         :class="{ 'animate-my-tada': bounceIndex === 7 }"
         @click="collection = CollectionType.People"
