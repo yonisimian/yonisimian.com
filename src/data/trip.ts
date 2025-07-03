@@ -2457,3 +2457,5 @@ export const people: Collection = {
     { step: steps[84], slide: 0 } // family
   ]
 }
+
+export const carouselHeight = '65vh' // I hate this hack, but my css skills ain't that great

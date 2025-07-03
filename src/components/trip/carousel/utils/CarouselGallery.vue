@@ -16,6 +16,7 @@
 import 'vue3-carousel/carousel.css'
 import { Carousel, Navigation } from 'vue3-carousel'
 import { useTripState } from '/@/composables/useTripState'
+import { carouselHeight } from '/@/data/trip'
 import { collectionToMediaArray } from '/@/functions/trip'
 import { ref, watch } from 'vue'
 
@@ -30,7 +31,7 @@ const galleryConfig = {
   mouseDrag: true,
   mouseWheel: true,
   transition: 500,
-  height: '65vh' // Note: This should match the height of CarouselEmpty
+  height: carouselHeight
 }
 
 const carouselEl = ref<HTMLElement | null>(null)
