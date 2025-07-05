@@ -25,13 +25,13 @@
 <script setup lang="ts">
 import { watch } from 'vue'
 import { useTripState } from '/@/composables/useTripState'
+import { useFreezeScroll } from '/@/composables/useFreezeScroll'
 
 const { fullscreen, closeFullscreen } = useTripState()
 
-watch(fullscreen, (val) => {
-  // adds 'hidden' to the root html tag when fullscreen is active
-  document.documentElement.style.overflow = val ? 'hidden' : ''
-})
+const { freezeScroll, unfreezeScroll } = useFreezeScroll()
+
+watch(fullscreen, (val) => (val ? freezeScroll() : unfreezeScroll()))
 </script>
 
 <style scoped></style>
