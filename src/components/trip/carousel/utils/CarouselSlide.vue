@@ -1,29 +1,7 @@
 <template>
-  <Slide
-    class="w-full h-full bg-black flex items-center justify-center overflow-hidden"
-    :class="
-      fullscreen ? isImage(url) && (zoom ? 'cursor-zoom-out' : 'cursor-zoom-in') : 'cursor-pointer'
-    "
-  >
-    <template v-if="isImage(url)">
-      <SlideBlurBackground :src="url as PhotoURL" />
-      <img
-        :class="mediaClass"
-        :src="url as PhotoURL"
-        @click="hangleImageClick"
-        :style="mediaStyle"
-      />
-    </template>
-    <template v-else>
-      <SlideBlurBackground :src="(url as VideoURL).thumbnail" />
-      <video
-        ref="videoEl"
-        controls
-        :class="mediaClass"
-        :src="(url as VideoURL).video"
-        :style="mediaStyle"
-      />
-    </template>
+  <Slide class="w-full h-full bg-black flex items-center justify-center overflow-hidden">
+    <CarouselSlideImage v-if="isImage(url)" :src="url as PhotoURL" :rot="rotation" />
+    <CarouselSlideVideo v-else :src="url as VideoURL" :rot="rotation" />
     <CarouselSlideToolbar
       class="absolute mx-auto z-20"
       :class="isImage(url) ? 'bottom-5' : 'top-5'"
@@ -36,64 +14,22 @@
 <script setup lang="ts">
 import 'vue3-carousel/carousel.css'
 import { Slide } from 'vue3-carousel'
-import { useTripState } from '/@/composables/useTripState'
 import { isImage } from '/@/functions/trip'
-import { carouselHeight } from '/@/data/trip'
 import { MediaType, PhotoURL, VideoURL } from '/@/types/trip'
-import { watch, ref, computed } from 'vue'
-
-const { slide, fullscreen, openFullscreen, activeCollection } = useTripState()
+import { watch, ref } from 'vue'
+import { useTripState } from '/@/composables/useTripState'
 
 defineProps<{
   url: MediaType
 }>()
 
-const videoEl = ref<HTMLVideoElement | null>(null)
-
-// Pause video when slide changes
-watch(slide, () => {
-  videoEl.value?.pause()
-})
-
+const { slide, activeCollection } = useTripState()
 const rotation = ref(0)
 const rotateLeft = () => (rotation.value = (rotation.value - 90 + 360) % 360)
 const rotateRight = () => (rotation.value = (rotation.value + 90) % 360)
 
-const zoom = ref(false)
-watch(fullscreen, (isFullscreen) => {
-  if (!isFullscreen) {
-    zoom.value = false
-  }
-})
-const toggleZoom = () => (zoom.value = !zoom.value)
-
-const hangleImageClick = () => {
-  if (fullscreen.value) {
-    toggleZoom()
-  } else {
-    openFullscreen()
-  }
-}
-
-const mediaClass = computed(
-  () =>
-    `relative w-full h-full origin-center-center z-10 ${
-      zoom.value ? 'object-cover' : 'object-contain'
-    }`
-)
-const mediaStyle = computed(() => {
-  const rot = rotation.value
-  const rotate = `rotate(${rot}deg)`
-
-  // swap width/height to fill container
-  return {
-    transform: rotate,
-    ...((rot === 90 || rot === 270) && { width: carouselHeight, height: '56rem' })
-  }
-})
-
-// Reset rotation when collection changes
-watch(activeCollection, () => {
+// Reset rotation when slide changes
+watch([slide, activeCollection], () => {
   rotation.value = 0
 })
 </script>

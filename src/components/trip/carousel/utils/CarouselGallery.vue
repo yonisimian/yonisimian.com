@@ -19,16 +19,18 @@ import { useTripState } from '/@/composables/useTripState'
 import { carouselHeight } from '/@/data/trip'
 import { collectionToMediaArray } from '/@/functions/trip'
 import { ref, watch } from 'vue'
+import { usePanzoom } from '/@/composables/usePanzoom'
 
 const { slide, activeCollection, fullscreen } = useTripState()
+const { zoom } = usePanzoom()
 
 const galleryConfig = {
   // autoplay: 5000,
   // pauseAutoplayOnHover: true,
   // loop: true,
   itemsToShow: 1,
-  touchDrag: true,
-  mouseDrag: true,
+  touchDrag: !zoom.value,
+  mouseDrag: !zoom.value, // NOTE: doesn't fully work. might worths opening an issue.
   mouseWheel: true,
   transition: 500,
   height: carouselHeight
