@@ -104,7 +104,10 @@ const mediaStyle = computed(() => {
   // swap width/height to fill container
   return {
     transform: `${translate} ${rotate} ${scale}`,
-    ...((props.rot === 90 || props.rot === 270) && { width: carouselHeight, height: '56rem' })
+    ...((props.rot === 90 || props.rot === 270) && {
+      width: fullscreen.value ? '82vh' : carouselHeight,
+      height: fullscreen.value ? '100vw' : '56rem'
+    })
   }
 })
 
