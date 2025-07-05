@@ -2,9 +2,8 @@
   <div
     class="notebook-bg flex flex-row relative w-full"
     @touchstart="onTouchStart"
-    @touchend="onTouchEnd"
     @mousedown="onMouseDown"
-    @mouseup="onMouseUp"
+    @click="onClick"
     @wheel="onWheel"
   >
     <div class="write-area rows-pattern w-full">
@@ -19,10 +18,9 @@
 <script setup lang="ts">
 defineProps<{
   onTouchStart: (e: TouchEvent) => void
-  onTouchEnd: (e: TouchEvent) => void
   onMouseDown: (e: MouseEvent) => void
-  onMouseUp: (e: MouseEvent) => void
   onWheel: (e: WheelEvent) => void
+  onClick: (e: MouseEvent | TouchEvent) => void
 }>()
 </script>
 
