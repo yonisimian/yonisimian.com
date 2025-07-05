@@ -1,9 +1,8 @@
 <template>
   <NotebookBackground
     @touchStart="onTouchStart"
-    @touchEnd="onTouchEnd"
     @mouseDown="onMouseDown"
-    @mouseUp="onMouseUp"
+    @click="onClick"
     @wheel="onWheel"
   >
     <template #page>
@@ -42,10 +41,10 @@ const startX = ref(0)
 const minSwipeDistance = 50 // px
 
 const onTouchStart = (e: TouchEvent) => (startX.value = e.changedTouches[0].screenX)
-const onTouchEnd = (e: TouchEvent) => handleSwipe(e.changedTouches[0].screenX)
 const onMouseDown = (e: MouseEvent) => (startX.value = e.screenX)
-const onMouseUp = (e: MouseEvent) => handleSwipe(e.screenX)
 const swipeStep = (dx: number) => (dx < 0 ? chooseNextStep() : dx > 0 && choosePrevStep())
+const onClick = (e: TouchEvent | MouseEvent) =>
+  handleSwipe('changedTouches' in e ? e.changedTouches[0].screenX : e.screenX)
 
 const handleSwipe = (endX: number) => {
   const deltaX = endX - startX.value
