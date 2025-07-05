@@ -5,7 +5,8 @@
     :class="{
       'fixed z-10 inset-0 bg-black text-light-900 bg-opacity-80 backdrop-blur-[2px]': fullscreen
     }"
-    @click.self="closeFullscreen"
+    @mousedown.self="closeFullscreen"
+    @touchstart.self="closeFullscreen"
   >
     <!-- Inner div for sizing the actual content -->
     <div
@@ -13,7 +14,8 @@
       :class="{
         'max-w-5xl max-h-[90vh] gap-1 overflow-hidden': fullscreen
       }"
-      @click.self="closeFullscreen"
+      @mousedown.self="closeFullscreen"
+      @touchstart.self="closeFullscreen"
     >
       <slot />
     </div>
@@ -21,9 +23,15 @@
 </template>
 
 <script setup lang="ts">
+import { watch } from 'vue'
 import { useTripState } from '/@/composables/useTripState'
 
 const { fullscreen, closeFullscreen } = useTripState()
+
+watch(fullscreen, (val) => {
+  // adds 'hidden' to the root html tag when fullscreen is active
+  document.documentElement.style.overflow = val ? 'hidden' : ''
+})
 </script>
 
 <style scoped></style>
