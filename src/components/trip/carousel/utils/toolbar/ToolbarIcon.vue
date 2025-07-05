@@ -1,8 +1,13 @@
 <template>
   <button
-    class="inline-flex text-white bg-black bg-opacity-30 hover:bg-white hover:bg-opacity-30 border-none p-2"
+    class="inline-flex text-white bg-opacity-30 border-none p-2"
+    :class="{
+      ' hover:bg-white hover:bg-opacity-30': !disabled,
+      [buttonBgColor ?? 'bg-black']: true
+    }"
     @click="onClick"
-    title="Toggle Fullscreen"
+    :title
+    :disabled="disabled === undefined ? false : disabled"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -11,7 +16,6 @@
       :stroke="stroke ?? 'currentColor'"
       class="w-6 h-6"
     >
-      <path :d />
       <slot />
     </svg>
   </button>
@@ -19,9 +23,11 @@
 
 <script setup lang="ts">
 defineProps<{
-  d?: string
   fill?: string
   stroke?: string
+  title?: string
+  disabled?: boolean
+  buttonBgColor?: string
   onClick?: () => void
 }>()
 </script>

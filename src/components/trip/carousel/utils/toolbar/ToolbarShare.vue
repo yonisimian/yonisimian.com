@@ -1,37 +1,39 @@
 <template>
   <div
-    class="relative inline-flex text-white border-none p-2 overflow-hidden"
-    :class="
-      isSharing
-        ? 'bg-green bg-opacity-80 hover:bg-opacity-80 stretched'
-        : 'bg-black bg-opacity-30 hover:bg-white hover:bg-opacity-30'
-    "
+    class="relative flex shareButton items-center justify-center"
+    :class="{ stretched: isSharing }"
   >
-    <button @click="share" title="Share">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-6 h-6">
-        <path
-          :d="
-            isSharing
-              ? 'M17 9L10 16L7 13'
-              : 'M20 13L20 18C20 19.1046 19.1046 20 18 20L6 20C4.89543 20 4 19.1046 4 18L4 13'
-          "
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-        <path
-          :d="
-            isSharing
-              ? 'M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z'
-              : 'M16 8L12 4M12 4L8 8M12 4L12 16'
-          "
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
-    </button>
-    <span class="absolute left-10 whitespace-nowrap overflow-hidden">Link copied!</span>
+    <ToolbarIcon
+      @click="share"
+      fill="none"
+      title="Share"
+      :disabled="isAnimating"
+      buttonBgColor="rgba(74, 222, 128, 0.8)"
+    >
+      <path
+        :d="
+          isSharing
+            ? 'M17 9L10 16L7 13'
+            : 'M20 13L20 18C20 19.1046 19.1046 20 18 20L6 20C4.89543 20 4 19.1046 4 18L4 13'
+        "
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        :d="
+          isSharing
+            ? 'M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z'
+            : 'M16 8L12 4M12 4L8 8M12 4L12 16'
+        "
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </ToolbarIcon>
+    <span class="absolute text-white left-10.5 whitespace-nowrap overflow-hidden"
+      >Link copied!</span
+    >
   </div>
 </template>
 
@@ -39,6 +41,7 @@
 import { ref } from 'vue'
 
 const isSharing = ref(false)
+const isAnimating = ref(false)
 
 const props = defineProps<{
   shareText?: string
@@ -64,8 +67,12 @@ const share = () => {
       .writeText(url)
       .then(() => {
         isSharing.value = true
+        isAnimating.value = true
         setTimeout(() => {
           isSharing.value = false
+          setTimeout(() => {
+            isAnimating.value = false
+          }, 1000)
         }, 2000)
       })
       .catch((err) => {
@@ -77,11 +84,14 @@ const share = () => {
 </script>
 
 <style scoped>
-.inline-flex {
-  transition: padding-right 1s cubic-bezier(0.4, 0, 0.2, 1);
-  padding-right: 0.5rem;
+.shareButton {
+  transition: padding-right 1s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 1s cubic-bezier(0.4, 0, 0.2, 1);
+  padding-right: 0rem;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 .stretched {
-  padding-right: 7rem; /* Adjust as needed for your text */
+  padding-right: 6.5rem;
+  background-color: rgba(74, 222, 128, 0.8);
 }
 </style>
