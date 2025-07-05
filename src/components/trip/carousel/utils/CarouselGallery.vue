@@ -1,5 +1,5 @@
 <template>
-  <Carousel ref="carouselEl" id="gallery" v-bind="galleryConfig" v-model="slide">
+  <Carousel id="gallery" v-bind="galleryConfig" v-model="slide">
     <CarouselSlide
       v-for="(url, index) in collectionToMediaArray(activeCollection)"
       :key="index"
@@ -18,10 +18,9 @@ import { Carousel, Navigation } from 'vue3-carousel'
 import { useTripState } from '/@/composables/useTripState'
 import { carouselHeight } from '/@/data/trip'
 import { collectionToMediaArray } from '/@/functions/trip'
-import { ref, watch } from 'vue'
 import { usePanzoom } from '/@/composables/usePanzoom'
 
-const { slide, activeCollection, fullscreen } = useTripState()
+const { slide, activeCollection } = useTripState()
 const { zoom } = usePanzoom()
 
 const galleryConfig = {
@@ -35,16 +34,6 @@ const galleryConfig = {
   transition: 500,
   height: carouselHeight
 }
-
-const carouselEl = ref<HTMLElement | null>(null)
-
-// view the current slide in the center of the viewport when exiting fullscreen
-watch(fullscreen, (isFullscreen) => {
-  if (!isFullscreen) {
-    const el = (carouselEl.value as any)?.$el ?? carouselEl.value
-    el?.scrollIntoView({ behavior: 'instant', block: 'center' })
-  }
-})
 </script>
 
 <style scoped>
