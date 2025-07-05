@@ -1,13 +1,12 @@
 <template>
   <CarouselFullscreenWrapper>
-    <CarouselTitle v-if="fullscreen" />
-    <CarouselInfo v-if="fullscreen" class="px-2 xl:px-0" />
+    <CarouselInfo v-if="fullscreen" class="px-1" />
     <div v-if="activeCollection.stepslides.length" class="w-full">
       <CarouselGallery class="w-full" />
       <CarouselThumbnail v-if="!fullscreen" />
     </div>
     <CarouselEmpty v-else />
-    <StepNavigationButtons v-if="fullscreen && !collection" class="px-2 xl:px-0" />
+    <StepNavigationButtons v-if="fullscreen && !collection" class="px-1" />
   </CarouselFullscreenWrapper>
 </template>
 

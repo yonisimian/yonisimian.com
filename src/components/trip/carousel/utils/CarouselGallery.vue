@@ -1,5 +1,12 @@
 <template>
-  <Carousel id="gallery" v-bind="galleryConfig" v-model="slide">
+  <Carousel
+    id="gallery"
+    v-bind="galleryConfig"
+    v-model="slide"
+    :touch-drag="!zoom"
+    :mouse-drag="!zoom"
+    :height="fullscreen ? '82vh' : carouselHeight"
+  >
     <CarouselSlide
       v-for="(url, index) in collectionToMediaArray(activeCollection)"
       :key="index"
@@ -20,7 +27,7 @@ import { carouselHeight } from '/@/data/trip'
 import { collectionToMediaArray } from '/@/functions/trip'
 import { usePanzoom } from '/@/composables/usePanzoom'
 
-const { slide, activeCollection } = useTripState()
+const { slide, activeCollection, fullscreen } = useTripState()
 const { zoom } = usePanzoom()
 
 const galleryConfig = {
@@ -28,11 +35,8 @@ const galleryConfig = {
   // pauseAutoplayOnHover: true,
   // loop: true,
   itemsToShow: 1,
-  touchDrag: !zoom.value,
-  mouseDrag: !zoom.value, // NOTE: doesn't fully work. might worths opening an issue.
   mouseWheel: true,
-  transition: 500,
-  height: carouselHeight
+  transition: 500
 }
 </script>
 
