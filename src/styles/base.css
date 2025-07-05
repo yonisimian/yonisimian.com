@@ -13,8 +13,7 @@ body {
   /* @apply dark:bg-gradient-to-b dark:from-black dark:to-gray-900; */
   transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
   margin: auto;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 body::-webkit-scrollbar
