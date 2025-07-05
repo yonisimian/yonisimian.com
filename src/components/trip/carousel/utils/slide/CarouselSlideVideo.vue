@@ -12,11 +12,14 @@
 import { carouselHeight } from '/@/data/trip'
 import { VideoURL } from '/@/types/trip'
 import { ref, computed } from 'vue'
+import { useTripState } from '/@/composables/useTripState'
 
 const props = defineProps<{
   src: VideoURL
   rot: number // rotation in degrees
 }>()
+
+const { fullscreen } = useTripState()
 
 const slideRef = ref<HTMLElement | null>(null)
 const videoRef = ref<HTMLVideoElement | null>(null)
@@ -24,7 +27,10 @@ const videoRef = ref<HTMLVideoElement | null>(null)
 const mediaClass = computed(() => `relative w-full h-full origin-center-center z-10 object-contain`)
 const mediaStyle = computed(() => ({
   transform: `rotate(${props.rot}deg)`,
-  ...((props.rot === 90 || props.rot === 270) && { width: carouselHeight, height: '56rem' })
+  ...((props.rot === 90 || props.rot === 270) && {
+    width: fullscreen.value ? '82vh' : carouselHeight,
+    height: fullscreen.value ? '100vw' : '56rem'
+  })
 }))
 </script>
 
