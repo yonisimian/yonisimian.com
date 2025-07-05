@@ -20,9 +20,9 @@
       <StepNavigationButtons class="mt-8 h-0" />
     </template>
     <template #margin>
-      <div class="flex justify-center items-center">
-        <ShareButton
-          class="absolute top-2 sm:top-1"
+      <div class="flex justify-end items-center">
+        <ToolbarShare
+          class="absolute top-3.2 right-3.2 inline-flex rounded-full"
           :shareText="`Check out my visit to ${activeCollection.name}`!"
         />
       </div>
