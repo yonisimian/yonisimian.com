@@ -12,7 +12,7 @@
     <div
       class="flex flex-col items-center justify-center select-none w-full"
       :class="{
-        'max-w-5xl max-h-[90vh] gap-1 overflow-hidden': fullscreen
+        'max-w-screen max-h-[90vh]': fullscreen
       }"
       @mousedown.self="closeFullscreen"
       @touchstart.self="closeFullscreen"

@@ -1,5 +1,5 @@
 <template>
-  <h2 class="text-center text-2xl sm:text-3xl mb-1 sm:mb-2">
+  <h2>
     {{ activeCollection.name }}
   </h2>
 </template>
