@@ -34,7 +34,6 @@ declare module 'vue' {
     CookbookGalleryCardBack: typeof import('./components/cookbook/gallery/cardBack/CookbookGalleryCardBack.vue')['default']
     CookbookGalleryCardFront: typeof import('./components/cookbook/gallery/cardFront/CookbookGalleryCardFront.vue')['default']
     CookbookHeader: typeof import('./components/cookbook/CookbookHeader.vue')['default']
-    copy: typeof import('./components/trip/carousel/utils/toolbar/ToolbarRotateLeft copy.vue')['default']
     DarkBackground: typeof import('./components/common/gallery/DarkBackground.vue')['default']
     DarkTheme: typeof import('./components/common/DarkTheme.vue')['default']
     DarkThemeIcon: typeof import('./components/common/footer/icons/DarkThemeIcon.vue')['default']
