@@ -1,11 +1,5 @@
 <template>
-  <div
-    class="notebook-bg flex flex-row relative w-full"
-    @touchstart="onTouchStart"
-    @mousedown="onMouseDown"
-    @click="onClick"
-    @wheel="onWheel"
-  >
+  <div class="notebook-bg flex flex-row relative w-full">
     <div class="write-area rows-pattern w-full">
       <slot name="page" />
     </div>
@@ -15,14 +9,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
-defineProps<{
-  onTouchStart: (e: TouchEvent) => void
-  onMouseDown: (e: MouseEvent) => void
-  onWheel: (e: WheelEvent) => void
-  onClick: (e: MouseEvent | TouchEvent) => void
-}>()
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 .notebook-bg {
