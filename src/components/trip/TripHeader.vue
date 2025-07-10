@@ -4,25 +4,16 @@
     <div
       class="w-full flex gap-2 items-center justify-center text-sm text-blue-gray-800 dark:text-blue-gray-300"
     >
-      <h3
-        :class="{ 'animate-my-tada': bounceIndex === 5 }"
-        @click="collection = CollectionType.Highlights"
-      >
-        highlights
+      <h3 :class="{ 'animate-my-tada': bounceIndex === 5 }">
+        <a href="#" @click.prevent="collection = CollectionType.Highlights">highlights</a>
       </h3>
       <p>•</p>
-      <h3
-        :class="{ 'animate-my-tada': bounceIndex === 6 }"
-        @click="collection = CollectionType.Music"
-      >
-        music
+      <h3 :class="{ 'animate-my-tada': bounceIndex === 6 }">
+        <a href="#" @click.prevent="collection = CollectionType.Music">music</a>
       </h3>
       <p>•</p>
-      <h3
-        :class="{ 'animate-my-tada': bounceIndex === 7 }"
-        @click="collection = CollectionType.People"
-      >
-        people
+      <h3 :class="{ 'animate-my-tada': bounceIndex === 7 }">
+        <a href="#" @click.prevent="collection = CollectionType.People">people</a>
       </h3>
     </div>
   </header>
@@ -55,10 +46,11 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-h3 {
+a {
+  color: inherit;
   cursor: pointer;
 }
-h3:hover {
+a:hover {
   color: #00b3ff; /* same as strong */
 }
 @keyframes my-tada {
