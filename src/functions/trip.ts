@@ -7,7 +7,8 @@ import {
   Collection
 } from '/@/types/trip'
 
-import { steps, countries, continents, highlights, music, people } from '/@/data/trip'
+import { useTripData } from '/@/composables/useTripData'
+const { steps, countries, continents, highlights, music, people } = useTripData()
 
 export const getCountryByStep = (step: Step): Country =>
   countries.find((country) => country.steps.some((s) => s.id === step.id)) || {

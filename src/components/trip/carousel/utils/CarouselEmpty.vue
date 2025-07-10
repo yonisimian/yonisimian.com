@@ -12,10 +12,11 @@
 </template>
 
 <script setup lang="ts">
-import { carouselHeight } from '/@/data/trip'
+import { useTripData } from '/@/composables/useTripData'
 import { useTripState } from '/@/composables/useTripState'
 
 const { fullscreen } = useTripState()
+const { carouselHeight } = useTripData()
 </script>
 
 <style scoped></style>

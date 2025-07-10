@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { carouselHeight } from '/@/data/trip'
+import { useTripData } from '/@/composables/useTripData'
 import { VideoURL } from '/@/types/trip'
 import { ref, computed } from 'vue'
 import { useTripState } from '/@/composables/useTripState'
@@ -20,6 +20,7 @@ const props = defineProps<{
 }>()
 
 const { fullscreen } = useTripState()
+const { carouselHeight } = useTripData()
 
 const slideRef = ref<HTMLElement | null>(null)
 const videoRef = ref<HTMLVideoElement | null>(null)
