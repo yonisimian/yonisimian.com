@@ -23,7 +23,7 @@
     <template #margin>
       <div class="flex justify-end items-center">
         <ToolbarShare
-          class="absolute top-3.2 right-3.2 inline-flex rounded-full"
+          class="absolute top-3.2 right-3.2 inline-flex rounded-full overflow-hidden"
           :shareText="`Check out my visit to ${activeCollection.name}`!"
         />
       </div>
