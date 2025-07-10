@@ -23,11 +23,12 @@
 import 'vue3-carousel/carousel.css'
 import { Carousel, Navigation } from 'vue3-carousel'
 import { useTripState } from '/@/composables/useTripState'
-import { carouselHeight } from '/@/data/trip'
+import { useTripData } from '/@/composables/useTripData'
 import { collectionToMediaArray } from '/@/functions/trip'
 import { usePanzoom } from '/@/composables/usePanzoom'
 
 const { slide, activeCollection, fullscreen } = useTripState()
+const { carouselHeight } = useTripData()
 const { zoom } = usePanzoom()
 
 const galleryConfig = {

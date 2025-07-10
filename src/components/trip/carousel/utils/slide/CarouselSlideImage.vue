@@ -28,12 +28,13 @@
 
 <script setup lang="ts">
 import { useTripState } from '/@/composables/useTripState'
-import { carouselHeight } from '/@/data/trip'
+import { useTripData } from '/@/composables/useTripData'
 import { PhotoURL } from '/@/types/trip'
 import { watch, ref, computed, nextTick, onMounted, onBeforeUnmount } from 'vue'
 import { usePanzoom } from '/@/composables/usePanzoom'
 
 const { slide, activeCollection, fullscreen, openFullscreen } = useTripState()
+const { carouselHeight } = useTripData()
 
 const props = defineProps<{
   src: PhotoURL

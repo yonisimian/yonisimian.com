@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { steps } from '/@/data/trip'
-import { encodeURIStep } from '/@/functions/trip'
 import { TripRoute, PortfolioRoute, CookbookRoute } from '/@/data/globals'
 import { startLoadingSpinner, stopLoadingSpinner } from '/@/data/loading'
+import { loadTripData } from '/@/composables/useTripData'
 
-const defaultTripPath = `/${TripRoute}/${encodeURIStep(steps[0])}`
+// const defaultTripPath = `/${TripRoute}/${encodeURIStep(steps[0])}`
+const defaultTripPath = `/${TripRoute}/1-TLV`
 const isTripRoute = (path: string) => path.startsWith(`/${TripRoute}`)
 const getSegments = (path: string) => path.split('/')
 const isSameSegment = (path1: string, path2: string) =>
@@ -22,7 +22,16 @@ const routes = [
   },
   {
     path: `/${TripRoute}/:id`,
-    component: () => import('/@/views/TripView.vue')
+    component: () => import('/@/views/TripView.vue'),
+    beforeEnter: async (to: any, from: any, next: any) => {
+      try {
+        await loadTripData()
+        next()
+      } catch (e) {
+        console.error('Failed to load trip:', e)
+        next(false)
+      }
+    }
   },
   {
     path: `/${CookbookRoute}`,

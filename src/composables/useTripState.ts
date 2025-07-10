@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { useQueryParam } from './useQueryParam'
 import { useRouter, useRoute } from 'vue-router'
 import { Continent, Country, Step, CollectionType, Collection } from '/@/types/trip'
-import { steps } from '/@/data/trip'
+import { useTripData } from '/@/composables/useTripData'
 import {
   decodeURIStep,
   encodeURIStep,
@@ -14,6 +14,7 @@ import {
 } from '/@/functions/trip'
 
 export const useTripState = () => {
+  const { steps } = useTripData()
   const route = useRoute()
   const router = useRouter()
 

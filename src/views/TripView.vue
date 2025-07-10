@@ -17,11 +17,12 @@
 </template>
 
 <script setup lang="ts">
-import { /*continents,*/ countries, steps, dates } from '/@/data/trip'
+import { useTripData } from '/@/composables/useTripData'
 import { useTripState } from '/@/composables/useTripState'
 
 const { currStep, currCountry, chooseStep, chooseCountry /*, currContinent, chooseContinent*/ } =
   useTripState()
+const { /*continents,*/ countries, steps, dates } = useTripData()
 </script>
 
 <style scoped></style>
