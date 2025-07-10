@@ -10,8 +10,8 @@
 
 <script setup lang="ts">
 const sonicGifSrc = window.matchMedia('(min-width: 768px)').matches
-  ? '/@/assets/sonic/sonic-run.gif'
-  : '/@/assets/sonic/sonic-walk.gif'
+  ? '/loading/sonic-run.gif'
+  : '/loading/sonic-walk.gif'
 </script>
 
 <style scoped>
