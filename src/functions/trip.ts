@@ -65,13 +65,19 @@ export const getCollection = (type: CollectionType): Collection | undefined => {
   return undefined
 }
 
+export const stepToIndex = (step: Step): number => {
+  return steps.findIndex((s) => s.id === step.id)
+}
+
 export const stepToCollection = (step: Step): Collection => {
   return {
     name: step.name,
-    stepslides: step.media.map((_, slide) => ({ step, slide }))
+    stepslides: step.media.map((_, slide) => {
+      return { step: stepToIndex(step), slide }
+    })
   }
 }
 
 export const collectionToMediaArray = (collection: Collection): MediaType[] => {
-  return collection.stepslides.map(({ step, slide }) => step.media[slide])
+  return collection.stepslides.map(({ step, slide }) => steps[step].media[slide])
 }

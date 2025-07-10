@@ -11,11 +11,15 @@
 
 <script setup lang="ts">
 import { useTripState } from '/@/composables/useTripState'
+import { useTripData } from '/@/composables/useTripData'
 import { computed } from 'vue'
 import CarouselTitle from './CarouselTitle.vue'
 
+const { steps } = useTripData()
 const { currStep, activeCollection, slide } = useTripState()
 
 // fallback is for steps without slides (which cannot appear on collections)
-const step = computed(() => activeCollection.value.stepslides[slide.value]?.step ?? currStep.value)
+const step = computed(
+  () => steps[activeCollection.value.stepslides[slide.value].step] ?? currStep.value
+)
 </script>

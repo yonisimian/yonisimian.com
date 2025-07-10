@@ -37,7 +37,7 @@ export enum CollectionType {
 }
 
 export interface StepSlide {
-  step: Step
+  step: number
   slide: number
 }
 export interface Collection {
