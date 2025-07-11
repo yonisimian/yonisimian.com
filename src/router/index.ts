@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { TripRoute, PortfolioRoute, CookbookRoute } from '/@/data/globals'
-import { startLoadingSpinner, stopLoadingSpinner } from '/@/data/loading'
+import { useLoading } from '/@/composables/useLoading'
 import { loadTripData } from '/@/composables/useTripData'
 
+const { startLoadingSpinner, stopLoadingSpinner } = useLoading()
 // const defaultTripPath = `/${TripRoute}/${encodeURIStep(steps[0])}`
 const defaultTripPath = `/${TripRoute}/1-TLV`
 const isTripRoute = (path: string) => path.startsWith(`/${TripRoute}`)
