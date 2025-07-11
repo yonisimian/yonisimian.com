@@ -1,12 +1,13 @@
 <template>
   <CarouselFullscreenWrapper>
-    <CarouselInfo v-if="fullscreen" class="px-1" />
-    <div v-if="activeCollection.stepslides.length" class="w-full">
-      <CarouselGallery class="w-full" />
-      <CarouselThumbnail v-if="!fullscreen" />
+    <div
+      class="w-full h-full"
+      :class="fullscreen ? 'grid grid-rows-[min-content_1fr_min-content]' : 'grid grid-rows-1'"
+    >
+      <CarouselInfo v-if="fullscreen" class="px-1" />
+      <CarouselGalleryWrapper />
+      <StepNavigationButtons v-if="fullscreen && !collection" class="px-1" />
     </div>
-    <CarouselEmpty v-else />
-    <StepNavigationButtons v-if="fullscreen && !collection" class="px-1" />
   </CarouselFullscreenWrapper>
 </template>
 
@@ -15,7 +16,7 @@ import 'vue3-carousel/carousel.css'
 import { watch } from 'vue'
 import { useTripState } from '/@/composables/useTripState'
 
-const { currStep, activeCollection, slide, fullscreen, collection } = useTripState()
+const { currStep, slide, fullscreen, collection } = useTripState()
 
 // reset slide when step changes or entering custom slides mode
 watch([currStep, collection], () => (slide.value = 0))

@@ -11,9 +11,7 @@
     <!-- Inner div for sizing the actual content -->
     <div
       class="flex flex-col items-center justify-center select-none w-full"
-      :class="{
-        'max-w-screen max-h-[90vh]': fullscreen
-      }"
+      :style="{ height: fullscreen ? '100dvh' : carouselHeight }"
       @mousedown.self="closeFullscreen"
       @touchstart.self="closeFullscreen"
     >
@@ -26,8 +24,10 @@
 import { watch } from 'vue'
 import { useTripState } from '/@/composables/useTripState'
 import { useFreezeScroll } from '/@/composables/useFreezeScroll'
+import { useTripData } from '/@/composables/useTripData'
 
 const { fullscreen, closeFullscreen } = useTripState()
+const { carouselHeight } = useTripData()
 
 const { freezeScroll, unfreezeScroll } = useFreezeScroll()
 

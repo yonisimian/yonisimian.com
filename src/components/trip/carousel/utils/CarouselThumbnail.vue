@@ -1,5 +1,5 @@
 <template>
-  <Carousel id="thumbnails" v-bind="thumbnailsConfig" v-model="slide">
+  <Carousel v-bind="thumbnailsConfig" v-model="slide">
     <Slide v-for="(url, index) in collectionToMediaArray(activeCollection)" :key="index">
       <template #default="{ currentIndex, isActive }">
         <div class="thumbnail" :class="{ 'is-active': isActive }" @click="slide = currentIndex">
@@ -35,11 +35,9 @@ const thumbnailsConfig = {
 
 <style scoped>
 .thumbnail {
-  height: 100%;
-  width: 100%;
   cursor: pointer;
   opacity: 0.6;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
 }
 
 .thumbnail.is-active,
