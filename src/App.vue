@@ -16,7 +16,9 @@
 
 <script setup lang="ts">
 import LoadingView from './views/LoadingView.vue'
-import { isRouteLoading } from '/@/data/loading'
+import { useLoading } from '/@/composables/useLoading'
+
+const { isRouteLoading } = useLoading()
 </script>
 
 <style scoped>
