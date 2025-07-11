@@ -14,6 +14,7 @@ declare module 'vue' {
     CarouselEmpty: typeof import('./components/trip/carousel/utils/CarouselEmpty.vue')['default']
     CarouselFullscreenWrapper: typeof import('./components/trip/carousel/utils/CarouselFullscreenWrapper.vue')['default']
     CarouselGallery: typeof import('./components/trip/carousel/utils/CarouselGallery.vue')['default']
+    CarouselGalleryWrapper: typeof import('./components/trip/carousel/utils/CarouselGalleryWrapper.vue')['default']
     CarouselInfo: typeof import('./components/trip/carousel/utils/CarouselInfo.vue')['default']
     CarouselSlide: typeof import('./components/trip/carousel/utils/CarouselSlide.vue')['default']
     CarouselSlideImage: typeof import('./components/trip/carousel/utils/slide/CarouselSlideImage.vue')['default']

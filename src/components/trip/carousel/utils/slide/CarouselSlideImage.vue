@@ -13,7 +13,7 @@
     <SlideBlurBackground :src />
     <img
       ref="imageRef"
-      :class="mediaClass"
+      class="w-full h-full origin-center-center z-10 object-contain"
       :src
       @click="hangleImageClick"
       @mousedown="handlePanStart"
@@ -28,13 +28,11 @@
 
 <script setup lang="ts">
 import { useTripState } from '/@/composables/useTripState'
-import { useTripData } from '/@/composables/useTripData'
 import { PhotoURL } from '/@/types/trip'
 import { watch, ref, computed, nextTick, onMounted, onBeforeUnmount } from 'vue'
 import { usePanzoom } from '/@/composables/usePanzoom'
 
 const { slide, activeCollection, fullscreen, openFullscreen } = useTripState()
-const { carouselHeight } = useTripData()
 
 const props = defineProps<{
   src: PhotoURL
@@ -96,19 +94,13 @@ const handlePanStart = (e: MouseEvent | TouchEvent) => zoom.value && onPanStart(
 const handlePanMove = (e: MouseEvent | TouchEvent) =>
   zoom.value && (e.stopPropagation(), onPanMove(e))
 
-const mediaClass = computed(() => `relative w-full h-full origin-center-center z-10 object-contain`)
 const mediaStyle = computed(() => {
   const rotate = `rotate(${props.rot}deg)`
   const translate = `translate(${pan.value.x}px, ${pan.value.y}px)`
   const scale = zoom.value ? `scale(${ZOOM_FACTOR})` : 'scale(1)'
 
-  // swap width/height to fill container
   return {
-    transform: `${translate} ${rotate} ${scale}`,
-    ...((props.rot === 90 || props.rot === 270) && {
-      width: fullscreen.value ? '82vh' : carouselHeight,
-      height: fullscreen.value ? '100vw' : '56rem'
-    })
+    transform: `${translate} ${rotate} ${scale}`
   }
 })
 

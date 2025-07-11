@@ -1,11 +1,10 @@
 <template>
   <Carousel
-    id="gallery"
     v-bind="galleryConfig"
     v-model="slide"
     :touch-drag="!zoom"
     :mouse-drag="!zoom"
-    :height="fullscreen ? '82vh' : carouselHeight"
+    :height="fullscreen ? '100%' : 'calc(100% - 80px)'"
   >
     <CarouselSlide
       v-for="(url, index) in collectionToMediaArray(activeCollection)"
@@ -23,12 +22,10 @@
 import 'vue3-carousel/carousel.css'
 import { Carousel, Navigation } from 'vue3-carousel'
 import { useTripState } from '/@/composables/useTripState'
-import { useTripData } from '/@/composables/useTripData'
 import { collectionToMediaArray } from '/@/functions/trip'
 import { usePanzoom } from '/@/composables/usePanzoom'
 
 const { slide, activeCollection, fullscreen } = useTripState()
-const { carouselHeight } = useTripData()
 const { zoom } = usePanzoom()
 
 const galleryConfig = {
