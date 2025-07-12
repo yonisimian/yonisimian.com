@@ -1,6 +1,4 @@
-// File: src/composables/usePanzoom.ts
-// Important: note that panning functionality is global, however zomming is per component.
-// Is that smart? idk. Is that correct? Time will tell.
+// Note: the panzoom functionality is currently global and not per component.
 
 import { ref } from 'vue'
 
@@ -12,6 +10,9 @@ const panStart = ref({ x: 0, y: 0 })
 const panOffset = ref({ x: 0, y: 0 })
 const isPanning = ref(false)
 const isDragging = ref(false)
+
+const zoom = ref(false)
+const toggleZoom = () => (zoom.value = !zoom.value)
 
 let clampFn: (() => { maxX: number; maxY: number }) | null = null
 
@@ -95,9 +96,6 @@ export const removeGlobalListeners = () => {
 
 export function usePanzoom() {
   addGlobalListeners()
-  const zoom = ref(false)
-  const toggleZoom = () => (zoom.value = !zoom.value)
-
   return {
     // pan stuff
     pan,
