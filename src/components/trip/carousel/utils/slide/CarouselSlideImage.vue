@@ -1,6 +1,5 @@
 <template>
   <div
-    ref="slideRef"
     class="w-full h-full bg-black flex items-center justify-center overflow-hidden"
     :class="
       fullscreen
@@ -11,20 +10,18 @@
     "
   >
     <SlideBlurBackground :src />
-    <RotatedComponent class="w-full h-full" :rot>
-      <img
-        ref="imageRef"
-        class="w-full h-full origin-center-center z-10 object-contain"
-        :src
-        @click="hangleImageClick"
-        @mousedown="handlePanStart"
-        @mousemove="handlePanMove"
-        @touchstart="handlePanStart"
-        @touchmove="handlePanMove"
-        :style="mediaStyle"
-        draggable="false"
-      />
-    </RotatedComponent>
+    <img
+      ref="imageRef"
+      class="w-full h-full origin-center-center z-10 object-contain"
+      :src
+      @click="hangleImageClick"
+      @mousedown="handlePanStart"
+      @mousemove="handlePanMove"
+      @touchstart="handlePanStart"
+      @touchmove="handlePanMove"
+      :style="mediaStyle"
+      draggable="false"
+    />
   </div>
 </template>
 
@@ -41,12 +38,10 @@ const props = defineProps<{
   rot: number // rotation in degrees
 }>()
 
-const slideRef = ref<HTMLElement | null>(null)
 const imageRef = ref<HTMLImageElement | null>(null)
 
 const getSizes = () => {
   const image = imageRef.value
-  // const container = slideRef.value?.$el as HTMLElement
   if (!image) return { iw: 0, ih: 0, cw: 0, ch: 0 }
   const rect = image.getBoundingClientRect()
   const iw = rect.width

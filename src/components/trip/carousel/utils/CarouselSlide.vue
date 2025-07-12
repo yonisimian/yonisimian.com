@@ -1,8 +1,10 @@
 <template>
   <Slide class="w-full h-full bg-black flex items-center justify-center overflow-hidden">
     <div ref="slideContentRef" class="w-full h-full flex items-center justify-center box-border">
-      <CarouselSlideImage v-if="isImage(url)" :src="url as PhotoURL" :rot="rotation" />
-      <CarouselSlideVideo v-else :src="url as VideoURL" :rot="rotation" />
+      <RotatedComponent class="w-full h-full" :rot="rotation">
+        <CarouselSlideImage v-if="isImage(url)" :src="url as PhotoURL" :rot="rotation" />
+        <CarouselSlideVideo v-else :src="url as VideoURL" />
+      </RotatedComponent>
     </div>
     <CarouselSlideToolbar
       class="absolute mx-auto z-20"
