@@ -11,18 +11,20 @@
     "
   >
     <SlideBlurBackground :src />
-    <img
-      ref="imageRef"
-      class="w-full h-full origin-center-center z-10 object-contain"
-      :src
-      @click="hangleImageClick"
-      @mousedown="handlePanStart"
-      @mousemove="handlePanMove"
-      @touchstart="handlePanStart"
-      @touchmove="handlePanMove"
-      :style="mediaStyle"
-      draggable="false"
-    />
+    <RotatedComponent class="w-full h-full" :rot>
+      <img
+        ref="imageRef"
+        class="w-full h-full origin-center-center z-10 object-contain"
+        :src
+        @click="hangleImageClick"
+        @mousedown="handlePanStart"
+        @mousemove="handlePanMove"
+        @touchstart="handlePanStart"
+        @touchmove="handlePanMove"
+        :style="mediaStyle"
+        draggable="false"
+      />
+    </RotatedComponent>
   </div>
 </template>
 
@@ -36,7 +38,7 @@ const { slide, activeCollection, fullscreen, openFullscreen } = useTripState()
 
 const props = defineProps<{
   src: PhotoURL
-  rot?: number // rotation in degrees
+  rot: number // rotation in degrees
 }>()
 
 const slideRef = ref<HTMLElement | null>(null)
@@ -95,12 +97,11 @@ const handlePanMove = (e: MouseEvent | TouchEvent) =>
   zoom.value && (e.stopPropagation(), onPanMove(e))
 
 const mediaStyle = computed(() => {
-  const rotate = `rotate(${props.rot}deg)`
   const translate = `translate(${pan.value.x}px, ${pan.value.y}px)`
   const scale = zoom.value ? `scale(${ZOOM_FACTOR})` : 'scale(1)'
 
   return {
-    transform: `${translate} ${rotate} ${scale}`
+    transform: `${translate} ${scale}`
   }
 })
 

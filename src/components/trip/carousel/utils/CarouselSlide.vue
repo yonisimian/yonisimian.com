@@ -1,7 +1,9 @@
 <template>
   <Slide class="w-full h-full bg-black flex items-center justify-center overflow-hidden">
-    <CarouselSlideImage v-if="isImage(url)" :src="url as PhotoURL" :rot="rotation" />
-    <CarouselSlideVideo v-else :src="url as VideoURL" :rot="rotation" />
+    <div ref="slideContentRef" class="w-full h-full flex items-center justify-center box-border">
+      <CarouselSlideImage v-if="isImage(url)" :src="url as PhotoURL" :rot="rotation" />
+      <CarouselSlideVideo v-else :src="url as VideoURL" :rot="rotation" />
+    </div>
     <CarouselSlideToolbar
       class="absolute mx-auto z-20"
       :class="isImage(url) ? 'bottom-5' : 'top-5'"
@@ -16,21 +18,30 @@ import 'vue3-carousel/carousel.css'
 import { Slide } from 'vue3-carousel'
 import { isImage } from '/@/functions/trip'
 import { MediaType, PhotoURL, VideoURL } from '/@/types/trip'
-import { watch, ref } from 'vue'
+import { watch, ref, onMounted } from 'vue'
 import { useTripState } from '/@/composables/useTripState'
+import { useSizeObserver } from '/@/composables/useSizeObserver'
 
 defineProps<{
   url: MediaType
 }>()
 
 const { slide, activeCollection } = useTripState()
+const { setTarget } = useSizeObserver()
+
 const rotation = ref(0)
+const slideContentRef = ref<HTMLDivElement | null>(null)
 const rotateLeft = () => (rotation.value = (rotation.value - 90 + 360) % 360)
 const rotateRight = () => (rotation.value = (rotation.value + 90) % 360)
 
 // Reset rotation when slide changes
 watch([slide, activeCollection], () => {
   rotation.value = 0
+})
+
+// Set target for size observer, used for rotations
+onMounted(() => {
+  if (slideContentRef.value) setTarget(slideContentRef.value)
 })
 </script>
 

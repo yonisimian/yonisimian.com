@@ -1,6 +1,6 @@
 <template>
   <div class="w-full h-full flex items-center justify-center overflow-hidden">
-    <div v-if="activeCollection.stepslides.length" class="h-full">
+    <div v-if="activeCollection.stepslides.length" class="w-full h-full">
       <CarouselGallery />
       <CarouselThumbnail v-if="!fullscreen" />
     </div>

@@ -74,6 +74,7 @@ declare module 'vue' {
     PortfolioGalleryCardFront: typeof import('./components/portfolio/gallery/cardFront/PortfolioGalleryCardFront.vue')['default']
     PortfolioHeader: typeof import('./components/portfolio/header/PortfolioHeader.vue')['default']
     ProfileImage: typeof import('./components/portfolio/header/ProfileImage.vue')['default']
+    RotatedComponent: typeof import('./components/trip/carousel/utils/slide/RotatedComponent.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ScrollButton: typeof import('./components/common/scrolling/ScrollButton.vue')['default']
