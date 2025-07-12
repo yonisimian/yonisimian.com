@@ -20,6 +20,6 @@ const { currStep, activeCollection, slide } = useTripState()
 
 // fallback is for steps without slides (which cannot appear on collections)
 const step = computed(
-  () => steps[activeCollection.value.stepslides[slide.value].step] ?? currStep.value
+  () => steps[activeCollection.value.stepslides[slide.value]?.step] ?? currStep.value
 )
 </script>
