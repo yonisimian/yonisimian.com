@@ -10,8 +10,8 @@
 
     <article class="flex flex-col items-center justify-center w-full gap-4 my-4">
       <StepDescription />
-      <MediaCarousel />
-      <StepNavigationButtons />
+      <MediaCarousel v-if="activeCollection.stepslides.length || fullscreen" />
+      <StepNavigationButtons v-if="activeCollection.stepslides.length || fullscreen" />
     </article>
   </div>
 </template>
@@ -20,8 +20,16 @@
 import { useTripData } from '/@/composables/useTripData'
 import { useTripState } from '/@/composables/useTripState'
 
-const { currStep, currCountry, chooseStep, chooseCountry /*, currContinent, chooseContinent*/ } =
-  useTripState()
+const {
+  activeCollection,
+  fullscreen,
+  currStep,
+  currCountry,
+  chooseStep,
+  chooseCountry
+  //currContinent
+  // chooseContinent
+} = useTripState()
 const { /*continents,*/ countries, steps, dates } = useTripData()
 </script>
 
