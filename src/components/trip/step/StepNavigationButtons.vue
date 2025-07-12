@@ -1,11 +1,7 @@
 <template>
   <div class="flex items-center justify-between w-full z-5">
-    <div @click="choosePrevStep" class="hover:text-cyan-600 hover:cursor-pointer">
-      <span v-if="prevStep">← {{ prevStep.shortName }}</span>
-    </div>
-    <div @click="chooseNextStep" class="hover:text-cyan-600 hover:cursor-pointer">
-      <span v-if="nextStep"> {{ nextStep.shortName }} → </span>
-    </div>
+    <a v-if="prevStep" href="#" @click.prevent="choosePrevStep">← {{ prevStep.shortName }}</a>
+    <a v-if="nextStep" href="#" @click.prevent="chooseNextStep">{{ nextStep.shortName }} →</a>
   </div>
 </template>
 
