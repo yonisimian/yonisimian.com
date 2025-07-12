@@ -1,13 +1,13 @@
 <template>
-  <SlideBlurBackground :src="src.thumbnail" />
-  <RotatedComponent class="w-full h-full" :rot="rot">
+  <div class="w-full h-full bg-black flex items-center justify-center overflow-hidden">
+    <SlideBlurBackground :src="src.thumbnail" />
     <video
       ref="videoRef"
       controls
       class="relative w-full h-full origin-center-center z-10 object-contain"
       :src="src.video"
     />
-  </RotatedComponent>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -16,7 +16,6 @@ import { ref } from 'vue'
 
 defineProps<{
   src: VideoURL
-  rot: number // rotation in degrees
 }>()
 
 const videoRef = ref<HTMLVideoElement | null>(null)
