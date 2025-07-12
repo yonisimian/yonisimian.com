@@ -1,6 +1,7 @@
 <template>
   <div
     ref="panzoomWrapper"
+    class="w-full h-full flex items-center justify-center overflow-hidden"
     :class="wrapperClass"
     @mousedown="handlePanStart"
     @mousemove="handlePanMove"
