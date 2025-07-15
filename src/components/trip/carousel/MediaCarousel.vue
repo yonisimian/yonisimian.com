@@ -1,13 +1,6 @@
 <template>
   <CarouselFullscreenWrapper>
-    <div
-      class="w-full h-full"
-      :class="fullscreen ? 'grid grid-rows-[min-content_1fr_min-content]' : 'grid grid-rows-1'"
-    >
-      <CarouselInfo v-if="fullscreen" class="px-1" />
-      <CarouselGalleryWrapper />
-      <StepNavigationButtons v-if="fullscreen && !collection" class="px-1" />
-    </div>
+    <CarouselGalleryWrapper />
   </CarouselFullscreenWrapper>
 </template>
 
