@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import Unocss from 'unocss/vite'
-import { resolve } from 'pathe'
+import path from 'path'
 import vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
 import FontInstaller from 'unplugin-fonts/vite'
@@ -14,7 +14,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '/@': resolve(__dirname, './src')
+      '/@': path.resolve(__dirname, './src')
     }
   },
   plugins: [
