@@ -6,7 +6,8 @@
     "dev": "vite --open --host",
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
-    "update-dependencies": "ncu -u && pnpm install"
+    "update-dependencies": "ncu -u && pnpm install",
+    "generate-local-trip": "ts-node --project tsconfig.node.json src/functions/generateLocalTrip.ts"
   },
   "dependencies": {
     "aos": "^2.3.4",

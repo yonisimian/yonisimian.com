@@ -58,6 +58,6 @@ const trip: Trip = loadTripWithLocalMedia()
 const outputPath = 'src/data/trip.local.ts'
 const output = `// GENERATED file — do not edit manually
 import { Trip } from '/@/types/trip'
-export const trip: Trip = ${JSON.stringify(trip, null, 0)}`
+export const trip: Trip = ${JSON.stringify(trip)}`
 writeFileSync(outputPath, output)
 console.log(`✅ ${outputPath} generated`)
