@@ -2,7 +2,7 @@
   <div
     class="item opacity-40 hover:opacity-80 text-white w-full h-full min-w-44 flex flex-col items-center justify-center cursor-pointer select-none"
     :class="{ active: isCurrDest }"
-    :style="flagStyle"
+    :style="bgStyle"
     @click="chooseDest(dest)"
   >
     <div class="stroked">
@@ -15,7 +15,8 @@
 </template>
 
 <script setup lang="ts" generic="T extends { name: string, shortName?: string }">
-import { formatDate } from '/@/functions/trip'
+import { formatDate, isImage } from '/@/functions/trip'
+import { MediaType, PhotoURL, VideoURL } from '/@/types/trip'
 
 const props = defineProps<{
   dest: T
@@ -24,12 +25,34 @@ const props = defineProps<{
   chooseDest: (dest: T) => void
 }>()
 
-const flagStyle =
-  'bgImage' in props.dest
-    ? {
-        backgroundImage: `url(${props.dest.bgImage})`
+const defaultBgStyle = { backgroundColor: 'black' }
+
+const bgStyle = (() => {
+  if ('bgImage' in props.dest) {
+    const bgImage = props.dest.bgImage
+    if (typeof bgImage === 'string') {
+      return { backgroundImage: `url(${bgImage})` }
+    } else if (
+      typeof bgImage === 'number' &&
+      'media' in props.dest &&
+      Array.isArray(props.dest.media)
+    ) {
+      if (props.dest.media.length <= bgImage) {
+        console.warn(
+          `DestBarItem: bgImage index ${bgImage} is out of bounds for media array of length ${props.dest.media.length}`
+        )
+      } else {
+        const mediaItem = props.dest.media[bgImage] as MediaType
+        if (isImage(mediaItem)) {
+          return { backgroundImage: `url(${mediaItem as PhotoURL})` }
+        } else {
+          return { backgroundImage: `url(${(mediaItem as VideoURL).thumbnail})` }
+        }
       }
-    : {}
+    }
+  }
+  return defaultBgStyle
+})()
 </script>
 
 <style scoped>
