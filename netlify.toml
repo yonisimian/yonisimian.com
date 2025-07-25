@@ -10,6 +10,13 @@
   publish = "dist"
   command = "pnpm run build"
 
+# Netlify Image CDN support
+[[redirects]]
+  from = "/cdnimg/:path"
+  to = "/.netlify/images?url=/media/:path"
+  status = 200
+
+# SPA fallback
 [[redirects]]
   from = "/*"
   to = "/index.html"

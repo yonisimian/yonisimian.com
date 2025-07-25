@@ -2,12 +2,14 @@
   <div class="w-full h-full bg-black flex items-center justify-center overflow-hidden">
     <SlideBlurBackground :src />
     <PanzoomedComponent class="w-full h-full" :fullscreen>
-      <img
+      <ResponsiveImage
         ref="imageRef"
+        :src="src"
+        mode="full"
+        :fetchpriority="fullscreen ? 'high' : 'low'"
+        :alt="`Image from trip slide ${slide}`"
         class="w-full h-full origin-center-center z-10 object-contain"
-        :src
         @click="hangleImageClick"
-        draggable="false"
       />
     </PanzoomedComponent>
   </div>
