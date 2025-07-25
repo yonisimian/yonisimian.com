@@ -26,12 +26,20 @@ const props = defineProps<{
 }>()
 
 const defaultBgStyle = { backgroundColor: 'black' }
+const bgImageFromURI = (uri: string) => {
+  try {
+    return { backgroundImage: `url(${encodeURI(uri)})` }
+  } catch (e) {
+    console.error('Invalid URI for background image:', uri, e)
+    return defaultBgStyle
+  }
+}
 
 const bgStyle = (() => {
   if ('bgImage' in props.dest) {
     const bgImage = props.dest.bgImage
     if (typeof bgImage === 'string') {
-      return { backgroundImage: `url(${bgImage})` }
+      return bgImageFromURI(bgImage)
     } else if (
       typeof bgImage === 'number' &&
       'media' in props.dest &&
@@ -44,11 +52,15 @@ const bgStyle = (() => {
       } else {
         const mediaItem = props.dest.media[bgImage] as MediaType
         if (isImage(mediaItem)) {
-          return { backgroundImage: `url(${mediaItem as PhotoURL})` }
+          return bgImageFromURI(mediaItem as PhotoURL)
         } else {
-          return { backgroundImage: `url(${(mediaItem as VideoURL).thumbnail})` }
+          return bgImageFromURI((mediaItem as VideoURL).thumbnail)
         }
       }
+    } else {
+      console.warn(
+        `DestBarItem: bgImage should be a string or a valid index, got ${typeof bgImage}`
+      )
     }
   }
   return defaultBgStyle
