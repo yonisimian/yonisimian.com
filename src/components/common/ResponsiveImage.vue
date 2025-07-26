@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useMediaCdn } from '/@/composables/useCDN'
+import LoadingSpinner from './basic/LoadingSpinner.vue'
 
 interface Props {
   /** Path relative to /public/media */
@@ -32,17 +33,31 @@ const resolvedSrc = computed(() => {
     return useMediaCdn(props.src, { w: 1600, fm: 'webp' })
   }
 })
+
+const loading = ref(true)
+const handleLoad = () => {
+  loading.value = false
+}
+const handleError = (e: Event) => {
+  ;(e.target as HTMLImageElement).src = props.src
+  loading.value = false
+}
 </script>
 
 <template>
-  <img
-    :src="resolvedSrc"
-    :alt
-    :class
-    :fetchpriority
-    loading="lazy"
-    decoding="async"
-    draggable="false"
-    @error="(e: Event) => ((e.target as HTMLImageElement).src = src)"
-  />
+  <div style="position: relative; display: inline-block">
+    <img
+      v-show="!loading"
+      :src="resolvedSrc"
+      :alt
+      :class
+      :fetchpriority
+      loading="lazy"
+      decoding="async"
+      draggable="false"
+      @load="handleLoad"
+      @error="handleError"
+    />
+    <LoadingSpinner v-if="loading" />
+  </div>
 </template>
