@@ -43,5 +43,6 @@ const resolvedSrc = computed(() => {
     loading="lazy"
     decoding="async"
     draggable="false"
+    @error="(e: Event) => ((e.target as HTMLImageElement).src = src)"
   />
 </template>
