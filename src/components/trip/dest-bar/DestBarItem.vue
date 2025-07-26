@@ -1,14 +1,24 @@
 <template>
   <div
-    class="item opacity-40 hover:opacity-80 text-white w-full h-full min-w-44 flex flex-col items-center justify-center cursor-pointer select-none"
+    class="item opacity-40 hover:opacity-80 text-white w-full h-full min-w-44 flex flex-col items-center justify-center cursor-pointer select-none relative"
     :class="{ active: isCurrDest }"
-    :style="bgStyle"
     @click="chooseDest(dest)"
   >
-    <div class="stroked">
+    <div class="absolute inset-0 w-full h-full object-cover z-0">
+      <ResponsiveImage
+        v-if="imageSrc"
+        :src="imageSrc"
+        mode="thumbnail"
+        fetchpriority="high"
+        :alt="`Background image for ${dest.name}`"
+        class="absolute inset-0 w-full h-full object-cover z-0"
+      />
+      <div v-else class="absolute inset-0 w-full h-full z-0 bg-black" />
+    </div>
+    <div class="stroked z-10">
       {{ dest.shortName || dest.name }}
     </div>
-    <p v-if="date" class="text-xs half-stroked">
+    <p v-if="date" class="text-xs half-stroked z-10">
       {{ formatDate(date) }}
     </p>
   </div>
@@ -25,21 +35,11 @@ const props = defineProps<{
   chooseDest: (dest: T) => void
 }>()
 
-const defaultBgStyle = { backgroundColor: 'black' }
-const bgImageFromURI = (uri: string) => {
-  try {
-    return { backgroundImage: `url(${uri})` }
-  } catch (e) {
-    console.error('Invalid URI for background image:', uri, e)
-    return defaultBgStyle
-  }
-}
-
-const bgStyle = (() => {
+const imageSrc = (() => {
   if ('bgImage' in props.dest) {
     const bgImage = props.dest.bgImage
     if (typeof bgImage === 'string') {
-      return bgImageFromURI(bgImage)
+      return bgImage
     } else if (
       typeof bgImage === 'number' &&
       'media' in props.dest &&
@@ -52,9 +52,9 @@ const bgStyle = (() => {
       } else {
         const mediaItem = props.dest.media[bgImage] as MediaType
         if (isImage(mediaItem)) {
-          return bgImageFromURI(mediaItem as PhotoURL)
+          return mediaItem as PhotoURL
         } else {
-          return bgImageFromURI((mediaItem as VideoURL).thumbnail)
+          return (mediaItem as VideoURL).thumbnail
         }
       }
     } else {
@@ -63,15 +63,14 @@ const bgStyle = (() => {
       )
     }
   }
-  return defaultBgStyle
+  return null
 })()
 </script>
 
 <style scoped>
 .item {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  overflow: hidden;
+  position: relative;
   aspect-ratio: 3 / 2;
   transition: background-color var(--transition-duration), color var(--transition-duration),
     opacity 200ms;
