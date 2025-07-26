@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, nextTick, onMounted, ref } from 'vue'
 import { useMediaCdn } from '/@/composables/useCDN'
 import LoadingSpinner from './basic/LoadingSpinner.vue'
 
@@ -34,7 +34,8 @@ const resolvedSrc = computed(() => {
   }
 })
 
-const loading = ref(true)
+const imageRef = ref<HTMLImageElement | null>(null)
+const loading = ref<boolean>(true)
 const handleLoad = () => {
   loading.value = false
 }
@@ -42,12 +43,22 @@ const handleError = (e: Event) => {
   ;(e.target as HTMLImageElement).src = props.src
   loading.value = false
 }
+
+onMounted(() => {
+  nextTick(() => {
+    if (imageRef.value?.complete) {
+      console.log('Image already loaded')
+      loading.value = false
+    }
+  })
+})
 </script>
 
 <template>
-  <div style="position: relative; display: inline-block">
+  <div class="relative inline-block w-full h-full">
     <img
       v-show="!loading"
+      ref="imageRef"
       :src="resolvedSrc"
       :alt
       :class
