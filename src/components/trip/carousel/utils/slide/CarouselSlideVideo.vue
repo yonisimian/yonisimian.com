@@ -7,12 +7,13 @@
     @click="togglePlay"
   >
     <SlideBlurBackground :src="src.thumbnail" />
-    <video
-      ref="videoRef"
+    <ResponsiveVideo
+      ref="responsiveVideoRef"
       class="relative w-full h-full origin-center-center z-10 object-contain"
       :src="src.video"
       @play="isPlaying = true"
       @pause="isPlaying = false"
+      :controls="false"
     />
     <Transition
       enterActiveClass="transition-opacity duration-200"
@@ -23,7 +24,7 @@
       leaveToClass="opacity-0"
     >
       <VideoPlayButton
-        v-show="isVideoButtonVisible || !isPlaying"
+        v-show="!isLoading && (isVideoButtonVisible || !isPlaying)"
         class="absolute inset-0 flex items-center justify-center z-20"
         :togglePlay
         :isPlaying
@@ -34,8 +35,9 @@
 
 <script setup lang="ts">
 import { VideoURL } from '/@/types/trip'
-import { ref, watch, onMounted, onUnmounted } from 'vue'
+import { ref, watch, onMounted, onUnmounted, computed } from 'vue'
 import { useTripState } from '/@/composables/useTripState'
+import ResponsiveVideo from '/@/components/common/ResponsiveVideo.vue'
 
 defineProps<{
   src: VideoURL
@@ -47,8 +49,9 @@ const isPlaying = ref(false)
 const isVideoButtonVisible = ref(true)
 let timeout: number | undefined = undefined
 
-const videoRef = ref<HTMLVideoElement | null>(null)
+const responsiveVideoRef = ref<InstanceType<typeof ResponsiveVideo> | null>(null)
 const containerRef = ref<HTMLElement | null>(null)
+const isLoading = computed(() => responsiveVideoRef.value?.isLoading ?? true)
 
 const showAndAutoHideButton = () => {
   isVideoButtonVisible.value = true
@@ -61,17 +64,16 @@ const showAndAutoHideButton = () => {
 }
 
 // Pause video when slide changes
-watch(slide, () => videoRef.value?.pause())
+watch(slide, () => responsiveVideoRef.value?.pause())
 
 const togglePlay = () => {
   showAndAutoHideButton()
-  const video = videoRef.value
-  if (!video) return
+  if (!responsiveVideoRef.value) return
 
-  if (video.paused || video.ended) {
-    video.play()
+  if (responsiveVideoRef.value.isPaused || responsiveVideoRef.value.isEnded) {
+    responsiveVideoRef.value.play()
   } else {
-    video.pause()
+    responsiveVideoRef.value.pause()
   }
 }
 
