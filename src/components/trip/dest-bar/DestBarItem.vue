@@ -28,7 +28,7 @@ const props = defineProps<{
 const defaultBgStyle = { backgroundColor: 'black' }
 const bgImageFromURI = (uri: string) => {
   try {
-    return { backgroundImage: `url(${encodeURI(uri)})` }
+    return { backgroundImage: `url(${uri})` }
   } catch (e) {
     console.error('Invalid URI for background image:', uri, e)
     return defaultBgStyle
