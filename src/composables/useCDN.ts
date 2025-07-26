@@ -4,5 +4,5 @@ export const useMediaCdn = (path: string, options: { w: number; fm: string }) =>
   const width = options.w
   const format = options.fm
 
-  return encodeURI(`/cdnimg/${base}?w=${width}&fm=${format}`)
+  return `/cdnimg/${base}?w=${width}&fm=${format}`
 }
