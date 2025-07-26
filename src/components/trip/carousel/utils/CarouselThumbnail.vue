@@ -3,10 +3,12 @@
     <Slide v-for="(url, index) in collectionToMediaArray(activeCollection)" :key="index">
       <template #default="{ currentIndex, isActive }">
         <div class="thumbnail" :class="{ 'is-active': isActive }" @click="slide = currentIndex">
-          <img
+          <ResponsiveImage
             :src="isImage(url) ? (url as PhotoURL) : (url as VideoURL).thumbnail"
-            alt="Thumbnail Image"
-            class="h-full w-full object-cover block"
+            mode="thumbnail"
+            fetchpriority="high"
+            :alt="`Slide ${slide} thumbnail`"
+            class="w-full h-full object-cover block"
           />
         </div>
       </template>
