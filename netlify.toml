@@ -12,8 +12,8 @@
 
 # Netlify Image CDN support
 [[redirects]]
-  from = "/cdnimg/:path"
-  to = "/.netlify/images?url=/media/:path"
+  from = "/cdnimg/*"
+  to   = "/.netlify/images?url=/:splat"
   status = 200
 
 # SPA fallback
