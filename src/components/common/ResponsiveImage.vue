@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed, nextTick, onMounted, ref } from 'vue'
-import { useMediaCdn } from '/@/composables/useCDN'
+import { /*computed, */ nextTick, onMounted, ref } from 'vue'
+// import { useMediaCdn } from '/@/composables/useCDN'
 import LoadingSpinner from './basic/LoadingSpinner.vue'
 
 interface Props {
@@ -24,15 +24,15 @@ const props = withDefaults(defineProps<Props>(), {
   alt: ''
 })
 
-const resolvedSrc = computed(() => {
-  if (props.mode === 'custom' || props.width) {
-    return useMediaCdn(props.src, { w: props.width ?? 400, fm: 'webp' })
-  } else if (props.mode === 'thumbnail') {
-    return useMediaCdn(props.src, { w: 100, fm: 'webp' })
-  } else {
-    return useMediaCdn(props.src, { w: 1600, fm: 'webp' })
-  }
-})
+// const resolvedSrc = computed(() => {
+//   if (props.mode === 'custom' || props.width) {
+//     return useMediaCdn(props.src, { w: props.width ?? 400, fm: 'webp' })
+//   } else if (props.mode === 'thumbnail') {
+//     return useMediaCdn(props.src, { w: 100, fm: 'webp' })
+//   } else {
+//     return useMediaCdn(props.src, { w: 1600, fm: 'webp' })
+//   }
+// })
 
 const imageRef = ref<HTMLImageElement | null>(null)
 const loading = ref<boolean>(true)
@@ -59,7 +59,7 @@ onMounted(() => {
     <img
       v-show="!loading"
       ref="imageRef"
-      :src="resolvedSrc"
+      :src
       :alt
       :class
       :fetchpriority
