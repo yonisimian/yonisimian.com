@@ -49,6 +49,7 @@ declare module 'vue' {
     GalleryHeader: typeof import('./components/common/gallery/GalleryHeader.vue')['default']
     GallerySearchInput: typeof import('./components/common/gallery/GallerySearchInput.vue')['default']
     GitHubIcon: typeof import('./components/common/footer/icons/GitHubIcon.vue')['default']
+    LoadingSpinner: typeof import('./components/common/basic/LoadingSpinner.vue')['default']
     MediaCarousel: typeof import('./components/trip/carousel/MediaCarousel.vue')['default']
     NotebookBackground: typeof import('./components/common/NotebookBackground.vue')['default']
     PanzoomedComponent: typeof import('./components/trip/carousel/utils/slide/PanzoomedComponent.vue')['default']
