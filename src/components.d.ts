@@ -76,6 +76,7 @@ declare module 'vue' {
     PortfolioHeader: typeof import('./components/portfolio/header/PortfolioHeader.vue')['default']
     ProfileImage: typeof import('./components/portfolio/header/ProfileImage.vue')['default']
     ResponsiveImage: typeof import('./components/common/ResponsiveImage.vue')['default']
+    ResponsiveVideo: typeof import('./components/common/ResponsiveVideo.vue')['default']
     RotatedComponent: typeof import('./components/trip/carousel/utils/slide/RotatedComponent.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
