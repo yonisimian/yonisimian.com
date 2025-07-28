@@ -11,7 +11,7 @@
         mode="thumbnail"
         fetchpriority="high"
         :alt="`Background image for ${dest.name}`"
-        class="absolute inset-0 w-full h-full object-cover z-0"
+        imgClass="absolute inset-0 w-full h-full object-cover z-0"
       />
       <div v-else class="absolute inset-0 w-full h-full z-0 bg-black" />
     </div>

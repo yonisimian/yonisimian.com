@@ -8,7 +8,7 @@
             mode="thumbnail"
             fetchpriority="high"
             :alt="`Slide ${slide} thumbnail`"
-            class="w-full h-full object-cover block"
+            imgClass="w-full h-full object-cover block"
           />
         </div>
       </template>
