@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { computed, nextTick, onMounted, onUnmounted, ref } from 'vue'
 import { useMediaCdn } from '/@/composables/useCDN'
 
 interface Props {
@@ -102,10 +102,18 @@ const emit = defineEmits(['play', 'pause', 'loaded'])
 
 const handleError = (e: Event) => {
   if (videoElementRef.value) {
-    console.warn('Video source failed. Serving original src as fallback.')
-    videoElementRef.value.src = props.src // Fallback to original src
+    if (videoElementRef.value.src === props.src) {
+      console.error('Video source failed to load:', e)
+    } else {
+      console.warn('Video source failed. Serving original src as fallback.')
+      videoElementRef.value.removeEventListener('loadeddata', handleLoadedData)
+      loading.value = true
+      videoElementRef.value.addEventListener('loadeddata', handleLoadedData, { once: true })
+      videoElementRef.value.src = props.src // Fallback to original src
+    }
+  } else {
+    console.error('Video element not found :(')
   }
-  loading.value = false
 }
 
 // Expose methods for parent component to call
@@ -130,14 +138,28 @@ defineExpose({
 })
 
 onMounted(() => {
-  if (videoElementRef.value) {
+  nextTick(() => {
+    if (!videoElementRef.value) {
+      console.warn(
+        'ResponsiveVideo: videoElementRef is not set. Call Yoni and tell him that he owes you sushi.'
+      )
+      return
+    }
+
+    if (videoElementRef.value.readyState >= 2) {
+      loading.value = false // Data is available for the current playback position
+    } else {
+      videoElementRef.value.addEventListener('loadeddata', handleLoadedData)
+      videoElementRef.value.addEventListener('error', handleError)
+    }
+
     videoElementRef.value.addEventListener('play', handleNativePlay)
     videoElementRef.value.addEventListener('pause', handleNativePause)
     videoElementRef.value.addEventListener('ended', handleNativeEnded)
 
     internalIsPaused.value = videoElementRef.value.paused
     internalIsEnded.value = videoElementRef.value.ended
-  }
+  })
 })
 
 onUnmounted(() => {
@@ -163,8 +185,6 @@ onUnmounted(() => {
       :muted="props.muted"
       :controls="props.controls"
       :preload="props.preload"
-      @loadeddata="handleLoadedData"
-      @error="handleError"
       playsinline
       class="w-full h-auto block"
     >
