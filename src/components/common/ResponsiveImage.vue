@@ -48,9 +48,17 @@ const handleError = (e: Event) => {
 
 onMounted(() => {
   nextTick(() => {
-    if (imageRef.value?.complete) {
-      console.log('Image already loaded')
+    if (!imageRef.value) {
+      console.warn(
+        'ResponsiveImage: imageRef is not set. Call Yoni and tell him that he owes you a hamburger.'
+      )
+      return
+    }
+    if (imageRef.value.complete) {
       loading.value = false
+    } else {
+      imageRef.value.addEventListener('load', handleLoad)
+      imageRef.value.addEventListener('error', handleError)
     }
   })
 })
@@ -68,8 +76,6 @@ onMounted(() => {
       loading="lazy"
       decoding="async"
       draggable="false"
-      @load="handleLoad"
-      @error="handleError"
     />
     <LoadingSpinner v-if="loading" />
   </div>
