@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-[85vh] flex items-center justify-start">
+  <div class="w-full h-full flex items-center justify-start">
     <img
       :src="sonicGifSrc"
       alt="Sonic walking (because the site is not RUNNING yet ha-ha)"

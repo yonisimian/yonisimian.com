@@ -4,8 +4,8 @@
 
     <DarkTheme class="absolute top-3 left-4" />
 
-    <LoadingView v-if="isRouteLoading" />
-    <RouterView v-else />
+    <LoadingView v-if="isRouteLoading" class="min-h-[calc(100dvh-137px)]" />
+    <RouterView v-else class="min-h-[calc(100dvh-137px)]" />
 
     <Footer />
 
@@ -19,6 +19,8 @@ import LoadingView from './views/LoadingView.vue'
 import { useLoading } from '/@/composables/useLoading'
 
 const { isRouteLoading } = useLoading()
+
+// TODO: replace `min-h-[calc(100dvh-137px)]` with a more robust solution.
 </script>
 
 <style scoped>
