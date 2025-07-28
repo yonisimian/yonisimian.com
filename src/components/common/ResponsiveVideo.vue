@@ -15,8 +15,8 @@ interface Props {
   poster?: string
   /** Alt text for accessibility (often used with poster or for screen readers) */
   alt?: string
-  /** CSS classes */
-  class?: string
+  /** CSS classes for the video element */
+  videoClass?: string
   /** Whether the video should autoplay */
   autoplay?: boolean
   /** Whether the video should loop */
@@ -156,7 +156,7 @@ onUnmounted(() => {
       ref="videoElementRef"
       :src="resolvedSrc"
       :poster="resolvedPoster"
-      :class="props.class"
+      :class="props.videoClass"
       :fetchpriority="props.fetchpriority"
       :autoplay="props.autoplay"
       :loop="props.loop"

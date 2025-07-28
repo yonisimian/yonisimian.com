@@ -8,7 +8,7 @@
         mode="full"
         :fetchpriority="fullscreen ? 'high' : slide === 0 ? 'high' : 'low'"
         :alt="`Image from trip slide ${slide}`"
-        class="w-full h-full origin-center-center z-10 object-contain"
+        imgClass="w-full h-full origin-center-center z-10 object-contain"
         @click="hangleImageClick"
       />
     </PanzoomedComponent>

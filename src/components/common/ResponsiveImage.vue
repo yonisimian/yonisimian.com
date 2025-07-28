@@ -6,16 +6,16 @@ import LoadingSpinner from './basic/LoadingSpinner.vue'
 interface Props {
   /** Path relative to /public/media */
   src: string
-  /** One of 'thumbnail', 'full', or 'custom' */
-  mode?: 'thumbnail' | 'full' | 'custom'
+  /** One of 'tiny', 'thumbnail', 'full', or 'custom' */
+  mode?: 'tiny' | 'thumbnail' | 'full' | 'custom'
   /** Override width if mode is 'custom' */
   width?: number
   /** Override fetch priority */
   fetchpriority?: 'low' | 'medium' | 'high'
   /** Alt text */
   alt?: string
-  /** CSS classes */
-  class?: string
+  /** CSS classes for the image element */
+  imgClass?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -29,6 +29,8 @@ const resolvedSrc = computed(() => {
     return useMediaCdn(props.src, { w: props.width ?? 400, fm: 'webp' })
   } else if (props.mode === 'thumbnail') {
     return useMediaCdn(props.src, { w: 100, fm: 'webp' })
+  } else if (props.mode === 'tiny') {
+    return useMediaCdn(props.src, { w: 10, fm: 'webp' })
   } else {
     return useMediaCdn(props.src, { w: 1600, fm: 'webp' })
   }
@@ -55,13 +57,13 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="relative inline-block w-full h-full">
+  <div class="inline-block w-full h-full">
     <img
       v-show="!loading"
       ref="imageRef"
       :src="resolvedSrc"
       :alt
-      :class
+      :class="imgClass"
       :fetchpriority
       loading="lazy"
       decoding="async"

@@ -9,7 +9,7 @@
     <SlideBlurBackground :src="src.thumbnail" />
     <ResponsiveVideo
       ref="responsiveVideoRef"
-      class="relative w-full h-full origin-center-center z-10 object-contain"
+      videoClass="w-full h-full origin-center-center z-10 object-contain"
       :src="src.video"
       @play="isPlaying = true"
       @pause="isPlaying = false"
