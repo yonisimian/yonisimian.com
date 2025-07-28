@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center justify-center mx-auto max-w-4xl">
+  <div class="flex flex-col items-center justify-start mx-auto max-w-4xl">
     <TripHeader />
 
     <article class="flex flex-col items-center justify-center w-full gap-4">
