@@ -4,7 +4,7 @@ let trip: Trip | null = null
 
 export const loadTripData = async () => {
   if (trip) return
-  const { trip: tripData } = await import('/@/data/trip.local')
+  const { trip: tripData } = await import('/@/data/trip.metadata')
   trip = tripData as Trip
 }
 

@@ -13,10 +13,17 @@
           <b>{{ currCountry.name }}</b> • {{ currStep.date }} • {{ currStep.degrees }}°c
         </p>
         <div
+          v-if="currStep.description"
           v-html="currStep.description"
           dir="rtl"
           class="w-full max-w-full text-justify prose prose-ul:pr-8 prose-ol:pr-8 prose-p:mb-2 prose-p:leading-relaxed"
         />
+        <div
+          v-else
+          class="w-full max-w-full text-justify prose prose-ul:pr-8 prose-ol:pr-8 prose-p:mb-2 prose-p:leading-relaxed"
+        >
+          <p class="text-center">TODO: description skeletop loading animation.</p>
+        </div>
       </div>
       <StepNavigationButtons class="mt-8 h-0" />
     </template>
