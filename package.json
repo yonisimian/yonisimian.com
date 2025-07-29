@@ -7,7 +7,7 @@
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
     "update-dependencies": "ncu -u && pnpm install",
-    "generate-local-trip": "ts-node --project tsconfig.node.json src/functions/generateLocalTrip.ts"
+    "generate-local-trip": "ts-node --project tsconfig.node.json src/functions/static/trip/generateLocalTrip.ts"
   },
   "dependencies": {
     "aos": "^2.3.4",
@@ -27,6 +27,7 @@
     "@vitejs/plugin-vue": "^5.2.4",
     "@vueuse/core": "^13.3.0",
     "rollup-plugin-visualizer": "^6.0.3",
+    "sharp": "^0.34.3",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.8.3",
