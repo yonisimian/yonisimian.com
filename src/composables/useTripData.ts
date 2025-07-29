@@ -1,11 +1,293 @@
-import { type Trip, type Step, type Country, type Continent, Collection } from '/@/types/trip'
+import { computed, reactive, ref, watch } from 'vue'
+import type {
+  Trip,
+  Step,
+  Collection,
+  BaseStep,
+  StepDetails,
+  // MediaType,
+  Continent,
+  Country
+} from '/@/types/trip'
+import { useRoute } from 'vue-router'
+import { contDirName, countryDirName, stepDirName } from '../functions/static/trip/utils'
 
-let trip: Trip | null = null
+// These will hold the reactive trip data
+// Using `reactive` on a `null` initial value directly might warn in Vue 3.
+// A common pattern is to initialize with an empty object and then `Object.assign`.
+export const trip: Trip = reactive({ continents: [] }) // Initialize as an empty reactive object
+
+const fetchStepDescription = async (step: Step, stepDetailsUrl: string) => {
+  try {
+    const htmlResponse = await fetch(stepDetailsUrl) // Fetch HTML fragment
+
+    if (!htmlResponse.ok) {
+      // If the HTML file is not found or has a server error
+      const errorText = await htmlResponse.text() // Get the actual response body for debugging
+      console.error(
+        `[LazyLoad] Failed to fetch HTML description for step ID ${step.id}. Status: ${
+          htmlResponse.status
+        } ${htmlResponse.statusText}. Response preview: ${errorText.substring(0, 200)}...`
+      )
+      // Provide a user-friendly fallback description in case of fetch error
+      return `<p style="color: red; text-align: center;">Failed to load description (Error: ${htmlResponse.status} ${htmlResponse.statusText}).</p>`
+      // Note: We don't throw here immediately so the rest of the StepDetails can still be returned.
+      // The error is logged for debugging.
+    } else {
+      // If successful, get the raw HTML text
+      return await htmlResponse.text()
+    }
+  } catch (error: any) {
+    // Catch network errors (e.g., server offline, CORS issues)
+    console.error(`[LazyLoad] Network error fetching description for step ID ${step.id}:`, error)
+    return `<p style="color: red; text-align: center;">Network error loading description: ${error.message}</p>`
+  }
+}
+
+// interface PhotoManifestItem {
+//   id: number
+//   photo: string
+// }
+
+// interface VideoManifestItem {
+//   id: number
+//   thumb: string
+//   video: string
+// }
+
+// type MediaManifestItem = PhotoManifestItem | VideoManifestItem
+
+// const fetchStepMediaManifest = async (step: Step, mediaManifestUrl: string) => {
+//   try {
+//     const manifestResponse = await fetch(mediaManifestUrl)
+
+//     if (!manifestResponse.ok) {
+//       const errorText = await manifestResponse.text()
+//       console.warn(
+//         `[LazyLoad] No media manifest found or fetch failed for step ID ${step.id}. Status: ${
+//           manifestResponse.status
+//         } ${manifestResponse.statusText}. Response preview: ${errorText.substring(0, 200)}...`
+//       )
+//       // If manifest fails, mediaContent remains empty, bgImageContent remains undefined.
+//     } else {
+//       const manifest: MediaManifestItem[] = await manifestResponse.json()
+
+//       // Base path for the actual media files
+//       const mediaFilesBasePath = mediaManifestUrl
+//         .replace('/data/', '/media/')
+//         .replace('media_manifest.json', '')
+
+//       return manifest
+//         .map((item) => {
+//           console.log(`[LazyLoad] Processing media item:`, item)
+//           if ('photo' in item) {
+//             return `${mediaFilesBasePath}${item.id}.jpg`
+//           } else {
+//             return {
+//               thumbnail: `${mediaFilesBasePath}${item.thumb}-thumb.jpg`,
+//               video: `${mediaFilesBasePath}${item.video}-video.webm`
+//             }
+//           }
+//         })
+//         .filter((item): item is MediaType => item !== null) // Filter out any null entries
+//     }
+//   } catch (error: any) {
+//     console.error(
+//       `[LazyLoad] Error fetching or parsing media manifest for step ID ${step.id}:`,
+//       error
+//     )
+//   }
+//   return []
+// }
+
+async function fetchStepDetails(
+  continent: Continent,
+  country: Country,
+  continentIndex: number,
+  countryIndex: number,
+  step: Step
+): Promise<StepDetails> {
+  const stepDirUrl = encodeURI(
+    [
+      '/data',
+      'trip',
+      contDirName(continentIndex, continent),
+      countryDirName(countryIndex, country),
+      stepDirName(step)
+    ].join('/')
+  )
+
+  const descriptionContent: string = await fetchStepDescription(
+    step,
+    stepDirUrl.concat('/description.html')
+  )
+  // const mediaContent: MediaType[] = await fetchStepMediaManifest(
+  //   step,
+  //   stepDirUrl.concat('/media_manifest.json')
+  // )
+
+  return {
+    description: descriptionContent
+    // media: mediaContent
+  }
+}
+
+// Internal state to manage loading for each proxied Step object
+interface StepProxyInternalState {
+  _isDetailsLoaded: boolean
+  _isDetailsLoading: boolean
+  _detailsLoadPromise: Promise<void> | null
+  _detailsError: Error | null
+}
+
+export function createLazyLoadedStepProxy(
+  continent: Continent,
+  country: Country,
+  continentIndex: number,
+  countryIndex: number,
+  initialStepData: BaseStep
+): Step {
+  // `internalState` keeps track of the loading status for THIS specific step's details.
+  // It's reactive so Vue can pick up changes to loading flags.
+  const internalState: StepProxyInternalState = reactive({
+    _isDetailsLoaded: false,
+    _isDetailsLoading: false,
+    _detailsLoadPromise: null,
+    _detailsError: null
+  })
+
+  // `actualStep` is the underlying object that the proxy wraps.
+  // It's reactive so Vue components using it update when properties change.
+  // Initialize with base data and placeholder for lazy-loaded properties.
+  const actualStep: Step = reactive({
+    ...initialStepData,
+    description: '' // Will be set after loading
+    // media: [] // Will be set after loading
+  })
+
+  const proxyHandler: ProxyHandler<Step> = {
+    get(target, prop, receiver) {
+      // 1. If accessing a 'base' property (always available) or an internal proxy state property
+      if (
+        [
+          'id',
+          'name',
+          'shortName',
+          'date',
+          'degrees',
+          '_isDetailsLoaded',
+          '_isDetailsLoading',
+          '_detailsError'
+        ].includes(prop as string)
+      ) {
+        // We handle internal state properties by returning them directly from `internalState`
+        // if they are requested (useful for debugging or displaying loading status).
+        if (prop === '_isDetailsLoaded') return internalState._isDetailsLoaded
+        if (prop === '_isDetailsLoading') return internalState._isDetailsLoading
+        if (prop === '_detailsError') return internalState._detailsError
+        // For actual Step properties, reflect from the target
+        return Reflect.get(target, prop, receiver)
+      }
+
+      // 2. If accessing a lazy-loaded property (description, media)
+      if (['description' /*, 'media'*/].includes(prop as string)) {
+        // If details are already loaded, return the value immediately
+        if (internalState._isDetailsLoaded) {
+          return Reflect.get(target, prop, receiver)
+        }
+
+        // If a fetch for details is already in progress, return the existing promise
+        if (internalState._detailsLoadPromise) {
+          // Return a promise that resolves to the specific property's value
+          // once the details are loaded. This forces the consumer to `await`.
+          return internalState._detailsLoadPromise.then(() => Reflect.get(target, prop, receiver))
+        }
+
+        // If not loaded and not loading, initiate the fetch
+        internalState._isDetailsLoading = true
+        internalState._detailsError = null
+
+        const loadPromise = fetchStepDetails(
+          continent,
+          country,
+          continentIndex,
+          countryIndex,
+          actualStep
+        )
+          .then((details) => {
+            // Assign fetched details to the actualStep object
+            Object.assign(actualStep, details)
+            internalState._isDetailsLoaded = true
+          })
+          .catch((error) => {
+            console.error(`[LazyLoad] Error loading details for step ID ${actualStep.id}:`, error)
+            internalState._detailsError = error
+            // Optionally, revert the properties to empty/undefined on error
+            actualStep.description = ''
+            actualStep.media = []
+            throw error // Re-throw to propagate the error
+          })
+          .finally(() => {
+            internalState._isDetailsLoading = false
+            internalState._detailsLoadPromise = null // Clear the promise reference
+          })
+
+        // Store the promise so subsequent accesses use the same one
+        internalState._detailsLoadPromise = loadPromise
+
+        // Return a promise that resolves to the specific property's value
+        // after the loadPromise completes. This forces the consumer to `await`.
+        return loadPromise.then(() => Reflect.get(target, prop, receiver))
+      }
+
+      // 3. For any other properties not explicitly handled, just reflect
+      return Reflect.get(target, prop, receiver)
+    }
+
+    // Allow setting properties is unnecessary as for the trip is static.
+    // set(target, prop, value, receiver) {
+    //   return Reflect.set(target, prop, value, receiver)
+    // }
+  }
+
+  // Return the Proxy wrapping the reactive `actualStep` object
+  return new Proxy(actualStep, proxyHandler) as Step
+}
 
 export const loadTripData = async () => {
-  if (trip) return
-  const { trip: tripData } = await import('/@/data/trip.metadata')
-  trip = tripData as Trip
+  if (trip.continents.length > 0) return // Trip data already loaded
+
+  // Dynamically import the build-time generated metadata
+  // Your build script for `trip.metadata.ts` should output:
+  // export const tripData: Trip = { continents: [...] }; // `steps` here are `BaseStep[]`
+  // export const countryStepsCounts: Map<number, number> = new Map(...);
+  const { trip: initialTripData } = await import('/@/data/trip.metadata')
+
+  // Now, iterate through the initial trip data and wrap each step in a proxy
+  let continentIndex = 0
+  let countryIndex = 0
+  initialTripData.continents.forEach((continent) => {
+    continent.countries.forEach((country) => {
+      // Each `country.steps` from `initialTripData` now contains `BaseStep` objects.
+      // We map these to `Step` objects wrapped in our lazy-loading proxy.
+      country.steps = country.steps.map((baseStep) => {
+        // Ensure baseStep is typed as BaseStep for clarity
+        return createLazyLoadedStepProxy(
+          continent,
+          country,
+          continentIndex,
+          countryIndex,
+          baseStep as BaseStep
+        )
+      })
+      countryIndex++
+    })
+    continentIndex++
+  })
+
+  // Assign the processed trip data (with proxied steps) to the reactive `trip` object
+  Object.assign(trip, initialTripData)
+  console.log('Trip data loaded and steps proxied for lazy detail loading.')
 }
 
 export const useTripData = () => {
@@ -13,10 +295,61 @@ export const useTripData = () => {
     throw new Error('Trip data not loaded. Call loadTripData() first.')
   }
 
-  const continents: Continent[] = trip.continents
-  const countries: Country[] = continents.flatMap((continent) => continent.countries)
-  const steps: Step[] = countries.flatMap((country) => country.steps)
-  const dates: string[] = steps.map((step) => step.date)
+  const continents = computed(() => trip.continents)
+  const countries = computed(() => continents.value.flatMap((continent) => continent.countries))
+  const steps = computed(() => countries.value.flatMap((country) => country.steps))
+  const dates = computed(() => steps.value.map((step) => step.date))
+
+  // --- Logic for the currently displayed step (e.g., from route) ---
+  const route = useRoute()
+  const currentStep = ref<Step | null>(null)
+  const isLoadingCurrentStepDetails = ref(false)
+  const currentStepDetailsError = ref<Error | null>(null)
+
+  watch(
+    () => route.params.id, // Watch for changes in the route ID
+    async (newId) => {
+      currentStep.value = null // Reset current step when ID changes
+      isLoadingCurrentStepDetails.value = true
+      currentStepDetailsError.value = null
+
+      try {
+        const stepId = newId ? Number((newId as string).split('-')[0]) : 0 // Extract numeric ID from route param
+
+        // Find the specific step object (which is a proxy)
+        const foundStep = steps.value.find((s) => s.id === stepId)
+
+        if (foundStep) {
+          // *** THE CRUCIAL PART FOR LAZY LOADING DETAILS ***
+          // Accessing `foundStep.description` (or `foundStep.media`)
+          // will trigger the proxy's `get` trap.
+          // If the details are not yet loaded, the proxy will return a Promise.
+          // We must `await` this promise if we want to use the *actual value* immediately.
+
+          // Trigger the load for description and media.
+          // We await them to ensure they are available before setting currentStep.value.
+          // Using Promise.all is good if you need multiple lazy properties before proceeding.
+          await Promise.all(
+            [foundStep.description, foundStep.media].map((p) => {
+              // Filter out non-promises, as some might already be loaded
+              return p instanceof Promise ? p : Promise.resolve(p)
+            })
+          )
+
+          currentStep.value = foundStep // Assign the fully loaded (or now loading) step object
+          // Its reactive properties will update when the awaits resolve.
+        } else {
+          throw new Error(`Step with ID ${stepId} not found.`)
+        }
+      } catch (error: any) {
+        currentStepDetailsError.value = error
+        console.error('Failed to load current step details:', error)
+      } finally {
+        isLoadingCurrentStepDetails.value = false
+      }
+    },
+    { immediate: true } // Run immediately on component mount/initial route
+  )
 
   const highlights: Collection = {
     name: 'Highlights',
@@ -186,6 +519,9 @@ export const useTripData = () => {
     highlights,
     music,
     people,
-    carouselHeight
+    carouselHeight,
+    currentStep, // Reactive ref for the currently selected step (details loaded)
+    isLoadingCurrentStepDetails, // Reactive flag for current step's detail loading
+    currentStepDetailsError // Reactive ref for errors during current step detail loading
   }
 }
