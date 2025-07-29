@@ -6,8 +6,8 @@ import LoadingSpinner from './basic/LoadingSpinner.vue'
 interface Props {
   /** Path relative to /public/media */
   src: string
-  /** One of 'tiny', 'thumbnail', 'full', or 'custom' */
-  mode?: 'tiny' | 'thumbnail' | 'full' | 'custom'
+  /** One of 'tiny', 'thumbnail', 'full', 'custom', or 'original' */
+  mode?: 'tiny' | 'thumbnail' | 'full' | 'custom' | 'original'
   /** Override width if mode is 'custom' */
   width?: number
   /** Override fetch priority */
@@ -31,8 +31,10 @@ const resolvedSrc = computed(() => {
     return useMediaCdn(props.src, { w: 100, fm: 'webp' })
   } else if (props.mode === 'tiny') {
     return useMediaCdn(props.src, { w: 10, fm: 'webp' })
-  } else {
+  } else if (props.mode === 'full') {
     return useMediaCdn(props.src, { w: 1600, fm: 'webp' })
+  } else {
+    return props.src
   }
 })
 
