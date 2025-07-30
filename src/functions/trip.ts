@@ -1,13 +1,15 @@
 import {
   type Step,
-  // type Country,
-  // type Continent,
+  type Country,
+  type Continent,
   type MediaType,
   CollectionType,
   Collection
 } from '/@/types/trip'
 
 import { useTripData } from '/@/composables/useTripData'
+
+const { steps, countries, continents } = useTripData()
 
 const highlights: Collection = {
   name: 'Highlights',
@@ -166,20 +168,20 @@ const people: Collection = {
   ]
 }
 
-// export const getCountryByStep = (step: Step): Country =>
-//   countries.find((country) => country.steps.some((s) => s.id === step.id)) || {
-//     name: 'Unknown Country',
-//     steps: []
-//   }
+export const getCountryByStep = (step: Step): Country =>
+  countries.find((country) => country.steps.some((s) => s.id === step.id)) || {
+    name: 'Unknown Country',
+    steps: []
+  }
 
-// export const getContinentByStep = (step: Step): Continent =>
-//   continents.find((continent) =>
-//     continent.countries.some((country) => country.steps.some((s) => s.id === step.id))
-//   ) || {
-//     name: 'Unknown Continent',
-//     bgImage: '',
-//     countries: []
-//   }
+export const getContinentByStep = (step: Step): Continent =>
+  continents.find((continent) =>
+    continent.countries.some((country) => country.steps.some((s) => s.id === step.id))
+  ) || {
+    name: 'Unknown Continent',
+    bgImage: '',
+    countries: []
+  }
 
 // Formats a long date string like "January 1, 2025" to "1-1-2025"
 export const formatDate = (longDateString: string): string => {
@@ -207,10 +209,10 @@ export const formatDate = (longDateString: string): string => {
 
 export const encodeURIStep = (step: Step) => `${step.id}-${encodeURIComponent(step.shortName)}`
 
-// export const decodeURIStep = (id: string) => {
-//   const [stepId, _] = id.split('-')
-//   return steps.find((step) => step.id === Number(stepId))
-// }
+export const decodeURIStep = (id: string) => {
+  const [stepId, _] = id.split('-')
+  return steps.find((step) => step.id === Number(stepId))
+}
 
 export const isImage = (media: MediaType): boolean => typeof media === 'string'
 
@@ -222,15 +224,10 @@ export const getCollection = (type: CollectionType): Collection | undefined => {
 }
 
 export const stepToIndex = (step: Step): number => {
-  const { steps } = useTripData()
-  return steps.value.findIndex((s) => s.id === step.id)
+  return steps.findIndex((s) => s.id === step.id)
 }
 
 export const stepToCollection = (step: Step): Collection => {
-  // return {
-  //   name: 'temp',
-  //   stepslides: []
-  // }
   return {
     name: step.name,
     stepslides: step.media.map((_, slide) => {
@@ -240,8 +237,7 @@ export const stepToCollection = (step: Step): Collection => {
 }
 
 export const collectionToMediaArray = (collection: Collection): MediaType[] => {
-  const { steps } = useTripData()
-  return collection.stepslides.map(({ step, slide }) => steps.value[step].media[slide])
+  return collection.stepslides.map(({ step, slide }) => steps[step].media[slide])
 }
 
 // /**
