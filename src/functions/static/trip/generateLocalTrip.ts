@@ -1,16 +1,21 @@
 import { writeFileSync, readdirSync, readFileSync, existsSync } from 'fs'
 import { join } from 'path'
 import {
-  Trip,
+  BaseTripData,
   /*MediaType,*/ Continent,
   Country,
-  Step,
+  BaseStep,
   MediaType
 } from '../../../../src/types/trip'
 import { contDirNameToContName, countryDirNameToCountryName } from './utils'
 import sharp from 'sharp'
 
-const createStepMediaManifest = (step: Step, stepMediaDir: string, stepDataDir: string) => {
+const createStepMediaManifest = (step: BaseStep, stepMediaDir: string, stepDataDir: string) => {
+  if (!existsSync(stepMediaDir)) {
+    console.warn(`Step media directory does not exist: ${stepMediaDir}`)
+    // TODO: ...create a manifest with empty media?
+    return
+  }
   const files = readdirSync(stepMediaDir)
 
   const map = new Map<string, { photo?: string; thumb?: string; video?: string }>()
@@ -55,7 +60,7 @@ const createStepMediaManifest = (step: Step, stepMediaDir: string, stepDataDir: 
   }
 }
 
-const loadStepBgMedia = async (step: Step, stepMediaDir: string) => {
+const loadStepBgMedia = async (step: BaseStep, stepMediaDir: string) => {
   if (typeof step.bgImage !== 'number') return
 
   const inputImagePath = join(stepMediaDir, `${step.bgImage}.jpg`) // bgImage represents an image
@@ -74,13 +79,14 @@ const loadStepBgMedia = async (step: Step, stepMediaDir: string) => {
   }
 }
 
-const loadStepData = (step: Step, stepDir: string) => {
+const loadStepData = (step: BaseStep, stepDir: string) => {
   const files = readdirSync(stepDir)
   const dataFile = files.find((file) => file.endsWith('.json'))
   if (!dataFile) {
     console.warn(`No data file found for step ${step.id} in ${stepDir}`)
     return
   }
+  console.log(`Loading step data from ${dataFile} for step ${step.id}`)
   const dataPath = join(stepDir, dataFile)
   const data = JSON.parse(readFileSync(dataPath, 'utf-8'))
   // TODO: validate
@@ -88,15 +94,14 @@ const loadStepData = (step: Step, stepDir: string) => {
   step.shortName = data.shortName
   step.date = data.date
   step.degrees = data.degrees
-  // step.description = data.description
   step.bgImage =
     typeof data.bgImage === 'string'
       ? encodeURI(data.bgImage.replace('public\\', '\\').replace(/\\/g, '/'))
       : data.bgImage
 }
 
-const generateTripMetadata = async (): Promise<Trip> => {
-  const trip: Trip = { continents: [] }
+const generateTripMetadata = async (): Promise<BaseTripData> => {
+  const trip: BaseTripData = { continents: [] }
   const tripMediaDir = join('public', 'media', 'trip')
   const tripDataDir = join('public', 'data', 'trip')
   let stepCount = 1
@@ -107,7 +112,10 @@ const generateTripMetadata = async (): Promise<Trip> => {
     .sort()
 
   for (const continentDirName of continentsDirNames) {
-    const continent: Continent = { name: contDirNameToContName(continentDirName), countries: [] }
+    const continent: Continent<Country<BaseStep>> = {
+      name: contDirNameToContName(continentDirName),
+      countries: []
+    }
     trip.continents.push(continent)
     const contMediaDir = join(tripMediaDir, continentDirName)
     const contDataDir = join(tripDataDir, continentDirName)
@@ -118,13 +126,16 @@ const generateTripMetadata = async (): Promise<Trip> => {
       )
     }
 
-    const countriesDirNames = readdirSync(contMediaDir, { withFileTypes: true })
+    const countriesDirNames = readdirSync(contDataDir, { withFileTypes: true })
       .filter((dirent) => dirent.isDirectory())
       .map((dirent) => dirent.name)
       .sort()
 
     for (const countryDirName of countriesDirNames) {
-      const country: Country = { name: countryDirNameToCountryName(countryDirName), steps: [] }
+      const country: Country<BaseStep> = {
+        name: countryDirNameToCountryName(countryDirName),
+        steps: []
+      }
       continent.countries.push(country)
       const countryMediaDir = join(contMediaDir, countryDirName)
       const countryDataDir = join(contDataDir, countryDirName)
@@ -135,19 +146,22 @@ const generateTripMetadata = async (): Promise<Trip> => {
         )
       }
 
-      const stepsDirNames = readdirSync(countryMediaDir, { withFileTypes: true })
+      const stepsDirNames = readdirSync(countryDataDir, { withFileTypes: true })
         .filter((dirent) => dirent.isDirectory())
         .map((dirent) => dirent.name)
-        .sort()
+        .sort((a, b) => {
+          const aNum = parseInt(a.split('-')[1].trim(), 10)
+          const bNum = parseInt(b.split('-')[1].trim(), 10)
+          return aNum - bNum
+        })
 
       for (const stepDirName of stepsDirNames) {
-        const step: Step = {
+        const step: BaseStep = {
           id: stepCount++,
           name: '',
           shortName: '',
           date: '',
           degrees: '',
-          description: '',
           media: []
         }
         country.steps.push(step)
@@ -163,11 +177,11 @@ const generateTripMetadata = async (): Promise<Trip> => {
 }
 
 ;(async () => {
-  const trip: Trip = await generateTripMetadata()
+  const trip: BaseTripData = await generateTripMetadata()
   const outputPath = 'src/data/trip.metadata.ts'
   const output = `// GENERATED file — do not edit manually
-import { Trip } from '/@/types/trip'
-export const trip: Trip = ${JSON.stringify(trip)}`
+import { BaseTripData } from '/@/types/trip'
+export const initialTripData: BaseTripData = ${JSON.stringify(trip)}`
 
   writeFileSync(outputPath, output)
   console.log(`✅ ${outputPath} generated`)

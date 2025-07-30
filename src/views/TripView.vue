@@ -26,7 +26,8 @@
 </template>
 
 <script setup lang="ts">
-import { useTripData } from '/@/composables/useTripData'
+import { onMounted } from 'vue'
+import { loadTripAdditionalData, useTripData } from '/@/composables/useTripData'
 import { useTripState } from '/@/composables/useTripState'
 
 // TODO: delete those below
@@ -56,6 +57,10 @@ const {
   // chooseContinent
 } = useTripState()
 const { /*continents,*/ countries, steps, dates } = useTripData()
+
+onMounted(() => {
+  loadTripAdditionalData(currStep.value.id)
+})
 </script>
 
 <style scoped></style>
