@@ -30,7 +30,7 @@ defineProps<{
 }>()
 
 const { slide, activeCollection, collection, fullscreen } = useTripState()
-const { setTarget, updateTargetValue } = useSizeObserver()
+const { setTarget } = useSizeObserver()
 
 const rotation = ref(0)
 const slideContentRef = ref<HTMLDivElement | null>(null)
@@ -40,7 +40,6 @@ const rotateRight = () => (rotation.value = (rotation.value + 90) % 360)
 // Reset rotation when slide changes
 watch([slide, activeCollection], () => {
   rotation.value = 0
-  updateTargetValue() // a bit of a hack for RotatedComponent to update its size
 })
 
 // Set target for size observer, used for rotations
