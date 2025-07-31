@@ -64,6 +64,15 @@ onMounted(() => {
     }
   })
 })
+
+/**
+ * TODO: once upon a time, I had the following attributes in my img tag:
+ * loading="lazy"
+ * decoding="async"
+ * draggable="false"
+ * For some reason, those attributes caused issues with the image loading in some cases.
+ * I removed them, but they might be useful if I understand one day how to use them.
+ */
 </script>
 
 <template>
@@ -75,9 +84,6 @@ onMounted(() => {
       :alt
       :class="imgClass"
       :fetchpriority
-      loading="lazy"
-      decoding="async"
-      draggable="false"
     />
     <LoadingSpinner v-if="loading" />
   </div>
