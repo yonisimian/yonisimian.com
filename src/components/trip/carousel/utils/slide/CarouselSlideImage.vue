@@ -6,7 +6,7 @@
         ref="imageRef"
         :src="src"
         mode="full"
-        :fetchpriority="fullscreen ? 'high' : slide === 0 ? 'high' : 'low'"
+        fetchpriority="high"
         :alt="`Image from trip slide ${slide}`"
         imgClass="w-full h-full origin-center-center z-10 object-contain"
         @click="hangleImageClick"
