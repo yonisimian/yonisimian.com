@@ -8,17 +8,7 @@
   >
     <template #page>
       <div class="relative flex flex-col items-center justify-center gap-1 w-full select-none">
-        <div v-if="!currStep.description" class="w-full h-full text-center p-8">
-          <p class="text-xl text-gray-600">Loading step details...</p>
-          <div class="animate-pulse flex flex-col items-center gap-4 mt-4">
-            <div class="h-8 opacity-50 bg-gray-400 rounded w-3/8"></div>
-            <div class="h-6 opacity-50 bg-gray-400 rounded w-1/4"></div>
-            <div class="h-4 opacity-50 bg-gray-400 rounded w-1/2"></div>
-            <div class="h-4 opacity-50 bg-gray-400 rounded w-3/8"></div>
-            <div class="h-8 opacity-50 bg-gray-400 rounded w-1/3"></div>
-          </div>
-        </div>
-        <div v-else class="w-full">
+        <div class="w-full">
           <h2 class="text-3xl text-center">{{ currStep.name }}</h2>
           <p class="text-lg text-center">
             <b>{{ currCountry?.name || 'Loading Country...' }}</b> • {{ currStep.date }} •
@@ -30,11 +20,14 @@
             dir="rtl"
             class="w-full max-w-full text-justify prose prose-ul:pr-8 prose-ol:pr-8 prose-p:mb-2 prose-p:leading-relaxed"
           />
-          <div
-            v-else
-            class="w-full max-w-full text-justify prose prose-ul:pr-8 prose-ol:pr-8 prose-p:mb-2 prose-p:leading-relaxed"
-          >
-            <p class="text-center text-gray-500">Description not available.</p>
+          <div v-else class="w-full h-full text-center p-4" dir="rtl">
+            <div class="animate-pulse flex flex-col items-start gap-4">
+              <div class="h-8 opacity-50 bg-gray-400 rounded w-3/8"></div>
+              <div class="h-6 opacity-50 bg-gray-400 rounded w-1/4"></div>
+              <div class="h-4 opacity-50 bg-gray-400 rounded w-1/2"></div>
+              <div class="h-4 opacity-50 bg-gray-400 rounded w-3/8"></div>
+              <div class="h-8 opacity-50 bg-gray-400 rounded w-1/3"></div>
+            </div>
           </div>
         </div>
       </div>
