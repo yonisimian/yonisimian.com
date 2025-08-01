@@ -94,6 +94,8 @@ declare module 'vue' {
     ToolbarRotateRight: typeof import('./components/trip/carousel/utils/toolbar/ToolbarRotateRight.vue')['default']
     ToolbarShare: typeof import('./components/trip/carousel/utils/toolbar/ToolbarShare.vue')['default']
     TripHeader: typeof import('./components/trip/TripHeader.vue')['default']
+    TripPage: typeof import('./components/trip/TripPage.vue')['default']
+    TripSkeleton: typeof import('./components/trip/TripSkeleton.vue')['default']
     VideoPlayButton: typeof import('./components/trip/carousel/utils/slide/VideoPlayButton.vue')['default']
     WhatsAppIcon: typeof import('./components/common/footer/icons/WhatsAppIcon.vue')['default']
     YoutubeIcon: typeof import('./components/common/footer/icons/YoutubeIcon.vue')['default']

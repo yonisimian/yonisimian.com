@@ -1,66 +1,23 @@
 <template>
-  <div class="flex flex-col items-center justify-start mx-auto max-w-4xl">
-    <TripHeader />
-
-    <article class="flex flex-col items-center justify-center w-full gap-4">
-      <!-- <DestBar :destinations="continents" :currDest="currContinent" :chooseDest="chooseContinent" /> -->
-      <DestBar
-        :destinations="countries"
-        :currDest="currCountry ?? defaultCountry"
-        :chooseDest="chooseCountry"
-      />
-      <DestBar
-        :destinations="steps"
-        :dates
-        :currDest="currStep ?? defaultStep"
-        :chooseDest="chooseStep"
-      />
-    </article>
-
-    <article class="flex flex-col items-center justify-center w-full gap-4 my-4">
-      <StepDescription />
-      <MediaCarousel v-if="activeCollection.stepslides.length || fullscreen" />
-      <StepNavigationButtons v-if="activeCollection.stepslides.length || fullscreen" />
-    </article>
+  <div class="w-full h-full">
+    <TripPage v-if="!isLoading" />
+    <TripSkeleton v-else />
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
-import { loadTripAdditionalData, useTripData } from '/@/composables/useTripData'
-import { useTripState } from '/@/composables/useTripState'
+import { onMounted, ref } from 'vue'
+import { loadTripData } from '/@/composables/useTripData'
 
-// TODO: delete those below
-const defaultCountry = {
-  name: 'unknown',
-  steps: []
-}
+const isLoading = ref(true)
 
-const defaultStep = {
-  name: 'unknown',
-  date: 'unknown',
-  degrees: '0',
-  description: '',
-  media: [],
-  shortName: 'unknown',
-  id: -1 // Assuming -1 is a placeholder for an unknown step
-}
-
-const {
-  activeCollection,
-  fullscreen,
-  currStep,
-  currCountry,
-  chooseStep,
-  chooseCountry
-  //currContinent
-  // chooseContinent
-} = useTripState()
-const { /*continents,*/ countries, steps, dates } = useTripData()
-
-onMounted(() => {
-  loadTripAdditionalData(currStep.value.id)
+onMounted(async () => {
+  try {
+    await loadTripData()
+  } catch (e) {
+    console.error('Failed to load trip data:', e)
+  } finally {
+    // isLoading.value = false
+  }
 })
 </script>
-
-<style scoped></style>
