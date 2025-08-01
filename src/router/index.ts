@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { TripRoute, PortfolioRoute, CookbookRoute } from '/@/data/globals'
 import { useLoading } from '/@/composables/useLoading'
-import { loadTripData } from '/@/composables/useTripData'
 
 const { startLoadingSpinner, stopLoadingSpinner } = useLoading()
 // const defaultTripPath = `/${TripRoute}/${encodeURIStep(steps[0])}`
@@ -23,16 +22,7 @@ const routes = [
   },
   {
     path: `/${TripRoute}/:id`,
-    component: () => import('/@/views/TripView.vue'),
-    beforeEnter: async (to: any, from: any, next: any) => {
-      try {
-        await loadTripData()
-        next()
-      } catch (e) {
-        console.error('Failed to load trip:', e)
-        next(false)
-      }
-    }
+    component: () => import('/@/views/TripView.vue')
   },
   {
     path: `/${CookbookRoute}`,
