@@ -8,6 +8,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { loadTripData } from '/@/composables/useTripData'
+import { useHead } from '@unhead/vue'
 
 const isLoading = ref(true)
 
@@ -19,5 +20,15 @@ onMounted(async () => {
   } finally {
     isLoading.value = false
   }
+})
+
+useHead({
+  title: 'The Big Trip',
+  meta: [
+    {
+      name: 'description',
+      content: 'A showcase of my big trip around the world (winter 2024).'
+    }
+  ]
 })
 </script>
