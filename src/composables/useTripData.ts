@@ -1,66 +1,15 @@
 import { reactive } from 'vue'
-import type { Trip, Step, Collection, BaseTripData } from '/@/types/trip'
-import { contDirName, countryDirName, stepDirName } from '/@/functions/static/trip/utils'
+import type { Trip, Step, Collection } from '/@/types/trip'
+import {
+  contDirName,
+  countryDirName,
+  decodeTrip,
+  stepDirName
+} from '/@/functions/static/trip/utils'
 
 const trip: Trip = reactive({
   continents: []
 })
-
-// interface PhotoManifestItem {
-//   id: number
-//   photo: string
-// }
-
-// interface VideoManifestItem {
-//   id: number
-//   thumb: string
-//   video: string
-// }
-
-// type MediaManifestItem = PhotoManifestItem | VideoManifestItem
-
-// const fetchStepMediaManifest = async (step: Step, mediaManifestUrl: string) => {
-//   try {
-//     const manifestResponse = await fetch(mediaManifestUrl)
-
-//     if (!manifestResponse.ok) {
-//       const errorText = await manifestResponse.text()
-//       console.warn(
-//         `[LazyLoad] No media manifest found or fetch failed for step ID ${step.id}. Status: ${
-//           manifestResponse.status
-//         } ${manifestResponse.statusText}. Response preview: ${errorText.substring(0, 200)}...`
-//       )
-//       // If manifest fails, mediaContent remains empty, bgImageContent remains undefined.
-//     } else {
-//       const manifest: MediaManifestItem[] = await manifestResponse.json()
-
-//       // Base path for the actual media files
-//       const mediaFilesBasePath = mediaManifestUrl
-//         .replace('/data/', '/media/')
-//         .replace('media_manifest.json', '')
-
-//       return manifest
-//         .map((item) => {
-//           console.log(`[LazyLoad] Processing media item:`, item)
-//           if ('photo' in item) {
-//             return `${mediaFilesBasePath}${item.id}.jpg`
-//           } else {
-//             return {
-//               thumbnail: `${mediaFilesBasePath}${item.thumb}-thumb.jpg`,
-//               video: `${mediaFilesBasePath}${item.video}-video.webm`
-//             }
-//           }
-//         })
-//         .filter((item): item is MediaType => item !== null) // Filter out any null entries
-//     }
-//   } catch (error: any) {
-//     console.error(
-//       `[LazyLoad] Error fetching or parsing media manifest for step ID ${step.id}:`,
-//       error
-//     )
-//   }
-//   return []
-// }
 
 const fetchStepDescription = async (trip: Trip, step: Step): Promise<string> => {
   const continent = trip.continents.find((continent) =>
@@ -160,21 +109,6 @@ const lazyLoadDescriptions = async (trip: Trip, initialIndexToFetch: number) => 
   })
 }
 
-const fillInitialTripWithEmptyData = (initialTripData: BaseTripData): Trip => {
-  return {
-    continents: initialTripData.continents.map((continent) => ({
-      ...continent,
-      countries: continent.countries.map((country) => ({
-        ...country,
-        steps: country.steps.map((step) => ({
-          ...step,
-          description: ''
-        }))
-      }))
-    }))
-  }
-}
-
 let isTripLoaded = false
 
 export const loadTripData = async () => {
@@ -182,7 +116,7 @@ export const loadTripData = async () => {
 
   const { initialTripData } = await import('/@/data/trip.metadata')
 
-  trip.continents = fillInitialTripWithEmptyData(initialTripData).continents
+  Object.assign(trip, decodeTrip(initialTripData))
 
   isTripLoaded = true
 }
