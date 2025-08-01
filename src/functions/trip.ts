@@ -9,8 +9,6 @@ import {
 
 import { useTripData } from '/@/composables/useTripData'
 
-const { steps, countries, continents } = useTripData()
-
 const highlights: Collection = {
   name: 'Highlights',
   stepslides: [
@@ -169,13 +167,13 @@ const people: Collection = {
 }
 
 export const getCountryByStep = (step: Step): Country =>
-  countries.find((country) => country.steps.some((s) => s.id === step.id)) || {
+  useTripData().countries.find((country) => country.steps.some((s) => s.id === step.id)) || {
     name: 'Unknown Country',
     steps: []
   }
 
 export const getContinentByStep = (step: Step): Continent =>
-  continents.find((continent) =>
+  useTripData().continents.find((continent) =>
     continent.countries.some((country) => country.steps.some((s) => s.id === step.id))
   ) || {
     name: 'Unknown Continent',
@@ -211,7 +209,7 @@ export const encodeURIStep = (step: Step) => `${step.id}-${encodeURIComponent(st
 
 export const decodeURIStep = (id: string) => {
   const [stepId, _] = id.split('-')
-  return steps.find((step) => step.id === Number(stepId))
+  return useTripData().steps.find((step) => step.id === Number(stepId))
 }
 
 export const isImage = (media: MediaType): boolean => typeof media === 'string'
@@ -224,7 +222,7 @@ export const getCollection = (type: CollectionType): Collection | undefined => {
 }
 
 export const stepToIndex = (step: Step): number => {
-  return steps.findIndex((s) => s.id === step.id)
+  return useTripData().steps.findIndex((s) => s.id === step.id)
 }
 
 export const stepToCollection = (step: Step): Collection => {
@@ -237,7 +235,7 @@ export const stepToCollection = (step: Step): Collection => {
 }
 
 export const collectionToMediaArray = (collection: Collection): MediaType[] => {
-  return collection.stepslides.map(({ step, slide }) => steps[step].media[slide])
+  return collection.stepslides.map(({ step, slide }) => useTripData().steps[step].media[slide])
 }
 
 // /**
