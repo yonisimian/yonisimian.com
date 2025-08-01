@@ -1,6 +1,6 @@
-import { type Trip } from '../types/trip'
+import { type RawTrip } from '../types/trip'
 
-export const trip: Trip = {
+export const trip: RawTrip = {
   continents: [
     {
       name: 'Asia',
