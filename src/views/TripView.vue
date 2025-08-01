@@ -17,7 +17,7 @@ onMounted(async () => {
   } catch (e) {
     console.error('Failed to load trip data:', e)
   } finally {
-    // isLoading.value = false
+    isLoading.value = false
   }
 })
 </script>
