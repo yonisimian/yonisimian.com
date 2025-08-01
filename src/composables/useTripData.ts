@@ -133,7 +133,7 @@ export const loadTripAdditionalData = async (currStepId: number) => {
 }
 
 export const useTripData = () => {
-  if (!trip) {
+  if (!isTripLoaded) {
     throw new Error('Trip data not loaded. Call loadTripData() first.')
   }
 
