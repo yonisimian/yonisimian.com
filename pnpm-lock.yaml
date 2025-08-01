@@ -78,6 +78,9 @@ importers:
       vite:
         specifier: ^6.3.5
         version: 6.3.5(@types/node@22.15.32)(jiti@2.4.2)
+      vite-plugin-sitemap:
+        specifier: ^0.8.2
+        version: 0.8.2
       vite-svg-loader:
         specifier: ^5.1.0
         version: 5.1.0(vue@3.5.16(typescript@5.8.3))
@@ -1298,6 +1301,9 @@ packages:
 
   v8-compile-cache-lib@3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
+
+  vite-plugin-sitemap@0.8.2:
+    resolution: {integrity: sha512-bqIw6NVOXg6je81lzX8Lm0vjf8/QSAp8di8fYQzZ3ZdVicOm8+6idBGALJiy1R1FiXNIK8rgORO6HBqXyHW+iQ==}
 
   vite-svg-loader@5.1.0:
     resolution: {integrity: sha512-M/wqwtOEjgb956/+m5ZrYT/Iq6Hax0OakWbokj8+9PXOnB7b/4AxESHieEtnNEy7ZpjsjYW1/5nK8fATQMmRxw==}
@@ -2599,6 +2605,8 @@ snapshots:
       webpack-virtual-modules: 0.6.2
 
   v8-compile-cache-lib@3.0.1: {}
+
+  vite-plugin-sitemap@0.8.2: {}
 
   vite-svg-loader@5.1.0(vue@3.5.16(typescript@5.8.3)):
     dependencies:
