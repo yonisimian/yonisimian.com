@@ -50,14 +50,4 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach((to) => {
   stopLoadingSpinner()
-
-  if (to.path.startsWith(`/${PortfolioRoute}`)) {
-    document.title = 'Yehonatan Simian - Portfolio'
-  } else if (to.path.startsWith(`/${TripRoute}`)) {
-    document.title = 'Yehonatan Simian - The Big Trip'
-  } else if (to.path.startsWith(`/${CookbookRoute}`)) {
-    document.title = "Yehonatan Simian - Micha's Cookbook"
-  } else {
-    document.title = 'Yehonatan Simian'
-  }
 })
