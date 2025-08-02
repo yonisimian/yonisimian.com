@@ -12,7 +12,7 @@
           <h2 class="text-3xl text-center">{{ currStep.name }}</h2>
           <p class="text-lg text-center">
             <b>{{ currCountry?.name || 'Loading Country...' }}</b> • {{ currStep.date }} •
-            {{ currStep.degrees }}°c
+            {{ stepDegree(currStep) }}
           </p>
           <div
             v-if="currStep.description"
@@ -46,6 +46,7 @@
 
 <script setup lang="ts">
 import { useTripState } from '/@/composables/useTripState'
+import { stepDegree } from '/@/functions/trip'
 
 const { currStep, currCountry, activeCollection, choosePrevStep, chooseNextStep } = useTripState()
 

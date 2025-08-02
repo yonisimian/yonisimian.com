@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { useHead } from '@unhead/vue'
+import { useSeoMeta } from '@unhead/vue'
 
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -16,15 +16,14 @@ AOS.init({
   duration: 1200
 })
 
-useHead({
+useSeoMeta({
   title: 'Portfolio',
-  meta: [
-    {
-      name: 'description',
-      content:
-        'Quickkkkk throw as many keywords as possible Vue Vite TypeScript Python Cobra nooooooooo I think someone is reading this right nowwwwwwwww'
-    }
-  ]
+  description:
+    'Quickkkkk throw as many keywords as possible Vue Vite TypeScript Python Cobra nooooooooo I think someone is reading this right nowwwwwwwww',
+  ogDescription:
+    "Mommy and daddy told me to stay modest and not brag about stuff... so here's a website specifically programmed to show off cool stuff I do in life.",
+  ogTitle: 'Yehonatan Simian - Portfolio',
+  ogImage: '/media/portfolio/pp.webp'
 })
 </script>
 

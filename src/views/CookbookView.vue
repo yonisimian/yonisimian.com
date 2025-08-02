@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { useHead } from '@unhead/vue'
+import { useSeoMeta } from '@unhead/vue'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
@@ -13,15 +13,13 @@ AOS.init({
   duration: 1200
 })
 
-useHead({
+useSeoMeta({
   title: "Michal's Cookbook",
-  meta: [
-    {
-      name: 'description',
-      content:
-        "My sister's old cookbook which I love soooo muchhhhhh (oh yes, and I love my sister too)"
-    }
-  ]
+  description:
+    "My sister's old cookbook which I love soooo muchhhhhh (oh yeah and I love my sister too)",
+  ogDescription: "A collection of recipes from my lovely sister's old cookbook.",
+  ogTitle: "Michal's Cookbook",
+  ogImage: '/media/portfolio/pp.webp'
 })
 </script>
 

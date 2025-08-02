@@ -20,6 +20,8 @@
 import { onMounted } from 'vue'
 import { loadTripAdditionalData, useTripData } from '/@/composables/useTripData'
 import { useTripState } from '/@/composables/useTripState'
+import { useSeoMeta } from '@unhead/vue'
+import { generateRandomDescription, stepDegree } from '/@/functions/trip'
 
 const { /*continents,*/ countries, steps, dates } = useTripData()
 const {
@@ -35,6 +37,19 @@ const {
 
 onMounted(() => {
   loadTripAdditionalData(currStep.value.id)
+})
+
+useSeoMeta({
+  ogDescription: () =>
+    [
+      currCountry.value.name,
+      currStep.value.date,
+      stepDegree(currStep.value),
+      'Hot as hell',
+      `I was just ${generateRandomDescription()}, when suddenly...`
+    ].join('. '),
+  ogTitle: () => `Yoni's trip to ${currStep.value.shortName}`,
+  ogImage: () => currStep.value.bgImage
 })
 </script>
 

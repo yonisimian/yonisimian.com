@@ -8,7 +8,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { loadTripData } from '/@/composables/useTripData'
-import { useHead } from '@unhead/vue'
+import { useSeoMeta } from '@unhead/vue'
 
 const isLoading = ref(true)
 
@@ -22,13 +22,12 @@ onMounted(async () => {
   }
 })
 
-useHead({
+useSeoMeta({
   title: 'The Big Trip',
-  meta: [
-    {
-      name: 'description',
-      content: 'A showcase of my big trip around the world (winter 2024).'
-    }
-  ]
+  description: 'A showcase of my big trip around the world, winter 2024 .',
+  ogDescription:
+    'Allow me to share with you a journey spans continents and cultures, showcasing beauty, diversity, as well as a shallow dive into my heart and thoughts. ',
+  ogTitle: "Yoni's trip around the world, winter 2024",
+  ogImage: '/media/trip/01%20-%20America/04%20-%20Hawaii/step-45/2.jpg'
 })
 </script>
