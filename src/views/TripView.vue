@@ -1,26 +1,17 @@
 <template>
   <div class="w-full h-full">
-    <TripPage v-if="!isLoading" />
+    <TripPage v-if="isTripLoaded" />
     <TripSkeleton v-else />
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-import { loadTripData } from '/@/composables/useTripData'
+import { loadTrip, useTripData } from '/@/composables/useTripData'
 import { useSeoMeta } from '@unhead/vue'
 
-const isLoading = ref(true)
+const { isTripLoaded } = useTripData()
 
-onMounted(async () => {
-  try {
-    await loadTripData()
-  } catch (e) {
-    console.error('Failed to load trip data:', e)
-  } finally {
-    isLoading.value = false
-  }
-})
+loadTrip()
 
 useSeoMeta({
   title: 'The Big Trip',

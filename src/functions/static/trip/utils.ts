@@ -1,3 +1,4 @@
+import { joinPath } from '../..'
 import {
   BaseStep,
   CompiletimeStep,
@@ -60,14 +61,11 @@ export const decodeTrip = (trip: CompiletimeTrip): Trip => {
     country: Country<CompiletimeStep>
   ) => {
     const countryIndex = trip.continents.flatMap((c) => c.countries).findIndex((c) => c === country)
-    return encodeURI(
-      [
-        '',
-        'media',
-        'trip',
-        contDirName(continentIndex, continent),
-        countryDirName(countryIndex, country)
-      ].join('/')
+    return joinPath(
+      'media',
+      'trip',
+      contDirName(continentIndex, continent),
+      countryDirName(countryIndex, country)
     )
   }
   return {

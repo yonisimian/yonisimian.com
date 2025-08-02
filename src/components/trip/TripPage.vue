@@ -17,8 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
-import { loadTripAdditionalData, useTripData } from '/@/composables/useTripData'
+import { useTripData } from '/@/composables/useTripData'
 import { useTripState } from '/@/composables/useTripState'
 import { useSeoMeta } from '@unhead/vue'
 import { generateRandomDescription, stepDegree } from '/@/functions/trip'
@@ -34,10 +33,6 @@ const {
   //currContinent
   // chooseContinent
 } = useTripState()
-
-onMounted(() => {
-  loadTripAdditionalData(currStep.value.id)
-})
 
 useSeoMeta({
   ogDescription: () =>
