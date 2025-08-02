@@ -28,7 +28,9 @@ useSeoMeta({
   ogDescription:
     "C'mon, do it if you dare! I dare you to read this description. I double dare you! Muhahahaha",
   ogTitle: "Yoni's cool ass website",
-  ogImage: '/media/portfolio/pp.webp'
+  ogImage: 'https://yonisimian.com/media/portfolio/pp.webp',
+  ogUrl: 'https://yonisimian.com/',
+  ogType: 'website'
 })
 </script>
 
