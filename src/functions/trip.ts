@@ -238,26 +238,50 @@ export const collectionToMediaArray = (collection: Collection): MediaType[] => {
   return collection.stepslides.map(({ step, slide }) => useTripData().steps[step].media[slide])
 }
 
-// /**
-//  * Defines a reference to a specific media item within a step.
-//  */
-// export interface MediaReference {
-//   stepId: number // The ID of the step the media belongs to
-//   mediaIndex: number // The index of the media item within that step's media array
-// }
+export const stepDegree = (step: Step): string => `${step.degrees}°c`
 
-// /**
-//  * Maps a collection's slides to an array of media references.
-//  * This function is synchronous and does NOT fetch the actual media content.
-//  * The actual media content (MediaType) is expected to be lazy-loaded
-//  * and accessed from `currStepDetails.value.media` when the relevant step is active.
-//  *
-//  * @param collection The collection object containing steps and slide indices.
-//  * @returns An array of MediaReference objects, indicating which media item belongs to each slide.
-//  */
-// export const collectionToMediaReferences = (collection: Collection): MediaReference[] => {
-//   return collection.stepslides.map(({ step: stepId, slide: mediaIndex }) => ({
-//     stepId: stepId,
-//     mediaIndex: mediaIndex
-//   }))
-// }
+const descriptions = [
+  'stepping out of the hotel',
+  'listening to my favorite RHCP song',
+  'thinking about Marty McFly\'s performance of "Johnny B. Goode"',
+  "thinking about how baby oil isn't actually made of babies",
+  'trying to imagine Sisyphus happy',
+  "cleaning dead plankton from my shoes' soles",
+  'signing a contract with the devil',
+  'trying to remember the name of that one actor who played in that one movie',
+  'wondering if I left the stove on',
+  "practicing my best 'I'm not a tourist' face",
+  'writing her off for the tenth time today',
+  'dreaming of silver screen quotation',
+  'thinking whether it makes more sense to say "chellos" or "celli" to a non-musician person',
+  'wondering if I should have taken that left turn at Albuquerque',
+  'trying to remember where I parked my car',
+  'finishing my morning crying routine',
+  'wondering if I should have taken the road which bent in the undergrowth',
+  'becoming comfortably numb',
+  'giving someone a quick short, sharp shock',
+  'kicking around on a piece of ground',
+  'losing blood in a bathroom stall',
+  'sharing a lonely view with some birds',
+  "hearing some's voice through a photograph",
+  'asking in uncertain voice "what should I do"',
+  'miming the song, hoping that it all works out right',
+  'letting it flood on down and over me sweetly',
+  'leaving spoor to mark my passage',
+  'running around at the speed of sound',
+  "feeling life movin' through my mind",
+  'hanging on the edge of tomorrow',
+  'carrying on as if nothing really matters',
+  'heading to Malibu to make some noise',
+  'looking for that deep kick',
+  "kicking down the doors that I don't understand",
+  'making my days a breeze',
+  'sitting backstage in a dress',
+  'drawing another breath',
+  'flipping through empty pages that I thought I wrote on'
+]
+
+export const generateRandomDescription = () => {
+  const randomIndex = Math.floor(Math.random() * descriptions.length)
+  return descriptions[randomIndex]
+}
