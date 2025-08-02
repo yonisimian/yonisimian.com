@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-5xl w-full h-full flex flex-col items-center justify-center mt-2 mb-4 mx-auto">
+  <div class="max-w-4xl w-full h-full flex flex-col items-center justify-center mt-2 mb-4 mx-auto">
     <div
       class="animate-pulse w-full h-full flex flex-col items-center justify-center gap-4 opacity-50"
     >
@@ -9,14 +9,14 @@
         <div class="h-2 bg-gray-300 dark:bg-gray-700 rounded w-1/12" />
         <div class="h-2 bg-gray-300 dark:bg-gray-700 rounded w-1/12" />
       </div>
-      <div class="flex items-center justify-center gap-1 w-content">
+      <div class="flex items-center justify-center gap-1 w-full">
         <div class="h-32 bg-gray-300 dark:bg-gray-700 w-48" />
         <div class="h-32 bg-gray-300 dark:bg-gray-700 w-48" />
         <div class="h-32 bg-gray-300 dark:bg-gray-700 w-48" />
         <div class="h-32 bg-gray-300 dark:bg-gray-700 w-48" />
         <div class="h-32 bg-gray-300 dark:bg-gray-700 w-48" />
       </div>
-      <div class="flex items-center justify-center gap-1 w-content -mt-2">
+      <div class="flex items-center justify-center gap-1 w-full -mt-2">
         <div class="h-32 bg-gray-300 dark:bg-gray-700 w-48" />
         <div class="h-32 bg-gray-300 dark:bg-gray-700 w-48" />
         <div class="h-32 bg-gray-300 dark:bg-gray-700 w-48" />
