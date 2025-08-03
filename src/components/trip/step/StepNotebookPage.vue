@@ -8,36 +8,17 @@
   >
     <template #page>
       <div class="relative flex flex-col items-center justify-center gap-1 w-full select-none">
-        <div class="w-full">
-          <h2 class="text-3xl text-center">{{ currStep.name }}</h2>
-          <p class="text-lg text-center">
-            <b>{{ currCountry?.name || 'Loading Country...' }}</b> • {{ currStep.date }} •
-            {{ stepDegree(currStep) }}
-          </p>
-          <div
-            v-if="currStep.description"
-            v-html="currStep.description"
-            dir="rtl"
-            class="w-full max-w-full text-justify prose prose-ul:pr-8 prose-ol:pr-8 prose-p:mb-2 prose-p:leading-relaxed"
-          />
-          <div v-else class="w-full h-full text-center p-4" dir="rtl">
-            <div class="animate-pulse flex flex-col items-start gap-4">
-              <div class="h-8 opacity-50 bg-gray-400 rounded w-3/8"></div>
-              <div class="h-6 opacity-50 bg-gray-400 rounded w-1/4"></div>
-              <div class="h-4 opacity-50 bg-gray-400 rounded w-1/2"></div>
-              <div class="h-4 opacity-50 bg-gray-400 rounded w-3/8"></div>
-              <div class="h-8 opacity-50 bg-gray-400 rounded w-1/3"></div>
-            </div>
-          </div>
-        </div>
+        <NotebookTitle :step="currStep" />
+        <NotebookSubtitle :step="currStep" :country="currCountry" />
+        <NotebookDescription :description="currStep.description" />
       </div>
       <StepNavigationButtons v-if="currStep" class="mt-8 h-0" />
     </template>
     <template #margin>
-      <div class="flex justify-end items-center">
+      <div class="flex justify-center items-center">
         <ToolbarShare
-          class="absolute top-3.2 right-3.2 inline-flex rounded-full overflow-hidden"
-          :shareText="`Check out my visit to ${activeCollection?.name || 'the collection'}`!"
+          class="inline-flex rounded-full overflow-hidden mx-auto my-2.5"
+          :shareText="`Check out my visit to ${activeCollection.name}`!"
         />
       </div>
     </template>
@@ -45,8 +26,8 @@
 </template>
 
 <script setup lang="ts">
+import NotebookDescription from './utils/NotebookDescription.vue'
 import { useTripState } from '/@/composables/useTripState'
-import { stepDegree } from '/@/functions/trip'
 
 const { currStep, currCountry, activeCollection, choosePrevStep, chooseNextStep } = useTripState()
 
