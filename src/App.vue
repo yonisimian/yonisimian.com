@@ -4,8 +4,10 @@
 
     <DarkTheme class="absolute top-3 left-4" />
 
-    <LoadingView v-if="isRouteLoading" class="min-h-[calc(100dvh-137px)]" />
-    <RouterView v-else class="min-h-[calc(100dvh-137px)]" />
+    <div class="min-h-screen">
+      <LoadingView v-if="isRouteLoading" />
+      <RouterView v-else />
+    </div>
 
     <Footer />
 
@@ -21,7 +23,9 @@ import { useLoading } from '/@/composables/useLoading'
 
 const { isRouteLoading } = useLoading()
 
-// TODO: replace `min-h-[calc(100dvh-137px)]` with a more robust solution.
+// Note: `min-h-screen` won't allow the fotter to appear on low-content pages...
+// but that's okay because currently there are no such pages.
+// If you want to change this, you can use `min-h-[calc(100dvh-137px)]`.
 
 useSeoMeta({
   description: 'A personal website showcasing all my shenanigans and terrible dad jokes.',
