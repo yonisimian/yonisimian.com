@@ -8,19 +8,21 @@ import 'uno.css'
 import 'aos/dist/aos.css'
 
 import App from './App.vue'
-import './styles/base.css'
+import './assets/styles/base.css'
+
+const headOptions = {
+  init: [
+    {
+      title: undefined,
+      titleTemplate: (title: any) => (title ? `Yehonatan Simian - ${title}` : 'Yehonatan Simian'),
+      htmlAttrs: { lang: 'en' }
+    }
+  ]
+}
 
 initializeApp().then(() => {
   const app = createApp(App)
-  const head = createHead({
-    init: [
-      {
-        title: undefined, // This will be set dynamically in each view
-        titleTemplate: (title) => (title ? `Yehonatan Simian - ${title}` : 'Yehonatan Simian'),
-        htmlAttrs: { lang: 'en' }
-      }
-    ]
-  })
+  const head = createHead(headOptions)
   app.use(router)
   app.use(head)
   app.mount('#app')
