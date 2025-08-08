@@ -4,7 +4,7 @@
 
     <DarkTheme class="absolute top-3 left-4" />
 
-    <div class="min-h-screen">
+    <div class="flex items-center justify-center min-h-screen">
       <LoadingView v-if="isRouteLoading" />
       <RouterView v-else />
     </div>
