@@ -3,7 +3,7 @@ import Unocss from 'unocss/vite'
 import path from 'path'
 import vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
-import FontInstaller from 'unplugin-fonts/vite'
+import Unfonts from 'unplugin-fonts/vite'
 import svgLoader from 'vite-svg-loader'
 import { visualizer } from 'rollup-plugin-visualizer'
 import Sitemap from 'vite-plugin-sitemap'
@@ -21,12 +21,12 @@ export default defineConfig({
   plugins: [
     vue(),
     svgLoader(),
+    Unocss(),
     Components({
       extensions: ['vue'],
       dts: 'src/components.d.ts'
     }),
-    // Replace ViteFonts with FontInstaller
-    FontInstaller({
+    Unfonts({
       google: {
         families: [
           {
@@ -44,9 +44,6 @@ export default defineConfig({
         ]
       }
     }),
-    Unocss({
-      /* options */
-    }),
     visualizer({
       filename: 'dist/stats.html',
       open: true, // auto-open in browser after build
@@ -59,18 +56,8 @@ export default defineConfig({
       robots: [{ userAgent: '*', disallow: '/media/' }]
     })
   ],
-
   optimizeDeps: {
     include: ['vue', '@vueuse/core'],
     exclude: ['vue-demi']
-  },
-
-  build: {
-    // optional: force build to analyze all chunks
-    rollupOptions: {
-      output: {
-        manualChunks: undefined
-      }
-    }
   }
 })
