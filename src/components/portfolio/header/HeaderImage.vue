@@ -6,6 +6,7 @@
       src="https://yonisimian.com/media/portfolio/pp.webp"
       alt="Yehonatan Simian"
       imgClass="rounded-full aspect-ratio-1/1 transition-shadow"
+      fetchpriority="high"
     />
   </div>
 </template>
