@@ -1,7 +1,6 @@
 <template>
   <h1 class="font-serif font-bold text-2xl sm:text-4xl lg:text-5xl my-8">
     Hi, I'm <strong>Yehonatan Simian</strong>!
-
     <span class="wave">👋</span>
   </h1>
 </template>
