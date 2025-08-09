@@ -11,6 +11,8 @@
       <RouterLink :to="'/' + TripRoute">The Big Trip</RouterLink>
       <p>•</p>
       <RouterLink :to="'/' + CookbookRoute">Michal's Cookbook</RouterLink>
+      <p>•</p>
+      <RouterLink :to="'/' + VegetavailableRoute">Mom's Vegetables</RouterLink>
     </nav>
 
     <span class="text-xs">
@@ -28,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { TripRoute, PortfolioRoute, CookbookRoute } from '/@/data/globals'
+import { TripRoute, PortfolioRoute, CookbookRoute, VegetavailableRoute } from '/@/data/globals'
 </script>
 
 <style scoped></style>

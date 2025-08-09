@@ -22,7 +22,12 @@ export function useQueryParam<T>(
     },
     set(value: T) {
       const newQuery = { ...route.query }
-      if (value == null || value === '' || value === options.default) {
+      if (
+        value == null ||
+        value === '' ||
+        value === options.default ||
+        (Array.isArray(value) && value.length === 0)
+      ) {
         delete newQuery[key]
       } else {
         newQuery[key] = stringify(value)

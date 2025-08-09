@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { TripRoute, PortfolioRoute, CookbookRoute } from '/@/data/globals'
+import { TripRoute, PortfolioRoute, CookbookRoute, VegetavailableRoute } from '/@/data/globals'
 import { useLoading } from '/@/composables/useLoading'
 
 const { startLoadingSpinner, stopLoadingSpinner } = useLoading()
@@ -27,6 +27,10 @@ const routes = [
   {
     path: `/${CookbookRoute}`,
     component: () => import('/@/views/CookbookView.vue')
+  },
+  {
+    path: `/${VegetavailableRoute}`,
+    component: () => import('/@/views/VegetavailaView.vue')
   },
   {
     path: '/:pathMatch(.*)*',
