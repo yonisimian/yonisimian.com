@@ -2,7 +2,11 @@
   <div
     class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl"
   >
-    <img :src="product.image" :alt="product.name" class="w-full h-40 object-cover" />
+    <img
+      :src="`https://www.seasonalfoodguide.org/img/${product.image}.jpg`"
+      :alt="product.name"
+      class="w-full h-40 object-cover"
+    />
     <div class="p-4 flex flex-col items-start justify-center gap-2">
       <h3 class="text-lg font-bold text-gray-800">{{ product.name }}</h3>
       <VegetaGalleryCardBadge class="bg-green-100 text-green-800">
