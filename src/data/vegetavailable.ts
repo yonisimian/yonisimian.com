@@ -1,26 +1,26 @@
-import { Product, ProductType } from '/@/types/vegetavailable'
+import { Product, ProductType as PT } from '/@/types/vegetavailable'
 export const data: Product[] = [
   {
     name: 'Apples',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-apples-350x184.90338a51.jpg',
+    image: 'fruit-apples-350x184.90338a51',
     months: ['August', 'September', 'October', 'November', 'December', 'May', 'June', 'July'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Apricots',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-apricots-350x184.3f1d0e5f.jpg',
+    image: 'fruit-apricots-350x184.3f1d0e5f',
     months: ['May', 'June', 'July'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Artichokes',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-artichokes-350x184.8c911247.jpg',
+    image: 'vegetable-artichokes-350x184.8c911247',
     months: [],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Arugula',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-arugula-350x184.c19ec7f7.jpg',
+    image: 'vegetable-arugula-350x184.c19ec7f7',
     months: [
       'January',
       'February',
@@ -35,35 +35,35 @@ export const data: Product[] = [
       'August',
       'September'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Asian Pears',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-asian-pears-350x184.ef1a3362.jpg',
+    image: 'fruit-asian-pears-350x184.ef1a3362',
     months: ['July', 'August', 'September', 'October'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Asparagus',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-asparagus-350x184.71961374.jpg',
+    image: 'vegetable-asparagus-350x184.71961374',
     months: ['February', 'March', 'April', 'May', 'June'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Atemoya',
-    image: 'https://www.seasonalfoodguide.org/img/atemoya-350x184.3c1138fb.jpg',
+    image: 'atemoya-350x184.3c1138fb',
     months: ['August', 'September', 'October'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Avocados',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-avocados-350x184.11a39241.jpg',
+    image: 'vegetable-avocados-350x184.11a39241',
     months: ['January', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Bananas',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-bananas-350x184.ae3412ef.jpg',
+    image: 'fruit-bananas-350x184.ae3412ef',
     months: [
       'January',
       'February',
@@ -78,11 +78,11 @@ export const data: Product[] = [
       'November',
       'December'
     ],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Basil',
-    image: 'https://www.seasonalfoodguide.org/img/herb-basil-350x184.fae02a8c.jpg',
+    image: 'herb-basil-350x184.fae02a8c',
     months: [
       'August',
       'September',
@@ -97,11 +97,11 @@ export const data: Product[] = [
       'April',
       'December'
     ],
-    type: ProductType.Herb
+    type: PT.Herb
   },
   {
     name: 'Beets',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-beets-350x184.14e48bd3.jpg',
+    image: 'vegetable-beets-350x184.14e48bd3',
     months: [
       'January',
       'February',
@@ -116,41 +116,41 @@ export const data: Product[] = [
       'September',
       'October'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Bittermelon',
-    image: 'https://www.seasonalfoodguide.org/img/bittermelon-350x184.e5cf7e5b.jpg',
+    image: 'bittermelon-350x184.e5cf7e5b',
     months: [],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Black Sapote',
-    image: 'https://www.seasonalfoodguide.org/img/black-sapote-350x184.81a37f60.jpg',
+    image: 'black-sapote-350x184.81a37f60',
     months: ['January', 'February', 'December'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Black Eyed Peas',
-    image: 'https://www.seasonalfoodguide.org/img/legume-black-eyed-peas-350x184.332e994f.jpg',
+    image: 'legume-black-eyed-peas-350x184.332e994f',
     months: ['July', 'August', 'September', 'April', 'May', 'June', 'October', 'November'],
-    type: ProductType.Legume
+    type: PT.Legume
   },
   {
     name: 'Blackberries',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-blackberries-350x184.25b7f2ea.jpg',
+    image: 'fruit-blackberries-350x184.25b7f2ea',
     months: ['May', 'June', 'July', 'August', 'September', 'April'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Blueberries',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-blueberries-350x184.46d5fcbb.jpg',
+    image: 'fruit-blueberries-350x184.46d5fcbb',
     months: ['June', 'July', 'May'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Bok Choy',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-bok-choy-350x184.86b0d9fe.jpg',
+    image: 'vegetable-bok-choy-350x184.86b0d9fe',
     months: [
       'January',
       'February',
@@ -163,29 +163,29 @@ export const data: Product[] = [
       'September',
       'August'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Boysenberries',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-boysenberries-350x184.508a1dbb.jpg',
+    image: 'fruit-boysenberries-350x184.508a1dbb',
     months: ['May', 'June', 'July', 'August', 'September'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Brambles',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-brambles-350x184.508a1dbb.jpg',
+    image: 'fruit-brambles-350x184.508a1dbb',
     months: ['May', 'June', 'July', 'August', 'September', 'April'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Breadfruit',
-    image: 'https://www.seasonalfoodguide.org/img/breadfruit-350x184.8c8d883e.jpg',
+    image: 'breadfruit-350x184.8c8d883e',
     months: ['July', 'August'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Broccoli',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-broccoli-350x184.9b4b78c2.jpg',
+    image: 'vegetable-broccoli-350x184.9b4b78c2',
     months: [
       'January',
       'February',
@@ -198,23 +198,23 @@ export const data: Product[] = [
       'June',
       'September'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Brussels Sprouts',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-brussels-sprouts-350x184.4cd6981f.jpg',
+    image: 'vegetable-brussels-sprouts-350x184.4cd6981f',
     months: ['January', 'February', 'March', 'December', 'October', 'November', 'September'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Burdock',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-burdock-350x184.fc56af85.jpg',
+    image: 'vegetable-burdock-350x184.fc56af85',
     months: [],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Cabbage',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-cabbage-350x184.ac94e610.jpg',
+    image: 'vegetable-cabbage-350x184.ac94e610',
     months: [
       'January',
       'February',
@@ -229,41 +229,41 @@ export const data: Product[] = [
       'November',
       'December'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Cactus Pears',
-    image: 'https://www.seasonalfoodguide.org/img/cactus-pears-350x184.96c8a224.jpg',
+    image: 'cactus-pears-350x184.96c8a224',
     months: [],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Caimito',
-    image: 'https://www.seasonalfoodguide.org/img/caimito-350x184.05a9c83d.jpg',
+    image: 'caimito-350x184.05a9c83d',
     months: ['February', 'March'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Canistel',
-    image: 'https://www.seasonalfoodguide.org/img/canistel-350x184.c6485022.jpg',
+    image: 'canistel-350x184.c6485022',
     months: ['January', 'February', 'March', 'June', 'July', 'August', 'December'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Cantaloupe',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-cantaloupe-350x184.3beb1a00.jpg',
+    image: 'fruit-cantaloupe-350x184.3beb1a00',
     months: ['May', 'June', 'July', 'August', 'September', 'October', 'November'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Cardoons',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-cardoons-350x184.211bb104.jpg',
+    image: 'vegetable-cardoons-350x184.211bb104',
     months: ['October', 'November', 'December'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Carrots',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-carrots-350x184.fe056454.jpg',
+    image: 'vegetable-carrots-350x184.fe056454',
     months: [
       'January',
       'February',
@@ -278,11 +278,11 @@ export const data: Product[] = [
       'November',
       'December'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Cauliflower',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-cauliflower-350x184.44a4c471.jpg',
+    image: 'vegetable-cauliflower-350x184.44a4c471',
     months: [
       'January',
       'February',
@@ -294,11 +294,11 @@ export const data: Product[] = [
       'October',
       'September'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Celery',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-celery-350x184.cdd7f887.jpg',
+    image: 'vegetable-celery-350x184.cdd7f887',
     months: [
       'January',
       'February',
@@ -311,11 +311,11 @@ export const data: Product[] = [
       'September',
       'October'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Celery Root',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-celery-root-350x184.cc4bcca9.jpg',
+    image: 'vegetable-celery-root-350x184.cc4bcca9',
     months: [
       'January',
       'February',
@@ -326,11 +326,11 @@ export const data: Product[] = [
       'September',
       'October'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Chard',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-chard-350x184.766960b1.jpg',
+    image: 'vegetable-chard-350x184.766960b1',
     months: [
       'January',
       'February',
@@ -342,35 +342,35 @@ export const data: Product[] = [
       'June',
       'October'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Cherimoyas',
-    image: 'https://www.seasonalfoodguide.org/img/cherimoya-350x184.d52fca26.jpg',
+    image: 'cherimoya-350x184.d52fca26',
     months: ['August', 'September'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Cherries',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-cherries-350x184.2673bd1c.jpg',
+    image: 'fruit-cherries-350x184.2673bd1c',
     months: ['June', 'July'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Chestnuts',
-    image: 'https://www.seasonalfoodguide.org/img/nut-chestnuts-350x184.c58faa85.jpg',
+    image: 'nut-chestnuts-350x184.c58faa85',
     months: ['September', 'October'],
-    type: ProductType.Nut
+    type: PT.Nut
   },
   {
     name: 'Chickpeas',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-chickpeas-350x184.4f0730cc.jpg',
+    image: 'vegetable-chickpeas-350x184.4f0730cc',
     months: ['June', 'July'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Chicories',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-chicories-350x184.aaa276bb.jpg',
+    image: 'vegetable-chicories-350x184.aaa276bb',
     months: [
       'January',
       'February',
@@ -384,11 +384,11 @@ export const data: Product[] = [
       'October',
       'September'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Chili Peppers',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-chili-peppers-350x184.5f6efe16.jpg',
+    image: 'vegetable-chili-peppers-350x184.5f6efe16',
     months: [
       'July',
       'August',
@@ -403,17 +403,17 @@ export const data: Product[] = [
       'November',
       'December'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Chives',
-    image: 'https://www.seasonalfoodguide.org/img/herb-chives-350x184.e0f95d6a.jpg',
+    image: 'herb-chives-350x184.e0f95d6a',
     months: ['March', 'April', 'May', 'June', 'July', 'August', 'September', 'October'],
-    type: ProductType.Herb
+    type: PT.Herb
   },
   {
     name: 'Cilantro',
-    image: 'https://www.seasonalfoodguide.org/img/herb-cilantro-350x184.257f306e.jpg',
+    image: 'herb-cilantro-350x184.257f306e',
     months: [
       'January',
       'February',
@@ -428,11 +428,11 @@ export const data: Product[] = [
       'July',
       'August'
     ],
-    type: ProductType.Herb
+    type: PT.Herb
   },
   {
     name: 'Citrus',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-citrus-350x184.4b5c6d06.jpg',
+    image: 'fruit-citrus-350x184.4b5c6d06',
     months: [
       'January',
       'February',
@@ -446,17 +446,17 @@ export const data: Product[] = [
       'September',
       'October'
     ],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Clementines',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-clementines-350x184.93029aa6.jpg',
+    image: 'fruit-clementines-350x184.93029aa6',
     months: ['January', 'February', 'March', 'December', 'April', 'November'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Coconut',
-    image: 'https://www.seasonalfoodguide.org/img/coconuts-350x184.f9e7cf51.jpg',
+    image: 'coconuts-350x184.f9e7cf51',
     months: [
       'January',
       'February',
@@ -471,11 +471,11 @@ export const data: Product[] = [
       'November',
       'December'
     ],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Collard Greens',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-collard-greens-350x184.62de2995.jpg',
+    image: 'vegetable-collard-greens-350x184.62de2995',
     months: [
       'January',
       'February',
@@ -490,11 +490,11 @@ export const data: Product[] = [
       'October',
       'September'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Corn',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-corn-350x184.65da7efb.jpg',
+    image: 'vegetable-corn-350x184.65da7efb',
     months: [
       'May',
       'June',
@@ -509,17 +509,17 @@ export const data: Product[] = [
       'April',
       'December'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Cranberries',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-cranberries-350x184.f4c34724.jpg',
+    image: 'fruit-cranberries-350x184.f4c34724',
     months: [],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Cucumbers',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-cucumbers-350x184.512dbcf7.jpg',
+    image: 'vegetable-cucumbers-350x184.512dbcf7',
     months: [
       'January',
       'February',
@@ -534,35 +534,35 @@ export const data: Product[] = [
       'November',
       'December'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Currants',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-currants-350x184.bed07899.jpg',
+    image: 'fruit-currants-350x184.bed07899',
     months: [],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Dates',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-dates-350x184.d512e5a0.jpg',
+    image: 'fruit-dates-350x184.d512e5a0',
     months: ['September', 'October'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Dragon Fruit',
-    image: 'https://www.seasonalfoodguide.org/img/dragon-fruit-350x184.adbd5082.jpg',
+    image: 'dragon-fruit-350x184.adbd5082',
     months: ['May', 'June', 'July', 'August', 'September', 'October'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Edamame',
-    image: 'https://www.seasonalfoodguide.org/img/legume-edamame-350x184.a730f67f.jpg',
+    image: 'legume-edamame-350x184.a730f67f',
     months: ['June', 'July', 'August', 'September'],
-    type: ProductType.Legume
+    type: PT.Legume
   },
   {
     name: 'Eggplant',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-eggplant-350x184.9a59b6f0.jpg',
+    image: 'vegetable-eggplant-350x184.9a59b6f0',
     months: [
       'January',
       'February',
@@ -577,23 +577,23 @@ export const data: Product[] = [
       'December',
       'June'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Endive',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-endive-350x184.2629c86c.jpg',
+    image: 'vegetable-endive-350x184.2629c86c',
     months: ['January', 'February', 'March', 'November', 'December', 'September', 'October'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Fava Beans',
-    image: 'https://www.seasonalfoodguide.org/img/legume-fava-beans-350x184.35c359d0.jpg',
+    image: 'legume-fava-beans-350x184.35c359d0',
     months: ['February', 'March', 'April', 'May', 'June'],
-    type: ProductType.Legume
+    type: PT.Legume
   },
   {
     name: 'Fennel',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-fennel-350x184.9436177e.jpg',
+    image: 'vegetable-fennel-350x184.9436177e',
     months: [
       'January',
       'February',
@@ -605,23 +605,23 @@ export const data: Product[] = [
       'April',
       'August'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Fiddleheads',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-fiddleheads-350x184.2fdee825.jpg',
+    image: 'vegetable-fiddleheads-350x184.2fdee825',
     months: [],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Figs',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-figs-350x184.77c2e287.jpg',
+    image: 'fruit-figs-350x184.77c2e287',
     months: ['May', 'June', 'July', 'August', 'September', 'October', 'November'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Garlic',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-garlic-350x184.a4e8750b.jpg',
+    image: 'vegetable-garlic-350x184.a4e8750b',
     months: [
       'February',
       'March',
@@ -636,29 +636,29 @@ export const data: Product[] = [
       'November',
       'December'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Garlic Scapes',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-garlic-scapes-350x184.cd211898.jpg',
+    image: 'vegetable-garlic-scapes-350x184.cd211898',
     months: ['February', 'March', 'April', 'May', 'June'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Ginger',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-ginger-350x184.b77b697e.jpg',
+    image: 'vegetable-ginger-350x184.b77b697e',
     months: ['February', 'March', 'April', 'May', 'June', 'September', 'October'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Gooseberries',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-gooseberries-350x184.cb283fcf.jpg',
+    image: 'fruit-gooseberries-350x184.cb283fcf',
     months: ['July', 'August'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Grapefruit',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-grapefruit-350x184.3ee59be6.jpg',
+    image: 'fruit-grapefruit-350x184.3ee59be6',
     months: [
       'January',
       'February',
@@ -673,17 +673,17 @@ export const data: Product[] = [
       'November',
       'December'
     ],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Grapes',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-grapes-350x184.75835862.jpg',
+    image: 'fruit-grapes-350x184.75835862',
     months: ['May', 'June', 'July', 'August', 'September', 'October'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Green Beans',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-green-beans-350x184.45dc361f.jpg',
+    image: 'vegetable-green-beans-350x184.45dc361f',
     months: [
       'May',
       'June',
@@ -696,11 +696,11 @@ export const data: Product[] = [
       'July',
       'August'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Green Onions',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-green-onions-350x184.e9e6b422.jpg',
+    image: 'vegetable-green-onions-350x184.e9e6b422',
     months: [
       'January',
       'February',
@@ -715,11 +715,11 @@ export const data: Product[] = [
       'July',
       'August'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Ground Cherries',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-ground-cherries-350x184.14e19cf4.jpg',
+    image: 'fruit-ground-cherries-350x184.14e19cf4',
     months: [
       'January',
       'February',
@@ -734,35 +734,35 @@ export const data: Product[] = [
       'November',
       'December'
     ],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Guava',
-    image: 'https://www.seasonalfoodguide.org/img/guava-350x184.2af5596f.jpg',
+    image: 'guava-350x184.2af5596f',
     months: [],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Horseradish',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-horseradish-350x184.65063c02.jpg',
+    image: 'vegetable-horseradish-350x184.65063c02',
     months: ['January', 'February', 'December', 'March', 'April', 'October', 'November'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Jackfruit',
-    image: 'https://www.seasonalfoodguide.org/img/jackfruit-350x184.8c77a40b.jpg',
+    image: 'jackfruit-350x184.8c77a40b',
     months: ['June', 'July', 'August', 'September'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Jicama',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-jicama-350x184.279fdff4.jpg',
+    image: 'vegetable-jicama-350x184.279fdff4',
     months: ['January', 'February', 'March', 'November', 'December'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Kale',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-kale-350x184.1f8c4674.jpg',
+    image: 'vegetable-kale-350x184.1f8c4674',
     months: [
       'January',
       'February',
@@ -775,17 +775,17 @@ export const data: Product[] = [
       'September',
       'October'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Kiwi',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-kiwi-350x184.02ec974b.jpg',
+    image: 'fruit-kiwi-350x184.02ec974b',
     months: [],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Kohlrabi',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-kohlrabi-350x184.e519a997.jpg',
+    image: 'vegetable-kohlrabi-350x184.e519a997',
     months: [
       'January',
       'February',
@@ -800,17 +800,17 @@ export const data: Product[] = [
       'October',
       'November'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Kumquats',
-    image: 'https://www.seasonalfoodguide.org/img/kumquats-350x184.d192b080.jpg',
+    image: 'kumquats-350x184.d192b080',
     months: [],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: "Lamb's Quarters",
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-lambs-quarters-350x184.24a0f185.jpg',
+    image: 'vegetable-lambs-quarters-350x184.24a0f185',
     months: [
       'June',
       'July',
@@ -825,17 +825,17 @@ export const data: Product[] = [
       'January',
       'February'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Lavender',
-    image: 'https://www.seasonalfoodguide.org/img/herb-lavender-350x184.b34252b4.jpg',
+    image: 'herb-lavender-350x184.b34252b4',
     months: ['July', 'August', 'September', 'October'],
-    type: ProductType.Herb
+    type: PT.Herb
   },
   {
     name: 'Leeks',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-leeks-350x184.1fdc8afc.jpg',
+    image: 'vegetable-leeks-350x184.1fdc8afc',
     months: [
       'January',
       'February',
@@ -850,17 +850,17 @@ export const data: Product[] = [
       'September',
       'October'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Lemongrass',
-    image: 'https://www.seasonalfoodguide.org/img/herb-lemongrass-350x184.0aa8e67e.jpg',
+    image: 'herb-lemongrass-350x184.0aa8e67e',
     months: ['June', 'July', 'August', 'September'],
-    type: ProductType.Herb
+    type: PT.Herb
   },
   {
     name: 'Lemons',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-lemons-350x184.0a14127c.jpg',
+    image: 'fruit-lemons-350x184.0a14127c',
     months: [
       'January',
       'February',
@@ -872,11 +872,11 @@ export const data: Product[] = [
       'December',
       'April'
     ],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Lettuce',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-lettuce-350x184.2b78d434.jpg',
+    image: 'vegetable-lettuce-350x184.2b78d434',
     months: [
       'January',
       'February',
@@ -891,11 +891,11 @@ export const data: Product[] = [
       'August',
       'September'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Lima Beans',
-    image: 'https://www.seasonalfoodguide.org/img/legume-lima-beans-350x184.e0b4252a.jpg',
+    image: 'legume-lima-beans-350x184.e0b4252a',
     months: [
       'July',
       'August',
@@ -907,53 +907,53 @@ export const data: Product[] = [
       'November',
       'December'
     ],
-    type: ProductType.Legume
+    type: PT.Legume
   },
   {
     name: 'Limes',
-    image: 'https://www.seasonalfoodguide.org/img/limes-350x184.57470cda.jpg',
+    image: 'limes-350x184.57470cda',
     months: ['January', 'February', 'March', 'April', 'September', 'November', 'December'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Longan',
-    image: 'https://www.seasonalfoodguide.org/img/longan-350x184.65e7b5a9.jpg',
+    image: 'longan-350x184.65e7b5a9',
     months: ['July', 'August'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Loquats',
-    image: 'https://www.seasonalfoodguide.org/img/loquats-350x184.37ce8acb.jpg',
+    image: 'loquats-350x184.37ce8acb',
     months: ['January', 'February', 'March', 'April', 'May', 'June'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Lychee',
-    image: 'https://www.seasonalfoodguide.org/img/lychee-350x184.c3013a53.jpg',
+    image: 'lychee-350x184.c3013a53',
     months: ['May', 'June'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Malabar Spinach',
-    image: 'https://www.seasonalfoodguide.org/img/malabar-spinach-350x184.fd8cb3eb.jpg',
+    image: 'malabar-spinach-350x184.fd8cb3eb',
     months: ['July', 'August'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Mamey Sapote',
-    image: 'https://www.seasonalfoodguide.org/img/mamey-sapote-350x184.7c63e33f.jpg',
+    image: 'mamey-sapote-350x184.7c63e33f',
     months: ['February', 'March', 'April', 'May', 'June', 'July', 'August', 'September'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Mamoncillo',
-    image: 'https://www.seasonalfoodguide.org/img/mamoncillo-350x184.509d1ea2.jpg',
+    image: 'mamoncillo-350x184.509d1ea2',
     months: ['August'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Mandarins',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-mandarins-350x184.900290b1.jpg',
+    image: 'fruit-mandarins-350x184.900290b1',
     months: [
       'January',
       'February',
@@ -965,17 +965,17 @@ export const data: Product[] = [
       'December',
       'April'
     ],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Mangoes',
-    image: 'https://www.seasonalfoodguide.org/img/mangoes-350x184.76b4e579.jpg',
+    image: 'mangoes-350x184.76b4e579',
     months: ['May', 'June', 'July', 'August'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Melons',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-melons-350x184.61adc127.jpg',
+    image: 'fruit-melons-350x184.61adc127',
     months: [
       'May',
       'June',
@@ -990,11 +990,11 @@ export const data: Product[] = [
       'November',
       'December'
     ],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Mint',
-    image: 'https://www.seasonalfoodguide.org/img/herb-mint-350x184.f9ded9e0.jpg',
+    image: 'herb-mint-350x184.f9ded9e0',
     months: [
       'April',
       'May',
@@ -1009,23 +1009,23 @@ export const data: Product[] = [
       'November',
       'December'
     ],
-    type: ProductType.Herb
+    type: PT.Herb
   },
   {
     name: 'Morels',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-morels-350x184.9b27b184.jpg',
+    image: 'vegetable-morels-350x184.9b27b184',
     months: ['March', 'April', 'May'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Moringa',
-    image: 'https://www.seasonalfoodguide.org/img/moringa-350x184.59d3c7ca.jpg',
+    image: 'moringa-350x184.59d3c7ca',
     months: ['January', 'February', 'March', 'April', 'May', 'June', 'November', 'December'],
-    type: ProductType.Herb
+    type: PT.Herb
   },
   {
     name: 'Mushrooms',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-mushrooms-350x184.092d7b6c.jpg',
+    image: 'vegetable-mushrooms-350x184.092d7b6c',
     months: [
       'January',
       'February',
@@ -1040,11 +1040,11 @@ export const data: Product[] = [
       'November',
       'December'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Mustard Greens',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-mustard-greens-350x184.5076f7e9.jpg',
+    image: 'vegetable-mustard-greens-350x184.5076f7e9',
     months: [
       'January',
       'February',
@@ -1057,47 +1057,47 @@ export const data: Product[] = [
       'October',
       'September'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Mysore Raspberries',
-    image: 'https://www.seasonalfoodguide.org/img/mysore-raspberry-350x184.ed763413.jpg',
+    image: 'mysore-raspberry-350x184.ed763413',
     months: ['February', 'March', 'April', 'May'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Nectarines',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-nectarines-350x184.3821db6e.jpg',
+    image: 'fruit-nectarines-350x184.3821db6e',
     months: ['May', 'June', 'July', 'August', 'September'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Nettles',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-nettles-350x184.71b6d028.jpg',
+    image: 'vegetable-nettles-350x184.71b6d028',
     months: ['March', 'April'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Nopales',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-nopales-350x184.897b7557.jpg',
+    image: 'vegetable-nopales-350x184.897b7557',
     months: ['September', 'October', 'November', 'December'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Okra',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-okra-350x184.5fafe344.jpg',
+    image: 'vegetable-okra-350x184.5fafe344',
     months: ['July', 'August', 'September', 'October', 'June'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Olives',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-olives-350x184.bc25cf7a.jpg',
+    image: 'vegetable-olives-350x184.bc25cf7a',
     months: [],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Onions',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-onions-350x184.cd92d786.jpg',
+    image: 'vegetable-onions-350x184.cd92d786',
     months: [
       'April',
       'May',
@@ -1112,17 +1112,17 @@ export const data: Product[] = [
       'March',
       'December'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Orach',
-    image: 'https://www.seasonalfoodguide.org/img/orach-350x184.508766f8.jpg',
+    image: 'orach-350x184.508766f8',
     months: [],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Oranges',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-oranges-350x184.61e6237b.jpg',
+    image: 'fruit-oranges-350x184.61e6237b',
     months: [
       'January',
       'February',
@@ -1135,11 +1135,11 @@ export const data: Product[] = [
       'September',
       'October'
     ],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Oregano',
-    image: 'https://www.seasonalfoodguide.org/img/herb-oregano-350x184.a3c0b878.jpg',
+    image: 'herb-oregano-350x184.a3c0b878',
     months: [
       'April',
       'May',
@@ -1154,17 +1154,17 @@ export const data: Product[] = [
       'November',
       'December'
     ],
-    type: ProductType.Herb
+    type: PT.Herb
   },
   {
     name: 'Papaya',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-papaya-350x184.0fdd5ff8.jpg',
+    image: 'fruit-papaya-350x184.0fdd5ff8',
     months: ['May', 'June', 'July', 'August', 'September'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Parsley',
-    image: 'https://www.seasonalfoodguide.org/img/herb-parsley-350x184.4fb0a817.jpg',
+    image: 'herb-parsley-350x184.4fb0a817',
     months: [
       'January',
       'February',
@@ -1179,11 +1179,11 @@ export const data: Product[] = [
       'August',
       'September'
     ],
-    type: ProductType.Herb
+    type: PT.Herb
   },
   {
     name: 'Parsnips',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-parsnips-350x184.29db5517.jpg',
+    image: 'vegetable-parsnips-350x184.29db5517',
     months: [
       'May',
       'June',
@@ -1195,35 +1195,35 @@ export const data: Product[] = [
       'September',
       'October'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Passionfruit',
-    image: 'https://www.seasonalfoodguide.org/img/passionfruit-350x184.9710323e.jpg',
+    image: 'passionfruit-350x184.9710323e',
     months: ['May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Pawpaw',
-    image: 'https://www.seasonalfoodguide.org/img/pawpaw-350x184.8dbdda50.jpg',
+    image: 'pawpaw-350x184.8dbdda50',
     months: ['August', 'September'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Pea Shoots',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-pea-shoots-350x184.e0594cb0.jpg',
+    image: 'vegetable-pea-shoots-350x184.e0594cb0',
     months: ['April', 'May', 'June', 'July', 'August', 'September', 'March', 'February'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Peaches',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-peaches-350x184.44b93b2b.jpg',
+    image: 'fruit-peaches-350x184.44b93b2b',
     months: ['May', 'June', 'August', 'July', 'September', 'April'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Peanuts',
-    image: 'https://www.seasonalfoodguide.org/img/legume-peanuts-350x184.7101e4ac.jpg',
+    image: 'legume-peanuts-350x184.7101e4ac',
     months: [
       'January',
       'February',
@@ -1237,17 +1237,17 @@ export const data: Product[] = [
       'October',
       'November'
     ],
-    type: ProductType.Legume
+    type: PT.Legume
   },
   {
     name: 'Pears',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-pears-350x184.e2955f6b.jpg',
+    image: 'fruit-pears-350x184.e2955f6b',
     months: ['August', 'September', 'October', 'November', 'June', 'July'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Peas',
-    image: 'https://www.seasonalfoodguide.org/img/legume-peas-350x184.08154146.jpg',
+    image: 'legume-peas-350x184.08154146',
     months: [
       'April',
       'May',
@@ -1259,17 +1259,17 @@ export const data: Product[] = [
       'November',
       'December'
     ],
-    type: ProductType.Legume
+    type: PT.Legume
   },
   {
     name: 'Pecans',
-    image: 'https://www.seasonalfoodguide.org/img/nut-pecans-350x184.da469f76.jpg',
+    image: 'nut-pecans-350x184.da469f76',
     months: ['January', 'November', 'December', 'October', 'September'],
-    type: ProductType.Nut
+    type: PT.Nut
   },
   {
     name: 'Peppers',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-peppers-350x184.69532f6a.jpg',
+    image: 'vegetable-peppers-350x184.69532f6a',
     months: [
       'June',
       'July',
@@ -1283,17 +1283,17 @@ export const data: Product[] = [
       'May',
       'December'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Persimmons',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-persimmons-350x184.151db2b0.jpg',
+    image: 'fruit-persimmons-350x184.151db2b0',
     months: ['September', 'October', 'November', 'December', 'August'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Pigeon Peas',
-    image: 'https://www.seasonalfoodguide.org/img/pigeon-peas-350x184.73856999.jpg',
+    image: 'pigeon-peas-350x184.73856999',
     months: [
       'January',
       'February',
@@ -1305,35 +1305,35 @@ export const data: Product[] = [
       'September',
       'October'
     ],
-    type: ProductType.Legume
+    type: PT.Legume
   },
   {
     name: 'Pineapple',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-pineapple-350x184.8a3f54ef.jpg',
+    image: 'fruit-pineapple-350x184.8a3f54ef',
     months: ['May', 'June'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Pistachios',
-    image: 'https://www.seasonalfoodguide.org/img/nut-pistachios-350x184.5d3a262b.jpg',
+    image: 'nut-pistachios-350x184.5d3a262b',
     months: ['August', 'September', 'October', 'November'],
-    type: ProductType.Nut
+    type: PT.Nut
   },
   {
     name: 'Plums',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-plums-350x184.fe75b3f3.jpg',
+    image: 'fruit-plums-350x184.fe75b3f3',
     months: ['June', 'July', 'August', 'May', 'September'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Pomegranates',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-pomegranates-350x184.4f4cc50a.jpg',
+    image: 'fruit-pomegranates-350x184.4f4cc50a',
     months: ['September', 'October', 'November', 'December'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Potatoes',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-potatoes-350x184.7696098a.jpg',
+    image: 'vegetable-potatoes-350x184.7696098a',
     months: [
       'April',
       'May',
@@ -1348,11 +1348,11 @@ export const data: Product[] = [
       'November',
       'December'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Pummelo',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-pummelo-350x184.a674197e.jpg',
+    image: 'fruit-pummelo-350x184.a674197e',
     months: [
       'January',
       'February',
@@ -1367,17 +1367,17 @@ export const data: Product[] = [
       'November',
       'December'
     ],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Pumpkin',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-pumpkin-350x184.f43879f9.jpg',
+    image: 'vegetable-pumpkin-350x184.f43879f9',
     months: ['September', 'October', 'November', 'August'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Purslane',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-purslane-350x184.ea4cafae.jpg',
+    image: 'vegetable-purslane-350x184.ea4cafae',
     months: [
       'June',
       'July',
@@ -1392,23 +1392,23 @@ export const data: Product[] = [
       'January',
       'February'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Quince',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-quince-350x184.05859554.jpg',
+    image: 'fruit-quince-350x184.05859554',
     months: ['November', 'September', 'October'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Radicchio',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-radicchio-350x184.82c5c639.jpg',
+    image: 'vegetable-radicchio-350x184.82c5c639',
     months: ['January', 'February', 'March', 'December', 'September', 'October', 'November'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Radishes',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-radishes-350x184.facd6e15.jpg',
+    image: 'vegetable-radishes-350x184.facd6e15',
     months: [
       'January',
       'February',
@@ -1421,23 +1421,23 @@ export const data: Product[] = [
       'June',
       'September'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Rambutan',
-    image: 'https://www.seasonalfoodguide.org/img/rambutan-350x184.3d5f8dab.jpg',
+    image: 'rambutan-350x184.3d5f8dab',
     months: [],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Ramps',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-ramps-350x184.a5a98911.jpg',
+    image: 'vegetable-ramps-350x184.a5a98911',
     months: [],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Rapini',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-rapini-350x184.77317b51.jpg',
+    image: 'vegetable-rapini-350x184.77317b51',
     months: [
       'January',
       'February',
@@ -1451,23 +1451,23 @@ export const data: Product[] = [
       'August',
       'September'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Raspberries',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-raspberries-350x184.5c8cdd26.jpg',
+    image: 'fruit-raspberries-350x184.5c8cdd26',
     months: ['May', 'June', 'July', 'August', 'September', 'October'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Rhubarb',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-rhubarb-350x184.c59dc028.jpg',
+    image: 'vegetable-rhubarb-350x184.c59dc028',
     months: ['May', 'June', 'February', 'March', 'April'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Rosemary',
-    image: 'https://www.seasonalfoodguide.org/img/herb-rosemary-350x184.5dbee331.jpg',
+    image: 'herb-rosemary-350x184.5dbee331',
     months: [
       'April',
       'May',
@@ -1482,17 +1482,17 @@ export const data: Product[] = [
       'March',
       'December'
     ],
-    type: ProductType.Herb
+    type: PT.Herb
   },
   {
     name: 'Rutabaga',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-rutabaga-350x184.06b51b7a.jpg',
+    image: 'vegetable-rutabaga-350x184.06b51b7a',
     months: ['January', 'February', 'March', 'December', 'September', 'October', 'November'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Sage',
-    image: 'https://www.seasonalfoodguide.org/img/herb-sage-350x184.f51d1d8a.jpg',
+    image: 'herb-sage-350x184.f51d1d8a',
     months: [
       'April',
       'May',
@@ -1507,23 +1507,23 @@ export const data: Product[] = [
       'March',
       'December'
     ],
-    type: ProductType.Herb
+    type: PT.Herb
   },
   {
     name: 'Salsify',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-salsify-350x184.550d9b75.jpg',
+    image: 'vegetable-salsify-350x184.550d9b75',
     months: ['January', 'October', 'November', 'December', 'February'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Sapodilla',
-    image: 'https://www.seasonalfoodguide.org/img/sapodilla-350x184.898467af.jpg',
+    image: 'sapodilla-350x184.898467af',
     months: ['January', 'February', 'March', 'April', 'May', 'June', 'December'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Shallots',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-shallots-350x184.9ae1797c.jpg',
+    image: 'vegetable-shallots-350x184.9ae1797c',
     months: [
       'May',
       'June',
@@ -1538,11 +1538,11 @@ export const data: Product[] = [
       'December',
       'November'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Shell Beans',
-    image: 'https://www.seasonalfoodguide.org/img/legume-shell-beans-350x184.997b60af.jpg',
+    image: 'legume-shell-beans-350x184.997b60af',
     months: [
       'July',
       'August',
@@ -1557,23 +1557,23 @@ export const data: Product[] = [
       'November',
       'December'
     ],
-    type: ProductType.Legume
+    type: PT.Legume
   },
   {
     name: 'Snap Peas',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-snap-peas-350x184.7fc946f9.jpg',
+    image: 'vegetable-snap-peas-350x184.7fc946f9',
     months: ['April', 'May', 'June', 'July', 'February', 'March'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Snow Peas',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-snow-peas-350x184.b5c6e865.jpg',
+    image: 'vegetable-snow-peas-350x184.b5c6e865',
     months: ['April', 'May', 'June', 'July', 'February', 'March'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Sorrel',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-sorrel-350x184.5994f408.jpg',
+    image: 'vegetable-sorrel-350x184.5994f408',
     months: [
       'January',
       'February',
@@ -1588,11 +1588,11 @@ export const data: Product[] = [
       'August',
       'September'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Spinach',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-spinach-350x184.b177092f.jpg',
+    image: 'vegetable-spinach-350x184.b177092f',
     months: [
       'January',
       'February',
@@ -1607,11 +1607,11 @@ export const data: Product[] = [
       'August',
       'September'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Sprouts',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-sprouts-350x184.1273c6eb.jpg',
+    image: 'vegetable-sprouts-350x184.1273c6eb',
     months: [
       'January',
       'February',
@@ -1626,41 +1626,41 @@ export const data: Product[] = [
       'November',
       'December'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Starfruit',
-    image: 'https://www.seasonalfoodguide.org/img/starfruit-350x184.48245a8f.jpg',
+    image: 'starfruit-350x184.48245a8f',
     months: ['January', 'July', 'August', 'September', 'October', 'November', 'December'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Strawberries',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-strawberries-350x184.c543eb30.jpg',
+    image: 'fruit-strawberries-350x184.c543eb30',
     months: ['February', 'March', 'April', 'January', 'December', 'June', 'July'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Sugarcane',
-    image: 'https://www.seasonalfoodguide.org/img/sugarcane-350x184.e1df830e.jpg',
+    image: 'sugarcane-350x184.e1df830e',
     months: ['January', 'September', 'October', 'November', 'December'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Summer Squash',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-summer-squash-350x184.3570238d.jpg',
+    image: 'vegetable-summer-squash-350x184.3570238d',
     months: ['June', 'July', 'August', 'September', 'October', 'April', 'May', 'November'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Sunchokes',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-sunchokes-350x184.f2cec4a2.jpg',
+    image: 'vegetable-sunchokes-350x184.f2cec4a2',
     months: ['January', 'February', 'March', 'May', 'June', 'July'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Sweet Potatoes',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-sweet-potatoes-350x184.dce4afa8.jpg',
+    image: 'vegetable-sweet-potatoes-350x184.dce4afa8',
     months: [
       'January',
       'February',
@@ -1673,11 +1673,11 @@ export const data: Product[] = [
       'April',
       'May'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Tangerines',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-tangerines-350x184.9a7aa6ac.jpg',
+    image: 'fruit-tangerines-350x184.9a7aa6ac',
     months: [
       'November',
       'December',
@@ -1688,17 +1688,17 @@ export const data: Product[] = [
       'September',
       'October'
     ],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Taro',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-taro-350x184.37ddf6d3.jpg',
+    image: 'vegetable-taro-350x184.37ddf6d3',
     months: ['March', 'April', 'May', 'June', 'July', 'November', 'December'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Taro Leaf',
-    image: 'https://www.seasonalfoodguide.org/img/taro-leaf-350x184.72f45792.jpg',
+    image: 'taro-leaf-350x184.72f45792',
     months: [
       'January',
       'February',
@@ -1711,11 +1711,11 @@ export const data: Product[] = [
       'November',
       'December'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Tarragon',
-    image: 'https://www.seasonalfoodguide.org/img/herb-tarragon-350x184.da9ff418.jpg',
+    image: 'herb-tarragon-350x184.da9ff418',
     months: [
       'April',
       'May',
@@ -1730,11 +1730,11 @@ export const data: Product[] = [
       'November',
       'December'
     ],
-    type: ProductType.Herb
+    type: PT.Herb
   },
   {
     name: 'Thyme',
-    image: 'https://www.seasonalfoodguide.org/img/herb-thyme-350x184.3c18b641.jpg',
+    image: 'herb-thyme-350x184.3c18b641',
     months: [
       'January',
       'February',
@@ -1749,11 +1749,11 @@ export const data: Product[] = [
       'November',
       'December'
     ],
-    type: ProductType.Herb
+    type: PT.Herb
   },
   {
     name: 'Tomatillos',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-tomatillos-350x184.7a8333e6.jpg',
+    image: 'fruit-tomatillos-350x184.7a8333e6',
     months: [
       'January',
       'February',
@@ -1768,11 +1768,11 @@ export const data: Product[] = [
       'November',
       'December'
     ],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Tomatoes',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-tomatoes-350x184.92929a98.jpg',
+    image: 'fruit-tomatoes-350x184.92929a98',
     months: [
       'January',
       'February',
@@ -1787,17 +1787,17 @@ export const data: Product[] = [
       'November',
       'December'
     ],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Turmeric',
-    image: 'https://www.seasonalfoodguide.org/img/turmeric-350x184.36a75dba.jpg',
+    image: 'turmeric-350x184.36a75dba',
     months: ['January', 'February', 'March', 'April', 'May', 'June'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Turnips',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-turnips-350x184.90a9c85d.jpg',
+    image: 'vegetable-turnips-350x184.90a9c85d',
     months: [
       'January',
       'February',
@@ -1812,29 +1812,29 @@ export const data: Product[] = [
       'July',
       'August'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Watercress',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-watercress-350x184.a18b7673.jpg',
+    image: 'vegetable-watercress-350x184.a18b7673',
     months: ['April', 'May', 'June', 'July', 'August', 'September'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Watermelon',
-    image: 'https://www.seasonalfoodguide.org/img/fruit-watermelon-350x184.052cb475.jpg',
+    image: 'fruit-watermelon-350x184.052cb475',
     months: ['May', 'June', 'July', 'August', 'September', 'October', 'November'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'White Sapote',
-    image: 'https://www.seasonalfoodguide.org/img/white-sapote-350x184.b5910162.jpg',
+    image: 'white-sapote-350x184.b5910162',
     months: ['June'],
-    type: ProductType.Fruit
+    type: PT.Fruit
   },
   {
     name: 'Winter Squash',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-winter-squash-350x184.ea5b9d86.jpg',
+    image: 'vegetable-winter-squash-350x184.ea5b9d86',
     months: [
       'September',
       'October',
@@ -1848,17 +1848,17 @@ export const data: Product[] = [
       'July',
       'August'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Yacon',
-    image: 'https://www.seasonalfoodguide.org/img/yacon-350x184.80bdcb57.jpg',
+    image: 'yacon-350x184.80bdcb57',
     months: [],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Yams',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-yams-350x184.6b4a3fff.jpg',
+    image: 'vegetable-yams-350x184.6b4a3fff',
     months: [
       'January',
       'February',
@@ -1873,18 +1873,18 @@ export const data: Product[] = [
       'November',
       'December'
     ],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Yuca',
-    image: 'https://www.seasonalfoodguide.org/img/yucca-350x184.e9e7e0c5.jpg',
+    image: 'yucca-350x184.e9e7e0c5',
     months: ['September', 'October', 'November', 'December'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   },
   {
     name: 'Zucchini',
-    image: 'https://www.seasonalfoodguide.org/img/vegetable-zucchini-350x184.be34cbb6.jpg',
+    image: 'vegetable-zucchini-350x184.be34cbb6',
     months: ['April', 'May', 'June', 'July', 'August', 'September', 'October', 'November'],
-    type: ProductType.Vegetable
+    type: PT.Vegetable
   }
 ]
