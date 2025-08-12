@@ -4,7 +4,7 @@
       <template #header>
         <h2 class="text-2xl font-bold my-6 text-center opacity-90">
           Showing
-          <span class="text-green-600">{{ productsForSelectedMonth.length }}</span>
+          <span class="text-cyan-500">{{ productsForSelectedMonth.length }}</span>
           products
         </h2>
       </template>

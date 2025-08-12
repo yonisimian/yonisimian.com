@@ -9,13 +9,16 @@
     />
     <div class="p-4 flex flex-col items-start justify-center gap-2">
       <h3 class="text-lg font-bold text-gray-800">{{ product.name }}</h3>
-      <VegetaGalleryCardBadge class="bg-green-100 text-green-800">
+      <VegetaGalleryCardBadge class="bg-cyan-100 text-cyan-800">
         {{ product.type }}
       </VegetaGalleryCardBadge>
-      <VegetaGalleryCardBadge class="bg-gray-200 text-gray-800">
+      <VegetaGalleryCardBadge class="bg-orange-100 text-orange-800">
         {{ monthsBadgeText }}
       </VegetaGalleryCardBadge>
-      <VegetaGalleryCardBadge v-if="isAvailableNow" class="bg-cyan-100 text-cyan-800 font-semibold">
+      <VegetaGalleryCardBadge
+        v-if="isAvailableNow"
+        class="bg-fuchsia-100 text-fuchsia-800 font-semibold"
+      >
         Available now!
       </VegetaGalleryCardBadge>
     </div>
@@ -27,6 +30,7 @@ import { type Product, months } from '/@/types/vegetavailable'
 
 const props = defineProps<{
   product: Product
+  index: number
 }>()
 
 const sortedMonths = months
