@@ -6,6 +6,17 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useSeoMeta } from '@unhead/vue'
+
+useSeoMeta({
+  title: "Mom's Vegetables",
+  description: "Find out what's in season or search for your favorite products ♥",
+  ogDescription:
+    "Mom, if I said I'll make you a vegetable thingy, I'll make it. No need to remind me every 6 months.",
+  ogTitle: 'Vegetable Thingy For My Mom',
+  ogImage: 'https://yonisimian.com/media/portfolio/pp.webp'
+})
+</script>
 
 <style scoped></style>

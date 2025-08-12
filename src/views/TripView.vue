@@ -15,7 +15,7 @@ loadTrip()
 
 useSeoMeta({
   title: 'The Big Trip',
-  description: 'A showcase of my big trip around the world, winter 2024 .',
+  description: 'A showcase of my big trip around the world, winter 2024.',
   ogDescription:
     'Allow me to share with you a journey spans continents and cultures, showcasing beauty, diversity, as well as a shallow dive into my heart and thoughts. ',
   ogTitle: "Yoni's trip around the world, winter 2024",
