@@ -6,7 +6,7 @@
       v-if="products.length > 0"
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6"
     >
-      <VegetaGalleryCard v-for="product in products" :key="product.name" :product />
+      <VegetaGalleryCard v-for="(product, index) in products" :key="product.name" :product :index />
     </div>
     <div v-else class="text-center py-12">
       <slot name="empty" />
