@@ -104,7 +104,6 @@ declare module 'vue' {
     VegetaBadge: typeof import('./components/vegetavailable/query/VegetaBadge.vue')['default']
     VegetaGallery: typeof import('./components/vegetavailable/main/VegetaGallery.vue')['default']
     VegetaGalleryCard: typeof import('./components/vegetavailable/main/VegetaGalleryCard.vue')['default']
-    VegetaGalleryCardBadge: typeof import('./components/vegetavailable/main/VegetaGalleryCardBadge.vue')['default']
     VegetaHeader: typeof import('./components/vegetavailable/VegetaHeader.vue')['default']
     VegetaMain: typeof import('./components/vegetavailable/VegetaMain.vue')['default']
     VegetaQuery: typeof import('./components/vegetavailable/VegetaQuery.vue')['default']

@@ -7,19 +7,34 @@
       :alt="product.name"
       class="w-full h-40 object-cover"
     />
-    <div class="p-4 flex flex-col items-start justify-center gap-2">
-      <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100 duration-1000">
+    <div class="p-4">
+      <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100 mb-3">
         {{ product.name }}
       </h3>
-      <VegetaGalleryCardBadge color="cyan">
-        {{ product.type }}
-      </VegetaGalleryCardBadge>
-      <VegetaGalleryCardBadge color="orange">
-        {{ monthsBadgeText }}
-      </VegetaGalleryCardBadge>
-      <VegetaGalleryCardBadge v-if="isAvailableNow" color="fuchsia">
-        Available now!
-      </VegetaGalleryCardBadge>
+
+      <div class="space-y-2 text-sm">
+        <div class="flex items-center justify-between">
+          <span class="text-gray-600 dark:text-gray-400 font-medium">Type</span>
+          <span class="text-gray-900 dark:text-gray-100 capitalize">{{ product.type }}</span>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <span class="text-gray-600 dark:text-gray-400 font-medium">Season</span>
+          <span class="text-gray-900 dark:text-gray-100">{{ monthsBadgeText }}</span>
+        </div>
+
+        <div
+          v-if="isAvailableNow"
+          class="flex items-center justify-center mt-3 pt-2 border-t border-gray-200 dark:border-gray-700"
+        >
+          <div class="flex items-center gap-2 text-green-600 dark:text-green-400 font-medium">
+            <div
+              class="w-2 h-2 bg-green-500 rounded-full animate-pulse animate-duration-3000"
+            ></div>
+            Available now
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
