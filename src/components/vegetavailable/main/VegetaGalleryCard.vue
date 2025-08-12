@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl"
+    class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl select-none"
   >
     <img
       :src="`https://www.seasonalfoodguide.org/img/${product.image}.jpg`"
