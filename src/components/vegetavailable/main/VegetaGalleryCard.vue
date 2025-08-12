@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl select-none"
+    class="card rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl select-none dark:bg-cyan-400/10 hover:dark:bg-cyan-400/20 backdrop-filter backdrop-blur-[3px] hover:backdrop-blur-[4px]"
   >
     <img
       :src="`https://www.seasonalfoodguide.org/img/${product.image}.jpg`"
@@ -8,17 +8,16 @@
       class="w-full h-40 object-cover"
     />
     <div class="p-4 flex flex-col items-start justify-center gap-2">
-      <h3 class="text-lg font-bold text-gray-800">{{ product.name }}</h3>
-      <VegetaGalleryCardBadge class="bg-cyan-100 text-cyan-800">
+      <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100 duration-1000">
+        {{ product.name }}
+      </h3>
+      <VegetaGalleryCardBadge color="cyan">
         {{ product.type }}
       </VegetaGalleryCardBadge>
-      <VegetaGalleryCardBadge class="bg-orange-100 text-orange-800">
+      <VegetaGalleryCardBadge color="orange">
         {{ monthsBadgeText }}
       </VegetaGalleryCardBadge>
-      <VegetaGalleryCardBadge
-        v-if="isAvailableNow"
-        class="bg-fuchsia-100 text-fuchsia-800 font-semibold"
-      >
+      <VegetaGalleryCardBadge v-if="isAvailableNow" color="fuchsia">
         Available now!
       </VegetaGalleryCardBadge>
     </div>
@@ -70,4 +69,14 @@ const monthsBadgeText = (() => {
 })()
 </script>
 
-<style scoped></style>
+<style scoped>
+.card :deep(img) {
+  transform: scale(1);
+  transition: transform 0.5s ease;
+}
+
+.card:hover :deep(img) {
+  transform: scale(1.05);
+  transition: transform 0.5s ease;
+}
+</style>
