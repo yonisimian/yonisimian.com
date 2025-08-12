@@ -9,7 +9,7 @@
         :value="activeSearch"
         @input="updateSearch(($event.target as HTMLInputElement).value)"
         placeholder="e.g., Strawberry, Tomato, Basil..."
-        class="w-full py-2 pl-12 pr-4 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
+        class="w-full py-2 pl-12 pr-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
       />
     </div>
   </div>
