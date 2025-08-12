@@ -3,22 +3,22 @@
     <hr class="w-xl max-w-[82vw] mx-auto bg-blue-gray-200 dark:bg-blue-gray-800 h-[2px] border-0" />
     <FooterIcons />
 
-    <nav class="flex flex-row justify-center gap-2 text-xs">
+    <nav class="flex flex-col sm:flex-row justify-center items-center gap-2 text-xs">
       <!-- <RouterLink to="/">Home</RouterLink>
       <p>•</p> -->
       <RouterLink :to="'/' + PortfolioRoute">My Portfolio</RouterLink>
-      <p>•</p>
+      <p class="hidden sm:block">•</p>
       <RouterLink :to="'/' + TripRoute">The Big Trip</RouterLink>
-      <p>•</p>
+      <p class="hidden sm:block">•</p>
       <RouterLink :to="'/' + CookbookRoute">Michal's Cookbook</RouterLink>
-      <p>•</p>
+      <p class="hidden sm:block">•</p>
       <RouterLink :to="'/' + VegetavailableRoute">Mom's Vegetables</RouterLink>
     </nav>
 
     <span class="text-xs">
       Made by
       <a
-        class="opacity-80 text-cyan-500 hover:text-cyan-400"
+        class="opacity-100 text-cyan-500 hover:text-cyan-400"
         href="https://github.com/yonisimian"
         rel="noreferrer"
         target="_blank"
