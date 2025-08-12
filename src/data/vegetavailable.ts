@@ -1637,7 +1637,7 @@ export const data: Product[] = [
   {
     name: 'Strawberries',
     image: 'fruit-strawberries-350x184.c543eb30',
-    months: ['February', 'March', 'April', 'January', 'December', 'June', 'July'],
+    months: ['February', 'March', 'April', 'January', 'December'],
     type: PT.Fruit
   },
   {
