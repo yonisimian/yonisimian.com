@@ -2,18 +2,11 @@
   <main>
     <VegetaGallery :products="productsForSelectedMonth">
       <template #header>
-        <h2 class="text-2xl font-bold my-6 text-center opacity-90">
-          Showing
-          <span class="text-cyan-500">{{ productsForSelectedMonth.length }}</span>
-          products
-        </h2>
+        <VegetaQueryTitle :products="productsForSelectedMonth" />
       </template>
       <template #empty>
-        <span class="i-ph-plant-duotone text-6xl text-gray-500 mb-4 inline-block" />
-        <p class="text-gray-500">
-          No specific products found for
-          {{ activeMonths }}
-        </p>
+        <span class="i-ph-plant-duotone text-6xl text-gray-500 mb-4 inline-block select-none" />
+        <p class="text-gray-500 select-none">No specific products found :(</p>
       </template>
     </VegetaGallery>
   </main>

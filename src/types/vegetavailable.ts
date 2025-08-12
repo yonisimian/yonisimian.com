@@ -63,3 +63,7 @@ export const monthOrder: Record<Month, number> = {
   November: 11,
   December: 12
 }
+
+export const monthSorter = (a: Month, b: Month): number => {
+  return monthOrder[a] - monthOrder[b]
+}
