@@ -40,7 +40,8 @@
 
 <script setup lang="ts">
 import { useVegetaState } from '/@/composables/useVegetaState'
-import { months, monthSorter, Product, ProductType } from '/@/types/vegetavailable'
+import { Product, ProductType } from '/@/types/vegetavailable'
+import { months, monthSorter } from '/@/utils/months'
 
 const { activeMonths, activeTypes, activeSearch } = useVegetaState()
 

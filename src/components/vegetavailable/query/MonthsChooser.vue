@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { months } from '/@/types/vegetavailable'
+import { months } from '/@/utils/months'
 import { useVegetaState } from '/@/composables/useVegetaState'
 
 const { activeMonths, toggleMonth } = useVegetaState()
