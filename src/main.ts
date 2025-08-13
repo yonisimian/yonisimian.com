@@ -9,6 +9,7 @@ import 'aos/dist/aos.css'
 
 import App from './App.vue'
 import './assets/styles/base.css'
+import { i18n } from '/@/i18n/index'
 
 const headOptions = {
   init: [
@@ -23,7 +24,5 @@ const headOptions = {
 initializeApp().then(() => {
   const app = createApp(App)
   const head = createHead(headOptions)
-  app.use(router)
-  app.use(head)
-  app.mount('#app')
+  app.use(router).use(head).use(i18n).mount('#app')
 })

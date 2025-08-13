@@ -22,6 +22,7 @@ declare module 'vue' {
     CarouselSlideVideo: typeof import('./components/trip/carousel/utils/slide/CarouselSlideVideo.vue')['default']
     CarouselThumbnail: typeof import('./components/trip/carousel/utils/CarouselThumbnail.vue')['default']
     CarouselTitle: typeof import('./components/trip/carousel/utils/CarouselTitle.vue')['default']
+    ChooseLanguage: typeof import('./components/common/ChooseLanguage.vue')['default']
     CookbookBackBackground: typeof import('./components/cookbook/gallery/cardBack/CookbookBackBackground.vue')['default']
     CookbookBackCard: typeof import('./components/cookbook/gallery/cardBack/CookbookBackCard.vue')['default']
     CookbookBackDesc: typeof import('./components/cookbook/gallery/cardBack/CookbookBackDesc.vue')['default']

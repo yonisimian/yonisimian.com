@@ -8,7 +8,7 @@
     ]"
     @click="toggleBadge(badge)"
   >
-    {{ badge }}
+    <slot />
   </div>
 </template>
 

@@ -1,10 +1,10 @@
 <template>
   <div class="w-full flex flex-col justify-center items-center">
-    <VegetaQueryDivider>choose month(s)</VegetaQueryDivider>
+    <VegetaQueryDivider>{{ $t('veg.chooseMonths') }}</VegetaQueryDivider>
     <MonthsChooser />
-    <VegetaQueryDivider>choose type(s)</VegetaQueryDivider>
+    <VegetaQueryDivider>{{ $t('veg.chooseTypes') }}</VegetaQueryDivider>
     <BadgesChooser />
-    <VegetaQueryDivider>search products' names</VegetaQueryDivider>
+    <VegetaQueryDivider>{{ $t('veg.searchProducts') }}</VegetaQueryDivider>
     <VegetaSearchBar />
   </div>
 </template>

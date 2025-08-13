@@ -1,0 +1,41 @@
+{
+  "veg": {
+    "title": "Hi mom!",
+    "subtitle": "Find out what's in season or search for your favorite products ♥",
+    "chooseMonths": "Choose month(s)",
+    "chooseTypes": "Choose type(s)",
+    "searchProducts": "Search products' names",
+    "searchPlaceholder": "e.g., Strawberry, Tomato, Basil...",
+    "productType": [
+      "Fruits",
+      "Vegetables",
+      "Herbs",
+      "Nuts",
+      "Legumes"
+    ],
+    "card": {
+      "type": "Type",
+      "season": "Season",
+      "notAvailable": "Not grown in Israel",
+      "availableAllYear": "Available all year",
+      "availableIn": "Available in ",
+      "to": "to",
+      "availableNow": "Available now",
+      "notAvailableNow": "Not in season"
+    }
+  },
+  "months": [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ]
+}

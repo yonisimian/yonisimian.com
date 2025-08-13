@@ -13,9 +13,13 @@ export interface ProductsByMonth {
 
 // TODO: make it numbers just like in months.ts
 export enum ProductType {
-  Vegetable = 'Vegetable',
-  Fruit = 'Fruit',
-  Herb = 'Herb',
-  Nut = 'Nut',
-  Legume = 'Legume'
+  Vegetable,
+  Fruit,
+  Herb,
+  Nut,
+  Legume
 }
+
+export const productTypeValues = Object.values(ProductType).filter(
+  (value) => typeof value === 'number'
+) as ProductType[]
