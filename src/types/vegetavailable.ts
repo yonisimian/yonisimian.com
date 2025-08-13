@@ -1,17 +1,4 @@
-export type Month =
-  | 'January'
-  | 'February'
-  | 'March'
-  | 'April'
-  | 'May'
-  | 'June'
-  | 'July'
-  | 'August'
-  | 'September'
-  | 'October'
-  | 'November'
-  | 'December'
-
+import { Month } from '/@/utils/months'
 export interface Product {
   name: string
   type: ProductType
@@ -24,46 +11,11 @@ export interface ProductsByMonth {
   products: Product[]
 }
 
+// TODO: make it numbers just like in months.ts
 export enum ProductType {
   Vegetable = 'Vegetable',
   Fruit = 'Fruit',
   Herb = 'Herb',
   Nut = 'Nut',
   Legume = 'Legume'
-}
-
-// TODO: move consts somewhere else?
-
-export const months: Month[] = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December'
-]
-
-export const monthOrder: Record<Month, number> = {
-  January: 1,
-  February: 2,
-  March: 3,
-  April: 4,
-  May: 5,
-  June: 6,
-  July: 7,
-  August: 8,
-  September: 9,
-  October: 10,
-  November: 11,
-  December: 12
-}
-
-export const monthSorter = (a: Month, b: Month): number => {
-  return monthOrder[a] - monthOrder[b]
 }

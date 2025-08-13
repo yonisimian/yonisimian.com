@@ -1,5 +1,6 @@
 import { useQueryParam } from './useQueryParam'
-import { Month, months, ProductType } from '/@/types/vegetavailable'
+import { ProductType } from '/@/types/vegetavailable'
+import { Month, months } from '/@/utils/months'
 // import { getCurrentMonth } from '../functions/vegetavailable'
 
 export const useVegetaState = () => {
@@ -11,7 +12,10 @@ export const useVegetaState = () => {
     default: [],
     parse: (value) => {
       if (!value) return []
-      return value.split(',').filter((m) => months.includes(m as Month)) as Month[]
+      return value
+        .split(',')
+        .map((m) => parseInt(m, 10))
+        .filter((m) => months.includes(m as Month)) as Month[]
     },
     stringify: (value) => {
       if (!value || value.length === 0) return ''

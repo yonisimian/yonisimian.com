@@ -40,16 +40,15 @@
 </template>
 
 <script setup lang="ts">
-import { type Product, months } from '/@/types/vegetavailable'
+import { type Product } from '/@/types/vegetavailable'
+import { months, monthSorter } from '/@/utils/months'
 
 const props = defineProps<{
   product: Product
   index: number
 }>()
 
-const sortedMonths = months
-  .filter((m) => props.product.months.includes(m))
-  .sort((a, b) => months.indexOf(a) - months.indexOf(b))
+const sortedMonths = months.filter((m) => props.product.months.includes(m)).sort(monthSorter)
 
 const rotateToUnwrapped = (numbers: number[]) => {
   for (let i = 1; i < numbers.length; i++) {
