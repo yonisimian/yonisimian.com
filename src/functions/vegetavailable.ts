@@ -1,5 +1,5 @@
-import { Month } from '/@/types/vegetavailable'
+import { Month } from '/@/utils/months'
 
 export const getCurrentMonth = (): Month => {
-  return new Date().toLocaleString('en-US', { month: 'long' }) as Month
+  return (new Date().getMonth() + 1) as Month
 }

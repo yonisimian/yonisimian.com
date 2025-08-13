@@ -1,13 +1,19 @@
 <template>
   <div class="container w-6xl max-w-[83vw] mx-auto mb-auto py-8">
-    <VegetaHeader />
-    <VegetaQuery />
-    <VegetaMain />
+    <ChooseLanguage />
+    <div class="w-full h-full" :dir="currDir">
+      <VegetaHeader />
+      <VegetaQuery />
+      <VegetaMain />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { useSeoMeta } from '@unhead/vue'
+import { useLang } from '/@/composables/useLang'
+
+const { currDir } = useLang()
 
 useSeoMeta({
   title: "Mom's Vegetables",

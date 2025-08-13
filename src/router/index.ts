@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { TripRoute, PortfolioRoute, CookbookRoute, VegetavailableRoute } from '/@/data/globals'
 import { useLoading } from '/@/composables/useLoading'
+import { i18n } from '/@/i18n/index'
+import { DEFAULT_LANGUAGE, isSupportedLanguage } from '/@/i18n/index'
 
 const { startLoadingSpinner, stopLoadingSpinner } = useLoading()
 // const defaultTripPath = `/${TripRoute}/${encodeURIStep(steps[0])}`
@@ -49,6 +51,14 @@ export const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   if (!isSameSegment(to.fullPath, from.fullPath)) startLoadingSpinner()
+  if (to.query.lang) {
+    if (isSupportedLanguage(to.query.lang)) {
+      i18n.global.locale.value = to.query.lang
+    } else {
+      console.warn(`Unsupported language: ${to.query.lang}. Defaulting to ${DEFAULT_LANGUAGE}.`)
+      i18n.global.locale.value = DEFAULT_LANGUAGE
+    }
+  }
   next()
 })
 

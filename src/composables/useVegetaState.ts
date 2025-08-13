@@ -29,7 +29,8 @@ export const useVegetaState = () => {
       if (!value) return []
       return value
         .split(',')
-        .filter((t) => Object.values(ProductType).includes(t as ProductType)) as ProductType[]
+        .map((t) => parseInt(t, 10))
+        .filter((t) => Object.values(ProductType).includes(t as ProductType))
     },
     stringify: (value) => {
       if (!value || value.length === 0) return ''
