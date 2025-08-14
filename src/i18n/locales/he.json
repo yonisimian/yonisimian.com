@@ -6,6 +6,22 @@
     "chooseTypes": "בחרי סוג(ים)",
     "searchProducts": "חפשי שמות מוצרים",
     "searchPlaceholder": "למשל, תות, עגבנייה, בזיליקום...",
+    "noProductFound": "לא נמצאו מוצרים העונים לקריטריונים :(",
+    "queryTitle": {
+      "showing": "מציג",
+      "product": "מוצר",
+      "products": "מוצרים",
+      "of": "מסוג",
+      "type": "",
+      "types": "",
+      "allTypes": "כל הסוגים",
+      "thatAreAvailable": "אשר זמין",
+      "thatAreAvailablePlural": "אשר זמינים",
+      "on": "ב-",
+      "allYear": "כל השנה",
+      "with": "עם",
+      "inTheName": "בשם"
+    },
     "card": {
       "type": "סוג",
       "season": "עונה",

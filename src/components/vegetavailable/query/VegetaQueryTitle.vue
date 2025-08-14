@@ -1,46 +1,60 @@
 <template>
   <h2 class="text-2xl font-bold my-6 text-center opacity-90">
-    Showing
+    {{ $t('veg.queryTitle.showing') }}
     <span class="text-cyan-500">{{ products.length }}</span>
-    {{ products.length === 1 ? 'product' : 'products' }}
+    {{ products.length === 1 ? $t('veg.queryTitle.product') : $t('veg.queryTitle.products') }}
     <span v-if="activeTypes.length">
-      of
+      {{ $t('veg.queryTitle.of') }}
       {{
         activeTypes.length == 1
-          ? 'type'
-          : activeTypes.length > 1 && activeTypes.length < Object.values(ProductType).length
-          ? 'types'
+          ? $t('veg.queryTitle.type')
+          : activeTypes.length > 1 && activeTypes.length < productTypeValues.length
+          ? $t('veg.queryTitle.types')
           : ''
       }}
       <span class="text-cyan-500">
         {{
-          activeTypes.length !== Object.values(ProductType).length
-            ? `${activeTypes.sort().join(', ')}`
-            : 'all types'
+          activeTypes.length !== productTypeValues.length
+            ? activeTypes
+                .sort()
+                .map((product) => $t(`veg.productType.${productTypeValues.indexOf(product)}`))
+                .join(', ')
+                .toLowerCase()
+                .concat(' ')
+            : $t('veg.queryTitle.allTypes')
         }}
       </span>
     </span>
     <span v-if="activeMonths.length">
-      that are available {{ activeMonths.length < months.length ? 'on' : '' }}
-      <span class="text-cyan-500">
+      {{
+        products.length == 1
+          ? $t('veg.queryTitle.thatAreAvailable')
+          : $t('veg.queryTitle.thatAreAvailablePlural')
+      }}
+      {{ activeMonths.length < months.length ? $t('veg.queryTitle.on') : ''
+      }}<span class="text-cyan-500">
         {{
           activeMonths.length < months.length
-            ? `${activeMonths.sort(monthSorter).join(', ')}`
-            : 'all year'
+            ? `${activeMonths
+                .sort(monthSorter)
+                .map((month) => $t(`months.${months.indexOf(month)}`))
+                .join(', ')}`
+            : $t('veg.queryTitle.allYear')
         }}
       </span>
     </span>
     <span v-if="activeSearch">
-      with
+      {{}}
+      {{ $t('veg.queryTitle.with') }}
       <span class="text-cyan-500">{{ activeSearch }}</span>
-      in the name
+      {{ $t('veg.queryTitle.inTheName') }}
     </span>
   </h2>
 </template>
 
 <script setup lang="ts">
 import { useVegetaState } from '/@/composables/useVegetaState'
-import { Product, ProductType } from '/@/types/vegetavailable'
+import { Product, productTypeValues } from '/@/types/vegetavailable'
 import { months, monthSorter } from '/@/utils/months'
 
 const { activeMonths, activeTypes, activeSearch } = useVegetaState()
