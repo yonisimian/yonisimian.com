@@ -6,6 +6,22 @@
     "chooseTypes": "Choose type(s)",
     "searchProducts": "Search products' names",
     "searchPlaceholder": "e.g., Strawberry, Tomato, Basil...",
+    "noProductFound": "No specific products found :(",
+    "queryTitle": {
+      "showing": "Showing",
+      "product": "product",
+      "products": "products",
+      "of": "of",
+      "type": "type",
+      "types": "types",
+      "allTypes": "all types",
+      "thatAreAvailable": "that are available",
+      "thatAreAvailablePlural": "that are available",
+      "on": "on ",
+      "allYear": "all year",
+      "with": "with",
+      "inTheName": "in the name"
+    },
     "card": {
       "type": "Type",
       "season": "Season",
