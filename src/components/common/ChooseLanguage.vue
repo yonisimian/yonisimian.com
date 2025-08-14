@@ -1,11 +1,14 @@
 <template>
-  <div class="language-chooser relative inline-block">
+  <div class="language-chooser relative inline-block w-32">
     <button
       @click="toggleDropdown"
-      class="flex items-center space-x-2 px-4 py-2 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+      class="flex items-center justify-between w-full space-x-2 px-2 rounded-lg hover:bg-cyan-100 dark:hover:bg-cyan-700 transition-all"
+      :class="isOpen ? '' : 'shadow-lg'"
     >
-      <span class="text-2xl">{{ currentLanguage.flag }}</span>
-      <span class="text-sm font-medium text-gray-700">{{ currentLanguage.name }}</span>
+      <span class="text-xl">{{ currentLanguage.flag }}</span>
+      <span class="text-sm font-medium text-gray-700 dark:text-gray-200">
+        {{ currentLanguage.name }}
+      </span>
       <svg
         class="w-4 h-4 text-gray-500 transition-transform"
         :class="{ 'rotate-180': isOpen }"
@@ -18,19 +21,22 @@
     </button>
 
     <div
-      v-if="isOpen"
-      class="absolute top-full left-0 mt-1 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+      class="absolute top-full w-full rounded-lg z-50 overflow-hidden shadow-lg transition-all duration-300 ease-in-out"
+      :class="isOpen ? 'opacity-100' : 'opacity-0'"
     >
-      <button
-        v-for="(metadata, lang) in languages"
-        :key="lang"
-        @click="selectLanguage(lang)"
-        class="w-full flex items-center space-x-3 px-4 py-3 text-left hover:bg-gray-50 transition-colors first:rounded-t-lg last:rounded-b-lg"
-        :class="{ 'bg-blue-50': currLang === lang }"
-      >
-        <span class="text-2xl">{{ metadata.flag }}</span>
-        <span class="text-sm font-medium text-gray-700">{{ metadata.name }}</span>
-      </button>
+      <div class="w-full h-full">
+        <button
+          v-for="(metadata, lang) in languages"
+          :key="lang"
+          @click="selectLanguage(lang)"
+          class="w-full flex items-center justify-between space-x-2 px-2 py-0 text-left hover:bg-cyan-100 dark:hover:bg-cyan-700 transition-colors first:rounded-t-lg last:rounded-b-lg"
+        >
+          <span class="text-xl">{{ metadata.flag }}</span>
+          <span class="text-sm font-medium text-gray-700 dark:text-gray-200">{{
+            metadata.name
+          }}</span>
+        </button>
+      </div>
     </div>
   </div>
 </template>
