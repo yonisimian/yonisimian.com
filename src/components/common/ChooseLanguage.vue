@@ -22,47 +22,45 @@
       class="absolute top-full left-0 mt-1 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-50"
     >
       <button
-        v-for="language in languages"
-        :key="language.code"
-        @click="selectLanguage(language)"
+        v-for="(metadata, lang) in languages"
+        :key="lang"
+        @click="selectLanguage(lang)"
         class="w-full flex items-center space-x-3 px-4 py-3 text-left hover:bg-gray-50 transition-colors first:rounded-t-lg last:rounded-b-lg"
-        :class="{ 'bg-blue-50': currentLanguage.code === language.code }"
+        :class="{ 'bg-blue-50': currLang === lang }"
       >
-        <span class="text-2xl">{{ language.flag }}</span>
-        <span class="text-sm font-medium text-gray-700">{{ language.name }}</span>
+        <span class="text-2xl">{{ metadata.flag }}</span>
+        <span class="text-sm font-medium text-gray-700">{{ metadata.name }}</span>
       </button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { useLang } from '/@/composables/useLang'
 import { Language } from '/@/i18n'
 
-const { setLang } = useLang()
+const { currLang, setLang } = useLang()
 
-interface ILanguage {
-  code: Language
+interface LanguageMetadata {
   name: string
   flag: string
 }
 
 const isOpen = ref(false)
-const currentLanguage = ref<ILanguage>({ code: 'en', name: 'English', flag: '🇺🇸' })
-const languages: ILanguage[] = [
-  { code: 'en', name: 'English', flag: '🇺🇸' },
-  { code: 'he', name: 'עברית', flag: '🇮🇱' }
-]
+const languages: Record<Language, LanguageMetadata> = {
+  en: { name: 'English', flag: '🇺🇸' },
+  he: { name: 'עברית', flag: '🇮🇱' }
+}
+const currentLanguage = computed(() => languages[currLang.value])
 
 const toggleDropdown = () => {
   isOpen.value = !isOpen.value
 }
 
-const selectLanguage = (language: ILanguage) => {
-  currentLanguage.value = language
+const selectLanguage = (language: Language) => {
   isOpen.value = false
-  setLang(language.code)
+  setLang(language)
 }
 
 onMounted(() => {
