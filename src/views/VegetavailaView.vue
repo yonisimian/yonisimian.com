@@ -1,6 +1,8 @@
 <template>
   <div class="container w-6xl max-w-[83vw] mx-auto mb-auto py-8">
-    <ChooseLanguage />
+    <div class="flex justify-end">
+      <ChooseLanguage />
+    </div>
     <div class="w-full h-full" :dir="currDir">
       <VegetaHeader />
       <VegetaQuery />
