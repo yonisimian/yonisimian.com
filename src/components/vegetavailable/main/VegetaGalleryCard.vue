@@ -54,7 +54,6 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import { type Product } from '/@/types/vegetavailable'
-import { months, monthSorter } from '/@/utils/months'
 import { computed } from 'vue'
 
 const { t } = useI18n()
@@ -64,32 +63,18 @@ const props = defineProps<{
   index: number
 }>()
 
-const sortedMonths = months.filter((m) => props.product.months.includes(m)).sort(monthSorter)
-
-const rotateToUnwrapped = (numbers: number[]) => {
-  for (let i = 1; i < numbers.length; i++) {
-    if (numbers[i] !== numbers[i - 1] + 1) {
-      return numbers.slice(i).concat(numbers.slice(0, i))
-    }
-  }
-
-  return numbers // Already consecutive, no rotation needed
-}
-
-const rotated = rotateToUnwrapped(sortedMonths.map((m) => months.indexOf(m) + 1))
-
 const isAvailableNow = (() => {
-  const currentMonth = new Date().getMonth() + 1 // getMonth() is zero-based
-  return rotated.includes(currentMonth)
+  const currentMonth = new Date().getMonth() + 1
+  return props.product.months.includes(currentMonth)
 })()
 
-const monthStart = rotated[0]
-const monthEnd = rotated[rotated.length - 1]
+const monthStart = props.product.months[0]
+const monthEnd = props.product.months[props.product.months.length - 1]
 
 const monthsBadgeText = computed(() => {
-  if (!rotated.length) {
+  if (!props.product.months.length) {
     return t('veg.card.notAvailable')
-  } else if (rotated.length === 12) {
+  } else if (props.product.months.length === 12) {
     return t('veg.card.availableAllYear')
   } else if (monthStart === monthEnd) {
     return t(`months[${monthStart - 1}]`)

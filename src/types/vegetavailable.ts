@@ -11,7 +11,6 @@ export interface ProductsByMonth {
   products: Product[]
 }
 
-// TODO: make it numbers just like in months.ts
 export enum ProductType {
   Vegetable,
   Fruit,

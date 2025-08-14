@@ -4,7 +4,8 @@
   "description": "My personal website",
   "scripts": {
     "dev": "vite --open --host",
-    "build": "vue-tsc --noEmit && vite build",
+    "test": "vitest",
+    "build": "vue-tsc --noEmit && vitest run && vite build",
     "serve": "vite preview",
     "update-dependencies": "ncu -u && pnpm install",
     "generate-local-trip": "ts-node --project tsconfig.node.json src/functions/static/trip/generateLocalTrip.ts"
@@ -39,6 +40,7 @@
     "vite": "^7.0.6",
     "vite-plugin-sitemap": "^0.8.2",
     "vite-svg-loader": "^5.1.0",
+    "vitest": "^3.2.4",
     "vue-tsc": "^3.0.4"
   },
   "packageManager": "pnpm@10.14.0"
