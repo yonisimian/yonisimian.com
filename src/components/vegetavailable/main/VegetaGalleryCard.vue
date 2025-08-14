@@ -9,7 +9,7 @@
     />
     <div class="p-4">
       <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100 mb-3">
-        {{ product.name }}
+        {{ $t(`veg.productName.${product.name.replaceAll(' ', '').replace("'", '')}`) }}
       </h3>
 
       <div class="space-y-2 text-sm">
