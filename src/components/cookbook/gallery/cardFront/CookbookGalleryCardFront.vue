@@ -1,7 +1,9 @@
 <template>
-  <CookbookFrontCard data-aos="fade-zoom-in">
-    <CookbookFrontTitle :title="recipe.title" />
-  </CookbookFrontCard>
+  <AnimateOnScroll>
+    <CookbookFrontCard>
+      <CookbookFrontTitle :title="recipe.title" />
+    </CookbookFrontCard>
+  </AnimateOnScroll>
 </template>
 
 <script setup lang="ts">

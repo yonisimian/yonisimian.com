@@ -6,12 +6,6 @@
 
 <script setup lang="ts">
 import { useSeoMeta } from '@unhead/vue'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
-
-AOS.init({
-  duration: 1200
-})
 
 useSeoMeta({
   title: "Michal's Cookbook",
