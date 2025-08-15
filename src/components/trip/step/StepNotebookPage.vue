@@ -31,20 +31,28 @@ import { useTripState } from '/@/composables/useTripState'
 
 const { currStep, currCountry, activeCollection, choosePrevStep, chooseNextStep } = useTripState()
 
-let startX = 0
+interface Point {
+  x: number
+  y: number
+}
+
+let startTouch: Point = { x: 0, y: 0 }
 
 const minSwipeDistance = 50 // px
 
-const onTouchStart = (e: TouchEvent) => (startX = e.changedTouches[0].screenX)
-const onTouchEnd = (e: TouchEvent) => handleSwipe(e.changedTouches[0].screenX)
-const onMouseDown = (e: MouseEvent) => (startX = e.screenX)
-const onMouseUp = (e: MouseEvent) => handleSwipe(e.screenX)
+const onTouchStart = (e: TouchEvent) =>
+  (startTouch = { x: e.changedTouches[0].screenX, y: e.changedTouches[0].screenY })
+const onTouchEnd = (e: TouchEvent) =>
+  handleSwipe(e.changedTouches[0].screenX, e.changedTouches[0].screenX)
+const onMouseDown = (e: MouseEvent) => (startTouch = { x: e.screenX, y: e.screenY })
+const onMouseUp = (e: MouseEvent) => handleSwipe(e.screenX, e.screenY)
 
 const swipeStep = (dx: number) => (dx < 0 ? chooseNextStep() : dx > 0 && choosePrevStep())
 
-const handleSwipe = (endX: number) => {
-  const deltaX = endX - startX
-  if (Math.abs(deltaX) < minSwipeDistance) return
+const handleSwipe = (endX: number, endY: number) => {
+  const deltaX = endX - startTouch.x
+  const deltaY = endY - startTouch.y
+  if (Math.abs(deltaX) < minSwipeDistance || Math.abs(deltaX) < Math.abs(deltaY)) return
   swipeStep(deltaX)
 }
 
