@@ -3,7 +3,7 @@
     <div class="flex justify-end">
       <ChooseLanguage />
     </div>
-    <div class="w-full h-full" :dir="currDir">
+    <div class="w-full h-full mt-4" :dir="currDir">
       <VegetaHeader />
       <VegetaQuery />
       <VegetaMain />
