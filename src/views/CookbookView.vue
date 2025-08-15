@@ -13,7 +13,7 @@ useSeoMeta({
     "My sister's old cookbook which I love soooo muchhhhhh (oh yeah and I love my sister too)",
   ogDescription: "A collection of recipes from my lovely sister's old cookbook.",
   ogTitle: "Michal's Cookbook",
-  ogImage: 'https://yonisimian.com/media/portfolio/pp.webp'
+  ogImage: 'https://yonisimian.com/media/portfolio/pp/0.webp'
 })
 </script>
 
