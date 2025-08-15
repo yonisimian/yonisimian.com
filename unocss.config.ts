@@ -3,7 +3,7 @@ import {
   presetAttributify,
   presetIcons,
   presetTypography,
-  presetWind4,
+  presetWind3,
   presetWebFonts,
   transformerDirectives,
   transformerVariantGroup
@@ -11,7 +11,7 @@ import {
 
 export default defineConfig({
   presets: [
-    presetWind4(),
+    presetWind3(),
     presetAttributify(),
     presetIcons({
       scale: 1.2,
