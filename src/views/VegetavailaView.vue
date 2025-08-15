@@ -23,7 +23,7 @@ useSeoMeta({
   ogDescription:
     "Mom, if I said I'll make you a vegetable thingy, I'll make it. No need to remind me every 6 months.",
   ogTitle: 'Vegetable Thingy For My Mom',
-  ogImage: 'https://yonisimian.com/media/portfolio/pp.webp'
+  ogImage: 'https://yonisimian.com/media/portfolio/pp/0.webp'
 })
 </script>
 

@@ -16,7 +16,7 @@ useSeoMeta({
   ogDescription:
     "Mommy and daddy told me to stay modest and not brag about stuff... so here's a website specifically programmed to show off cool stuff I do in life.",
   ogTitle: 'Yehonatan Simian - Portfolio',
-  ogImage: 'https://yonisimian.com/media/portfolio/pp.webp'
+  ogImage: 'https://yonisimian.com/media/portfolio/pp/0.webp'
 })
 </script>
 
