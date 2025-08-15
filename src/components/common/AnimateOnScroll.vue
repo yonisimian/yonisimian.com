@@ -1,11 +1,11 @@
 <template>
   <div
     ref="elementRef"
-    class="transition-all duration-1000 ease-out will-change-auto"
+    class="transition-all duration-1000 ease-in-out will-change-auto"
     :class="
       isVisible
         ? 'opacity-100 scale-100 translate-y-0 blur-0'
-        : 'opacity-0 scale-75 translate-y-5 blur-sm'
+        : 'opacity-0 scale-90 translate-y-4 blur-sm'
     "
   >
     <slot />
