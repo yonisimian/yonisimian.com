@@ -38,10 +38,9 @@ const isAvailableNow = (() => {
   return props.product.months.includes(currentMonth)
 })()
 
-const monthStart = props.product.months[0]
-const monthEnd = props.product.months[props.product.months.length - 1]
-
 const monthsBadgeText = computed(() => {
+  const monthStart = props.product.months[0]
+  const monthEnd = props.product.months[props.product.months.length - 1]
   if (!props.product.months.length) {
     return t('veg.card.notAvailable')
   } else if (props.product.months.length === 12) {
