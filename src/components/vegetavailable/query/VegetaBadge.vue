@@ -4,7 +4,7 @@
       'p-1 lg:p-2 text-center font-semibold sm:text-lg cursor-pointer transition-all duration-300 rounded-lg border select-none',
       activeBadges.includes(badge)
         ? 'bg-cyan-500 text-white shadow-lg'
-        : 'text-gray-700 dark:text-gray-300 hover:bg-cyan-100 dark:hover:bg-cyan-800 hover:shadow-md'
+        : 'text-gray-700 dark:text-gray-300 sm:hover:bg-cyan-100 sm:dark:hover:bg-cyan-800 sm:hover:shadow-md'
     ]"
     @click="toggleBadge(badge)"
   >
