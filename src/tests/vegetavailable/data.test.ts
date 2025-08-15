@@ -13,7 +13,7 @@ const testMonthsOrder = (products: Product[]) => {
     const isProductValid = months.every((m, i) => isConsecutive(m, i))
 
     if (!isProductValid) {
-      console.error(`Product "${product.name}" has invalid month range: ${months.join(', ')}`)
+      console.error(`Product "${product.title}" has invalid month range: ${months.join(', ')}`)
     }
 
     return isProductValid

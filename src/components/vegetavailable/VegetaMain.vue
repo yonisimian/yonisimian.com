@@ -28,9 +28,9 @@ const productsForSelectedMonth = computed(() =>
     .filter((p) => (activeTypes.value.length > 0 ? activeTypes.value.includes(p.type) : true))
     .filter((p) =>
       activeSearch.value
-        ? t(`veg.productName.${p.name.replaceAll(' ', '').replace("'", '')}`)
+        ? t(`veg.productName.${p.title.replaceAll(' ', '').replace("'", '')}`)
             .toLowerCase()
-            .includes(activeSearch.value.toLowerCase())
+            .includes(activeSearch.value.toLowerCase().trim())
         : true
     )
 )

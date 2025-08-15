@@ -5,48 +5,21 @@
     >
       <img
         :src="`https://www.seasonalfoodguide.org/img/${product.image}.jpg`"
-        :alt="product.name"
+        :alt="product.title"
         class="w-full h-40 object-cover"
       />
-      <div class="p-4">
+      <div class="px-3 py-2">
         <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100 mb-3">
-          {{ $t(`veg.productName.${product.name.replaceAll(' ', '').replace("'", '')}`) }}
+          {{ $t(`veg.productName.${product.title.replaceAll(' ', '').replace("'", '')}`) }}
         </h3>
 
         <div class="space-y-2 text-sm">
-          <div class="flex items-center justify-between">
-            <span class="text-gray-600 dark:text-gray-400 font-medium">{{
-              $t('veg.card.type')
-            }}</span>
-            <span class="text-gray-900 dark:text-gray-100 capitalize">{{
-              $t(`veg.productType[${product.type}]`)
-            }}</span>
-          </div>
-
-          <div class="flex items-center justify-between">
-            <span class="text-gray-600 dark:text-gray-400 font-medium">{{
-              $t('veg.card.season')
-            }}</span>
-            <span class="text-gray-900 dark:text-gray-100">{{ monthsBadgeText }}</span>
-          </div>
-
-          <div
-            v-if="isAvailableNow"
-            class="flex items-center justify-center mt-3 pt-2 border-t border-gray-200 dark:border-gray-700"
-          >
-            <div class="flex items-center gap-2 text-green-600 dark:text-green-400 font-medium">
-              <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse animate-duration-3000" />
-              {{ $t('veg.card.availableNow') }}
-            </div>
-          </div>
-          <div
-            v-else
-            class="flex items-center justify-center mt-3 pt-2 border-t border-gray-200 dark:border-gray-700"
-          >
-            <div class="flex items-center gap-2 text-yellow-600 dark:text-yellow-400 font-medium">
-              {{ $t('veg.card.notAvailableNow') }}
-            </div>
-          </div>
+          <VegetaGalleryCardAttribute
+            :title="$t('veg.card.type')"
+            :value="$t(`veg.productType[${product.type}]`)"
+          />
+          <VegetaGalleryCardAttribute :title="$t('veg.card.season')" :value="monthsBadgeText" />
+          <VegetaGalleryCardAvailability :availableNow="isAvailableNow" />
         </div>
       </div>
     </div>
@@ -62,7 +35,6 @@ const { t } = useI18n()
 
 const props = defineProps<{
   product: Product
-  index: number
 }>()
 
 const isAvailableNow = (() => {

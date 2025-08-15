@@ -1,6 +1,6 @@
 import { Month } from '/@/utils/months'
 export interface Product {
-  name: string
+  title: string
   type: ProductType
   months: Month[]
   image: string
