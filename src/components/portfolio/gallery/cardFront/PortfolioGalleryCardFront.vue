@@ -1,18 +1,13 @@
 <template>
-  <AnimateOnScroll>
-    <PortfolioFrontCard>
-      <div v-if="project.highlight" class="absolute top-0.5 left-2 text-orange-300">
-        {{ HighlightSymbol }}
-      </div>
-      <PortfolioFrontYear :year="project.year" />
-      <PortfolioFrontLogo :src="project.img" :alt="project.title" />
-      <PortfolioFrontTitle
-        :title="project.title"
-        :category="project.category"
-        :year="project.year"
-      />
-    </PortfolioFrontCard>
-  </AnimateOnScroll>
+  <GalleryCardFront class="grid grid-rows-3 cursor-pointer">
+    <GradientOnHover />
+    <div v-if="project.highlight" class="absolute top-0.5 left-2 text-orange-300">
+      {{ HighlightSymbol }}
+    </div>
+    <PortfolioFrontYear :year="project.year" />
+    <PortfolioFrontLogo :src="project.img" :alt="project.title" />
+    <PortfolioFrontTitle :title="project.title" :category="project.category" :year="project.year" />
+  </GalleryCardFront>
 </template>
 
 <script setup lang="ts">

@@ -1,9 +1,8 @@
 <template>
-  <AnimateOnScroll>
-    <CookbookFrontCard>
-      <CookbookFrontTitle :title="recipe.title" />
-    </CookbookFrontCard>
-  </AnimateOnScroll>
+  <GalleryCardFront class="aspect-square cursor-pointer">
+    <GradientOnHover />
+    <CookbookFrontTitle :title="recipe.title" />
+  </GalleryCardFront>
 </template>
 
 <script setup lang="ts">
