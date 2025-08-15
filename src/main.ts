@@ -5,7 +5,6 @@ import { router } from '/@/router'
 import { createHead } from '@unhead/vue/client'
 import '@unocss/reset/tailwind.css'
 import 'uno.css'
-import 'aos/dist/aos.css'
 
 import App from './App.vue'
 import './assets/styles/base.css'

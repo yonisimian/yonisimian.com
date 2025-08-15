@@ -8,6 +8,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AnimateOnScroll: typeof import('./components/common/AnimateOnScroll.vue')['default']
     Background: typeof import('./components/common/Background.vue')['default']
     BadgesChooser: typeof import('./components/vegetavailable/query/BadgesChooser.vue')['default']
     CardBackBackground: typeof import('./components/common/gallery/CardBackBackground.vue')['default']
