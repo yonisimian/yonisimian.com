@@ -1,9 +1,9 @@
 <template>
-  <div class="container w-6xl max-w-[83vw] mx-auto mb-auto py-8">
+  <div class="container w-6xl max-w-[83vw] mx-auto mb-auto pt-4 pb-8">
     <div class="flex justify-end">
       <ChooseLanguage />
     </div>
-    <div class="w-full h-full mt-4" :dir="currDir">
+    <div class="w-full h-full mt-2" :dir="currDir">
       <VegetaHeader />
       <VegetaQuery />
       <VegetaMain />
