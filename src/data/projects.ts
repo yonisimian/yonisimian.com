@@ -1,12 +1,5 @@
 import { Project, ProjectCategory } from '/@/types/portfolio'
 
-import dataminingmmn21 from '/@/assets/mamans/20595 - Maman 21.pdf'
-import dataminingmmn22 from '/@/assets/mamans/20595 - Maman 22.pdf'
-import lin2mmn13 from '/@/assets/mamans/20229 - Maman 13.pdf'
-import computationmmn15 from '/@/assets/mamans/20585 - Maman 15.pdf'
-import defensivemmn12 from '/@/assets/mamans/20937 - Maman 12.pdf'
-import imageprocessingmmn12 from '/@/assets/mamans/22913 - Maman 12.pdf'
-
 const projects: Project[] = [
   {
     year: 2015,
@@ -88,15 +81,15 @@ const projects: Project[] = [
     `,
     wilfi:
       'Python, Pandas, Scikit-learn, Matplotlib, Data Mining algorithms, how to analyze a dataset, how to present the results.',
-    embed: dataminingmmn21,
+    embed: '/data/portfolio/mamans/20595 - Maman 21.pdf',
     links: [
       {
         title: 'Final Project - Part 1',
-        url: dataminingmmn21
+        url: '/data/portfolio/mamans/20595 - Maman 21.pdf'
       },
       {
         title: 'Final Project - Part 2',
-        url: dataminingmmn22
+        url: '/data/portfolio/mamans/20595 - Maman 22.pdf'
       }
     ],
     highlight: true
@@ -222,23 +215,23 @@ const projects: Project[] = [
     My LaTeX assignments are composed using the online platform Overleaf.
     Below, you'll find links to samples of assignments from different courses that I authored using LaTeX.
     `,
-    embed: imageprocessingmmn12,
+    embed: '/data/portfolio/mamans/22913 - Maman 12.pdf',
     links: [
       {
         title: 'Sample #1',
-        url: imageprocessingmmn12
+        url: '/data/portfolio/mamans/22913 - Maman 12.pdf'
       },
       {
         title: 'Sample #2',
-        url: computationmmn15
+        url: '/data/portfolio/mamans/20585 - Maman 15.pdf'
       },
       {
         title: 'Sample #3',
-        url: defensivemmn12
+        url: '/data/portfolio/mamans/20937 - Maman 12.pdf'
       },
       {
         title: 'Sample #4',
-        url: lin2mmn13
+        url: '/data/portfolio/mamans/20229 - Maman 13.pdf'
       }
     ]
   },
