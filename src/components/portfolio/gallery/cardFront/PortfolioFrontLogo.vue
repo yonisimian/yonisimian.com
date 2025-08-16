@@ -1,6 +1,6 @@
 <template>
   <div class="row-span-2 flex justify-center items-center">
-    <img class="px-4 pt-4 max-h-44 z-5" :src="src" :alt="alt" />
+    <img class="px-4 pt-4 max-h-44 z-5" :src="`/media/portfolio/projects/${src}.webp`" :alt="alt" />
   </div>
 </template>
 

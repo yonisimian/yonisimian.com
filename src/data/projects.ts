@@ -1,21 +1,5 @@
 import { Project, ProjectCategory } from '/@/types/portfolio'
 
-import intel from '/media/portfolio/projects/intel.webp'
-import sklearn from '/media/portfolio/projects/sklearn.webp'
-import sonic from '/media/portfolio/projects/site.webp'
-import c from '/media/portfolio/projects/C.webp'
-import pacmanx10 from '/media/portfolio/projects/pacmanx10.webp'
-import maria from '/media/portfolio/projects/maria.webp'
-import secondMarch from '/media/portfolio/projects/2nd march.webp'
-import octavarium from '/media/portfolio/projects/octavarium.webp'
-import band from '/media/portfolio/projects/band.webp'
-import shiftsUI from '/media/portfolio/projects/shifts-ui.webp'
-import redHedgehog from '/media/portfolio/projects/the red hedgehog.webp'
-import secondChance from '/media/portfolio/projects/a second chance.webp'
-import bachelor from '/media/portfolio/projects/bachelor.webp'
-import LaTeX from '/media/portfolio/projects/LaTeX.webp'
-import psycho from '/media/portfolio/projects/psycho.webp'
-
 import dataminingmmn21 from '/@/assets/mamans/20595 - Maman 21.pdf'
 import dataminingmmn22 from '/@/assets/mamans/20595 - Maman 22.pdf'
 import lin2mmn13 from '/@/assets/mamans/20229 - Maman 13.pdf'
@@ -28,7 +12,7 @@ const projects: Project[] = [
     year: 2015,
     title: '2nd March',
     category: ProjectCategory.MUSIC,
-    img: secondMarch,
+    img: '2nd march',
     description: `
     This is the second march I have ever composed, hence its name.
     It originated from a spontaneous trombone improvisation when I was 17 years old.
@@ -59,7 +43,7 @@ const projects: Project[] = [
     year: 2021,
     title: 'Maria, Maria',
     category: ProjectCategory.MUSIC,
-    img: maria,
+    img: 'maria',
     description: `
     This rock-pop song is the second one I've recorded independently, approximately three years after the first one - "Eli."
     Drawing from the lessons learned in previous attempts, I endeavored to enhance the professionalism of this project.
@@ -90,7 +74,7 @@ const projects: Project[] = [
     year: 2023,
     title: 'Data Mining',
     category: ProjectCategory.ACADEMY,
-    img: sklearn,
+    img: 'sklearn',
     description: `
     As part of my B.Sc. in Computer Science, I enrolled in a Data Mining course.
     Throughout the course, we delved into various data mining algorithms, including decision trees, Bayesian inference, neural networks,
@@ -121,7 +105,7 @@ const projects: Project[] = [
     year: 2021,
     title: 'C Calculator',
     category: ProjectCategory.CS,
-    img: c,
+    img: 'C',
     description: `
     This simplistic calculator, written in C, holds special significance for me.
     If you peruse the README markdown file, accessible through the link below, you will find a comprehensive exposition detailing the intricacies of how I created this calculator.
@@ -153,7 +137,7 @@ const projects: Project[] = [
     year: 2021,
     title: 'PacmanX10',
     category: ProjectCategory.CS,
-    img: pacmanx10,
+    img: 'pacmanx10',
     description: `
     This project marked my initiation into C++ (written in C++11) and was conceived as an enjoyable and straightforward game submitted for an international online game jam.
     The submission achieved 5th place in the "authentic in-the-spirit entry" category out of more than 100 entries.
@@ -190,7 +174,7 @@ const projects: Project[] = [
   {
     title: 'Intel',
     category: ProjectCategory.CS,
-    img: intel,
+    img: 'intel',
     description: `
     My journey at Intel has begun in 2022 as an R&D software development student.
     Within our team, we are tasked with the development of a compiler designed to streamline the validation process for cutting-edge chips conducted by Intel's validation teams.
@@ -212,7 +196,7 @@ const projects: Project[] = [
   {
     title: "Bachelor's Degree",
     category: ProjectCategory.ACADEMY,
-    img: bachelor,
+    img: 'bachelor',
     description: `
     I am currently pursuing my B.Sc. in Computer Science at The Open University of Israel, with an anticipated graduation in the summer of 2024.
     I initiated my studies while serving in the IDF in 2018, subsequently transferring to the Technion in 2021, a year and a half after my discharge.
@@ -228,7 +212,7 @@ const projects: Project[] = [
   {
     title: 'LaTeX',
     category: ProjectCategory.ACADEMY,
-    img: LaTeX,
+    img: 'LaTeX',
     description: `
     The majority of my assignments during my Computer Science degree were created using MS Word software.
     However, at a certain point, I made the decision to delve into LaTeX, attracted by its reputation as a superior tool for crafting academic assignments.
@@ -262,7 +246,7 @@ const projects: Project[] = [
     year: 2018,
     title: 'Eli',
     category: ProjectCategory.MUSIC,
-    img: maria,
+    img: 'maria',
     description: `
     This rock song was composed by me, and it is the first piece I've fully recorded.
     The composition includes electric guitars (lead and backing), bass guitar, trombone, and backing vocals, all performed by myself, in addition to virtual drums.
@@ -287,7 +271,7 @@ const projects: Project[] = [
     year: 2023,
     title: 'Octavarium',
     category: ProjectCategory.MUSIC,
-    img: octavarium,
+    img: 'octavarium',
     description: `
     Following my performance of the 2nd march with the Technion Wind Orchestra,
     I sought to challenge myself further and undertake a more ambitious and grandiose project.
@@ -317,7 +301,7 @@ const projects: Project[] = [
   {
     title: 'RHCP Cover Band',
     category: ProjectCategory.MUSIC,
-    img: band,
+    img: 'band',
     description: `
     I served as the bassist in a Red Hot Chili Peppers cover band, comprising four members - guitar, bass, drums players, and a vocalist, mirroring the lineup of the original band.
     Our performances took place in various venues, primarily small pubs in Tel Aviv, where we covered the most renowned songs of the Red Hot Chili Peppers.
@@ -346,7 +330,7 @@ const projects: Project[] = [
     year: 2023,
     title: 'Psycho App - WIP',
     category: ProjectCategory.CS,
-    img: psycho,
+    img: 'psycho',
     description: `
     The working title for my current project is "Psycho App," a temporary name for a psychometric test educational web application that I am currently developing.
     The primary audience for this app is intended to be students, and possibly high schoolers.
@@ -372,7 +356,7 @@ const projects: Project[] = [
     year: 2020,
     title: 'Shifts UI',
     category: ProjectCategory.CS,
-    img: shiftsUI,
+    img: 'shifts-ui',
     description: `
     "Shifts UI" is a shift management platform designed for use in my former workplace.
     Collaborating with a friend and colleague, I took charge of the front-end development using the popular JavaScript framework React, along with Bootstrap for styling.
@@ -398,7 +382,7 @@ const projects: Project[] = [
     year: 2016,
     title: 'The Red Hedgehog',
     category: ProjectCategory.MUSIC,
-    img: redHedgehog,
+    img: 'the red hedgehog',
     description: `
     "The Red Hedgehog" stands as my inaugural music album release. I composed the songs at the age of 16-17, utilizing Guitar Pro 5 as my tablature software.
     The formation of most songs emerged from guitar improvisations, transcribed as part of my aspiration to learn music composition and blend various instruments into a cohesive whole.
@@ -424,7 +408,7 @@ const projects: Project[] = [
     year: 2017,
     title: 'A Second Chance',
     category: ProjectCategory.MUSIC,
-    img: secondChance,
+    img: 'a second chance',
     description: `
     "A Second Chance" represents my second album, albeit remaining unmixed; nonetheless, it holds a special place in my creative journey.
     Unfortunately, this album was left incomplete due to my enlistment in the army, but I take pride in its existence.
@@ -451,7 +435,7 @@ const projects: Project[] = [
   {
     title: 'This very site',
     category: ProjectCategory.CS,
-    img: sonic,
+    img: 'site',
     description: `
     Upon learning about the graduate studies positions in the Georgia Tech School of Music,
     I embarked on creating a portfolio website to adeptly showcase my qualifications.
