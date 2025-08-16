@@ -1,11 +1,12 @@
 <template>
-  <button :class="btnClass" @click="handleClick">
+  <button :class="btnClass" @click="handleClick" :aria-label="ariaLabel" :title="ariaLabel">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
       class="h-6 w-6 m-auto"
+      :ariaHidden="true"
     >
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" :d="d"></path>
     </svg>
@@ -17,6 +18,7 @@ const props = defineProps<{
   direction: 'up' | 'down'
   bounce?: boolean
   handleClick?: () => void
+  ariaLabel: string
 }>()
 
 const d = props.direction === 'up' ? 'M19 14 l-7-7 l-7 7' : 'M19 14l-7 7 l-7-7'

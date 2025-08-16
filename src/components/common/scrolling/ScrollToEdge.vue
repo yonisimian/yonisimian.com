@@ -1,7 +1,11 @@
 <template>
   <Transition name="scrollToEdge">
     <div v-show="!isAtEdge">
-      <ScrollButton :direction="direction" :handleClick="scrollToEdge" />
+      <ScrollButton
+        :direction="direction"
+        :handleClick="scrollToEdge"
+        :ariaLabel="`Scroll ${direction}`"
+      />
     </div>
   </Transition>
 </template>
