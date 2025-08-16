@@ -36,8 +36,13 @@
         <p>
           If you would like to learn more about me or collaborate on exciting projects, please feel
           free to
-          <button class="hover:color-[#cdf0ff]" @click="scrollToFooter" title="Click me!">
-            <a><u>reach out</u></a></button
+          <button
+            class="hover:color-[#cdf0ff] underline"
+            @click="scrollToFooter"
+            title="Just click, trust me."
+            aria-label="Scroll to contact information"
+          >
+            reach out</button
           >. I look forward to connecting with you! In the meanwhile, please explore my portfolio
           and learn more about my key skills, competencies, and experience in music, computer
           science and academic research 😊
