@@ -1,5 +1,5 @@
 <template>
-  <GalleryCardFront>
+  <YGalleryCardFront>
     <img
       :src="`https://www.seasonalfoodguide.org/img/${product.image}.jpg`"
       :alt="product.title"
@@ -19,7 +19,7 @@
         <VegetaGalleryCardAvailability :availableNow="isAvailableNow" />
       </div>
     </div>
-  </GalleryCardFront>
+  </YGalleryCardFront>
 </template>
 
 <script setup lang="ts">

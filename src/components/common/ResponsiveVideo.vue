@@ -193,7 +193,7 @@ onUnmounted(() => {
       </p>
       Your browser does not support the video tag.
     </video>
-    <LoadingSpinner v-if="loading" />
+    <YSpinner v-if="loading" />
   </div>
 </template>
 

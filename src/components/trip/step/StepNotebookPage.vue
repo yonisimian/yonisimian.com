@@ -26,7 +26,6 @@
 </template>
 
 <script setup lang="ts">
-import NotebookDescription from './utils/NotebookDescription.vue'
 import { useTripState } from '/@/composables/useTripState'
 
 const { currStep, currCountry, activeCollection, choosePrevStep, chooseNextStep } = useTripState()

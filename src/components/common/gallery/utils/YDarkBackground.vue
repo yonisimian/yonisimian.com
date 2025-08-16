@@ -1,7 +1,7 @@
 <template>
   <Transition name="darkBackground" appear>
     <div
-      class="bg-black bg-opacity-30 fixed top-0 left-0 z-10 w-screen h-screen overflow-hidden select-none"
+      class="bg-black bg-opacity-30 fixed top-0 left-0 z-10 w-screen h-screen overflow-hidden select-none backdrop-blur-sm"
     />
   </Transition>
 </template>
@@ -12,7 +12,7 @@
 .darkBackground-enter-active,
 .darkBackground-leave-active,
 .darkBackground-appear-active {
-  transition: opacity 0.5s;
+  transition: opacity 0.3s;
 }
 .darkBackground-enter-from,
 .darkBackground-leave-to,

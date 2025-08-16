@@ -1,9 +1,8 @@
 <template>
-  <DarkBackground />
-  <CardBackBackground @click="discard">
+  <YGalleryCardBack @click="discard">
     <PortfolioBackCard @click.stop class="relative">
       <PortfolioBackLogo class="sm:block hidden" :src="project.img" :alt="project.title" />
-      <CardBackCloseButton @click="discard" />
+      <YCloseButton @click="discard" />
       <PortfolioBackCategory :category="project.category" />
       <PortfolioBackTitle :title="project.title" />
       <PortfolioBackDesc :description="project.description" />
@@ -22,7 +21,7 @@
       <PortfolioBackTitledDesc v-if="project.notes" :title="'Notes'" :desc="project.notes" />
       <PortfolioBackLinks v-if="project.links" :links="project.links" />
     </PortfolioBackCard>
-  </CardBackBackground>
+  </YGalleryCardBack>
 </template>
 
 <script setup lang="ts">

@@ -13,7 +13,6 @@
 import { useTripState } from '/@/composables/useTripState'
 import { useTripData } from '/@/composables/useTripData'
 import { computed } from 'vue'
-import CarouselTitle from './CarouselTitle.vue'
 
 const { steps } = useTripData()
 
