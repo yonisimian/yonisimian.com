@@ -11,8 +11,6 @@ interface Props {
   width?: number
   /** Override fetch priority */
   fetchpriority?: 'low' | 'medium' | 'high'
-  /** Override loading methodology */
-  loading?: 'lazy' | 'eager'
   /** Alt text */
   alt?: string
   /** CSS classes for the image element */
@@ -40,13 +38,13 @@ const resolvedSrc = computed(() => {
 })
 
 const imageRef = ref<HTMLImageElement | null>(null)
-const isLoading = ref<boolean>(true)
+const loading = ref<boolean>(true)
 const handleLoad = () => {
-  isLoading.value = false
+  loading.value = false
 }
 const handleError = (e: Event) => {
   ;(e.target as HTMLImageElement).src = props.src
-  isLoading.value = false
+  loading.value = false
 }
 
 onMounted(() => {
@@ -58,7 +56,7 @@ onMounted(() => {
       return
     }
     if (imageRef.value.complete) {
-      isLoading.value = false
+      loading.value = false
     } else {
       imageRef.value.addEventListener('load', handleLoad)
       imageRef.value.addEventListener('error', handleError)
@@ -79,14 +77,13 @@ onMounted(() => {
 <template>
   <div class="inline-block w-full h-full">
     <img
-      v-show="!isLoading"
+      v-show="!loading"
       ref="imageRef"
       :src="resolvedSrc"
       :alt
       :class="imgClass"
       :fetchpriority
-      :loading
     />
-    <YSpinner v-if="isLoading" />
+    <YSpinner v-if="loading" />
   </div>
 </template>
