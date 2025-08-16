@@ -1,5 +1,5 @@
 <template>
-  <CarouselContainer
+  <YCarousel
     v-model="slide"
     :items="mediaItems"
     :itemsToShow="5"
@@ -19,7 +19,7 @@
         />
       </div>
     </template>
-  </CarouselContainer>
+  </YCarousel>
 </template>
 
 <script setup lang="ts">

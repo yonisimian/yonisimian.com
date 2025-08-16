@@ -1,5 +1,5 @@
 <template>
-  <CarouselContainer
+  <YCarousel
     v-model="slide"
     :items="mediaItems"
     :height="fullscreen ? '100%' : 'calc(100% - 80px)'"
@@ -13,9 +13,9 @@
     </template>
 
     <template #navigation="{ prev, next }">
-      <CarouselNavigation @prev="prev" @next="next" />
+      <YCarouselNavigation @prev="prev" @next="next" />
     </template>
-  </CarouselContainer>
+  </YCarousel>
 </template>
 
 <script setup lang="ts">

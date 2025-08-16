@@ -2,7 +2,7 @@
   <section
     class="flex flex-col justify-between border-b border-primary-light dark:border-secondary-dark pb-3 gap-3 text-xs"
   >
-    <GallerySearchInput :filterSearch="filterSearch" placeholder="Search Projects" />
+    <YSearchInput :filterSearch placeholder="Search Projects..." />
     <PortfolioGalleryBarBadges
       :selectedCategories="selectedCategories"
       :toggleCategory="toggleCategory"

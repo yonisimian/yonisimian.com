@@ -1,6 +1,6 @@
 <template>
   <main class="pt-6 sm:pt-14 pb-16 min-h-[100svh]">
-    <GalleryHeader>My Projects</GalleryHeader>
+    <YGalleryHeader>My Projects</YGalleryHeader>
     <PortfolioGalleryBar
       :selectedCategories="selectedCategories"
       :toggleCategory="toggleCategory"
@@ -9,14 +9,14 @@
       :toggleHighlights="toggleHighlights"
     />
 
-    <GalleryGrid :items="filteredProjects" :sortFn="projectsSortFunc">
+    <YGallery :items="filteredProjects" :sortFn="projectsSortFunc">
       <template #CardFront="{ item, onClick }">
         <PortfolioGalleryCardFront :project="item" @click="onClick" />
       </template>
       <template #CardBack="{ item, discard }">
         <PortfolioGalleryCardBack :project="item" :discard="discard" />
       </template>
-    </GalleryGrid>
+    </YGallery>
   </main>
 </template>
 
@@ -65,8 +65,9 @@ const filterProjectsByCategory = (projects: Project[]) => {
 }
 
 const filterProjectsBySearch = (projects: Project[]) => {
-  let project = new RegExp(searchProject.value, 'i')
-  return projects.filter((el) => el.title.match(project) || el.category.match(project))
+  return projects.filter(
+    (el) => el.title.includes(searchProject.value) || el.category.includes(searchProject.value)
+  )
 }
 
 const filterProjectsByHighlights = (projects: Project[]) => {
