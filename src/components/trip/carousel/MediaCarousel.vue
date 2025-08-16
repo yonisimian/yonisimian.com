@@ -9,7 +9,6 @@
 </template>
 
 <script setup lang="ts">
-import 'vue3-carousel/carousel.css'
 import { watch } from 'vue'
 import { useTripState } from '/@/composables/useTripState'
 
