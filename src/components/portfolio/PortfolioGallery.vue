@@ -33,19 +33,36 @@ const projects = ref<Project[]>(projectsData)
 const projectsSortFunc = (a: Project, b: Project) =>
   (b.year ?? Number.MIN_SAFE_INTEGER) - (a.year ?? Number.MIN_SAFE_INTEGER)
 
-const filteredProjects = computed(() => {
-  let filtered = projects.value
-  if (selectedHighlights.value) {
-    filtered = filterProjectsByHighlights(filtered)
-  }
-  if (selectedCategories.value) {
-    filtered = filterProjectsByCategory(filtered)
-  }
-  if (searchProject.value) {
-    filtered = filterProjectsBySearch(filtered)
-  }
-  return filtered
-})
+const filteredProjects = computed(() =>
+  projects.value.filter((project) => {
+    // Highlights filter
+    if (selectedHighlights.value && !project.highlight) {
+      return false
+    }
+
+    // Categories filter
+    if (
+      selectedCategories.value.length > 0 &&
+      !selectedCategories.value.includes(project.category)
+    ) {
+      return false
+    }
+
+    // Search filter
+    if (searchProject.value) {
+      const searchTerm = searchProject.value.toLowerCase()
+      const titleMatch = project.title.toLowerCase().includes(searchTerm)
+      const categoryMatch = project.category.toLowerCase().includes(searchTerm)
+      const descriptionMatch = project.description?.toLowerCase().includes(searchTerm) // Optional: search in description too
+
+      if (!titleMatch && !categoryMatch && !descriptionMatch) {
+        return false
+      }
+    }
+
+    return true
+  })
+)
 
 const toggleHighlights = () => {
   selectedHighlights.value = !selectedHighlights.value
@@ -57,21 +74,6 @@ const toggleCategory = (category: ProjectCategory) => {
   } else {
     selectedCategories.value.push(category)
   }
-}
-
-const filterProjectsByCategory = (projects: Project[]) => {
-  if (!selectedCategories.value.length) return projects
-  return projects.filter((item) => selectedCategories.value.includes(item.category))
-}
-
-const filterProjectsBySearch = (projects: Project[]) => {
-  return projects.filter(
-    (el) => el.title.includes(searchProject.value) || el.category.includes(searchProject.value)
-  )
-}
-
-const filterProjectsByHighlights = (projects: Project[]) => {
-  return projects.filter((item) => item.highlight === true)
 }
 </script>
 
