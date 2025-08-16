@@ -6,11 +6,6 @@ export interface Product {
   image: string
 }
 
-export interface ProductsByMonth {
-  month: Month
-  products: Product[]
-}
-
 export enum ProductType {
   Vegetable,
   Fruit,
