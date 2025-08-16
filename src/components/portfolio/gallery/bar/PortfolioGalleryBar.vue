@@ -3,17 +3,28 @@
     class="flex flex-col justify-between border-b border-primary-light dark:border-secondary-dark pb-3 gap-3 text-xs"
   >
     <YSearchInput :filterSearch placeholder="Search Projects..." />
-    <PortfolioGalleryBarBadges
-      :selectedCategories="selectedCategories"
-      :toggleCategory="toggleCategory"
-      :toggleHighlights="toggleHighlights"
-      :isHighlightsSelected="isHighlightsSelected"
-    />
+    <div class="flex flex-wrap gap-2 justify-between">
+      <PortfolioGalleryBarBadge
+        :text="HighlightSymbol"
+        :toggleCategory="toggleHighlights"
+        :isSelected="isHighlightsSelected"
+        class="text-orange-300"
+        title="Toggle highlighted projects"
+      />
+      <PortfolioGalleryBarBadge
+        v-for="category in ProjectCategory"
+        :key="category"
+        :text="category"
+        :toggleCategory="() => toggleCategory(category)"
+        :isSelected="selectedCategories.includes(category)"
+        :title="`Toggle ${category} projects`"
+      />
+    </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ProjectCategory } from '/@/types/portfolio'
+import { ProjectCategory, HighlightSymbol } from '/@/types/portfolio'
 
 defineProps<{
   selectedCategories: ProjectCategory[]
