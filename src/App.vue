@@ -11,8 +11,8 @@
 
     <Footer />
 
-    <ScrollToEdge direction="up" class="fixed top-2 right-1 sm:right-2" />
-    <ScrollToEdge direction="down" class="fixed bottom-2 right-1 sm:right-2 safe" />
+    <ScrollToEdge direction="up" tabindex="-1" class="fixed top-2 right-1 sm:right-2" />
+    <ScrollToEdge direction="down" tabindex="-1" class="fixed bottom-2 right-1 sm:right-2 safe" />
   </div>
 </template>
 
@@ -23,7 +23,7 @@ import { useLoading } from '/@/composables/useLoading'
 
 const { isRouteLoading } = useLoading()
 
-// Note: `min-h-screen` won't allow the fotter to appear on low-content pages...
+// Note: `min-h-screen` won't allow the footer to appear on low-content pages...
 // but that's okay because currently there are no such pages.
 // If you want to change this, you can use `min-h-[calc(100dvh-137px)]`.
 
