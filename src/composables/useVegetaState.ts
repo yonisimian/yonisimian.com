@@ -1,7 +1,6 @@
 import { useQueryParam } from './useQueryParam'
 import { ProductType } from '/@/types/vegetavailable'
 import { Month, months } from '/@/utils/months'
-// import { getCurrentMonth } from '../functions/vegetavailable'
 
 export const useVegetaState = () => {
   const QUERY_PARAM_MONTHS = 'months'
