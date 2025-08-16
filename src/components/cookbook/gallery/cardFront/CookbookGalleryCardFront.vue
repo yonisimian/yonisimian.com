@@ -1,8 +1,8 @@
 <template>
-  <GalleryCardFront class="aspect-square cursor-pointer">
-    <GradientOnHover />
+  <YGalleryCardFront class="aspect-square cursor-pointer">
+    <YGradientOnHover />
     <CookbookFrontTitle :title="recipe.title" />
-  </GalleryCardFront>
+  </YGalleryCardFront>
 </template>
 
 <script setup lang="ts">

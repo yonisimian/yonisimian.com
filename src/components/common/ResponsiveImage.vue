@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, ref } from 'vue'
 import { useMediaCdn } from '/@/composables/useCDN'
-import LoadingSpinner from './basic/LoadingSpinner.vue'
 
 interface Props {
   /** Path relative to /public/media */
@@ -85,6 +84,6 @@ onMounted(() => {
       :class="imgClass"
       :fetchpriority
     />
-    <LoadingSpinner v-if="loading" />
+    <YSpinner v-if="loading" />
   </div>
 </template>

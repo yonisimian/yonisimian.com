@@ -1,8 +1,7 @@
 <template>
-  <DarkBackground />
-  <CardBackBackground @click="discard">
+  <YGalleryCardBack @click="discard">
     <CookbookBackCard @click.stop class="relative">
-      <CardBackCloseButton @click="discard" />
+      <YCloseButton @click="discard" />
       <CookbookBackTitle :title="recipe.title" class="self-center" />
       <CookbookBackDesc v-if="recipe.description" :description="recipe.description" />
       <CookbookBackIngredientsList
@@ -13,7 +12,7 @@
       <CookbookBackSteps v-if="recipe.steps" :steps="recipe.steps" />
       <CookbookBackNotes v-if="recipe.notes" :notes="recipe.notes" />
     </CookbookBackCard>
-  </CardBackBackground>
+  </YGalleryCardBack>
 </template>
 
 <script setup lang="ts">
