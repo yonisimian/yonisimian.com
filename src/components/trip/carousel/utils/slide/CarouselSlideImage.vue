@@ -25,7 +25,6 @@ const { slide, activeCollection, fullscreen, openFullscreen } = useTripState()
 
 defineProps<{
   src: PhotoURL
-  rot: number // rotation in degrees
 }>()
 
 const imageRef = ref<HTMLImageElement | null>(null)
@@ -44,12 +43,10 @@ const hangleImageClick = (e: MouseEvent | TouchEvent) => {
     e.stopPropagation()
   }
   if (fullscreen.value && !isDragging.value) {
-    console.log('about to call toggleZoom')
     toggleZoom()
   } else {
     openFullscreen()
   }
-  // openFullscreen()
 }
 
 watch([slide, activeCollection], () => {

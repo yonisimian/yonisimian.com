@@ -1,26 +1,25 @@
 <template>
-  <Carousel
-    v-bind="galleryConfig"
+  <CarouselContainer
     v-model="slide"
-    :touch-drag="!zoom"
-    :mouse-drag="!zoom"
+    :items="mediaItems"
     :height="fullscreen ? '100%' : 'calc(100% - 80px)'"
+    :touchDrag="!zoom"
+    :mouseDrag="!zoom"
+    :mouseWheel="true"
+    :transition="500"
   >
-    <CarouselSlide
-      v-for="(url, index) in collectionToMediaArray(activeCollection)"
-      :key="index"
-      :url
-    />
-
-    <template #addons>
-      <Navigation />
+    <template #slide="{ item }">
+      <CarouselSlide :url="item" />
     </template>
-  </Carousel>
+
+    <template #navigation="{ prev, next }">
+      <CarouselNavigation @prev="prev" @next="next" />
+    </template>
+  </CarouselContainer>
 </template>
 
 <script setup lang="ts">
-import 'vue3-carousel/carousel.css'
-import { Carousel, Navigation } from 'vue3-carousel'
+import { computed } from 'vue'
 import { useTripState } from '/@/composables/useTripState'
 import { collectionToMediaArray } from '/@/functions/trip'
 import { usePanzoom } from '/@/composables/usePanzoom'
@@ -28,23 +27,5 @@ import { usePanzoom } from '/@/composables/usePanzoom'
 const { slide, activeCollection, fullscreen } = useTripState()
 const { zoom } = usePanzoom()
 
-const galleryConfig = {
-  // autoplay: 5000,
-  // pauseAutoplayOnHover: true,
-  // loop: true,
-  itemsToShow: 1,
-  mouseWheel: true,
-  transition: 500
-}
+const mediaItems = computed(() => collectionToMediaArray(activeCollection.value))
 </script>
-
-<style scoped>
-.carousel {
-  --vc-nav-color: rgba(255, 255, 255, 0.2);
-  --vc-nav-color-hover: rgba(255, 255, 255, 0.4);
-  /* --vc-nav-background: rgba(0, 0, 0, 0.25);
-  --vc-nav-border-radius: 50%;
-  --vc-nav-width: 40px;
-  --vc-nav-height: 40px; */
-}
-</style>

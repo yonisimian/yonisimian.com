@@ -1,38 +1,36 @@
 <template>
-  <Carousel v-bind="thumbnailsConfig" v-model="slide">
-    <Slide v-for="(url, index) in collectionToMediaArray(activeCollection)" :key="index">
-      <template #default="{ currentIndex, isActive }">
-        <div class="thumbnail" :class="{ 'is-active': isActive }" @click="slide = currentIndex">
-          <ResponsiveImage
-            :src="isImage(url) ? (url as PhotoURL) : (url as VideoURL).thumbnail"
-            mode="thumbnail"
-            fetchpriority="high"
-            :alt="`Slide ${slide} thumbnail`"
-            imgClass="w-full h-full object-cover block"
-          />
-        </div>
-      </template>
-    </Slide>
-  </Carousel>
+  <CarouselContainer
+    v-model="slide"
+    :items="mediaItems"
+    :itemsToShow="5"
+    height="80px"
+    :touchDrag="true"
+    :mouseDrag="true"
+    :mouseWheel="true"
+  >
+    <template #slide="{ item, index, isActive }">
+      <div class="thumbnail" :class="{ 'is-active': isActive }" @click="slide = index">
+        <ResponsiveImage
+          :src="isImage(item) ? (item as PhotoURL) : (item as VideoURL).thumbnail"
+          mode="thumbnail"
+          fetchpriority="high"
+          :alt="`Slide ${index} thumbnail`"
+          imgClass="w-full h-full object-cover block"
+        />
+      </div>
+    </template>
+  </CarouselContainer>
 </template>
 
 <script setup lang="ts">
-import 'vue3-carousel/carousel.css'
-import { Carousel, Slide } from 'vue3-carousel'
+import { computed } from 'vue'
 import { useTripState } from '/@/composables/useTripState'
 import { isImage, collectionToMediaArray } from '/@/functions/trip'
 import { PhotoURL, VideoURL } from '/@/types/trip'
 
 const { activeCollection, slide } = useTripState()
 
-const thumbnailsConfig = {
-  height: 80,
-  itemsToShow: 5,
-  touchDrag: true,
-  mouseDrag: true,
-  mouseWheel: true
-  // gap: 12
-}
+const mediaItems = computed(() => collectionToMediaArray(activeCollection.value))
 </script>
 
 <style scoped>
@@ -40,6 +38,9 @@ const thumbnailsConfig = {
   cursor: pointer;
   opacity: 0.6;
   transition: opacity 0.25s ease-in-out;
+  /* height: 100%;
+  border-radius: 4px;
+  overflow: hidden; */
 }
 
 .thumbnail.is-active,
