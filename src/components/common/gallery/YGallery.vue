@@ -1,7 +1,7 @@
 <template>
   <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6 gap-4">
     <TransitionGroup name="backCard">
-      <GalleryCard
+      <YGalleryCard
         v-for="(item, index) in sortedItems"
         :key="index"
         :id="`${item.title.toLowerCase().replace(/ /g, '-')}`"
@@ -13,7 +13,7 @@
         <template #CardBack="slotProps">
           <slot name="CardBack" v-bind="slotProps" />
         </template>
-      </GalleryCard>
+      </YGalleryCard>
     </TransitionGroup>
   </section>
 </template>

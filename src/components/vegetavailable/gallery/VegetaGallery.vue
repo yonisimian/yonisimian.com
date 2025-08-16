@@ -2,11 +2,11 @@
   <div>
     <slot name="header" />
 
-    <GalleryGrid v-if="products.length > 0" :items="products">
+    <YGallery v-if="products.length > 0" :items="products">
       <template #CardFront="{ item }">
         <VegetaGalleryCard :product="item" />
       </template>
-    </GalleryGrid>
+    </YGallery>
     <div v-else class="text-center py-12">
       <slot name="empty" />
     </div>

@@ -1,19 +1,16 @@
 <template>
   <main class="pt-6 sm:pt-14 pb-16 min-h-[100svh]">
-    <GalleryHeader>מחברת המתכונים הישנה של מיכל</GalleryHeader>
-    <GallerySearchInput
-      :filterSearch="(text: string) => searchRecipe = text"
-      placeholder="חפש..."
-    />
+    <YGalleryHeader>מחברת המתכונים הישנה של מיכל</YGalleryHeader>
+    <YSearchInput :filterSearch="(text: string) => searchRecipe = text" placeholder="חפש..." />
 
-    <GalleryGrid :items="filteredRecipes">
+    <YGallery :items="filteredRecipes">
       <template #CardFront="{ item, onClick }">
         <CookbookGalleryCardFront :recipe="item" @click="onClick" />
       </template>
       <template #CardBack="{ item, discard }">
         <CookbookGalleryCardBack :recipe="item" :discard="discard" />
       </template>
-    </GalleryGrid>
+    </YGallery>
   </main>
 </template>
 
