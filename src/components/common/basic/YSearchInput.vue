@@ -1,7 +1,7 @@
 <template>
   <div class="relative">
     <span
-      class="i-ph-magnifying-glass-duotone text-gray-400 absolute top-1/2 -translate-y-1/2 text-xl"
+      class="text-gray-400 absolute top-1/2 -translate-y-1/2 text-xl"
       :class="currDir === 'rtl' ? 'right-4' : 'left-4'"
     />
     <input
