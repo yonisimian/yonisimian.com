@@ -13,6 +13,7 @@
 
     <ScrollToEdge direction="up" tabindex="-1" class="fixed top-2 right-1 sm:right-2" />
     <ScrollToEdge direction="down" tabindex="-1" class="fixed bottom-2 right-1 sm:right-2 safe" />
+    <RickTroll />
   </div>
 </template>
 
