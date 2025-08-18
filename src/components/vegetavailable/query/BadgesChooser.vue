@@ -1,14 +1,14 @@
 <template>
   <div class="w-full grid grid-cols-3 sm:grid-cols-5 gap-1">
-    <VegetaBadge
+    <YToggleBadge
       v-for="(type, index) in productTypeValues"
       :key="type"
-      :badge="type"
-      :activeBadges="activeTypes"
-      :toggleBadge="toggleType"
+      :active="activeTypes.includes(type)"
+      :toggle="() => toggleType(type)"
+      class="lg:p-2"
     >
       {{ getTranslatedTypeName(index) }}
-    </VegetaBadge>
+    </YToggleBadge>
   </div>
 </template>
 

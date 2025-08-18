@@ -10,7 +10,7 @@
       :placeholder="placeholder"
       aria-label="Name"
       autocomplete="off"
-      class="w-full py-2 px-4 border border-gray-300 bg-transparent rounded-full focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
+      class="w-full h-full p-2 border border-gray-300 bg-transparent rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
       :class="[currDir === 'rtl' ? 'pr-12' : 'pl-12']"
     />
   </div>
