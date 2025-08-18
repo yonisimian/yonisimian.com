@@ -66,7 +66,6 @@ declare module 'vue' {
     PortfolioFrontYear: typeof import('./components/portfolio/gallery/cardFront/PortfolioFrontYear.vue')['default']
     PortfolioGallery: typeof import('./components/portfolio/PortfolioGallery.vue')['default']
     PortfolioGalleryBar: typeof import('./components/portfolio/gallery/bar/PortfolioGalleryBar.vue')['default']
-    PortfolioGalleryBarBadge: typeof import('./components/portfolio/gallery/bar/PortfolioGalleryBarBadge.vue')['default']
     PortfolioGalleryCardBack: typeof import('./components/portfolio/gallery/cardBack/PortfolioGalleryCardBack.vue')['default']
     PortfolioGalleryCardFront: typeof import('./components/portfolio/gallery/cardFront/PortfolioGalleryCardFront.vue')['default']
     PortfolioHeader: typeof import('./components/portfolio/header/PortfolioHeader.vue')['default']
@@ -91,7 +90,6 @@ declare module 'vue' {
     TripHeader: typeof import('./components/trip/TripHeader.vue')['default']
     TripPage: typeof import('./components/trip/TripPage.vue')['default']
     TripSkeleton: typeof import('./components/trip/TripSkeleton.vue')['default']
-    VegetaBadge: typeof import('./components/vegetavailable/query/VegetaBadge.vue')['default']
     VegetaGallery: typeof import('./components/vegetavailable/gallery/VegetaGallery.vue')['default']
     VegetaGalleryCard: typeof import('./components/vegetavailable/gallery/VegetaGalleryCard.vue')['default']
     VegetaGalleryCardAttribute: typeof import('./components/vegetavailable/gallery/VegetaGalleryCardAttribute.vue')['default']
@@ -117,5 +115,6 @@ declare module 'vue' {
     YoutubeIcon: typeof import('./components/common/footer/icons/YoutubeIcon.vue')['default']
     YSearchInput: typeof import('./components/common/basic/YSearchInput.vue')['default']
     YSpinner: typeof import('./components/common/basic/YSpinner.vue')['default']
+    YToggleBadge: typeof import('./components/common/basic/YToggleBadge.vue')['default']
   }
 }

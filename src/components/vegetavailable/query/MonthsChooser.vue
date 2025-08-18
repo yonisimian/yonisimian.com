@@ -1,14 +1,14 @@
 <template>
   <div class="w-full grid grid-cols-3 lg:grid-cols-4 gap-1">
-    <VegetaBadge
+    <YToggleBadge
       v-for="month in months"
       :key="month"
-      :badge="month"
-      :activeBadges="activeMonths"
-      :toggleBadge="toggleMonth"
+      :active="activeMonths.includes(month)"
+      :toggle="() => toggleMonth(month)"
+      class="lg:p-2"
     >
       {{ getTranslatedMonthName(month) }}
-    </VegetaBadge>
+    </YToggleBadge>
   </div>
 </template>
 

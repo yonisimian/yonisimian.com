@@ -1,24 +1,31 @@
 <template>
   <section
-    class="flex flex-col justify-between border-b border-primary-light dark:border-secondary-dark pb-3 gap-3 text-xs"
+    class="w-full h-full flex flex-col justify-between items-center border-b pb-3 gap-2 text-xs"
   >
-    <YSearchInput :filterSearch placeholder="Search Projects..." />
-    <div class="flex flex-wrap gap-2 justify-between">
-      <PortfolioGalleryBarBadge
-        :text="HighlightSymbol"
-        :toggleCategory="toggleHighlights"
-        :isSelected="isHighlightsSelected"
-        class="text-orange-300"
+    <YSearchInput
+      :filterSearch
+      placeholder="Search Projects..."
+      class="w-full h-full min-w-[204px]"
+    />
+    <div class="w-full h-full flex flex-row justify-between items-center gap-2">
+      <YToggleBadge
+        :active="isHighlightsSelected"
+        :toggle="toggleHighlights"
         title="Toggle highlighted projects"
-      />
-      <PortfolioGalleryBarBadge
+        class="h-full min-w-[38px] glow"
+      >
+        <span class="text-orange-300">{{ HighlightSymbol }}</span>
+      </YToggleBadge>
+      <YToggleBadge
         v-for="category in ProjectCategory"
         :key="category"
-        :text="category"
-        :toggleCategory="() => toggleCategory(category)"
-        :isSelected="selectedCategories.includes(category)"
-        :title="`Toggle ${category} projects`"
-      />
+        :active="selectedCategories.includes(category)"
+        :toggle="() => toggleCategory(category)"
+        :title="`Toggle ${category.toLocaleLowerCase()} projects`"
+        class="w-full h-full glow"
+      >
+        {{ category }}
+      </YToggleBadge>
     </div>
   </section>
 </template>
@@ -41,7 +48,7 @@ defineProps<{
     @apply text-base;
   }
 }
-@media (min-width: 684px) {
+@media (min-width: 721px) {
   section {
     @apply flex-row;
   }
