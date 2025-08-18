@@ -44,6 +44,8 @@ declare module 'vue' {
     GitHubIcon: typeof import('./components/common/footer/icons/GitHubIcon.vue')['default']
     HeaderImage: typeof import('./components/portfolio/header/HeaderImage.vue')['default']
     HeaderTitle: typeof import('./components/portfolio/header/HeaderTitle.vue')['default']
+    JordiButton: typeof import('./components/jordi/JordiButton.vue')['default']
+    JordiHistory: typeof import('./components/jordi/JordiHistory.vue')['default']
     MediaCarousel: typeof import('./components/trip/carousel/MediaCarousel.vue')['default']
     MonthsChooser: typeof import('./components/vegetavailable/query/MonthsChooser.vue')['default']
     NotebookBackground: typeof import('./components/common/NotebookBackground.vue')['default']
