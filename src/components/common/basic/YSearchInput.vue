@@ -28,10 +28,18 @@ const { currDir } = useLang()
 </script>
 
 <style scoped>
+input:hover,
 input:focus {
-  box-shadow: 0 0 2px #001e24;
+  box-shadow: 0 0 0 #001e24;
+  border-color: #00d9ff;
+}
+input:focus {
+  box-shadow: 0 0 4px #00d9ffaa;
+}
+.dark input:hover {
+  box-shadow: 0 0 8px #00d9ffaa;
 }
 .dark input:focus {
-  box-shadow: 0 0 1px #00d9ff, 0 0 2px #00d9ff, 0 0 3px #00d9ff, 0 0 4px #00d9ff;
+  box-shadow: 0 0 8px #00d9ff;
 }
 </style>
