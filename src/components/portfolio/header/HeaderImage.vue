@@ -6,7 +6,7 @@
     <ResponsiveImage
       :src="`/media/portfolio/pp/${index}.webp`"
       alt="Yehonatan Simian - Profile Picture"
-      imgClass="rounded-full aspect-ratio-1/1 transition-all duration-500 dark:shadow-[0_0_8px_#00b3ff]"
+      imgClass="rounded-full aspect-ratio-1/1 transition-all duration-500 shadow-[0_0_12px_#666] dark:shadow-[0_0_8px_#00b3ff]"
       fetchpriority="high"
     />
   </div>
