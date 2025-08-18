@@ -1,12 +1,14 @@
 <template>
   <Transition name="backCard" appear>
     <div
-      class="relative flex flex-col justify-start items-center rounded-xl overflow-y-auto h-[80dvh] sm:h-[69vh] w-[89vw] sm:w-[60vw] bg-sky-50/70 dark:bg-sky-100/10 shadow-md backdrop-filter backdrop-blur-[12px]"
+      class="flex flex-col justify-start items-center rounded-xl overflow-hidden h-[80dvh] sm:h-[69vh] w-[89vw] sm:w-[60vw] bg-sky-50/70 dark:bg-sky-100/10 shadow-md backdrop-filter backdrop-blur-[12px]"
     >
-      <div
-        class="px-2 sm:px-4 lg:px-8 h-full text-lg flex flex-col flex-grow justify-start items-center"
-      >
-        <slot />
+      <div class="portfolio-card overflow-auto relative">
+        <div
+          class="px-2 sm:px-4 lg:px-8 h-full text-lg flex flex-col flex-grow justify-start items-center"
+        >
+          <slot />
+        </div>
       </div>
     </div>
   </Transition>
@@ -14,7 +16,44 @@
 
 <script setup lang="ts"></script>
 
-<style>
+<style scoped>
+@supports not selector(::-webkit-scrollbar) {
+  /* Firefox */
+  .portfolio-card {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(148, 163, 184, 0.5) transparent;
+  }
+  .dark .portfolio-card {
+    scrollbar-color: rgba(0, 255, 255, 0.2) transparent;
+  }
+}
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+.portfolio-card::-webkit-scrollbar {
+  width: 6px;
+  border-radius: 9999px;
+  /* scrollbar-color: rebeccapurple green; */
+}
+
+.portfolio-card::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.5);
+  border-radius: 9999px;
+  transition: background-color 0.2s ease;
+}
+
+.portfolio-card::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.8);
+}
+
+.dark .portfolio-card::-webkit-scrollbar-thumb {
+  background: rgba(71, 85, 105, 0.8);
+}
+
+.dark .portfolio-card::-webkit-scrollbar-thumb:hover {
+  background: rgba(71, 85, 105, 1);
+}
+
+/* Animations */
 @keyframes backCard-in {
   0% {
     transform: scale(0);
