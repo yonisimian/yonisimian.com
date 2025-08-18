@@ -107,7 +107,7 @@ declare module 'vue' {
     YCarousel: typeof import('./components/common/carousel/YCarousel.vue')['default']
     YCarouselNavigation: typeof import('./components/common/carousel/utils/YCarouselNavigation.vue')['default']
     YCloseButton: typeof import('./components/common/basic/YCloseButton.vue')['default']
-    YDarkBackground: typeof import('./components/common/gallery/utils/YDarkBackground.vue')['default']
+    YDarkBackground: typeof import('./components/common/basic/YDarkBackground.vue')['default']
     YGallery: typeof import('./components/common/gallery/YGallery.vue')['default']
     YGalleryCard: typeof import('./components/common/gallery/utils/YGalleryCard.vue')['default']
     YGalleryCardBack: typeof import('./components/common/gallery/YGalleryCardBack.vue')['default']
