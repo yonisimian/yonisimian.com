@@ -4,7 +4,13 @@ import {
   RouteLocationNormalized,
   NavigationGuardNext
 } from 'vue-router'
-import { TripRoute, PortfolioRoute, CookbookRoute, VegetavailableRoute } from '/@/data/globals'
+import {
+  TripRoute,
+  PortfolioRoute,
+  CookbookRoute,
+  VegetavailableRoute,
+  JordiMonitorRoute
+} from '/@/data/globals'
 import { useLoading } from '/@/composables/useLoading'
 import { i18n } from '/@/i18n/index'
 import { DEFAULT_LANGUAGE, isSupportedLanguage } from '/@/i18n/index'
@@ -46,6 +52,10 @@ const routes = [
   {
     path: `/${VegetavailableRoute}`,
     component: () => import('/@/views/VegetavailaView.vue')
+  },
+  {
+    path: `/${JordiMonitorRoute}`,
+    component: () => import('/@/views/JordiView.vue')
   },
   {
     path: '/:pathMatch(.*)*',
