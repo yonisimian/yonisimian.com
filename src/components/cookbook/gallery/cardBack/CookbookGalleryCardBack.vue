@@ -1,17 +1,15 @@
 <template>
-  <YGalleryCardBack @click="discard">
-    <CookbookBackCard @click.stop class="relative">
-      <YCloseButton @click="discard" />
-      <CookbookBackTitle :title="recipe.title" class="self-center" />
-      <CookbookBackDesc v-if="recipe.description" :description="recipe.description" />
-      <CookbookBackIngredientsList
-        v-for="list in recipe.ingredients"
-        :key="list.title"
-        :list="list"
-      />
-      <CookbookBackSteps v-if="recipe.steps" :steps="recipe.steps" />
-      <CookbookBackNotes v-if="recipe.notes" :notes="recipe.notes" />
-    </CookbookBackCard>
+  <YGalleryCardBack :discard>
+    <YCloseButton @click="discard" />
+    <CookbookBackTitle :title="recipe.title" class="self-center" />
+    <CookbookBackDesc v-if="recipe.description" :description="recipe.description" />
+    <CookbookBackIngredientsList
+      v-for="list in recipe.ingredients"
+      :key="list.title"
+      :list="list"
+    />
+    <CookbookBackSteps v-if="recipe.steps" :steps="recipe.steps" />
+    <CookbookBackNotes v-if="recipe.notes" :notes="recipe.notes" />
   </YGalleryCardBack>
 </template>
 
