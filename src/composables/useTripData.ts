@@ -75,8 +75,8 @@ const music: Collection = {
     { step: 37, slide: 3 }, // rocky
     { step: 37, slide: 4 }, // rocky
     { step: 41, slide: 0 }, // kaneohe
-    { step: 46, slide: 3 }, // venice beach evening
-    { step: 47, slide: 0 }, // venice beach day
+    { step: 45, slide: 3 }, // venice beach evening
+    { step: 46, slide: 0 }, // venice beach day
     { step: 52, slide: 3 }, // sonic symphony
     { step: 52, slide: 4 }, // sonic symphony
     { step: 52, slide: 5 }, // sonic symphony
