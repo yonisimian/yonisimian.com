@@ -9,7 +9,7 @@
       :toggleHighlights="toggleHighlights"
     />
 
-    <YGallery :items="filteredProjects" :sortFn="projectsSortFunc">
+    <YGallery :items="filteredProjects" :sortFn="projectsSortFunc" class="mt-3">
       <template #CardFront="{ item, onClick }">
         <PortfolioGalleryCardFront :project="item" @click="onClick" />
       </template>
