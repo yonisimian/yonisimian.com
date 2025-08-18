@@ -1,6 +1,6 @@
 export enum ProjectCategory {
   MUSIC = 'Music',
-  CS = 'Computer Science',
+  CS = 'Programming',
   ACADEMY = 'Academia'
 }
 
