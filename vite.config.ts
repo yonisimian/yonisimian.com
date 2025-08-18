@@ -52,7 +52,6 @@ export default defineConfig({
     }),
     Sitemap({
       hostname: 'https://yonisimian.com',
-      dynamicRoutes: ['/', '/portfolio', '/trip', '/cookbook'],
       robots: [{ userAgent: '*', disallow: '/media/' }]
     })
   ],
