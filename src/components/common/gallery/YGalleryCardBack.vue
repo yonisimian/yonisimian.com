@@ -1,25 +1,21 @@
 <template>
-  <div>
+  <div
+    @click="discard"
+    class="fixed top-0 left-0 z-10 w-screen h-[100dvh] overflow-hidden select-none flex justify-center items-center"
+  >
     <YDarkBackground />
-    <div
-      @click="discard"
-      class="fixed top-0 left-0 z-10 w-screen h-[100dvh] overflow-hidden select-none flex justify-center items-center"
-    >
-      <Transition name="backCard" appear>
+    <Transition name="backCard" appear>
+      <div
+        @click.stop
+        class="portfolio-card overflow-auto relative z-20 flex flex-col justify-start items-center rounded-xl h-[80dvh] sm:h-[69vh] w-[89vw] sm:w-[60vw] bg-sky-50/70 dark:bg-sky-100/10 shadow-md backdrop-filter backdrop-blur-[12px]"
+      >
         <div
-          @click.stop
-          class="flex flex-col justify-start items-center rounded-xl overflow-hidden h-[80dvh] sm:h-[69vh] w-[89vw] sm:w-[60vw] bg-sky-50/70 dark:bg-sky-100/10 shadow-md backdrop-filter backdrop-blur-[12px]"
+          class="px-2 sm:px-4 lg:px-8 h-full text-lg flex flex-col flex-grow justify-start items-center"
         >
-          <div class="portfolio-card overflow-auto relative">
-            <div
-              class="px-2 sm:px-4 lg:px-8 h-full text-lg flex flex-col flex-grow justify-start items-center"
-            >
-              <slot />
-            </div>
-          </div>
+          <slot />
         </div>
-      </Transition>
-    </div>
+      </div>
+    </Transition>
   </div>
 </template>
 
