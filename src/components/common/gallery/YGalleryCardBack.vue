@@ -7,12 +7,16 @@
     <Transition name="backCard" appear>
       <div
         @click.stop
-        class="portfolio-card overflow-auto relative z-20 flex flex-col justify-start items-center rounded-xl h-[80dvh] sm:h-[69vh] w-[89vw] sm:w-[60vw] bg-sky-50/70 dark:bg-sky-100/10 shadow-md backdrop-filter backdrop-blur-[12px]"
+        class="overflow-hidden z-20 rounded-xl h-[80dvh] sm:h-[69vh] w-[89vw] sm:w-[60vw] bg-sky-50/70 dark:bg-sky-100/10 shadow-md backdrop-filter backdrop-blur-[12px]"
       >
         <div
-          class="px-2 sm:px-4 lg:px-8 h-full text-lg flex flex-col flex-grow justify-start items-center"
+          class="portfolio-card w-full h-full overflow-auto relative flex flex-col justify-start items-center"
         >
-          <slot />
+          <div
+            class="px-2 sm:px-4 lg:px-8 h-full text-lg flex flex-col flex-grow justify-start items-center"
+          >
+            <slot />
+          </div>
         </div>
       </div>
     </Transition>
