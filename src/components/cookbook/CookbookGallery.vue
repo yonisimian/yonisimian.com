@@ -3,7 +3,7 @@
     <YGalleryHeader>מחברת המתכונים הישנה של מיכל</YGalleryHeader>
     <YSearchInput :filterSearch="(text: string) => searchRecipe = text" placeholder="חפש..." />
 
-    <YGallery :items="filteredRecipes">
+    <YGallery :items="filteredRecipes" class="mt-4">
       <template #CardFront="{ item, onClick }">
         <CookbookGalleryCardFront :recipe="item" @click="onClick" />
       </template>
