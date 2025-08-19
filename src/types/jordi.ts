@@ -15,7 +15,8 @@ export interface ActivityConfig {
   type: ActivityType
   label: string
   icon: string
-  color: string
+  colorFrom: string
+  colorTo: string
   alternateLabel?: string
   alternateIcon?: string
 }

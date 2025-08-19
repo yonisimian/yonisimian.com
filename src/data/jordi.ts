@@ -125,7 +125,8 @@ export const activityConfigs = [
     type: ActivityType.SLEEP,
     label: 'Sleep',
     icon: 'i-ph-moon',
-    color: 'bg-purple-500',
+    colorFrom: '#667eea', // purple-500
+    colorTo: '#764ba2', // indigo-500
     alternateLabel: 'Wake Up',
     alternateIcon: 'i-ph-sun'
   },
@@ -133,12 +134,14 @@ export const activityConfigs = [
     type: ActivityType.FEEDING,
     label: 'Feeding',
     icon: 'i-ph-baby',
-    color: 'bg-green-500'
+    colorFrom: '#10b981', // emerald-500
+    colorTo: '#06b6d4' // cyan-500
   },
   {
     type: ActivityType.MEDICINE,
     label: 'Medicine',
     icon: 'i-ph-pill',
-    color: 'bg-red-500'
+    colorFrom: '#ef4444', // red-500
+    colorTo: '#f97316' // orange-500
   }
 ]
