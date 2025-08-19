@@ -16,16 +16,10 @@ export default defineConfig({
     presetIcons({
       scale: 1.2,
       warn: true,
+      autoInstall: true,
       extraProperties: {
         display: 'inline-block',
         'vertical-align': 'middle'
-        // ...
-      },
-      collections: {
-        ph: () =>
-          import('@iconify-json/ph/icons.json').then(
-            (i) => i.default as import('@iconify/types').IconifyJSON
-          )
       }
     }),
     presetTypography(),
