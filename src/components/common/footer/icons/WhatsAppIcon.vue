@@ -1,5 +1,5 @@
 <template>
-  <FooterIcon title="WhatsApp" :href="WhatsAppURL" i="i-ic:baseline-whatsapp" />
+  <FooterIcon title="WhatsApp" :href="WhatsAppURL" i="i-ic-baseline-whatsapp" />
 </template>
 
 <script setup lang="ts">
