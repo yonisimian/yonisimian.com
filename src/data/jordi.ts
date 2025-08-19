@@ -58,6 +58,79 @@ export const addActivity = (type: ActivityType, state?: 'start' | 'end'): BabyAc
   return newActivity
 }
 
+export const editActivity = (id: string, newTime: string): boolean => {
+  if (newTime.length != 5) {
+    console.error(`Invalid time format: got ${newTime}, expected HH:MM. Canceling Edit.`)
+    return false
+  }
+
+  try {
+    const activities = getStoredActivities()
+    const activityIndex = activities.findIndex((activity) => activity.id === id)
+
+    if (activityIndex === -1) return false
+
+    const activity = activities[activityIndex]
+    const currentDate = activity.timestamp
+
+    // Parse the time (HH:MM format)
+    const [hours, minutes] = newTime.split(':').map(Number)
+
+    // Create new timestamp with same date but new time
+    const newTimestamp = new Date(currentDate)
+    newTimestamp.setHours(hours, minutes, 0, 0)
+
+    // Update the activity
+    activities[activityIndex] = {
+      ...activity,
+      timestamp: newTimestamp
+    }
+
+    // Sort activities by timestamp (newest first)
+    activities.sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime())
+
+    saveActivities(activities)
+    return true
+  } catch (error) {
+    console.error('Error editing activity:', error)
+    return false
+  }
+}
+
+export const getActivityConfig = (type: ActivityType) => {
+  return activityConfigs.find((config) => config.type === type)!
+}
+
+export const getActivityLabel = (activity: BabyActivity) => {
+  const config = getActivityConfig(activity.type)
+  if (activity.type === ActivityType.SLEEP) {
+    return activity.state === 'start' ? config.label : config.alternateLabel || 'Wake Up'
+  }
+  return config.label
+}
+
+export const formatActivityTime = (timestamp: Date) => {
+  return timestamp.toLocaleString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  })
+}
+
+export const formatRelativeTime = (timestamp: Date) => {
+  const now = new Date()
+  const diff = now.getTime() - timestamp.getTime()
+  const minutes = Math.floor(diff / 60000)
+  const hours = Math.floor(minutes / 60)
+  const days = Math.floor(hours / 24)
+
+  if (days > 0) return `${days}d ago`
+  if (hours > 0) return `${hours}h ago`
+  if (minutes > 0) return `${minutes}m ago`
+  return 'Just now'
+}
+
 export const deleteActivity = (id: string): boolean => {
   try {
     const activities = getStoredActivities()
@@ -69,9 +142,6 @@ export const deleteActivity = (id: string): boolean => {
     return false
   }
 }
-
-// Export reactive sleep state instead of function
-export const getCurrentSleepState = () => currentSleepState.value
 
 // Export reactive ref for components that need reactivity
 export const useSleepState = () => currentSleepState
