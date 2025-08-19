@@ -12,8 +12,8 @@
       <div class="flex items-center space-x-4">
         <div :class="currentIcon" class="text-3xl transition-all duration-300"></div>
         <div class="text-left">
-          <h3 class="text-xl font-semibold">{{ currentLabel }}</h3>
           <p class="text-sm opacity-90">Tap to record</p>
+          <h3 class="text-xl font-semibold">{{ currentLabel }}</h3>
         </div>
       </div>
 
@@ -38,10 +38,7 @@ import { useJordi } from '/@/data/jordi'
 const props = defineProps<{
   config: ActivityConfig
   lastActivity?: BabyActivity
-}>()
-
-const emit = defineEmits<{
-  click: [state?: 'start' | 'end']
+  add: (state?: 'start' | 'end') => void
 }>()
 
 const { isCurrentlySleeping } = useJordi()
@@ -79,9 +76,9 @@ const { timeSince: timeSinceLastActivity } = useTimeSince(() => props.lastActivi
 const handleClick = () => {
   if (isSleepActivity.value) {
     const nextState = isCurrentlySleeping.value ? 'end' : 'start'
-    emit('click', nextState)
+    props.add(nextState)
   } else {
-    emit('click')
+    props.add()
   }
 }
 </script>

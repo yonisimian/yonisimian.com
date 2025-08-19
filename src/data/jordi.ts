@@ -44,7 +44,7 @@ const saveActivities = (newActivities: BabyActivity[]): void => {
   }
 }
 
-const addActivity = (type: ActivityType, state?: 'start' | 'end'): BabyActivity => {
+const addActivity = (type: ActivityType, state?: 'start' | 'end') => {
   const newActivity: BabyActivity = {
     id: Date.now().toString(),
     type,
@@ -53,7 +53,6 @@ const addActivity = (type: ActivityType, state?: 'start' | 'end'): BabyActivity 
   }
 
   saveActivities([newActivity, ...activities.value])
-  return newActivity
 }
 
 const editActivity = (id: string, newTime: string): boolean => {

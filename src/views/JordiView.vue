@@ -15,7 +15,7 @@
         <JordiButton
           :config="config"
           :lastActivity="getLastActivityOfType(config.type)"
-          @click="addActivity(config.type, $event)"
+          :add="(state?: 'start' | 'end') => addActivity(config.type, state)"
         />
         <JordiHistory
           :activities="activities.filter((activity) => activity.type === config.type)"
