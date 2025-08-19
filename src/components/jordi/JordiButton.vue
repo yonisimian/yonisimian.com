@@ -5,6 +5,9 @@
     :style="buttonStyle"
   >
     <div
+      class="absolute top-0 left-0 w-full h-full inset-0 opacity-0 dark:opacity-100 bg-black/15 z-10"
+    />
+    <div
       class="absolute top-0 left-0 w-full h-full inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300 bg-white/10 z-20"
     />
 
