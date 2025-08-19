@@ -29,7 +29,7 @@
 import { computed } from 'vue'
 import { type ActivityConfig, type BabyActivity, ActivityType } from '/@/types/jordi'
 import { useTimeSince } from '/@/composables/useTimeSince'
-import { useSleepState } from '/@/data/jordi'
+import { useJordi } from '/@/data/jordi'
 
 const props = defineProps<{
   config: ActivityConfig
@@ -40,20 +40,20 @@ const emit = defineEmits<{
   click: [state?: 'start' | 'end']
 }>()
 
-const sleepStateRef = useSleepState()
+const { isCurrentlySleeping } = useJordi()
 
 const isSleepActivity = computed(() => props.config.type === ActivityType.SLEEP)
 
 const currentLabel = computed(() => {
   if (isSleepActivity.value) {
-    return sleepStateRef.value === 'awake' ? props.config.label : props.config.alternateLabel
+    return isCurrentlySleeping.value ? props.config.alternateLabel : props.config.label
   }
   return props.config.label
 })
 
 const currentIcon = computed(() => {
   if (isSleepActivity.value) {
-    return sleepStateRef.value === 'awake' ? props.config.icon : props.config.alternateIcon
+    return isCurrentlySleeping ? props.config.alternateIcon : props.config.icon
   }
   return props.config.icon
 })
@@ -70,7 +70,7 @@ const { timeSince: timeSinceLastActivity } = useTimeSince(() => props.lastActivi
 
 const handleClick = () => {
   if (isSleepActivity.value) {
-    const nextState = sleepStateRef.value === 'awake' ? 'start' : 'end'
+    const nextState = isCurrentlySleeping.value ? 'end' : 'start'
     emit('click', nextState)
   } else {
     emit('click')

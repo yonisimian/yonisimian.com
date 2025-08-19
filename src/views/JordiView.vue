@@ -14,13 +14,13 @@
       >
         <JordiButton
           :config="config"
-          :lastActivity="getLastActivity(config.type)"
-          @click="handleActivityClick(config.type, $event)"
+          :lastActivity="getLastActivityOfType(config.type)"
+          @click="addActivity(config.type, $event)"
         />
         <JordiHistory
           :activities="activities.filter((activity) => activity.type === config.type)"
-          :del="(id: string) => handleDelete(id)"
-          :edit="(id: string, newTime: string) => handleEdit(id, newTime)"
+          :del="(id: string) => deleteActivity(id)"
+          :edit="(id: string, newTime: string) => editActivity(id, newTime)"
         />
       </div>
     </div>
@@ -28,50 +28,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
 import { useSeoMeta } from '@unhead/vue'
-import { ActivityType, type BabyActivity } from '/@/types/jordi'
-import {
-  getStoredActivities,
-  addActivity,
-  activityConfigs,
-  deleteActivity,
-  editActivity
-} from '/@/data/jordi'
+import { activityConfigs, useJordi } from '/@/data/jordi'
 
-const activities = ref<BabyActivity[]>([])
-
-onMounted(() => {
-  activities.value = getStoredActivities()
-})
-
-const handleActivityClick = (type: ActivityType, state?: 'start' | 'end') => {
-  const newActivity = addActivity(type, state)
-  activities.value.unshift(newActivity)
-}
-
-const getLastActivity = (type: ActivityType): BabyActivity | undefined => {
-  return activities.value.find((activity) => activity.type === type)
-}
-
-const handleDelete = (id: string) => {
-  const success = deleteActivity(id)
-  if (success) {
-    activities.value = activities.value.filter((activity) => activity.id !== id)
-  } else {
-    console.warn('could not delete activity')
-  }
-}
-
-const handleEdit = (id: string, newTime: string) => {
-  const success = editActivity(id, newTime)
-  if (success) {
-    // Refresh activities from storage to get updated order
-    activities.value = getStoredActivities()
-  } else {
-    console.warn('could not edit activity')
-  }
-}
+const { activities, addActivity, editActivity, deleteActivity, getLastActivityOfType } = useJordi()
 
 useSeoMeta({
   title: "Ronen's Baby Monitor",
