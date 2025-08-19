@@ -1,9 +1,14 @@
 <template>
-  <div
+  <button
     @click="handleClick"
-    class="w-full p-4 rounded-xl relative overflow-hidden hover:bg-sky-400/10 shadow-lg hover:shadow-xl select-none backdrop-filter backdrop-blur-[3px] hover:backdrop-blur-[4px] transition-all duration-300 ease cursor-pointer"
+    class="w-full p-4 rounded-xl relative overflow-hidden shadow-lg hover:shadow-xl hover:scale-102 select-none transition-all duration-300 ease cursor-pointer text-white"
+    :style="buttonStyle"
   >
-    <div class="flex items-center justify-between">
+    <div
+      class="absolute top-0 left-0 w-full h-full inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300 bg-white/10 z-20"
+    />
+
+    <div class="relative z-10 flex items-center justify-between">
       <div class="flex items-center space-x-4">
         <div :class="currentIcon" class="text-3xl transition-all duration-300"></div>
         <div class="text-left">
@@ -21,10 +26,9 @@
         <div v-else class="text-sm opacity-75">No records yet</div>
       </div>
     </div>
-  </div>
+  </button>
 </template>
 
-<!-- filepath: src/components/jordi/JordiButton.vue -->
 <script setup lang="ts">
 import { computed } from 'vue'
 import { type ActivityConfig, type BabyActivity, ActivityType } from '/@/types/jordi'
@@ -53,10 +57,14 @@ const currentLabel = computed(() => {
 
 const currentIcon = computed(() => {
   if (isSleepActivity.value) {
-    return isCurrentlySleeping ? props.config.alternateIcon : props.config.icon
+    return isCurrentlySleeping.value ? props.config.alternateIcon : props.config.icon
   }
   return props.config.icon
 })
+
+const buttonStyle = computed(() => ({
+  background: `linear-gradient(135deg, ${props.config.colorFrom}, ${props.config.colorTo})`
+}))
 
 const formatLastTime = computed(() => {
   if (!props.lastActivity) return ''
