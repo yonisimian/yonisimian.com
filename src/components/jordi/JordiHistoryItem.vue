@@ -65,7 +65,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { type BabyActivity } from '/@/types/jordi'
-import { getActivityLabel, formatActivityTime, formatRelativeTime } from '/@/data/jordi'
+import { formatActivityTime, formatRelativeTime, getActivityLabel } from '/@/functions/jordi'
 
 defineProps<{
   activity: BabyActivity

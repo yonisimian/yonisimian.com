@@ -30,7 +30,8 @@
 
 <script setup lang="ts">
 import { BabyActivity } from '/@/types/jordi'
-import { getActivityLabel, formatActivityTime } from '/@/data/jordi'
+import { getActivityLabel } from '/@/functions/jordi'
+import { formatActivityTime } from '/@/functions/jordi'
 
 defineProps<{
   activity: BabyActivity

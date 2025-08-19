@@ -41,7 +41,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { BabyActivity } from '/@/types/jordi'
-import { getActivityLabel } from '/@/data/jordi'
+import { getActivityLabel } from '/@/functions/jordi'
 
 const props = defineProps<{
   activity: BabyActivity
