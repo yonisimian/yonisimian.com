@@ -13,9 +13,9 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 
-import { useKonami } from '/@/composables/useKonami'
+import { useSecrets } from '/@/composables/useSecrets'
 
-const { addKonamiCallback } = useKonami()
+const { addSecretCallback } = useSecrets()
 
 const visible = ref(false)
 const video = ref<HTMLVideoElement | null>(null)
@@ -29,7 +29,7 @@ const activateRickroll = () => {
 
 onMounted(() => {
   if (typeof HTMLVideoElement !== 'undefined' && video.value) {
-    addKonamiCallback(activateRickroll)
+    addSecretCallback('konami', activateRickroll)
   }
 })
 </script>
