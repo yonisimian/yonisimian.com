@@ -1,12 +1,9 @@
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { ActivityType, type BabyActivity } from '/@/types/jordi'
 
 const STORAGE_KEY = 'ronen-baby-monitor-data'
 
-// Create reactive sleep state
-const currentSleepState = ref<'awake' | 'sleeping'>('awake')
-
-export const getStoredActivities = (): BabyActivity[] => {
+const getStoredActivities = (): BabyActivity[] => {
   try {
     const stored = localStorage.getItem(STORAGE_KEY)
     if (stored) {
@@ -22,30 +19,30 @@ export const getStoredActivities = (): BabyActivity[] => {
   return []
 }
 
-export const saveActivities = (activities: BabyActivity[]): void => {
+// computed state
+
+const activities = ref<BabyActivity[]>(getStoredActivities())
+const lastSleepActivity = computed(() =>
+  activities.value.find((activity) => activity.type === ActivityType.SLEEP)
+)
+const isCurrentlySleeping = computed(() => {
+  if (!lastSleepActivity.value) {
+    return true // who cares
+  } else {
+    return lastSleepActivity.value.state === 'start'
+  }
+})
+
+const saveActivities = (newActivities: BabyActivity[]): void => {
+  activities.value = newActivities
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(activities))
-    // Update reactive state whenever we save
-    updateSleepState()
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(activities.value))
   } catch (error) {
     console.error('Error saving activities:', error)
   }
 }
 
-// Helper function to update the reactive sleep state
-const updateSleepState = (): void => {
-  const activities = getStoredActivities()
-  const lastSleepActivity = activities.find((activity) => activity.type === ActivityType.SLEEP)
-
-  if (!lastSleepActivity) {
-    currentSleepState.value = 'awake'
-  } else {
-    currentSleepState.value = lastSleepActivity.state === 'start' ? 'sleeping' : 'awake'
-  }
-}
-
-export const addActivity = (type: ActivityType, state?: 'start' | 'end'): BabyActivity => {
-  const activities = getStoredActivities()
+const addActivity = (type: ActivityType, state?: 'start' | 'end'): BabyActivity => {
   const newActivity: BabyActivity = {
     id: Date.now().toString(),
     type,
@@ -53,24 +50,22 @@ export const addActivity = (type: ActivityType, state?: 'start' | 'end'): BabyAc
     state
   }
 
-  activities.unshift(newActivity)
-  saveActivities(activities) // This will trigger updateSleepState()
+  saveActivities([newActivity, ...activities.value])
   return newActivity
 }
 
-export const editActivity = (id: string, newTime: string): boolean => {
+const editActivity = (id: string, newTime: string): boolean => {
   if (newTime.length != 5) {
     console.error(`Invalid time format: got ${newTime}, expected HH:MM. Canceling Edit.`)
     return false
   }
 
   try {
-    const activities = getStoredActivities()
-    const activityIndex = activities.findIndex((activity) => activity.id === id)
+    const activityIndex = activities.value.findIndex((activity) => activity.id === id)
 
     if (activityIndex === -1) return false
 
-    const activity = activities[activityIndex]
+    const activity = activities.value[activityIndex]
     const currentDate = activity.timestamp
 
     // Parse the time (HH:MM format)
@@ -81,15 +76,16 @@ export const editActivity = (id: string, newTime: string): boolean => {
     newTimestamp.setHours(hours, minutes, 0, 0)
 
     // Update the activity
-    activities[activityIndex] = {
+    activities.value[activityIndex] = {
       ...activity,
       timestamp: newTimestamp
     }
 
     // Sort activities by timestamp (newest first)
-    activities.sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime())
-
-    saveActivities(activities)
+    activities.value = activities.value.sort(
+      (a, b) => b.timestamp.getTime() - a.timestamp.getTime()
+    )
+    saveActivities(activities.value)
     return true
   } catch (error) {
     console.error('Error editing activity:', error)
@@ -97,7 +93,7 @@ export const editActivity = (id: string, newTime: string): boolean => {
   }
 }
 
-export const getActivityConfig = (type: ActivityType) => {
+const getActivityConfig = (type: ActivityType) => {
   return activityConfigs.find((config) => config.type === type)!
 }
 
@@ -131,11 +127,9 @@ export const formatRelativeTime = (timestamp: Date) => {
   return 'Just now'
 }
 
-export const deleteActivity = (id: string): boolean => {
+const deleteActivity = (id: string): boolean => {
   try {
-    const activities = getStoredActivities()
-    const filteredActivities = activities.filter((activity) => activity.id !== id)
-    saveActivities(filteredActivities) // This will trigger updateSleepState()
+    saveActivities(activities.value.filter((activity) => activity.id !== id))
     return true
   } catch (error) {
     console.error('Error deleting activity:', error)
@@ -143,11 +137,20 @@ export const deleteActivity = (id: string): boolean => {
   }
 }
 
-// Export reactive ref for components that need reactivity
-export const useSleepState = () => currentSleepState
+const getLastActivityOfType = (type: ActivityType): BabyActivity | undefined => {
+  return activities.value.find((activity) => activity.type === type)
+}
 
-// Initialize sleep state on module load
-updateSleepState()
+export const useJordi = () => {
+  return {
+    activities,
+    isCurrentlySleeping,
+    addActivity,
+    editActivity,
+    deleteActivity,
+    getLastActivityOfType
+  }
+}
 
 export const activityConfigs = [
   {
