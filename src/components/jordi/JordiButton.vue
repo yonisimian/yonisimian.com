@@ -1,4 +1,3 @@
-<!-- filepath: src/components/jordi/JordiButton.vue -->
 <template>
   <div
     @click="handleClick"
@@ -41,14 +40,12 @@ const emit = defineEmits<{
   click: [state?: 'start' | 'end']
 }>()
 
-// Use reactive sleep state
 const sleepStateRef = useSleepState()
 
 const isSleepActivity = computed(() => props.config.type === ActivityType.SLEEP)
 
 const currentLabel = computed(() => {
   if (isSleepActivity.value) {
-    console.log('Sleep state changed to:', sleepStateRef.value) // This will now log on changes
     return sleepStateRef.value === 'awake' ? props.config.label : props.config.alternateLabel
   }
   return props.config.label
