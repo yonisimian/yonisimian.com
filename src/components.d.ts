@@ -88,6 +88,7 @@ declare module 'vue' {
     ToolbarRotateRight: typeof import('./components/trip/carousel/utils/toolbar/ToolbarRotateRight.vue')['default']
     ToolbarShare: typeof import('./components/trip/carousel/utils/toolbar/ToolbarShare.vue')['default']
     TripHeader: typeof import('./components/trip/TripHeader.vue')['default']
+    TripMasonry: typeof import('./components/trip/TripMasonry.vue')['default']
     TripPage: typeof import('./components/trip/TripPage.vue')['default']
     TripSkeleton: typeof import('./components/trip/TripSkeleton.vue')['default']
     VegetaGallery: typeof import('./components/vegetavailable/gallery/VegetaGallery.vue')['default']
