@@ -23,8 +23,9 @@ import { usePanzoom } from '/@/composables/usePanzoom'
 
 const { slide, activeCollection, fullscreen, openFullscreen } = useTripState()
 
-defineProps<{
+const props = defineProps<{
   src: PhotoURL
+  disabled?: boolean
 }>()
 
 const imageRef = ref<HTMLImageElement | null>(null)
@@ -39,6 +40,7 @@ watch(fullscreen, (isFullscreen) => {
 })
 
 const hangleImageClick = (e: MouseEvent | TouchEvent) => {
+  if (props.disabled) return
   if (isDragging.value) {
     e.stopPropagation()
   }

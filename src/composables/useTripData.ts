@@ -1,4 +1,4 @@
-import type { Trip, Collection } from '/@/types/trip'
+import type { Trip, Collection, MediaType } from '/@/types/trip'
 import { decodeTrip } from '/@/functions/static/trip/utils'
 import { initialTripData } from '/@/data/trip.metadata'
 import { reactive, ref } from 'vue'
@@ -168,6 +168,8 @@ const people: Collection = {
   ]
 }
 
+const allMedia: MediaType[] = steps.flatMap((step) => step.media)
+
 const carouselHeight = '65vh' // I hate this hack, but my css skills ain't that great
 
 const isTripLoaded = ref(false)
@@ -188,5 +190,6 @@ export const useTripData = () => ({
   highlights,
   music,
   people,
+  allMedia,
   carouselHeight
 })
