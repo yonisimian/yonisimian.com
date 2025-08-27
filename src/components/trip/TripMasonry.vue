@@ -11,13 +11,15 @@
           :key="index"
           class="relative flex-auto h-96 overflow-hidden rounded-lg transition-transform duration-200 hover:scale-102"
         >
-          <CarouselSlideImage
-            v-if="isImage(media)"
-            :src="media as PhotoURL"
-            class="pointer-events-none"
-            disabled
-          />
-          <CarouselSlideVideo v-else :src="media as VideoURL" />
+          <AnimateOnScroll class="w-full h-full">
+            <CarouselSlideImage
+              v-if="isImage(media)"
+              :src="media as PhotoURL"
+              class="pointer-events-none"
+              disabled
+            />
+            <CarouselSlideVideo v-else :src="media as VideoURL" />
+          </AnimateOnScroll>
         </div>
       </div>
     </article>
