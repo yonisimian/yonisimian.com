@@ -25,3 +25,11 @@ a {
 .dark strong {
   color: #00b3ff;
 }
+
+/* The .prose classes below are a hack that fixes NotebookDescription.vue's prose colors
+ * which broke after migrating from unocss 66.3.3 to 66.5.6.
+**/
+.prose,
+.prose ::marker {
+  color: inherit !important;
+}
