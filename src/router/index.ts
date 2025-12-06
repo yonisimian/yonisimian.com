@@ -28,6 +28,10 @@ const routes = [
     redirect: () => defaultTripPath
   },
   {
+    path: '/projects/microservices',
+    component: () => import('/@/views/MicroservicesView.vue')
+  },
+  {
     path: `/${TripRoute}/:id`,
     component: () => import('/@/views/TripView.vue')
   },
