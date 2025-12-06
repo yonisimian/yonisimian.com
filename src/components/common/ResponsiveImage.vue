@@ -10,7 +10,7 @@ interface Props {
   /** Override width if mode is 'custom' */
   width?: number
   /** Override fetch priority */
-  fetchpriority?: 'low' | 'medium' | 'high'
+  fetchpriority?: 'low' | 'high'
   /** Alt text */
   alt?: string
   /** CSS classes for the image element */
