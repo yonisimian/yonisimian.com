@@ -25,7 +25,7 @@ import { ref, onBeforeUnmount } from 'vue'
 import type { DiagramElement, NodeType, DiagramEdge } from './types'
 import { apiGatewayElement, element_height, element_width, initialElements } from './data'
 
-const elements = ref<DiagramElement[]>(initialElements)
+const elements = ref<DiagramElement[]>(initialElements.map((el) => ({ ...el })))
 const nextId = ref(elements.value.length)
 const selectedId = ref<number | null>(null)
 const edges = ref<DiagramEdge[]>([])
@@ -47,6 +47,47 @@ function typeClassFor(type: NodeType) {
   return type.toLowerCase().replace(/\s+/g, '-')
 }
 
+function getLoadPercentForType(type: NodeType): number {
+  if (type === 'Account Service') return 40
+  if (type === 'Inventory Service') return 30
+  if (type === 'Order Service') return 20
+  return 0
+}
+
+function calculateLoads() {
+  // Reset all service loads to 0
+  for (const el of elements.value) {
+    if (el.type !== 'User Interface' && el.type !== 'API Gateway') {
+      el.load = 0
+    }
+  }
+
+  // Count users (UI nodes)
+  const users = elements.value.filter((el) => el.type === 'User Interface')
+
+  // For each user, distribute load to service instances randomly
+  for (const _ of users) {
+    // Get service instances by type
+    const accountServices = elements.value.filter((el) => el.type === 'Account Service')
+    const inventoryServices = elements.value.filter((el) => el.type === 'Inventory Service')
+    const orderServices = elements.value.filter((el) => el.type === 'Order Service')
+
+    // Randomly assign to each service type (if instances exist)
+    if (accountServices.length > 0) {
+      const target = accountServices[Math.floor(Math.random() * accountServices.length)]
+      target.load = (target.load ?? 0) + getLoadPercentForType('Account Service')
+    }
+    if (inventoryServices.length > 0) {
+      const target = inventoryServices[Math.floor(Math.random() * inventoryServices.length)]
+      target.load = (target.load ?? 0) + getLoadPercentForType('Inventory Service')
+    }
+    if (orderServices.length > 0) {
+      const target = orderServices[Math.floor(Math.random() * orderServices.length)]
+      target.load = (target.load ?? 0) + getLoadPercentForType('Order Service')
+    }
+  }
+}
+
 function create(type: NodeType) {
   if (type === 'API Gateway') {
     // gateway always exists and cannot be deleted or duplicated
@@ -60,11 +101,13 @@ function create(type: NodeType) {
     label: makeLabel(type, id),
     x: 120 + elements.value.length * 20,
     y: 80 + elements.value.length * 20,
-    typeClass: typeClassFor(type)
+    typeClass: typeClassFor(type),
+    load: type === 'User Interface' ? undefined : 0
   }
   elements.value.push(el)
   selectedId.value = id
   inferEdges()
+  calculateLoads()
 }
 
 function inferEdges() {
@@ -90,6 +133,7 @@ function deleteElement(id: number) {
   elements.value = elements.value.filter((e) => e.id !== id)
   if (selectedId.value === id) selectedId.value = null
   edges.value = edges.value.filter((ed) => ed.a !== id && ed.b !== id)
+  calculateLoads()
 }
 
 function deleteSelected() {
@@ -101,12 +145,14 @@ function resetState() {
   selectedId.value = null
   edges.value = []
   inferEdges()
+  calculateLoads()
 }
 
 function clearAll() {
   elements.value = [apiGatewayElement]
   selectedId.value = null
   edges.value = []
+  calculateLoads()
 }
 
 function setCanvasRef(el: HTMLElement | null) {
@@ -162,6 +208,7 @@ onBeforeUnmount(() => {
 })
 
 inferEdges() // initial edge inference
+calculateLoads() // initial load calculation
 </script>
 
 <style scoped></style>
