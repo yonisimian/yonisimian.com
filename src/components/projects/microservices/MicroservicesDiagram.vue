@@ -6,7 +6,9 @@
         @resetState="resetState"
         @deleteSelected="deleteSelected"
         @clearAll="clearAll"
+        @updateLoadBalancing="updateLoadBalancing"
         :selectedId="selectedId"
+        :loadBalancingEnabled="loadBalancingEnabled"
       />
 
       <DiagramCanvas
@@ -34,6 +36,7 @@ const nextId = ref(elements.value.length)
 const selectedId = ref<number | null>(null)
 const edges = ref<DiagramEdge[]>([])
 const consoleMessages = ref<string[]>([])
+const loadBalancingEnabled = ref(false)
 
 let canvasEl: HTMLElement | null = null
 
@@ -56,6 +59,12 @@ function getLoadPercentForType(type: NodeType): number {
   return 0
 }
 
+function updateLoadBalancing(enabled: boolean) {
+  loadBalancingEnabled.value = enabled
+  calculateLoads()
+  generateConsoleMessages()
+}
+
 function calculateLoads() {
   // Reset all service loads to 0
   for (const el of elements.value) {
@@ -67,28 +76,51 @@ function calculateLoads() {
   // Count users (UI nodes)
   const users = elements.value.filter((el) => el.type === 'User Interface')
 
-  // For each user, distribute load to service instances randomly
-  for (const _ of users) {
-    // Get service instances by type
+  if (loadBalancingEnabled.value) {
+    // Load balancing: distribute load evenly across all services of the same type
     const accountServices = elements.value.filter((el) => el.type === 'Account Service')
     const inventoryServices = elements.value.filter((el) => el.type === 'Inventory Service')
     const orderServices = elements.value.filter((el) => el.type === 'Order Service')
 
-    // Randomly assign to each service type (if instances exist)
-    if (accountServices.length > 0) {
-      const target = accountServices[Math.floor(Math.random() * accountServices.length)]
-      const newLoad = (target.load ?? 0) + getLoadPercentForType('Account Service')
-      target.load = Math.min(newLoad, 100)
-    }
-    if (inventoryServices.length > 0) {
-      const target = inventoryServices[Math.floor(Math.random() * inventoryServices.length)]
-      const newLoad = (target.load ?? 0) + getLoadPercentForType('Inventory Service')
-      target.load = Math.min(newLoad, 100)
-    }
-    if (orderServices.length > 0) {
-      const target = orderServices[Math.floor(Math.random() * orderServices.length)]
-      const newLoad = (target.load ?? 0) + getLoadPercentForType('Order Service')
-      target.load = Math.min(newLoad, 100)
+    const accountLoadPerService =
+      accountServices.length > 0 ? (users.length * 40) / accountServices.length : 0
+    const inventoryLoadPerService =
+      inventoryServices.length > 0 ? (users.length * 30) / inventoryServices.length : 0
+    const orderLoadPerService =
+      orderServices.length > 0 ? (users.length * 20) / orderServices.length : 0
+
+    // Assign evenly distributed load to each service
+    accountServices.forEach((s) => {
+      s.load = Math.min(accountLoadPerService, 100)
+    })
+    inventoryServices.forEach((s) => {
+      s.load = Math.min(inventoryLoadPerService, 100)
+    })
+    orderServices.forEach((s) => {
+      s.load = Math.min(orderLoadPerService, 100)
+    })
+  } else {
+    // Original behavior: randomly assign to each service type (if instances exist)
+    for (const _ of users) {
+      const accountServices = elements.value.filter((el) => el.type === 'Account Service')
+      const inventoryServices = elements.value.filter((el) => el.type === 'Inventory Service')
+      const orderServices = elements.value.filter((el) => el.type === 'Order Service')
+
+      if (accountServices.length > 0) {
+        const target = accountServices[Math.floor(Math.random() * accountServices.length)]
+        const newLoad = (target.load ?? 0) + getLoadPercentForType('Account Service')
+        target.load = Math.min(newLoad, 100)
+      }
+      if (inventoryServices.length > 0) {
+        const target = inventoryServices[Math.floor(Math.random() * inventoryServices.length)]
+        const newLoad = (target.load ?? 0) + getLoadPercentForType('Inventory Service')
+        target.load = Math.min(newLoad, 100)
+      }
+      if (orderServices.length > 0) {
+        const target = orderServices[Math.floor(Math.random() * orderServices.length)]
+        const newLoad = (target.load ?? 0) + getLoadPercentForType('Order Service')
+        target.load = Math.min(newLoad, 100)
+      }
     }
   }
 }
