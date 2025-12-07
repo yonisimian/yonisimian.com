@@ -3,6 +3,7 @@
     class="flex flex-col gap-4 w-44 border border-gray-400/20 p-2.5 rounded-lg flex-shrink-0 select-none bg-blue-gray-900/5 backdrop-filter backdrop-blur-[4px]"
   >
     <div class="font-bold text-center">Service Registry</div>
+
     <div class="registry-buttons flex flex-col gap-1">
       <button @click="$emit('create', 'User Interface')">+ UI</button>
       <button @click="$emit('create', 'API Gateway')">+ API Gateway</button>
@@ -12,17 +13,28 @@
     </div>
 
     <div class="flex flex-col gap-1 my-2">
-      <button @click="$emit('reset-state')">Reset State</button>
-      <button @click="$emit('delete-selected')" :disabled="selectedId === null">
+      <button @click="$emit('resetState')">Reset State</button>
+      <button @click="$emit('deleteSelected')" :disabled="selectedId === null">
         Delete Selected
       </button>
-      <button @click="$emit('clear-all')">Clear All</button>
+      <button @click="$emit('clearAll')">Clear All</button>
+    </div>
+
+    <div class="flex items-center self-center gap-2 text-sm">
+      <input
+        type="checkbox"
+        :checked="loadBalancingEnabled"
+        @change="$emit('updateLoadBalancing', ($event.target as HTMLInputElement).checked)"
+        id="lb-toggle"
+        class="w-4 h-4"
+      />
+      <label for="lb-toggle" class="cursor-pointer">Load Balancing</label>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-defineProps<{ selectedId: number | null }>()
+defineProps<{ selectedId: number | null; loadBalancingEnabled: boolean }>()
 </script>
 
 <style scoped>
