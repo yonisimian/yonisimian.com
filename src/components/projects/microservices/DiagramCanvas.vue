@@ -1,6 +1,13 @@
 <template>
-  <div ref="root" class="diagram-canvas" @pointerdown="onCanvasPointerDown">
-    <svg class="edges" xmlns="http://www.w3.org/2000/svg">
+  <div
+    ref="root"
+    class="relative flex-1 h-[70vh] border border-gray-400/20 rounded-lg overflow-hidden bg-blue-gray-900/5 backdrop-filter backdrop-blur-[4px]"
+    @pointerdown="onCanvasPointerDown"
+  >
+    <svg
+      class="absolute left-0 top-0 w-full h-full pointer-events-auto"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <g>
         <path
           v-for="(edge, idx) in edges"
@@ -9,7 +16,8 @@
           stroke="#999"
           stroke-width="2"
           fill="none"
-          :class="['edge-path']"
+          stroke-linecap="round"
+          stroke-linejoin="round"
         />
       </g>
     </svg>
@@ -74,28 +82,3 @@ function onCanvasPointerDown(ev: PointerEvent) {
   emit('canvas-pointerdown')
 }
 </script>
-
-<style scoped>
-.diagram-canvas {
-  position: relative;
-  flex: 1 1 auto;
-  height: 70vh;
-  background: linear-gradient(180deg, #ffffff 0%, #fbfbfd 100%);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.edges {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: auto;
-}
-.edge-path {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-</style>

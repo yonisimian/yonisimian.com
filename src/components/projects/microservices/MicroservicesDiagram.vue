@@ -2,6 +2,7 @@
   <div class="flex gap-3 items-stretch">
     <ServiceRegistry
       @create="create"
+      @resetState="resetState"
       @deleteSelected="deleteSelected"
       @clearAll="clearAll"
       :selectedId="selectedId"
@@ -85,6 +86,7 @@ function findElement(id: number) {
 }
 
 function deleteElement(id: number) {
+  if (id === apiGatewayElement.id) return // cannot delete API Gateway
   elements.value = elements.value.filter((e) => e.id !== id)
   if (selectedId.value === id) selectedId.value = null
   edges.value = edges.value.filter((ed) => ed.a !== id && ed.b !== id)
@@ -92,6 +94,13 @@ function deleteElement(id: number) {
 
 function deleteSelected() {
   if (selectedId.value != null) deleteElement(selectedId.value)
+}
+
+function resetState() {
+  elements.value = initialElements.map((el) => ({ ...el })) // deep copy
+  selectedId.value = null
+  edges.value = []
+  inferEdges()
 }
 
 function clearAll() {
@@ -126,8 +135,14 @@ function onPointerMove(ev: PointerEvent) {
   let ny = ev.clientY - rect.top - dragOffset.dy
   nx = Math.max(0, Math.min(nx, rect.width - element_width))
   ny = Math.max(0, Math.min(ny, rect.height - element_height))
-  el.x = Math.round(nx)
-  el.y = Math.round(ny)
+
+  if (ev.shiftKey) {
+    el.x = Math.round(nx / 50) * 50
+    el.y = Math.round(ny / 50) * 50
+  } else {
+    el.x = Math.round(nx)
+    el.y = Math.round(ny)
+  }
 }
 
 function onPointerUp() {
