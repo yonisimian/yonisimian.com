@@ -1,22 +1,26 @@
 <template>
-  <div class="flex gap-3 items-stretch">
-    <ServiceRegistry
-      @create="create"
-      @resetState="resetState"
-      @deleteSelected="deleteSelected"
-      @clearAll="clearAll"
-      :selectedId="selectedId"
-    />
+  <div class="flex flex-col gap-3">
+    <div class="flex gap-3">
+      <ServiceRegistry
+        @create="create"
+        @resetState="resetState"
+        @deleteSelected="deleteSelected"
+        @clearAll="clearAll"
+        :selectedId="selectedId"
+      />
 
-    <DiagramCanvas
-      :elements="elements"
-      :edges="edges"
-      :selectedId="selectedId"
-      @elementPointerdown="onElementPointerDown"
-      @elementDblclick="deleteElement"
-      @canvasPointerdown="onCanvasPointerDown"
-      :setCanvasRef="setCanvasRef"
-    />
+      <DiagramCanvas
+        :elements="elements"
+        :edges="edges"
+        :selectedId="selectedId"
+        @elementPointerdown="onElementPointerDown"
+        @elementDblclick="deleteElement"
+        @canvasPointerdown="onCanvasPointerDown"
+        :setCanvasRef="setCanvasRef"
+      />
+    </div>
+
+    <ConsolePanel :messages="consoleMessages" />
   </div>
 </template>
 
@@ -29,6 +33,7 @@ const elements = ref<DiagramElement[]>(initialElements.map((el) => ({ ...el })))
 const nextId = ref(elements.value.length)
 const selectedId = ref<number | null>(null)
 const edges = ref<DiagramEdge[]>([])
+const consoleMessages = ref<string[]>([])
 
 let canvasEl: HTMLElement | null = null
 
@@ -36,10 +41,7 @@ let dragging = false
 let dragId: number | null = null
 let dragOffset = { dx: 0, dy: 0 }
 
-function makeLabel(type: NodeType, id: number) {
-  if (type === 'Account Service') return `Account Service + DB`
-  if (type === 'Inventory Service') return `Inventory Service + DB`
-  if (type === 'Order Service') return `Order Service + DB`
+function makeLabel(type: NodeType) {
   return `${type}`
 }
 
@@ -75,16 +77,56 @@ function calculateLoads() {
     // Randomly assign to each service type (if instances exist)
     if (accountServices.length > 0) {
       const target = accountServices[Math.floor(Math.random() * accountServices.length)]
-      target.load = (target.load ?? 0) + getLoadPercentForType('Account Service')
+      const newLoad = (target.load ?? 0) + getLoadPercentForType('Account Service')
+      target.load = Math.min(newLoad, 100)
     }
     if (inventoryServices.length > 0) {
       const target = inventoryServices[Math.floor(Math.random() * inventoryServices.length)]
-      target.load = (target.load ?? 0) + getLoadPercentForType('Inventory Service')
+      const newLoad = (target.load ?? 0) + getLoadPercentForType('Inventory Service')
+      target.load = Math.min(newLoad, 100)
     }
     if (orderServices.length > 0) {
       const target = orderServices[Math.floor(Math.random() * orderServices.length)]
-      target.load = (target.load ?? 0) + getLoadPercentForType('Order Service')
+      const newLoad = (target.load ?? 0) + getLoadPercentForType('Order Service')
+      target.load = Math.min(newLoad, 100)
     }
+  }
+}
+
+function generateConsoleMessages() {
+  consoleMessages.value = []
+
+  const users = elements.value.filter((el) => el.type === 'User Interface')
+  const accountServices = elements.value.filter((el) => el.type === 'Account Service')
+  const inventoryServices = elements.value.filter((el) => el.type === 'Inventory Service')
+  const orderServices = elements.value.filter((el) => el.type === 'Order Service')
+
+  // Check for overloaded services (would exceed 100%)
+  if (accountServices.some((s) => (s.load ?? 0) >= 100) && users.length > 0) {
+    consoleMessages.value.push(
+      "There's too much load on the account services, please add a new instance!"
+    )
+  }
+  if (inventoryServices.some((s) => (s.load ?? 0) >= 100) && users.length > 0) {
+    consoleMessages.value.push(
+      "There's too much load on the inventory services, please add a new instance!"
+    )
+  }
+  if (orderServices.some((s) => (s.load ?? 0) >= 100) && users.length > 0) {
+    consoleMessages.value.push(
+      "There's too much load on the order services, please add a new instance!"
+    )
+  }
+
+  // Check for missing services (users with no access to a service type)
+  if (users.length > 0 && accountServices.length === 0) {
+    consoleMessages.value.push(`There are ${users.length} users with no account service at all!`)
+  }
+  if (users.length > 0 && inventoryServices.length === 0) {
+    consoleMessages.value.push(`There are ${users.length} users with no inventory service at all!`)
+  }
+  if (users.length > 0 && orderServices.length === 0) {
+    consoleMessages.value.push(`There are ${users.length} users with no order service at all!`)
   }
 }
 
@@ -98,7 +140,7 @@ function create(type: NodeType) {
   const el: DiagramElement = {
     id,
     type,
-    label: makeLabel(type, id),
+    label: makeLabel(type),
     x: 120 + elements.value.length * 20,
     y: 80 + elements.value.length * 20,
     typeClass: typeClassFor(type),
@@ -108,6 +150,7 @@ function create(type: NodeType) {
   selectedId.value = id
   inferEdges()
   calculateLoads()
+  generateConsoleMessages()
 }
 
 function inferEdges() {
@@ -134,6 +177,7 @@ function deleteElement(id: number) {
   if (selectedId.value === id) selectedId.value = null
   edges.value = edges.value.filter((ed) => ed.a !== id && ed.b !== id)
   calculateLoads()
+  generateConsoleMessages()
 }
 
 function deleteSelected() {
@@ -146,6 +190,7 @@ function resetState() {
   edges.value = []
   inferEdges()
   calculateLoads()
+  generateConsoleMessages()
 }
 
 function clearAll() {
@@ -153,6 +198,7 @@ function clearAll() {
   selectedId.value = null
   edges.value = []
   calculateLoads()
+  generateConsoleMessages()
 }
 
 function setCanvasRef(el: HTMLElement | null) {
@@ -209,6 +255,7 @@ onBeforeUnmount(() => {
 
 inferEdges() // initial edge inference
 calculateLoads() // initial load calculation
+generateConsoleMessages() // initial console messages
 </script>
 
 <style scoped></style>
