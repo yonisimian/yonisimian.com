@@ -33,7 +33,7 @@ export const initialElements: DiagramElement[] = [
   {
     id: 3,
     type: 'Account Service',
-    label: 'Account Service + DB',
+    label: 'Account Service',
     x: 700,
     y: 100,
     typeClass: 'account-service'
@@ -41,7 +41,7 @@ export const initialElements: DiagramElement[] = [
   {
     id: 4,
     type: 'Inventory Service',
-    label: 'Inventory Service + DB',
+    label: 'Inventory Service',
     x: 700,
     y: 250,
     typeClass: 'inventory-service'
@@ -49,7 +49,7 @@ export const initialElements: DiagramElement[] = [
   {
     id: 5,
     type: 'Order Service',
-    label: 'Order Service + DB',
+    label: 'Order Service',
     x: 700,
     y: 400,
     typeClass: 'order-service'
