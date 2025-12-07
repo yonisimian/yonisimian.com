@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "target": "esnext",
     "module": "nodenext",
     "moduleResolution": "nodenext",
@@ -25,7 +24,7 @@
     "declaration": true,
     "paths": {
       "/@/*": [
-        "src/*"
+        "./src/*"
       ]
     }
   },
