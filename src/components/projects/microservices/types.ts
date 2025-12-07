@@ -12,6 +12,7 @@ export interface DiagramElement {
   x: number
   y: number
   typeClass: string
+  load?: number // percentage: 0-100 (only for service instances, not UI)
 }
 
 export interface DiagramEdge {
