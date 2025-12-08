@@ -179,7 +179,7 @@ export class MicroservicesSystem {
   }
 
   private generateConsoleMessages(): void {
-    this.consoleMessages = []
+    const messagesCountBefore = this.consoleMessages.length
 
     const users = this.elements.filter((el) => el.type === 'User Interface')
     const accountServices = this.elements.filter((el) => el.type === 'Account Service')
@@ -212,6 +212,15 @@ export class MicroservicesSystem {
     }
     if (users.length > 0 && orderServices.length === 0) {
       this.consoleMessages.push(`There are ${users.length} users with no order service at all!`)
+    }
+
+    // If no new messages were added, add a generic "all good" message
+    if (
+      this.consoleMessages.length === messagesCountBefore &&
+      (this.consoleMessages.length === 0 ||
+        this.consoleMessages[this.consoleMessages.length - 1] !== 'System stable and running.')
+    ) {
+      this.consoleMessages.push('System stable and running.')
     }
   }
 }
