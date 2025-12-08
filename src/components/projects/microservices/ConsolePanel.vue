@@ -1,6 +1,6 @@
 <template>
   <div
-    class="p-4 w-full font-mono text-sm max-h-48 overflow-y-auto border border-gray-400/20 rounded-lg overflow-hidden bg-blue-gray-900/5 backdrop-filter backdrop-blur-[4px]"
+    class="p-4 w-full h-full font-mono text-sm overflow-y-auto border border-gray-400/20 rounded-lg overflow-hidden bg-blue-gray-900/5 backdrop-filter backdrop-blur-[4px]"
   >
     <div class="text-gray-500 mb-2">Console Output:</div>
     <div v-if="messages.length === 0" class="text-gray-500">System stable and running.</div>

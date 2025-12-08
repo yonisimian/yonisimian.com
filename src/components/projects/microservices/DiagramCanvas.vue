@@ -1,7 +1,7 @@
 <template>
   <div
     ref="root"
-    class="relative flex-1 h-[70vh] border border-gray-400/20 rounded-lg overflow-hidden bg-blue-gray-900/5 backdrop-filter backdrop-blur-[4px]"
+    class="relative flex-1 border border-gray-400/20 rounded-lg overflow-hidden bg-blue-gray-900/5 backdrop-filter backdrop-blur-[4px]"
     @pointerdown="onCanvasPointerDown"
   >
     <svg
