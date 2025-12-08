@@ -16,7 +16,7 @@
         :edges="edges"
         :selectedId="selectedId"
         @elementPointerdown="onElementPointerDown"
-        @elementDblclick="deleteElement"
+        @elementDblclick="(id: number) => system.deleteNode(id)"
         @canvasPointerdown="onCanvasPointerDown"
         :setCanvasRef="setCanvasRef"
       />
@@ -27,210 +27,53 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onBeforeUnmount } from 'vue'
-import type { DiagramElement, NodeType, DiagramEdge } from './types'
-import { apiGatewayElement, element_height, element_width, initialElements } from './data'
+import { ref, onBeforeUnmount, computed } from 'vue'
+import type { NodeType } from './types'
+import { element_height, element_width } from './data'
+import { MicroservicesSystem } from './MicroservicesSystem'
+import ServiceRegistry from './ServiceRegistry.vue'
+import DiagramCanvas from './DiagramCanvas.vue'
+import ConsolePanel from './ConsolePanel.vue'
 
-const elements = ref<DiagramElement[]>(initialElements.map((el) => ({ ...el })))
-const nextId = ref(elements.value.length)
+// Wrap system in a reactive ref so Vue tracks changes to its properties
+const system = ref(new MicroservicesSystem())
+
+// Access state through the reactive system ref
+const elements = computed(() => system.value.getElements())
+const edges = computed(() => system.value.getEdges())
+const consoleMessages = computed(() => system.value.getConsoleMessages())
+const loadBalancingEnabled = computed(() => system.value.isLoadBalancingEnabled())
+
 const selectedId = ref<number | null>(null)
-const edges = ref<DiagramEdge[]>([])
-const consoleMessages = ref<string[]>([])
-const loadBalancingEnabled = ref(false)
 
 let canvasEl: HTMLElement | null = null
-
 let dragging = false
 let dragId: number | null = null
 let dragOffset = { dx: 0, dy: 0 }
 
-function makeLabel(type: NodeType) {
-  return `${type}`
-}
-
-function typeClassFor(type: NodeType) {
-  return type.toLowerCase().replace(/\s+/g, '-')
-}
-
-function getLoadPercentForType(type: NodeType): number {
-  if (type === 'Account Service') return 40
-  if (type === 'Inventory Service') return 30
-  if (type === 'Order Service') return 20
-  return 0
-}
-
-function updateLoadBalancing(enabled: boolean) {
-  loadBalancingEnabled.value = enabled
-  calculateLoads()
-  generateConsoleMessages()
-}
-
-function calculateLoads() {
-  // Reset all service loads to 0
-  for (const el of elements.value) {
-    if (el.type !== 'User Interface' && el.type !== 'API Gateway') {
-      el.load = 0
-    }
-  }
-
-  // Count users (UI nodes)
-  const users = elements.value.filter((el) => el.type === 'User Interface')
-
-  if (loadBalancingEnabled.value) {
-    // Load balancing: distribute load evenly across all services of the same type
-    const accountServices = elements.value.filter((el) => el.type === 'Account Service')
-    const inventoryServices = elements.value.filter((el) => el.type === 'Inventory Service')
-    const orderServices = elements.value.filter((el) => el.type === 'Order Service')
-
-    const accountLoadPerService =
-      accountServices.length > 0 ? (users.length * 40) / accountServices.length : 0
-    const inventoryLoadPerService =
-      inventoryServices.length > 0 ? (users.length * 30) / inventoryServices.length : 0
-    const orderLoadPerService =
-      orderServices.length > 0 ? (users.length * 20) / orderServices.length : 0
-
-    // Assign evenly distributed load to each service
-    accountServices.forEach((s) => {
-      s.load = Math.min(accountLoadPerService, 100)
-    })
-    inventoryServices.forEach((s) => {
-      s.load = Math.min(inventoryLoadPerService, 100)
-    })
-    orderServices.forEach((s) => {
-      s.load = Math.min(orderLoadPerService, 100)
-    })
-  } else {
-    // Original behavior: randomly assign to each service type (if instances exist)
-    for (const _ of users) {
-      const accountServices = elements.value.filter((el) => el.type === 'Account Service')
-      const inventoryServices = elements.value.filter((el) => el.type === 'Inventory Service')
-      const orderServices = elements.value.filter((el) => el.type === 'Order Service')
-
-      if (accountServices.length > 0) {
-        const target = accountServices[Math.floor(Math.random() * accountServices.length)]
-        const newLoad = (target.load ?? 0) + getLoadPercentForType('Account Service')
-        target.load = Math.min(newLoad, 100)
-      }
-      if (inventoryServices.length > 0) {
-        const target = inventoryServices[Math.floor(Math.random() * inventoryServices.length)]
-        const newLoad = (target.load ?? 0) + getLoadPercentForType('Inventory Service')
-        target.load = Math.min(newLoad, 100)
-      }
-      if (orderServices.length > 0) {
-        const target = orderServices[Math.floor(Math.random() * orderServices.length)]
-        const newLoad = (target.load ?? 0) + getLoadPercentForType('Order Service')
-        target.load = Math.min(newLoad, 100)
-      }
-    }
-  }
-}
-
-function generateConsoleMessages() {
-  consoleMessages.value = []
-
-  const users = elements.value.filter((el) => el.type === 'User Interface')
-  const accountServices = elements.value.filter((el) => el.type === 'Account Service')
-  const inventoryServices = elements.value.filter((el) => el.type === 'Inventory Service')
-  const orderServices = elements.value.filter((el) => el.type === 'Order Service')
-
-  // Check for overloaded services (would exceed 100%)
-  if (accountServices.some((s) => (s.load ?? 0) >= 100) && users.length > 0) {
-    consoleMessages.value.push(
-      "There's too much load on the account services, please add a new instance!"
-    )
-  }
-  if (inventoryServices.some((s) => (s.load ?? 0) >= 100) && users.length > 0) {
-    consoleMessages.value.push(
-      "There's too much load on the inventory services, please add a new instance!"
-    )
-  }
-  if (orderServices.some((s) => (s.load ?? 0) >= 100) && users.length > 0) {
-    consoleMessages.value.push(
-      "There's too much load on the order services, please add a new instance!"
-    )
-  }
-
-  // Check for missing services (users with no access to a service type)
-  if (users.length > 0 && accountServices.length === 0) {
-    consoleMessages.value.push(`There are ${users.length} users with no account service at all!`)
-  }
-  if (users.length > 0 && inventoryServices.length === 0) {
-    consoleMessages.value.push(`There are ${users.length} users with no inventory service at all!`)
-  }
-  if (users.length > 0 && orderServices.length === 0) {
-    consoleMessages.value.push(`There are ${users.length} users with no order service at all!`)
-  }
-}
-
 function create(type: NodeType) {
-  if (type === 'API Gateway') {
-    // gateway always exists and cannot be deleted or duplicated
-    selectedId.value = apiGatewayElement.id
-    return
-  }
-  const id = nextId.value++
-  const el: DiagramElement = {
-    id,
-    type,
-    label: makeLabel(type),
-    x: 120 + elements.value.length * 20,
-    y: 80 + elements.value.length * 20,
-    typeClass: typeClassFor(type),
-    load: type === 'User Interface' ? undefined : 0
-  }
-  elements.value.push(el)
-  selectedId.value = id
-  inferEdges()
-  calculateLoads()
-  generateConsoleMessages()
-}
-
-function inferEdges() {
-  // all non-gateway nodes should be connected to the gateway
-  for (const el of elements.value.filter((e) => e.type !== 'API Gateway')) {
-    const edgeExists = edges.value.some(
-      (ed) =>
-        (ed.a === apiGatewayElement.id && ed.b === el.id) ||
-        (ed.a === el.id && ed.b === apiGatewayElement.id)
-    )
-    if (!edgeExists) {
-      edges.value.push({ a: apiGatewayElement.id, b: el.id })
-    }
-  }
-}
-
-function findElement(id: number) {
-  return elements.value.find((e) => e.id === id) || null
-}
-
-function deleteElement(id: number) {
-  if (id === apiGatewayElement.id) return // cannot delete API Gateway
-  elements.value = elements.value.filter((e) => e.id !== id)
-  if (selectedId.value === id) selectedId.value = null
-  edges.value = edges.value.filter((ed) => ed.a !== id && ed.b !== id)
-  calculateLoads()
-  generateConsoleMessages()
+  system.value.addNode(type)
 }
 
 function deleteSelected() {
-  if (selectedId.value != null) deleteElement(selectedId.value)
+  if (selectedId.value != null) {
+    system.value.deleteNode(selectedId.value)
+    selectedId.value = null
+  }
 }
 
 function resetState() {
-  elements.value = initialElements.map((el) => ({ ...el })) // deep copy
+  system.value.resetState()
   selectedId.value = null
-  edges.value = []
-  inferEdges()
-  calculateLoads()
-  generateConsoleMessages()
 }
 
 function clearAll() {
-  elements.value = [apiGatewayElement]
+  system.value.clearAll()
   selectedId.value = null
-  edges.value = []
-  calculateLoads()
-  generateConsoleMessages()
+}
+
+function updateLoadBalancing(enabled: boolean) {
+  system.value.setLoadBalancingEnabled(enabled)
 }
 
 function setCanvasRef(el: HTMLElement | null) {
@@ -243,7 +86,8 @@ function onElementPointerDown(ev: PointerEvent, elId: number) {
   dragging = true
   dragId = elId
   selectedId.value = elId
-  const el = findElement(elId)!
+  const el = elements.value.find((e) => e.id === elId)
+  if (!el) return
   dragOffset.dx = ev.clientX - el.x - rect.left
   dragOffset.dy = ev.clientY - el.y - rect.top
   window.addEventListener('pointermove', onPointerMove)
@@ -253,7 +97,7 @@ function onElementPointerDown(ev: PointerEvent, elId: number) {
 function onPointerMove(ev: PointerEvent) {
   if (!dragging || dragId === null || !canvasEl) return
   const rect = canvasEl.getBoundingClientRect()
-  const el = findElement(dragId)
+  const el = elements.value.find((e) => e.id === dragId)
   if (!el) return
   let nx = ev.clientX - rect.left - dragOffset.dx
   let ny = ev.clientY - rect.top - dragOffset.dy
@@ -284,10 +128,6 @@ onBeforeUnmount(() => {
   window.removeEventListener('pointermove', onPointerMove)
   window.removeEventListener('pointerup', onPointerUp)
 })
-
-inferEdges() // initial edge inference
-calculateLoads() // initial load calculation
-generateConsoleMessages() // initial console messages
 </script>
 
 <style scoped></style>
