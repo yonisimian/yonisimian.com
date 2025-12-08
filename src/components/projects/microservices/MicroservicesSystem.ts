@@ -1,11 +1,11 @@
 import { initialElements, apiGatewayElement } from './data'
-import type { DiagramElement, NodeType, DiagramEdge } from './types'
+import type { DiagramElement, NodeType, DiagramEdge, ConsoleMessage } from './types'
 import { EventStateMachine } from './EventStateMachine'
 
 export class MicroservicesSystem {
   private elements: DiagramElement[] = []
   private edges: DiagramEdge[] = []
-  private consoleMessages: string[] = []
+  private consoleMessages: ConsoleMessage[] = []
   private loadBalancingEnabled: boolean = false
   private nextId: number = 0
   private eventStateMachine: EventStateMachine
@@ -25,7 +25,7 @@ export class MicroservicesSystem {
     return this.edges
   }
 
-  getConsoleMessages(): string[] {
+  getConsoleMessages(): ConsoleMessage[] {
     return this.consoleMessages
   }
 
@@ -41,7 +41,10 @@ export class MicroservicesSystem {
   async triggerEvent(): Promise<void> {
     this.eventStateMachine.setElements(this.elements)
     this.eventStateMachine.setOnLog((message: string) => {
-      this.consoleMessages.push(message)
+      this.consoleMessages.push({
+        text: message,
+        timestamp: Date.now()
+      })
     })
     await this.eventStateMachine.triggerEvent()
   }
@@ -90,6 +93,13 @@ export class MicroservicesSystem {
     this.inferEdges()
     this.calculateLoads()
     this.generateConsoleMessages()
+  }
+
+  private addConsoleMessage(text: string): void {
+    this.consoleMessages.push({
+      text,
+      timestamp: Date.now()
+    })
   }
 
   private makeLabel(type: NodeType): string {
@@ -188,39 +198,39 @@ export class MicroservicesSystem {
 
     // Check for overloaded services (would exceed 100%)
     if (accountServices.some((s) => (s.load ?? 0) >= 100) && users.length > 0) {
-      this.consoleMessages.push(
+      this.addConsoleMessage(
         "There's too much load on the account services, please add a new instance!"
       )
     }
     if (inventoryServices.some((s) => (s.load ?? 0) >= 100) && users.length > 0) {
-      this.consoleMessages.push(
+      this.addConsoleMessage(
         "There's too much load on the inventory services, please add a new instance!"
       )
     }
     if (orderServices.some((s) => (s.load ?? 0) >= 100) && users.length > 0) {
-      this.consoleMessages.push(
+      this.addConsoleMessage(
         "There's too much load on the order services, please add a new instance!"
       )
     }
 
     // Check for missing services (users with no access to a service type)
     if (users.length > 0 && accountServices.length === 0) {
-      this.consoleMessages.push(`There are ${users.length} users with no account service at all!`)
+      this.addConsoleMessage(`There are ${users.length} users with no account service at all!`)
     }
     if (users.length > 0 && inventoryServices.length === 0) {
-      this.consoleMessages.push(`There are ${users.length} users with no inventory service at all!`)
+      this.addConsoleMessage(`There are ${users.length} users with no inventory service at all!`)
     }
     if (users.length > 0 && orderServices.length === 0) {
-      this.consoleMessages.push(`There are ${users.length} users with no order service at all!`)
+      this.addConsoleMessage(`There are ${users.length} users with no order service at all!`)
     }
 
     // If no new messages were added, add a generic "all good" message
     if (
       this.consoleMessages.length === messagesCountBefore &&
       (this.consoleMessages.length === 0 ||
-        this.consoleMessages[this.consoleMessages.length - 1] !== 'System stable and running.')
+        this.consoleMessages[this.consoleMessages.length - 1].text !== 'System stable and running.')
     ) {
-      this.consoleMessages.push('System stable and running.')
+      this.addConsoleMessage('System stable and running.')
     }
   }
 }

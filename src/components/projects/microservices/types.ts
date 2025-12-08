@@ -19,3 +19,8 @@ export interface DiagramEdge {
   a: number
   b: number
 }
+
+export interface ConsoleMessage {
+  text: string
+  timestamp: number
+}
