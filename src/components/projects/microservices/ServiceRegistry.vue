@@ -20,6 +20,10 @@
       <button @click="$emit('clearAll')">Clear All</button>
     </div>
 
+    <div class="flex flex-col gap-1 my-2">
+      <button @click="$emit('triggerEvent')">Trigger Event</button>
+    </div>
+
     <div class="flex items-center self-center gap-2 text-sm">
       <input
         type="checkbox"

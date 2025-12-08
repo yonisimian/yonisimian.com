@@ -1,5 +1,6 @@
 import { initialElements, apiGatewayElement } from './data'
 import type { DiagramElement, NodeType, DiagramEdge } from './types'
+import { EventStateMachine } from './EventStateMachine'
 
 export class MicroservicesSystem {
   private elements: DiagramElement[] = []
@@ -7,10 +8,12 @@ export class MicroservicesSystem {
   private consoleMessages: string[] = []
   private loadBalancingEnabled: boolean = false
   private nextId: number = 0
+  private eventStateMachine: EventStateMachine
 
   constructor() {
     this.elements = initialElements.map((el) => ({ ...el }))
     this.nextId = initialElements.length
+    this.eventStateMachine = new EventStateMachine()
     this.updateState()
   }
 
@@ -33,6 +36,14 @@ export class MicroservicesSystem {
   setLoadBalancingEnabled(enabled: boolean): void {
     this.loadBalancingEnabled = enabled
     this.updateState()
+  }
+
+  async triggerEvent(): Promise<void> {
+    this.eventStateMachine.setElements(this.elements)
+    this.eventStateMachine.setOnLog((message: string) => {
+      this.consoleMessages.push(message)
+    })
+    await this.eventStateMachine.triggerEvent()
   }
 
   addNode(type: NodeType): DiagramElement | null {
