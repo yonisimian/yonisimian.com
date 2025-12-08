@@ -7,6 +7,7 @@
         @deleteSelected="deleteSelected"
         @clearAll="clearAll"
         @updateLoadBalancing="updateLoadBalancing"
+        @triggerEvent="triggerEvent"
         :selectedId="selectedId"
         :loadBalancingEnabled="loadBalancingEnabled"
       />
@@ -74,6 +75,10 @@ function clearAll() {
 
 function updateLoadBalancing(enabled: boolean) {
   system.value.setLoadBalancingEnabled(enabled)
+}
+
+async function triggerEvent() {
+  await system.value.triggerEvent()
 }
 
 function setCanvasRef(el: HTMLElement | null) {
