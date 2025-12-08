@@ -1,4 +1,5 @@
-import type { DiagramElement, NodeType } from './types'
+import type { NodeType } from './types'
+import type { MicroservicesSystem } from './MicroservicesSystem'
 
 export type EventState =
   | 'idle'
@@ -18,13 +19,13 @@ export class EventStateMachine {
   private currentState: EventState = 'idle'
   private eventLogs: EventLog[] = []
   private eventStatus: EventStatus = null
-  private elements: DiagramElement[] = []
   private onLog: ((message: string) => void) | null = null
+  private system: MicroservicesSystem | null = null
 
   constructor() {}
 
-  setElements(elements: DiagramElement[]): void {
-    this.elements = elements
+  setSystem(system: MicroservicesSystem): void {
+    this.system = system
   }
 
   setOnLog(callback: (message: string) => void): void {
@@ -58,7 +59,14 @@ export class EventStateMachine {
   }
 
   private hasServiceType(type: NodeType): boolean {
-    return this.elements.some((el) => el.type === type)
+    return this.system?.getElements().some((el) => el.type === type) ?? false
+  }
+
+  private maybeKillRandomService(): void {
+    // 20% chance of a service failure during event execution
+    if (Math.random() < 0.2 && this.system) {
+      this.system.killRandomService()
+    }
   }
 
   async triggerEvent(): Promise<void> {
@@ -74,6 +82,7 @@ export class EventStateMachine {
   private async stateLoggingIn(): Promise<void> {
     this.currentState = 'logging-in'
     this.log('Logging in...')
+    this.maybeKillRandomService()
     await this.artificical_delay()
 
     if (!this.hasServiceType('Account Service')) {
@@ -88,6 +97,7 @@ export class EventStateMachine {
   private async stateFetchingOrder(): Promise<void> {
     this.currentState = 'fetching-order'
     this.log('Fetching order...')
+    this.maybeKillRandomService()
     await this.artificical_delay()
 
     if (!this.hasServiceType('Order Service')) {
@@ -102,6 +112,7 @@ export class EventStateMachine {
   private async stateRemovingInventory(): Promise<void> {
     this.currentState = 'removing-inventory'
     this.log('Removing item from inventory...')
+    this.maybeKillRandomService()
     await this.artificical_delay()
 
     if (!this.hasServiceType('Inventory Service')) {
@@ -116,6 +127,7 @@ export class EventStateMachine {
   private async stateCompletingOrder(): Promise<void> {
     this.currentState = 'completing-order'
     this.log('Completing order...')
+    this.maybeKillRandomService()
     await this.artificical_delay()
 
     if (!this.hasServiceType('Order Service')) {

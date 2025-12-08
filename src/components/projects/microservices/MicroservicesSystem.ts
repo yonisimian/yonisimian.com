@@ -39,7 +39,7 @@ export class MicroservicesSystem {
   }
 
   async triggerEvent(): Promise<void> {
-    this.eventStateMachine.setElements(this.elements)
+    this.eventStateMachine.setSystem(this)
     this.eventStateMachine.setOnLog((message: string) => {
       this.consoleMessages.push({
         text: message,
@@ -87,6 +87,22 @@ export class MicroservicesSystem {
   clearAll(): void {
     this.elements = [apiGatewayElement]
     this.updateState()
+  }
+
+  killRandomService(): void {
+    // Get all services (excluding API Gateway and UI nodes)
+    const services = this.elements.filter(
+      (el) => el.type !== 'API Gateway' && el.type !== 'User Interface'
+    )
+
+    if (services.length === 0) return // No services to remove
+
+    // Pick a random service
+    const randomService = services[Math.floor(Math.random() * services.length)]
+    this.addConsoleMessage(
+      `Service failure: ${randomService.type} (${randomService.label}) went down!`
+    )
+    this.deleteNode(randomService.id)
   }
 
   private updateState(): void {
