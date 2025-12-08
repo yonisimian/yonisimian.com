@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col gap-3">
-    <div class="flex gap-3">
+  <div class="flex flex-col w-full h-full gap-3">
+    <div class="flex gap-3 h-9/12">
       <ServiceRegistry
         @create="create"
         @resetState="resetState"
@@ -23,7 +23,11 @@
       />
     </div>
 
-    <ConsolePanel :messages="consoleMessages" />
+    <div class="h-2/12">
+      <ConsolePanel :messages="consoleMessages" />
+    </div>
+
+    <div class="h-1/12" />
   </div>
 </template>
 
