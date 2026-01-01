@@ -26,7 +26,6 @@
       <VideoPlayButton
         v-show="!isLoading && (isVideoButtonVisible || !isPlaying)"
         class="absolute inset-0 flex items-center justify-center z-20"
-        :togglePlay
         :isPlaying
       />
     </Transition>

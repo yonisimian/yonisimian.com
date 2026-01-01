@@ -109,7 +109,7 @@ declare module 'vue' {
     VegetaQueryDivider: typeof import('./components/vegetavailable/query/VegetaQueryDivider.vue')['default']
     VegetaQueryTitle: typeof import('./components/vegetavailable/query/VegetaQueryTitle.vue')['default']
     VegetaSearchBar: typeof import('./components/vegetavailable/query/VegetaSearchBar.vue')['default']
-    VideoPlayButton: typeof import('./components/trip/carousel/utils/slide/VideoPlayButton.vue')['default']
+    VideoPlayButton: typeof import('./components/common/VideoPlayButton.vue')['default']
     WhatsAppIcon: typeof import('./components/common/footer/icons/WhatsAppIcon.vue')['default']
     YCarousel: typeof import('./components/common/carousel/YCarousel.vue')['default']
     YCarouselNavigation: typeof import('./components/common/carousel/utils/YCarouselNavigation.vue')['default']

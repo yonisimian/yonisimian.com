@@ -32,6 +32,10 @@ const routes = [
     component: () => import('/@/views/MicroservicesView.vue')
   },
   {
+    path: '/uta-kingdom',
+    component: () => import('/@/views/UTAView.vue')
+  },
+  {
     path: `/${TripRoute}/:id`,
     component: () => import('/@/views/TripView.vue')
   },
