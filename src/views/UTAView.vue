@@ -15,7 +15,7 @@
       <div class="absolute">
         <div
           :key="currentLyricText"
-          class="text-center text-green-100 font-extrabold text-4xl sm:text-6xl text-stroke-dark-600 text-stroke text-stroke-[2px] sm:text-stroke-[3px] z-20"
+          class="text-center text-green-100 font-extrabold text-4xl sm:text-8xl text-stroke-dark-600 text-stroke text-stroke-[1px] sm:text-stroke-[2px] z-20"
           style="
             background: linear-gradient(155deg, #ffff00, #00ffff);
             -webkit-background-clip: text;
@@ -26,6 +26,7 @@
             opacity: 0.9;
             line-height: 1.4;
             padding: 0.2em 0;
+            font-family: 'Atop', sans-serif;
           "
         >
           {{ currentLyricText }}
@@ -251,6 +252,11 @@ const currentLyricText = computed(() => {
 </script>
 
 <style scoped>
+@font-face {
+  font-family: 'Atop';
+  src: url('/src/assets/fonts/Atop-R99O3.ttf') format('truetype');
+}
+
 .kingdom-container {
   width: 100vw;
   height: 100vh;
