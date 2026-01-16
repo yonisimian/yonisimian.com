@@ -36,6 +36,10 @@ const routes = [
     component: () => import('/@/views/UTAView.vue')
   },
   {
+    path: '/dnd',
+    component: () => import('/@/views/DndView.vue')
+  },
+  {
     path: `/${TripRoute}/:id`,
     component: () => import('/@/views/TripView.vue')
   },

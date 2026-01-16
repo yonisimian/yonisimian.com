@@ -42,6 +42,7 @@ declare module 'vue' {
     DestBarItem: typeof import('./components/trip/dest-bar/DestBarItem.vue')['default']
     DiagramCanvas: typeof import('./components/projects/microservices/DiagramCanvas.vue')['default']
     DiagramNode: typeof import('./components/projects/microservices/DiagramNode.vue')['default']
+    DNDButton: typeof import('./components/dnd/DNDButton.vue')['default']
     EmailIcon: typeof import('./components/common/footer/icons/EmailIcon.vue')['default']
     ExpandableContent: typeof import('./components/common/ExpandableContent.vue')['default']
     Footer: typeof import('./components/common/footer/Footer.vue')['default']
