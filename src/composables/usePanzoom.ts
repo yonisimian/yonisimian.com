@@ -77,7 +77,7 @@ const resetPanning = () => {
 
 let listenersAdded = false
 
-export const addGlobalListeners = () => {
+const addGlobalListeners = () => {
   if (listenersAdded) return
   window.addEventListener('mousemove', onPanMove)
   window.addEventListener('mouseup', onPanEnd)
@@ -86,7 +86,7 @@ export const addGlobalListeners = () => {
   listenersAdded = true
 }
 
-export const removeGlobalListeners = () => {
+const removeGlobalListeners = () => {
   window.removeEventListener('mousemove', onPanMove)
   window.removeEventListener('mouseup', onPanEnd)
   window.removeEventListener('touchmove', onPanMove)

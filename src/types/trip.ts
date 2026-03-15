@@ -26,7 +26,7 @@ export interface BaseStep {
   degrees: string // Temperature in degrees Celsius
 }
 
-export interface RawStep extends BaseStep {
+interface RawStep extends BaseStep {
   description: string
   bgImage?: number | string // index of the background image in the media array, or url of an external image. undefined means no background image
   media: MediaType[] // photos and videos
@@ -36,7 +36,7 @@ export interface CompiletimeStep extends BaseStep {
   media: string // the i-th char represents whether the i-th media is a photo ('p') or a video ('v')
 }
 
-export interface RuntimeStep extends BaseStep {
+interface RuntimeStep extends BaseStep {
   bgImage: string // url of the background image
   media: MediaType[] // photos and videos
   description: string // HTML, lazy-loaded at runtime
@@ -44,11 +44,11 @@ export interface RuntimeStep extends BaseStep {
 
 export type Step = RuntimeStep
 
-export type RawTrip = Trip<Continent<Country<RawStep>>> // before any processing
+type RawTrip = Trip<Continent<Country<RawStep>>> // before any processing
 
 export type CompiletimeTrip = Trip<Continent<Country<CompiletimeStep>>> // after build, before runtime processing
 
-export type RuntimeTrip = Trip<Continent<Country<RuntimeStep>>> // after runtime processing (RuntimeTrip === Trip)
+type RuntimeTrip = Trip<Continent<Country<RuntimeStep>>> // after runtime processing (RuntimeTrip === Trip)
 
 export enum CollectionType {
   None = '',
@@ -57,7 +57,7 @@ export enum CollectionType {
   People = 'people'
 }
 
-export interface StepSlide {
+interface StepSlide {
   step: number
   slide: number
 }

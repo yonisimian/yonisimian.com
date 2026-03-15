@@ -55,5 +55,3 @@ export const initialElements: DiagramElement[] = [
     typeClass: 'order-service'
   }
 ]
-
-export default { apiGatewayElement, initialElements, element_width, element_height }

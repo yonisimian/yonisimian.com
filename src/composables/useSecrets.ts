@@ -60,8 +60,8 @@ const addSecretCallback = (codeName: SecretCodeName, callback: () => void) => {
 
 window.addEventListener('keydown', handleKeydown)
 
-export type SecretCodeName = keyof typeof SECRET_CODE_SEQUENCES
-export type SecretCodeCallback = () => void
+type SecretCodeName = keyof typeof SECRET_CODE_SEQUENCES
+type SecretCodeCallback = () => void
 
 export const useSecrets = () => {
   return {

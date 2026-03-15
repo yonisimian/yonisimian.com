@@ -1,16 +1,16 @@
 import type { NodeType } from './types'
 import type { MicroservicesSystem } from './MicroservicesSystem'
 
-export type EventState =
+type EventState =
   | 'idle'
   | 'logging-in'
   | 'fetching-order'
   | 'removing-inventory'
   | 'completing-order'
   | 'completed'
-export type EventStatus = 'success' | 'failed' | null
+type EventStatus = 'success' | 'failed' | null
 
-export interface EventLog {
+interface EventLog {
   message: string
   timestamp: number
 }

@@ -43,7 +43,7 @@ export const encodeStepMedia = (stepFiles: string[]) => {
   return media
 }
 
-export const decodeStepMedia = (media: string, stepDirPath: string) => {
+const decodeStepMedia = (media: string, stepDirPath: string) => {
   return [...media].map((letter, index) =>
     letter === 'p'
       ? `${stepDirPath}/${index}.jpg`

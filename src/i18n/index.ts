@@ -2,7 +2,7 @@ import { createI18n } from 'vue-i18n'
 import enMessages from '/@/i18n/locales/en.json'
 import heMessages from '/@/i18n/locales/he.json'
 
-export const supportedLanguages = ['en', 'he'] as const
+const supportedLanguages = ['en', 'he'] as const
 
 export const isSupportedLanguage = (lang: any): lang is Language => {
   return supportedLanguages.includes(lang as Language)

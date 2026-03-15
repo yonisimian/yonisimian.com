@@ -6,7 +6,7 @@ export enum ProjectCategory {
 
 export const HighlightSymbol = '★'
 
-export type CategoryFilter = ProjectCategory | typeof HighlightSymbol
+type CategoryFilter = ProjectCategory | typeof HighlightSymbol
 
 export type ProjectLink = {
   title: string
