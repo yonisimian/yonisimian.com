@@ -14,8 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import type { Ref } from 'vue'
+import { computed } from 'vue'
 import { useSizeObserver } from '/@/composables/useSizeObserver'
 
 const props = defineProps<{
@@ -23,8 +22,6 @@ const props = defineProps<{
 }>()
 
 const { target } = useSizeObserver()
-
-const rotatorWrapper: Ref<HTMLDivElement | null> = ref(null)
 
 const wrapperStyle = computed(() => {
   const { width, height } = target.value

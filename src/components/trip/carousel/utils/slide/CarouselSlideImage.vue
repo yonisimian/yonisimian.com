@@ -18,7 +18,7 @@
 <script setup lang="ts">
 import { useTripState } from '/@/composables/useTripState'
 import { PhotoURL } from '/@/types/trip'
-import { watch, ref } from 'vue'
+import { watch } from 'vue'
 import { usePanzoom } from '/@/composables/usePanzoom'
 
 const { slide, activeCollection, fullscreen, openFullscreen } = useTripState()
@@ -27,8 +27,6 @@ const props = defineProps<{
   src: PhotoURL
   disabled?: boolean
 }>()
-
-const imageRef = ref<HTMLImageElement | null>(null)
 
 const { pan, zoom, isDragging, toggleZoom } = usePanzoom()
 

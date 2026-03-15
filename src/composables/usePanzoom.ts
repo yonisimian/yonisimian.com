@@ -86,14 +86,6 @@ const addGlobalListeners = () => {
   listenersAdded = true
 }
 
-const removeGlobalListeners = () => {
-  window.removeEventListener('mousemove', onPanMove)
-  window.removeEventListener('mouseup', onPanEnd)
-  window.removeEventListener('touchmove', onPanMove)
-  window.removeEventListener('touchend', onPanEnd)
-  listenersAdded = false
-}
-
 export function usePanzoom() {
   addGlobalListeners()
   return {
