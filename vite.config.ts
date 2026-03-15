@@ -5,11 +5,12 @@ import vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
 import Unfonts from 'unplugin-fonts/vite'
 import svgLoader from 'vite-svg-loader'
-import { visualizer } from 'rollup-plugin-visualizer'
 import Sitemap from 'vite-plugin-sitemap'
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default defineConfig(async () => {
+  const { visualizer } = await import('rollup-plugin-visualizer')
+  return {
   server: {
     port: 4000
   },
@@ -59,4 +60,5 @@ export default defineConfig({
     include: ['vue', '@vueuse/core'],
     exclude: ['vue-demi']
   }
+}
 })
