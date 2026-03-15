@@ -1,4 +1,4 @@
 {
   "ignoreDependencies": ["@iconify-json/ic", "@iconify-json/ph", "uno.css"],
-  "ignoreBinaries": ["ncu"]
+  "ignoreBinaries": ["npm-check-updates"]
 }
