@@ -307,17 +307,7 @@ const projects: Project[] = [
     It provided an opportunity to explore a different form of art that engages the audience more and is closely tied to the "feel" and energy,
     rather than solely focusing on the notes and precision required in classical music.
     `,
-    embed: 'https://www.instagram.com/p/CYw-T53MZbx/embed/',
-    links: [
-      {
-        title: 'Instragram - Part 1',
-        url: 'https://www.instagram.com/p/CYw-T53MZbx/'
-      },
-      {
-        title: 'Instragram - Part 2',
-        url: 'https://www.instagram.com/p/CZDBPQPsLTi'
-      }
-    ]
+    embed: 'https://youtu.be/4PjRWBolO3U?si=JrSap0I2PEfUmhiX'
   },
   {
     year: 2023,
