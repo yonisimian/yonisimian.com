@@ -307,7 +307,7 @@ const projects: Project[] = [
     It provided an opportunity to explore a different form of art that engages the audience more and is closely tied to the "feel" and energy,
     rather than solely focusing on the notes and precision required in classical music.
     `,
-    embed: 'https://youtu.be/4PjRWBolO3U?si=JrSap0I2PEfUmhiX'
+    embed: 'https://www.youtube.com/embed/4PjRWBolO3U?si=4XoQbfOS7MehQY3-'
   },
   {
     year: 2023,
