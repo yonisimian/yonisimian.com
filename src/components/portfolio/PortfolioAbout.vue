@@ -32,9 +32,7 @@
           I am passionate about <strong>music theory</strong>, viewing it as a human interpretation
           of mathematics, and I actively engage in music composition. Looking forward, one life goal
           of mine is to <strong>revolutionize the landscape of music composition</strong>,
-          leveraging modern technology to create innovative and unprecedented musical experiences. I
-          believe that the intersection of technology and music offers endless possibilities, and I
-          am excited about the prospect of pursuing a Master's degree in Music Technology.
+          leveraging modern technology to create innovative and unprecedented musical experiences.
         </p>
         <p>
           If you would like to learn more about me or collaborate on exciting projects, please feel
