@@ -4,12 +4,15 @@
       <h2 class="text-4xl font-bold my-8">About Me</h2>
       <ExpandableContent>
         <p>
-          I'm a {{ age }} years old <strong>Computer Science B.Sc. student</strong>
-          {{ isBirthday ? '(today is my birthday 🥳)' : '' }} at The Open University of Israel. I'm
-          currently pursuing my degree and am set to complete it in the summer of 2024. Alongside my
-          studies, I have had the incredible opportunity to work as a
-          <strong>R&D Software Development student</strong> at Intel since 2022, where I get to
-          explore my passion for coding and software development. Visit my
+          I'm a {{ age }} years old <strong>software developer</strong> at Intel {{ isBirthday ? '(today is my birthday 🥳)' : '' }}
+          with a
+          <a
+            :href="BSc"
+            target="_blank"
+            style="text-decoration: none;"
+            ><strong>B.Sc. in Computer Science</strong></a
+          >
+          from The Open University of Israel, GPA 90. Visit my
           <a
             :href="Resume"
             target="_blank"
@@ -56,6 +59,7 @@
 import { onMounted, ref } from 'vue'
 import { useReachOutAnimation } from '/@/composables/useReachOut'
 import Resume from '/@/assets/Yehonatan Simian - Resume.pdf'
+import BSc from '/@/assets/portfolio/B.Sc.PDF'
 
 const { reachOut } = useReachOutAnimation()
 
