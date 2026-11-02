@@ -30,13 +30,11 @@ export interface CompiletimeStep extends BaseStep {
   media: string // the i-th char represents whether the i-th media is a photo ('p') or a video ('v')
 }
 
-export interface RuntimeStep extends BaseStep {
+export interface Step extends BaseStep {
   bgImage: string // url of the background image
   media: MediaType[] // photos and videos
   description: string // HTML, lazy-loaded at runtime
 }
-
-export type Step = RuntimeStep
 
 export type CompiletimeTrip = Trip<Continent<Country<CompiletimeStep>>> // after build, before runtime processing
 
