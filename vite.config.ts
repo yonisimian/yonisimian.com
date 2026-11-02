@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import Unocss from 'unocss/vite'
-import path from 'path'
+import { fileURLToPath } from 'url'
 import vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
 import Unfonts from 'unplugin-fonts/vite'
@@ -16,7 +16,7 @@ export default defineConfig(async () => {
   },
   resolve: {
     alias: {
-      '/@': path.resolve(__dirname, './src')
+      '/@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
   plugins: [

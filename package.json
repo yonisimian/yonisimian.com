@@ -2,13 +2,14 @@
   "name": "yonisimian.com",
   "version": "0.0.1",
   "description": "My personal website",
+  "type": "module",
   "scripts": {
     "dev": "vite --open --host",
     "test": "vitest",
     "build": "vue-tsc --noEmit && vitest run && vite build",
     "serve": "vite preview",
     "update-dependencies": "npx npm-check-updates -u && pnpm install",
-    "generate-local-trip": "ts-node --project tsconfig.node.json src/functions/static/trip/generateLocalTrip.ts",
+    "generate-local-trip": "ts-node --project tsconfig.node.json src/functions/static/trip/generateLocalTrip.cts",
     "knip": "knip"
   },
   "dependencies": {
