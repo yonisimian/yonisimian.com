@@ -57,7 +57,7 @@
 import { onMounted, ref } from 'vue'
 import { useReachOutAnimation } from '/@/composables/useReachOut'
 import Resume from '/@/assets/Yehonatan Simian - Resume.pdf'
-import BSc from '/@/assets/portfolio/B.Sc.PDF'
+import BSc from '/@/assets/portfolio/B.Sc.pdf'
 
 const { reachOut } = useReachOutAnimation()
 
