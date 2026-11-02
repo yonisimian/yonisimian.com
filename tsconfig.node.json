@@ -18,6 +18,11 @@
       ]
     }
   },
+  "ts-node": {
+    "moduleTypes": {
+      "src/**/*": "cjs"
+    }
+  },
   "include": [
     "vite.config.ts",
     "src/functions/generate-local-trip.ts",
