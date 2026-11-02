@@ -27,7 +27,7 @@
     "knip": "^6.44.1",
     "rollup-plugin-visualizer": "^7.1.1",
     "ts-node": "^10.9.2",
-    "typescript": "^7.0.2",
+    "typescript": "~6.0.3",
     "unocss": "^66.12.0",
     "unplugin-fonts": "^2.1.0",
     "unplugin-vue-components": "^32.1.0",
