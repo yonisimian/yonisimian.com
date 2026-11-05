@@ -10,6 +10,7 @@
     "serve": "vite preview",
     "update-dependencies": "npx npm-check-updates -u && pnpm install",
     "generate-local-trip": "ts-node --project tsconfig.node.json src/functions/static/trip/generateLocalTrip.cts",
+    "generate-thumbnails": "python3 src/functions/static/generateThumbnails.py",
     "knip": "knip"
   },
   "dependencies": {
