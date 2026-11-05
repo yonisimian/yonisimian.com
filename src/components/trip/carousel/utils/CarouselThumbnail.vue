@@ -9,7 +9,6 @@
       <div class="thumbnail" :class="{ 'is-active': isActive }" @click="slide = index">
         <ResponsiveImage
           :src="smallThumbnail(item)"
-          mode="original"
           fetchpriority="low"
           :alt="`Slide ${index} thumbnail`"
           imgClass="w-full h-full object-cover block"
