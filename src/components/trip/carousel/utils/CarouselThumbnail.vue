@@ -11,9 +11,8 @@
     <template #slide="{ item, index, isActive }">
       <div class="thumbnail" :class="{ 'is-active': isActive }" @click="slide = index">
         <ResponsiveImage
-          v-if="Math.abs(index - slide) <= 5"
-          :src="isImage(item) ? (item as PhotoURL) : (item as VideoURL).thumbnail"
-          mode="thumbnail"
+          :src="smallThumbnail(item)"
+          mode="original"
           fetchpriority="low"
           :alt="`Slide ${index} thumbnail`"
           imgClass="w-full h-full object-cover block"
@@ -26,8 +25,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useTripState } from '/@/composables/useTripState'
-import { isImage, collectionToMediaArray } from '/@/functions/trip'
-import { PhotoURL, VideoURL } from '/@/types/trip'
+import { collectionToMediaArray, smallThumbnail } from '/@/functions/trip'
 
 const { activeCollection, slide } = useTripState()
 
