@@ -1,5 +1,3 @@
-import { initializeApp } from '/@/init'
-
 import { createApp } from 'vue'
 import { router } from '/@/router'
 import { createHead } from '@unhead/vue/client'
@@ -9,6 +7,7 @@ import 'uno.css'
 import App from './App.vue'
 import './assets/styles/base.css'
 import { i18n } from '/@/i18n/index'
+import { WhatsAppURL } from '/@/data/globals'
 
 const headOptions = {
   init: [
@@ -20,8 +19,8 @@ const headOptions = {
   ]
 }
 
-initializeApp().then(() => {
-  const app = createApp(App)
-  const head = createHead(headOptions)
-  app.use(router).use(head).use(i18n).mount('#app')
-})
+if (new URLSearchParams(window.location.search).toString() === 'whatsapp=') {
+  window.location.href = WhatsAppURL
+} else {
+  createApp(App).use(router).use(createHead(headOptions)).use(i18n).mount('#app')
+}

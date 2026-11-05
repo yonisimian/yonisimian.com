@@ -6,11 +6,10 @@ import Components from 'unplugin-vue-components/vite'
 import Unfonts from 'unplugin-fonts/vite'
 import svgLoader from 'vite-svg-loader'
 import Sitemap from 'vite-plugin-sitemap'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 // https://vitejs.dev/config/
-export default defineConfig(async () => {
-  const { visualizer } = await import('rollup-plugin-visualizer')
-  return {
+export default defineConfig({
   server: {
     port: 4000
   },
@@ -55,10 +54,5 @@ export default defineConfig(async () => {
       hostname: 'https://yonisimian.com',
       robots: [{ userAgent: '*', disallow: '/media/' }]
     })
-  ],
-  optimizeDeps: {
-    include: ['vue', '@vueuse/core'],
-    exclude: ['vue-demi']
-  }
-}
+  ]
 })

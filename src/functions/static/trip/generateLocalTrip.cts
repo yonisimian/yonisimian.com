@@ -1,7 +1,7 @@
 import { writeFileSync, readdirSync, readFileSync } from 'fs'
 import { join } from 'path'
 import { CompiletimeTrip, Continent, Country, CompiletimeStep } from '../../../../src/types/trip'
-import { contDirNameToContName, countryDirNameToCountryName, encodeStepMedia } from './utils'
+import { dirNameToName, encodeStepMedia } from './utils'
 
 const loadStepData = (step: CompiletimeStep, stepDir: string) => {
   const files = readdirSync(stepDir)
@@ -33,7 +33,7 @@ const generateTripMetadata = async (): Promise<CompiletimeTrip> => {
 
   for (const continentDirName of continentsDirNames) {
     const continent: Continent<Country<CompiletimeStep>> = {
-      name: contDirNameToContName(continentDirName),
+      name: dirNameToName(continentDirName),
       countries: []
     }
     trip.continents.push(continent)
@@ -46,7 +46,7 @@ const generateTripMetadata = async (): Promise<CompiletimeTrip> => {
 
     for (const countryDirName of countriesDirNames) {
       const country: Country<CompiletimeStep> = {
-        name: countryDirNameToCountryName(countryDirName),
+        name: dirNameToName(countryDirName),
         steps: []
       }
       continent.countries.push(country)
