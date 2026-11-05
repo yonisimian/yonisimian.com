@@ -4,9 +4,6 @@
     :items="mediaItems"
     :itemsToShow="5"
     height="80px"
-    :touchDrag="true"
-    :mouseDrag="true"
-    :mouseWheel="true"
   >
     <template #slide="{ item, index, isActive }">
       <div class="thumbnail" :class="{ 'is-active': isActive }" @click="slide = index">
