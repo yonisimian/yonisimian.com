@@ -10,13 +10,14 @@
             :href="BSc"
             target="_blank"
             style="text-decoration: none;"
+            title="I swear it's not that interesting"
             ><strong>B.Sc. in Computer Science</strong></a
           >
-          from The Open University of Israel, GPA 90. Visit my
+          from The Open University of Israel. Visit my
           <a
             :href="Resume"
             target="_blank"
-            title="Not so interesting. Better visit my GitHub instead!"
+            title="...better visit my GitHub instead!"
             >resume</a
           >
           to learn more.
