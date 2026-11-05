@@ -2,7 +2,7 @@
   <header class="relative flex flex-col justify-center items-center text-center h-[100svh]">
     <HeaderImage />
     <HeaderTitle />
-    <ScrollDown :text="'scroll down'" :selector="'article'" :absolute="true" />
+    <ScrollDown :text="'scroll down'" :selector="'article'" />
   </header>
 </template>
 

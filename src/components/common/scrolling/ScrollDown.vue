@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ 'absolute bottom-4': absolute }">
+  <div class="absolute bottom-4">
     <h3 class="text-2xl mb-2">{{ text }}</h3>
     <ScrollButton direction="down" :handleClick="scrollToSelector" ariaLabel="Scroll down" bounce />
   </div>
@@ -11,7 +11,6 @@ import { ref, onMounted } from 'vue'
 const props = defineProps<{
   text: string
   selector: string
-  absolute?: boolean
 }>()
 
 let nextArticle = ref<HTMLElement | null>(null)

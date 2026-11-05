@@ -8,7 +8,6 @@
       <ResponsiveImage
         v-if="imageSrc"
         :src="imageSrc"
-        mode="original"
         fetchpriority="high"
         :alt="`Background image for ${dest.name}`"
         imgClass="absolute inset-0 w-full h-full object-cover z-0"

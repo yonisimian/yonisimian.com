@@ -3,7 +3,6 @@
     <SlideBlurBackground :src />
     <ResponsiveImage
       :src="src"
-      mode="full"
       fetchpriority="high"
       :alt="`Image from trip slide ${slide}`"
       class="relative z-10"
