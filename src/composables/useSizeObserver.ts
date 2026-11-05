@@ -2,6 +2,7 @@ import { ref, onUnmounted } from 'vue'
 
 const target = ref({ width: 0, height: 0 })
 let observer: ResizeObserver | null = null
+let observedEl: Element | null = null
 
 const updateTargetValue = (el: Element) => {
   const rect = el.getBoundingClientRect()
@@ -10,6 +11,7 @@ const updateTargetValue = (el: Element) => {
 
 const setTarget = (el: Element) => {
   observer?.disconnect()
+  observedEl = el
 
   // 1. Synchronously get and set the initial size
   updateTargetValue(el)
@@ -20,6 +22,19 @@ const setTarget = (el: Element) => {
 }
 
 export const useSizeObserver = () => {
-  onUnmounted(() => observer?.disconnect())
-  return { target, setTarget }
+  let ownEl: Element | null = null
+  // Only the component that owns the observed element may disconnect it
+  onUnmounted(() => {
+    if (ownEl && ownEl === observedEl) {
+      observer?.disconnect()
+      observedEl = null
+    }
+  })
+  return {
+    target,
+    setTarget: (el: Element) => {
+      ownEl = el
+      setTarget(el)
+    }
+  }
 }

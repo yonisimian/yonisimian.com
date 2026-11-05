@@ -8,8 +8,9 @@
     :mouseWheel="true"
     :transition="500"
   >
-    <template #slide="{ item }">
-      <CarouselSlide :url="item" />
+    <template #slide="{ item, index }">
+      <!-- Only mount nearby slides so off-screen media doesn't compete for bandwidth -->
+      <CarouselSlide v-if="Math.abs(index - slide) <= 1" :url="item" />
     </template>
 
     <template #navigation="{ prev, next }">

@@ -11,6 +11,7 @@
       ref="responsiveVideoRef"
       videoClass="w-full h-full origin-center-center z-10 object-contain"
       :src="src.video"
+      :poster="src.thumbnail"
       @play="isPlaying = true"
       @pause="isPlaying = false"
       :controls="false"

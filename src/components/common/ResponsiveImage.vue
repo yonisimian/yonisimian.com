@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, nextTick, onMounted, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useMediaCdn } from '/@/composables/useCDN'
 
 interface Props {
@@ -37,32 +37,19 @@ const resolvedSrc = computed(() => {
   }
 })
 
-const imageRef = ref<HTMLImageElement | null>(null)
-const loading = ref<boolean>(true)
-const handleLoad = () => {
-  loading.value = false
-}
-const handleError = (e: Event) => {
-  ;(e.target as HTMLImageElement).src = props.src
-  loading.value = false
-}
+const currentSrc = ref(resolvedSrc.value)
+const loading = ref(true)
 
-onMounted(() => {
-  nextTick(() => {
-    if (!imageRef.value) {
-      console.warn(
-        'ResponsiveImage: imageRef is not set. Call Yoni and tell him that he owes you a hamburger.'
-      )
-      return
-    }
-    if (imageRef.value.complete) {
-      loading.value = false
-    } else {
-      imageRef.value.addEventListener('load', handleLoad)
-      imageRef.value.addEventListener('error', handleError)
-    }
-  })
+watch(resolvedSrc, (src) => {
+  currentSrc.value = src
+  loading.value = true
 })
+
+const handleError = () => {
+  // Fall back to the original once; retrying the same URL would loop forever
+  if (currentSrc.value !== props.src) currentSrc.value = props.src
+  else loading.value = false
+}
 
 /**
  * TODO: once upon a time, I had the following attributes in my img tag:
@@ -78,11 +65,12 @@ onMounted(() => {
   <div class="inline-block w-full h-full">
     <img
       v-show="!loading"
-      ref="imageRef"
-      :src="resolvedSrc"
+      :src="currentSrc"
       :alt
       :class="imgClass"
       :fetchpriority
+      @load="loading = false"
+      @error="handleError"
     />
     <YSpinner v-if="loading" />
   </div>
