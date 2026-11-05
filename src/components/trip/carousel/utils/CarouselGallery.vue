@@ -3,8 +3,8 @@
     v-model="slide"
     :items="mediaItems"
     :height="fullscreen ? '100%' : 'calc(100% - 80px)'"
-    :touchDrag="!zoom"
-    :mouseDrag="!zoom"
+    :touchDrag="true"
+    :mouseDrag="true"
     :mouseWheel="true"
     :transition="500"
   >
@@ -23,10 +23,8 @@
 import { computed } from 'vue'
 import { useTripState } from '/@/composables/useTripState'
 import { collectionToMediaArray } from '/@/functions/trip'
-import { usePanzoom } from '/@/composables/usePanzoom'
 
 const { slide, activeCollection, fullscreen } = useTripState()
-const { zoom } = usePanzoom()
 
 const mediaItems = computed(() => collectionToMediaArray(activeCollection.value))
 </script>

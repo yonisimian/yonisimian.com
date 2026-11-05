@@ -59,7 +59,6 @@ declare module 'vue' {
     NotebookDescription: typeof import('./components/trip/step/utils/NotebookDescription.vue')['default']
     NotebookSubtitle: typeof import('./components/trip/step/utils/NotebookSubtitle.vue')['default']
     NotebookTitle: typeof import('./components/trip/step/utils/NotebookTitle.vue')['default']
-    PanzoomedComponent: typeof import('./components/trip/carousel/utils/slide/PanzoomedComponent.vue')['default']
     PortfolioAbout: typeof import('./components/portfolio/PortfolioAbout.vue')['default']
     PortfolioBackCategory: typeof import('./components/portfolio/gallery/cardBack/absolutes/PortfolioBackCategory.vue')['default']
     PortfolioBackDesc: typeof import('./components/portfolio/gallery/cardBack/PortfolioBackDesc.vue')['default']
