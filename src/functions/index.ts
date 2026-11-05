@@ -18,28 +18,10 @@ export const waveFetchData = async <T>(
     return
   }
 
-  const initiatedIndices = new Set()
+  await mutateFn(arr[startIndex])
 
-  const initiateMutation = async (index: number) => {
-    if (index >= 0 && index < n && !initiatedIndices.has(index)) {
-      await mutateFn(arr[index])
-      initiatedIndices.add(index)
-    }
-  }
-
-  // DO AWAIT for the starting index
-  await initiateMutation(startIndex)
-
-  // Expand left and right simultaneously
-  let left = startIndex - 1
-  let right = startIndex + 1
-
-  while (left >= 0 || right < n) {
-    if (left >= 0) {
-      initiateMutation(left--)
-    }
-    if (right < n) {
-      initiateMutation(right++)
-    }
+  for (let left = startIndex - 1, right = startIndex + 1; left >= 0 || right < n; left--, right++) {
+    if (left >= 0) mutateFn(arr[left])
+    if (right < n) mutateFn(arr[right])
   }
 }

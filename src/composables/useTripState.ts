@@ -4,6 +4,7 @@ import { useQueryParam } from './useQueryParam'
 import { useRouter, useRoute } from 'vue-router'
 import { Continent, Country, Step, CollectionType, Collection /*, BaseStep*/ } from '/@/types/trip'
 import { useTripData } from '/@/composables/useTripData'
+import { TripRoute } from '/@/data/globals'
 import {
   decodeURIStep,
   encodeURIStep,
@@ -83,15 +84,8 @@ export const useTripState = () => {
   // ===== Navigation logic ===== //
 
   const chooseStep = (step: Step) => {
-    const newId = encodeURIStep(step)
-    const segments = route.path.split('/')
-    if (segments.length > 2) {
-      segments[2] = newId
-    } else {
-      segments.push(newId)
-    }
     router.push({
-      path: segments.join('/'),
+      path: `/${TripRoute}/${encodeURIStep(step)}`,
       query: {
         ...route.query,
         [QUERY_PARAM_SLIDE]: undefined

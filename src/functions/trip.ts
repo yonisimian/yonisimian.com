@@ -11,6 +11,7 @@ import {
 import { useTripData } from '/@/composables/useTripData'
 import { joinPath, waveFetchData } from '.'
 import { contDirName, countryDirName, stepDirName } from './static/trip/utils'
+import { Month } from '/@/utils/months'
 
 //////// getters ////////
 
@@ -30,10 +31,13 @@ export const getContinentByStep = (step: Step): Continent =>
   }
 
 export const getCollection = (type: CollectionType): Collection | undefined => {
-  if (type === CollectionType.Highlights) return useTripData().highlights
-  if (type === CollectionType.Music) return useTripData().music
-  if (type === CollectionType.People) return useTripData().people
-  return undefined
+  const { highlights, music, people } = useTripData()
+  const collections: Partial<Record<CollectionType, Collection>> = {
+    [CollectionType.Highlights]: highlights,
+    [CollectionType.Music]: music,
+    [CollectionType.People]: people
+  }
+  return collections[type]
 }
 
 export const isImage = (media: MediaType): boolean => typeof media === 'string'
@@ -43,11 +47,10 @@ export const stepToIndex = (step: Step): number => {
 }
 
 export const stepToCollection = (step: Step): Collection => {
+  const stepIndex = stepToIndex(step)
   return {
     name: step.name,
-    stepslides: step.media.map((_, slide) => {
-      return { step: stepToIndex(step), slide }
-    })
+    stepslides: step.media.map((_, slide) => ({ step: stepIndex, slide }))
   }
 }
 
@@ -61,26 +64,10 @@ export const stepDegree = (step: Step): string => `${step.degrees}°c`
 
 // Formats a long date string like "January 1, 2025" to "1-1-2025"
 export const formatDate = (longDateString: string): string => {
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
-  ]
   const match = longDateString.match(/^([A-Za-z]+) (\d{1,2}), (\d{4})$/)
-  if (!match) return longDateString
-  const month = months.indexOf(match[1]) + 1
-  const day = parseInt(match[2], 10)
-  const year = match[3]
-  return `${day}-${month}-${year}`
+  const month = match && Month[match[1] as keyof typeof Month]
+  if (!match || !month) return longDateString
+  return `${parseInt(match[2], 10)}-${month}-${match[3]}`
 }
 
 export const encodeURIStep = (step: Step) => `${step.id}-${encodeURIComponent(step.shortName)}`
@@ -140,50 +127,40 @@ export const generateRandomDescription = () => {
 
 //////// fetchers ////////
 
+const errorHtml = (message: string) => `<p style="color: red; text-align: center;">${message}</p>`
+
 const fetchStepDescription = async (trip: Trip, step: Step): Promise<string> => {
-  const continent = trip.continents.find((continent) =>
-    continent.countries.some((country) => country.steps.some((s) => s.id === step.id))
-  )
-  const country = continent?.countries.find((country) =>
-    country.steps.some((s) => s.id === step.id)
-  )
-  if (!continent || !country) {
+  const hasStep = (country: Country) => country.steps.some((s) => s.id === step.id)
+  const countries = trip.continents.flatMap((c) => c.countries)
+  const continentIndex = trip.continents.findIndex((c) => c.countries.some(hasStep))
+  const countryIndex = countries.findIndex(hasStep)
+  if (continentIndex === -1 || countryIndex === -1) {
     console.error(`Continent or country not found for step ID ${step.id}`)
-    return `<p style="color: red; text-align: center;">Failed to load description (Continent or country not found).</p>`
-  }
-  const continentIndex = trip.continents.indexOf(continent)
-  const countryIndex = trip.continents.flatMap((c) => c.countries).findIndex((c) => c === country)
-  if (continentIndex === undefined || countryIndex === undefined) {
-    console.error(`Continent or country not found for step ID ${step.id}`)
-    return `<p style="color: red; text-align: center;">Failed to load description (Continent or country not found).</p>`
+    return errorHtml('Failed to load description (Continent or country not found).')
   }
 
   const descriptionUrl = joinPath(
     'data',
     'trip',
-    contDirName(continentIndex, continent),
-    countryDirName(countryIndex, country),
+    contDirName(continentIndex, trip.continents[continentIndex]),
+    countryDirName(countryIndex, countries[countryIndex]),
     stepDirName(step),
     'description.html'
   )
 
   try {
     const htmlResponse = await fetch(descriptionUrl)
+    if (htmlResponse.ok) return await htmlResponse.text()
 
-    if (!htmlResponse.ok) {
-      const errorText = await htmlResponse.text()
-      console.error(
-        `[LazyLoad] Failed to fetch HTML description for step ID ${step.id}. Status: ${
-          htmlResponse.status
-        } ${htmlResponse.statusText}. Response preview: ${errorText.substring(0, 200)}...`
-      )
-      return `<p style="color: red; text-align: center;">Failed to load description (Error: ${htmlResponse.status} ${htmlResponse.statusText}).</p>`
-    } else {
-      return await htmlResponse.text()
-    }
+    const { status, statusText } = htmlResponse
+    const errorText = await htmlResponse.text()
+    console.error(
+      `[LazyLoad] Failed to fetch HTML description for step ID ${step.id}. Status: ${status} ${statusText}. Response preview: ${errorText.substring(0, 200)}...`
+    )
+    return errorHtml(`Failed to load description (Error: ${status} ${statusText}).`)
   } catch (error: any) {
     console.error(`[LazyLoad] Network error fetching description for step ID ${step.id}:`, error)
-    return `<p style="color: red; text-align: center;">Network error loading description: ${error.message}</p>`
+    return errorHtml(`Network error loading description: ${error.message}`)
   }
 }
 

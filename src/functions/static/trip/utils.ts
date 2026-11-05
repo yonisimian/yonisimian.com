@@ -16,15 +16,10 @@ export const contDirName = <T extends BaseStep>(
 export const countryDirName = <T extends BaseStep>(index: number, country: Country<T>): string =>
   `${index.toString().padStart(2, '0')} - ${country.name}`
 
-export const stepDirName = <T extends BaseStep>(step: T): string => `step-${step.id}`
+export const stepDirName = (step: BaseStep): string => `step-${step.id}`
 
-export const contDirNameToContName = (contDirName: string): string => {
-  return contDirName.slice(5) // Remove 'XX - ' prefix
-}
-
-export const countryDirNameToCountryName = (countryDirName: string): string => {
-  return countryDirName.slice(5) // Remove 'XX - ' prefix
-}
+// Strips the 'XX - ' prefix
+export const dirNameToName = (dirName: string): string => dirName.slice(5)
 
 export const encodeStepMedia = (stepFiles: string[]) => {
   let media = ''
