@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, nextTick, onMounted, onUnmounted, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useMediaCdn } from '/@/composables/useCDN'
 
 interface Props {
@@ -62,121 +62,71 @@ const resolvedPoster = computed(() => {
   return undefined
 })
 
-const loading = ref(true)
+const emit = defineEmits(['play', 'pause'])
+
 const videoElementRef = ref<HTMLVideoElement | null>(null)
+const currentSrc = ref(resolvedSrc.value)
+// Only true while buffering: mobile browsers often skip preloading, so waiting for data up front can hang forever
+const loading = ref(false)
+const isPaused = ref(true)
+const isEnded = ref(false)
 
-const internalIsPaused = ref(true)
-const internalIsEnded = ref(false)
-
-// Internal handler for video's native 'play' event
-const handleNativePlay = () => {
-  internalIsPaused.value = false
-  internalIsEnded.value = false // Reset ended when playing starts
-  emit('play') // Re-emit to parent
-}
-
-// Internal handler for video's native 'pause' event
-const handleNativePause = () => {
-  internalIsPaused.value = true
-  // We don't change internalIsEnded here, it's handled by handleNativeEnded
-  emit('pause') // Re-emit to parent
-}
-
-// Internal handler for video's native 'ended' event
-const handleNativeEnded = () => {
-  internalIsEnded.value = true
-  internalIsPaused.value = true // Video is paused when it ends
-  emit('pause') // Emit pause to parent as well
-}
-
-const handleLoadedData = () => {
+watch(resolvedSrc, (src) => {
+  currentSrc.value = src
   loading.value = false
-  // Initial state check after loadeddata, useful for autoplay scenarios
-  if (videoElementRef.value) {
-    internalIsPaused.value = videoElementRef.value.paused
-    internalIsEnded.value = videoElementRef.value.ended
-  }
+})
+
+const handlePlay = () => {
+  isPaused.value = false
+  isEnded.value = false
+  emit('play')
 }
 
-const emit = defineEmits(['play', 'pause', 'loaded'])
+const handlePause = () => {
+  isPaused.value = true
+  loading.value = false
+  emit('pause')
+}
 
-const handleError = (e: Event) => {
-  if (videoElementRef.value) {
-    if (videoElementRef.value.src === props.src) {
-      console.error('Video source failed to load:', e)
-    } else {
-      console.warn('Video source failed. Serving original src as fallback.')
-      videoElementRef.value.removeEventListener('loadeddata', handleLoadedData)
-      loading.value = true
-      videoElementRef.value.addEventListener('loadeddata', handleLoadedData, { once: true })
-      videoElementRef.value.src = props.src // Fallback to original src
-    }
+const handleEnded = () => {
+  isEnded.value = true
+  handlePause()
+}
+
+const handleError = () => {
+  // Fall back to the original once; retrying the same URL would loop forever
+  if (currentSrc.value !== props.src) {
+    currentSrc.value = props.src
   } else {
-    console.error('Video element not found :(')
+    console.error('Video failed to load:', props.src)
+    loading.value = false
   }
 }
 
-// Expose methods for parent component to call
 const play = () =>
   videoElementRef.value?.play().catch((e) => {
     console.warn('Video play failed:', e)
-    internalIsPaused.value = true
-    internalIsEnded.value = false
+    isPaused.value = true
+    isEnded.value = false
+    loading.value = false
   })
 
 const pause = () => videoElementRef.value?.pause()
-
-const isVideoPaused = computed(() => internalIsPaused.value)
-const isVideoEnded = computed(() => internalIsEnded.value)
 
 defineExpose({
   play,
   pause,
   isLoading: computed(() => loading.value),
-  isPaused: isVideoPaused,
-  isEnded: isVideoEnded
-})
-
-onMounted(() => {
-  nextTick(() => {
-    if (!videoElementRef.value) {
-      console.warn(
-        'ResponsiveVideo: videoElementRef is not set. Call Yoni and tell him that he owes you sushi.'
-      )
-      return
-    }
-
-    if (videoElementRef.value.readyState >= 2) {
-      loading.value = false // Data is available for the current playback position
-    } else {
-      videoElementRef.value.addEventListener('loadeddata', handleLoadedData)
-      videoElementRef.value.addEventListener('error', handleError)
-    }
-
-    videoElementRef.value.addEventListener('play', handleNativePlay)
-    videoElementRef.value.addEventListener('pause', handleNativePause)
-    videoElementRef.value.addEventListener('ended', handleNativeEnded)
-
-    internalIsPaused.value = videoElementRef.value.paused
-    internalIsEnded.value = videoElementRef.value.ended
-  })
-})
-
-onUnmounted(() => {
-  if (videoElementRef.value) {
-    videoElementRef.value.removeEventListener('play', handleNativePlay)
-    videoElementRef.value.removeEventListener('pause', handleNativePause)
-    videoElementRef.value.removeEventListener('ended', handleNativeEnded)
-  }
+  isPaused: computed(() => isPaused.value),
+  isEnded: computed(() => isEnded.value)
 })
 </script>
 
 <template>
   <div class="w-full h-full relative inline-block">
     <video
-      v-show="!loading"
       ref="videoElementRef"
-      :src="resolvedSrc"
+      :src="currentSrc"
       :poster="resolvedPoster"
       :class="props.videoClass"
       :fetchpriority="props.fetchpriority"
@@ -187,6 +137,12 @@ onUnmounted(() => {
       :preload="props.preload"
       playsinline
       class="w-full h-auto block"
+      @play="handlePlay"
+      @pause="handlePause"
+      @ended="handleEnded"
+      @waiting="loading = true"
+      @playing="loading = false"
+      @error="handleError"
     >
       <p v-if="props.alt">
         {{ props.alt }}
