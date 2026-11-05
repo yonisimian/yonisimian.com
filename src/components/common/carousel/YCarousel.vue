@@ -159,11 +159,21 @@ const handleEnd = () => {
 }
 
 // Event handlers
+// Pinches and pans of a natively zoomed page belong to the browser, not to slide swiping
+const isNativeGesture = (e: TouchEvent) =>
+  e.touches.length > 1 || (window.visualViewport?.scale ?? 1) > 1.01
+
 const handleTouchStart = (e: TouchEvent) => {
+  if (isNativeGesture(e)) return
   handleStart(e.touches[0].clientX)
 }
 
 const handleTouchMove = (e: TouchEvent) => {
+  if (isNativeGesture(e)) {
+    isDragging.value = false
+    dragOffset.value = 0
+    return
+  }
   e.preventDefault()
   handleMove(e.touches[0].clientX)
 }
