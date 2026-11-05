@@ -24,43 +24,30 @@
           :item="item"
           :index="index"
           :isActive="index === currentSlide"
-          :currentIndex="index"
         />
       </div>
     </div>
 
-    <slot name="navigation" :prev="prevSlide" :next="nextSlide" :currentSlide="currentSlide" />
+    <slot name="navigation" :prev="prevSlide" :next="nextSlide" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, onMounted, onUnmounted, readonly } from 'vue'
+import { ref, computed, watch } from 'vue'
 
 interface Props {
   modelValue?: number
   items: any[]
   itemsToShow?: number
   height?: string
-  touchDrag?: boolean
-  mouseDrag?: boolean
-  mouseWheel?: boolean
   transition?: number
-  gap?: number
-  autoplay?: number
-  loop?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   modelValue: 0,
   itemsToShow: 1,
   height: 'auto',
-  touchDrag: true,
-  mouseDrag: true,
-  mouseWheel: true,
-  transition: 300,
-  gap: 0,
-  autoplay: 0,
-  loop: false
+  transition: 300
 })
 
 const emit = defineEmits<{
@@ -85,8 +72,7 @@ const trackStyles = computed(() => {
   return {
     transform: `translateX(${translateX}%)`,
     transition: isDragging.value ? 'none' : `transform ${props.transition}ms ease`,
-    display: 'flex',
-    gap: `${props.gap}px`
+    display: 'flex'
   }
 })
 
@@ -97,28 +83,15 @@ const slideStyles = computed(() => ({
 
 // Navigation methods
 const nextSlide = () => {
-  if (currentSlide.value < props.items.length - 1) {
-    currentSlide.value++
-  } else if (props.loop) {
-    currentSlide.value = 0
-  }
+  if (currentSlide.value < props.items.length - 1) currentSlide.value++
 }
 
 const prevSlide = () => {
-  if (currentSlide.value > 0) {
-    currentSlide.value--
-  } else if (props.loop) {
-    currentSlide.value = props.items.length - props.itemsToShow
-  }
-}
-
-const goToSlide = (index: number) => {
-  currentSlide.value = Math.max(0, Math.min(index, props.items.length - props.itemsToShow))
+  if (currentSlide.value > 0) currentSlide.value--
 }
 
 // Touch/Mouse handling
 const handleStart = (clientX: number) => {
-  if (!props.touchDrag && !props.mouseDrag) return
   isDragging.value = true
   justFinishedDragging.value = false
   startX.value = clientX
@@ -196,7 +169,6 @@ const handleMouseEnd = () => {
 }
 
 const handleWheel = (e: WheelEvent) => {
-  if (!props.mouseWheel) return
   e.preventDefault()
 
   if (e.deltaY > 0) {
@@ -213,22 +185,6 @@ const handleSlideClick = (e: Event) => {
   }
 }
 
-// Autoplay
-let autoplayInterval: ReturnType<typeof setInterval> | null = null
-
-const startAutoplay = () => {
-  if (props.autoplay > 0) {
-    autoplayInterval = setInterval(nextSlide, props.autoplay)
-  }
-}
-
-const stopAutoplay = () => {
-  if (autoplayInterval) {
-    clearInterval(autoplayInterval)
-    autoplayInterval = null
-  }
-}
-
 // Watchers
 watch(
   () => props.modelValue,
@@ -239,30 +195,6 @@ watch(
 
 watch(currentSlide, (newValue) => {
   emit('update:modelValue', newValue)
-})
-
-watch(
-  () => props.autoplay,
-  () => {
-    stopAutoplay()
-    startAutoplay()
-  }
-)
-
-onMounted(() => {
-  startAutoplay()
-})
-
-onUnmounted(() => {
-  stopAutoplay()
-})
-
-// Expose methods for parent components
-defineExpose({
-  nextSlide,
-  prevSlide,
-  goToSlide,
-  currentSlide: readonly(currentSlide)
 })
 </script>
 

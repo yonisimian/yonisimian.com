@@ -3,9 +3,6 @@
     v-model="slide"
     :items="mediaItems"
     :height="fullscreen ? '100%' : 'calc(100% - 80px)'"
-    :touchDrag="true"
-    :mouseDrag="true"
-    :mouseWheel="true"
     :transition="500"
   >
     <template #slide="{ item, index }">
