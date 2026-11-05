@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 
 interface Props {
   src: string
@@ -16,21 +16,8 @@ const props = withDefaults(defineProps<Props>(), {
   alt: ''
 })
 
+// Spinner only until the first load; on src changes the browser keeps the old image until the new one is ready
 const loading = ref(true)
-
-watch(
-  () => props.src,
-  () => (loading.value = true)
-)
-
-/**
- * TODO: once upon a time, I had the following attributes in my img tag:
- * loading="lazy"
- * decoding="async"
- * draggable="false"
- * For some reason, those attributes caused issues with the image loading in some cases.
- * I removed them, but they might be useful if I understand one day how to use them.
- */
 </script>
 
 <template>

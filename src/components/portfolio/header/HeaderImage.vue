@@ -4,7 +4,7 @@
     @click="nextImage"
   >
     <ResponsiveImage
-      :src="`/media/portfolio/pp/${index}.webp`"
+      :src="src(index)"
       alt="Yehonatan Simian - Profile Picture"
       imgClass="rounded-full aspect-ratio-1/1 transition-all duration-500 shadow-[0_0_12px_#666] dark:shadow-[0_0_8px_#00b3ff]"
       fetchpriority="high"
@@ -13,13 +13,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
+const COUNT = 4
+const src = (i: number) => `/media/portfolio/pp/${i}.webp`
 const index = ref(0)
 
 const nextImage = () => {
-  index.value = (index.value + 1) % 4
+  index.value = (index.value + 1) % COUNT
 }
+
+onMounted(() => {
+  for (let i = 1; i < COUNT; i++) new Image().src = src(i)
+})
 </script>
 
 <style scoped>
