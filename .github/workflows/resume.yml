@@ -1,0 +1,29 @@
+name: Render resume
+
+on:
+  push:
+    branches: [main]
+    paths: [resume/resume.yaml]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      # Pinned: the YAML relies on raw Typst passthrough that may change between versions
+      - run: pip install "rendercv[full]==2.8"
+      - run: rendercv render resume/resume.yaml -o "$RUNNER_TEMP/rcv" -pdf public/resume.pdf -nomd -nohtml -nopng
+      - name: Commit PDF
+        run: |
+          git diff --quiet public/resume.pdf && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Render resume" public/resume.pdf
+          git push

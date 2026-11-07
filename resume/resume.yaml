@@ -1,0 +1,74 @@
+cv:
+  name: Yehonatan Simian
+  headline: Software Engineer | C++ Enthusiast
+  location: Haifa, Israel
+  email: yonisimian@gmail.com
+  website: https://yonisimian.com
+  social_networks:
+    - network: GitHub
+      username: yonisimian
+  sections:
+    summary:
+      - I'm an autodidact who spends my free time on programming and music. More in my [portfolio](https://yonisimian.com/portfolio).
+    experience:
+      - company: Intel
+        position: R&D Software Developer
+        start_date: 2022
+        end_date: present
+        highlights:
+          - Develop an LLVM-based C++ compiler for chip validation, used by hundreds of engineers.
+          # RenderCV flattens " - " sub-bullets in the PDF, so nest them with raw Typst
+          - "Independently initiated projects, such as:
+            #list[Redesigned core algorithms, cutting a user's compile time from 2+ hours to 1 minute.]
+            #list[Built a profiling and benchmarking framework, wired into CI/CD and Kibana.]
+            #list[Host weekly modern C++ talks and riddles for the team.]"
+      - company: HOT mobile / HOT net
+        position: Network Controller, NOC
+        start_date: 2019
+        end_date: 2021
+        highlights:
+          - Monitored wired and cellular networks; drove knowledge sharing at the operations center.
+      - company: IDF, Signal Corps
+        position: Operations Sergeant
+        start_date: 2017
+        end_date: 2019
+        highlights:
+          - Built a data management program in Java for military use.
+    publications:
+      - title: "P3817: Structured Binding Assignments"
+        authors:
+          - Yehonatan Simian
+          - Ran Regev
+        date: 2026-10
+        journal: ISO C++ Committee (WG21), with a Clang implementation
+        url: https://wg21.link/p3817
+    education:
+      - institution: The Open University of Israel
+        area: B.Sc. in Computer Science, [GPA 90](https://yonisimian.com/bsc.pdf)
+        start_date: 2018
+        end_date: 2024
+    skills:
+      - label: Languages
+        details: "[C++](https://github.com/openu-cs-degree/20407-Data-Structures-and-Introduction-to-Algorithms), [Python](https://github.com/openu-cs-degree/20606-Programming-and-Data-Analysis-in-Python), [TypeScript](https://incremental.yonisimian.com/)"
+      - label: Web
+        details: Vue, Firebase
+      - label: Tools
+        details: "Git/GitHub, Jenkins, Kibana, [LaTeX](https://yonisimian.com/data/portfolio/mamans/22913%20-%20Maman%2012.pdf), [Desmos](https://www.desmos.com/calculator/7fprn6l4gt)"
+      - label: Music
+        details: "[MuseScore](https://musescore.com/user/2563941/scores/13304740), [Cubase](https://youtu.be/MJBjzEIoYDo), Guitar Pro"
+      - label: Spoken
+        details: Hebrew (native), English (fluent)
+design:
+  theme: classic
+  page:
+    show_footer: false
+  typography:
+    font_size:
+      headline: 14pt
+  sections:
+    show_time_spans_in: []
+  entries:
+    degree_width: 0cm
+  templates:
+    education_entry:
+      degree_column: null
