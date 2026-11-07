@@ -3,7 +3,6 @@ import Unocss from 'unocss/vite'
 import { fileURLToPath } from 'url'
 import vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
-import Unfonts from 'unplugin-fonts/vite'
 import svgLoader from 'vite-svg-loader'
 import Sitemap from 'vite-plugin-sitemap'
 import { visualizer } from 'rollup-plugin-visualizer'
@@ -25,24 +24,6 @@ export default defineConfig({
     Components({
       extensions: ['vue'],
       dts: 'src/components.d.ts'
-    }),
-    Unfonts({
-      google: {
-        families: [
-          {
-            name: 'Open Sans',
-            styles: 'wght@400;700'
-          },
-          {
-            name: 'Montserrat',
-            styles: 'wght@400;700'
-          },
-          {
-            name: 'Fira Sans',
-            styles: 'wght@400;700'
-          }
-        ]
-      }
     }),
     visualizer({
       filename: 'dist/stats.html',

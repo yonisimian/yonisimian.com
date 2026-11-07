@@ -8,6 +8,7 @@ import {
   transformerDirectives,
   transformerVariantGroup
 } from 'unocss'
+import { createLocalFontProcessor } from '@unocss/preset-web-fonts/local'
 
 export default defineConfig({
   presets: [
@@ -26,10 +27,11 @@ export default defineConfig({
     presetWebFonts({
       provider: 'google', // default provider
       fonts: {
-        sans: 'Open Sans',
-        serif: 'Montserrat',
-        mono: ['Fira Code', 'Fira Mono:400,700']
-      }
+        serif: 'Montserrat:400,700',
+        mono: 'Fira Code'
+      },
+      // Committed, so builds are offline and the preloaded file name in index.html stays stable
+      processors: createLocalFontProcessor({ cacheDir: 'src/assets/fonts/web' })
     })
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
