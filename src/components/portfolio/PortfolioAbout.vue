@@ -7,7 +7,7 @@
           I'm a {{ age }} years old <strong>software developer</strong> at Intel {{ isBirthday ? '(today is my birthday 🥳)' : '' }}
           with a
           <a
-            :href="BSc"
+            href="/bsc.pdf"
             target="_blank"
             style="text-decoration: none;"
             title="I swear it's not that interesting"
@@ -15,7 +15,7 @@
           >
           from The Open University of Israel. Visit my
           <a
-            :href="Resume"
+            href="/resume.pdf"
             target="_blank"
             title="...better visit my GitHub instead!"
             >resume</a
@@ -57,8 +57,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { useReachOutAnimation } from '/@/composables/useReachOut'
-import Resume from '/@/assets/Yehonatan Simian - Resume.pdf'
-import BSc from '/@/assets/portfolio/B.Sc.pdf'
 
 const { reachOut } = useReachOutAnimation()
 
