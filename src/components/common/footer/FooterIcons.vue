@@ -4,7 +4,7 @@
     <YoutubeIcon />
     <GitHubIcon />
     <EmailIcon />
-    <WhatsAppIcon />
+    <DiscordIcon />
   </ul>
 </template>
 

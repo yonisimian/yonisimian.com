@@ -7,7 +7,6 @@ import 'uno.css'
 import App from './App.vue'
 import './assets/styles/base.css'
 import { i18n } from '/@/i18n/index'
-import { WhatsAppURL } from '/@/data/globals'
 
 const headOptions = {
   init: [
@@ -19,8 +18,4 @@ const headOptions = {
   ]
 }
 
-if (new URLSearchParams(window.location.search).toString() === 'whatsapp=') {
-  window.location.href = WhatsAppURL
-} else {
-  createApp(App).use(router).use(createHead(headOptions)).use(i18n).mount('#app')
-}
+createApp(App).use(router).use(createHead(headOptions)).use(i18n).mount('#app')
