@@ -10,6 +10,8 @@
       type="font/woff2"
       crossorigin
     />
+    <!-- LCP image of the landing page; fetch it in parallel with the JS instead of after it -->
+    <link rel="preload" href="/media/portfolio/pp/0.webp" as="image" fetchpriority="high" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Yehonatan Simian</title>

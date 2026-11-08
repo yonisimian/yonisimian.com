@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import { TripRoute, PortfolioRoute, CookbookRoute, VegetavailableRoute } from '/@/data/globals'
 import { useLoading } from '/@/composables/useLoading'
-import { i18n, DEFAULT_LANGUAGE, isSupportedLanguage } from '/@/i18n/index'
+import { DEFAULT_LANGUAGE, isSupportedLanguage } from '/@/i18n/index'
+import PortfolioView from '/@/views/PortfolioView.vue'
 
 const { startLoadingSpinner, stopLoadingSpinner } = useLoading()
 // Hardcoded to keep trip data out of the main bundle
@@ -15,7 +16,8 @@ const routes: RouteRecordRaw[] = [
   { path: '/', redirect: `/${PortfolioRoute}` },
   {
     path: `/${PortfolioRoute}`,
-    component: () => import('/@/views/PortfolioView.vue')
+    // Landing page: bundled eagerly to save a round trip before first paint
+    component: PortfolioView
   },
   {
     path: `/${TripRoute}`,
@@ -69,7 +71,6 @@ router.beforeEach((to, from) => {
   if (lang && !isSupportedLanguage(lang)) {
     console.warn(`Unsupported language: ${lang}. Defaulting to ${DEFAULT_LANGUAGE}.`)
   }
-  i18n.global.locale.value = isSupportedLanguage(lang) ? lang : DEFAULT_LANGUAGE
 })
 
 router.afterEach(stopLoadingSpinner)
