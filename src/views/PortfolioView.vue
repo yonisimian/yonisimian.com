@@ -7,7 +7,13 @@
 </template>
 
 <script setup lang="ts">
+import { defineAsyncComponent } from 'vue'
 import { useSeoMeta } from '@unhead/vue'
+
+// Below the fold and holds all project data; load it after the header renders
+const PortfolioGallery = defineAsyncComponent(
+  () => import('/@/components/portfolio/PortfolioGallery.vue')
+)
 
 useSeoMeta({
   title: 'Portfolio',

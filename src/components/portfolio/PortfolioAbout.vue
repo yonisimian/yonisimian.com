@@ -1,6 +1,6 @@
 <template>
   <article class="relative flex flex-col justify-start items-center text-center text-md">
-    <section ref="aboutSection">
+    <section>
       <h2 class="text-4xl font-bold my-8">About Me</h2>
       <ExpandableContent>
         <p>
@@ -61,14 +61,9 @@ import { useReachOutAnimation } from '/@/composables/useReachOut'
 const { reachOut } = useReachOutAnimation()
 
 let footerSection = ref<HTMLElement | null>(null)
-const aboutSection = ref<HTMLElement | null>(null)
-const isSectionShort = ref(false)
 
 onMounted(() => {
   footerSection.value = document.querySelector('footer')
-  if (aboutSection.value && aboutSection.value.offsetHeight < window.innerHeight - 60) {
-    isSectionShort.value = true
-  }
 })
 
 const scrollToFooter = () => {

@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { Project, ProjectCategory } from '/@/types/portfolio'
 import projectsData from '/@/data/projects'
 
@@ -29,6 +29,15 @@ const selectedCategories = ref<ProjectCategory[]>([])
 const selectedHighlights = ref(false)
 const searchProject = ref('')
 const projects = ref<Project[]>(projectsData)
+
+// Logos are lazy so they don't compete with the LCP image; warm the cache once the page has loaded
+const prefetchLogos = () => {
+  for (const { img } of projectsData) new Image().src = `/media/portfolio/projects/${img}.webp`
+}
+onMounted(() => {
+  if (document.readyState === 'complete') prefetchLogos()
+  else window.addEventListener('load', prefetchLogos, { once: true })
+})
 
 const projectsSortFunc = (a: Project, b: Project) =>
   (b.year ?? Number.MIN_SAFE_INTEGER) - (a.year ?? Number.MIN_SAFE_INTEGER)
