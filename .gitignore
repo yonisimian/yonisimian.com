@@ -8,3 +8,4 @@ dist-ssr
 .pnpm-store/
 .netlify
 rendercv_output/
+.venv/
