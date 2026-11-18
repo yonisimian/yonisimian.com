@@ -1,7 +1,7 @@
 """Generates `N.small.webp` next to every trip `N.jpg` / `N-thumb.jpg`, for the carousel's thumbnail strip."""
 
 import os
-import sys
+import argparse
 from PIL import Image, ImageOps
 
 MEDIA_DIR = os.path.join("public", "media", "trip")
@@ -28,4 +28,8 @@ def generate_thumbnails(media_dir: str, force: bool = False) -> None:
 
 
 if __name__ == "__main__":
-    generate_thumbnails(MEDIA_DIR, force="--force" in sys.argv)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--media-dir", default=MEDIA_DIR)
+    parser.add_argument("--force", action="store_true")
+    args = parser.parse_args()
+    generate_thumbnails(args.media_dir, force=args.force)

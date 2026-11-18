@@ -20,8 +20,10 @@
 import { computed } from 'vue'
 import { useTripState } from '/@/composables/useTripState'
 import { collectionToMediaArray } from '/@/functions/trip'
+import { useTripData } from '/@/composables/useTripData'
 
 const { slide, activeCollection, fullscreen } = useTripState()
+const { steps } = useTripData()
 
-const mediaItems = computed(() => collectionToMediaArray(activeCollection.value))
+const mediaItems = computed(() => collectionToMediaArray(activeCollection.value, steps))
 </script>

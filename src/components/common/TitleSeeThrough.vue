@@ -12,7 +12,7 @@
         <mask id="text-mask">
           <rect x="0" y="0" width="100%" height="100%" fill="white" />
           <text x="50%" y="50%" dy=".35em" text-anchor="middle" font-weight="bold" fill="black">
-            The Big Trip
+            {{ title }}
           </text>
         </mask>
       </defs>
@@ -24,6 +24,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useTheme } from '/@/composables/useTheme'
+
+withDefaults(defineProps<{ title?: string }>(), { title: 'The Big Trip' })
 
 const { isDark } = useTheme()
 

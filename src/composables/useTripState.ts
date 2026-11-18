@@ -4,7 +4,6 @@ import { useQueryParam } from './useQueryParam'
 import { useRouter, useRoute } from 'vue-router'
 import { Continent, Country, Step, CollectionType, Collection /*, BaseStep*/ } from '/@/types/trip'
 import { useTripData } from '/@/composables/useTripData'
-import { TripRoute } from '/@/data/globals'
 import {
   decodeURIStep,
   encodeURIStep,
@@ -15,7 +14,8 @@ import {
 } from '/@/functions/trip'
 
 export const useTripState = () => {
-  const { steps } = useTripData()
+  const tripData = useTripData()
+  const { steps, countries, continents } = tripData
   const route = useRoute()
   const router = useRouter()
 
@@ -23,17 +23,17 @@ export const useTripState = () => {
 
   const currStep = computed<Step>(() => {
     const id = route.params.id as string | undefined
-    const found = id && decodeURIStep(id)
+    const found = id && decodeURIStep(id, steps)
     return found || steps[0]
   })
 
   const currStepIndex = computed<number>(() => steps.indexOf(currStep.value))
   const prevStep = computed<Step | undefined>(() => steps[currStepIndex.value - 1])
   const nextStep = computed<Step | undefined>(() => steps[currStepIndex.value + 1])
-  const currCountry = computed<Country>(() => getCountryByStep(currStep.value))
-  const currContinent = computed<Continent>(() => getContinentByStep(currStep.value))
+  const currCountry = computed<Country>(() => getCountryByStep(currStep.value, countries))
+  const currContinent = computed<Continent>(() => getContinentByStep(currStep.value, continents))
   const activeCollection = computed<Collection>(
-    () => getCollection(collection.value) ?? stepToCollection(currStep.value)
+    () => getCollection(collection.value, tripData) ?? stepToCollection(currStep.value, steps)
   )
 
   // ===== Query string state ===== //
@@ -85,7 +85,7 @@ export const useTripState = () => {
 
   const chooseStep = (step: Step) => {
     router.push({
-      path: `/${TripRoute}/${encodeURIStep(step)}`,
+      path: `/${tripData.route}/${encodeURIStep(step)}`,
       query: {
         ...route.query,
         [QUERY_PARAM_SLIDE]: undefined

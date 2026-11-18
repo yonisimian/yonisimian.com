@@ -49,7 +49,11 @@ const decodeStepMedia = (media: string, stepDirPath: string) => {
   )
 }
 
-export const decodeTrip = (trip: CompiletimeTrip): Trip => {
+export const decodeTrip = (
+  trip: CompiletimeTrip,
+  mediaRoot = 'trip',
+  backgroundFromMedia = false
+): Trip => {
   const getCountryDir = (
     continentIndex: number,
     continent: Continent<Country<CompiletimeStep>>,
@@ -58,7 +62,7 @@ export const decodeTrip = (trip: CompiletimeTrip): Trip => {
     const countryIndex = trip.continents.flatMap((c) => c.countries).findIndex((c) => c === country)
     return joinPath(
       'media',
-      'trip',
+      mediaRoot,
       contDirName(continentIndex, continent),
       countryDirName(countryIndex, country)
     )
@@ -72,11 +76,20 @@ export const decodeTrip = (trip: CompiletimeTrip): Trip => {
         bgImage: `${getCountryDir(contIndex, cont, country)}/flag.webp`,
         steps: country.steps.map((step) => {
           const stepDirPath = `${getCountryDir(contIndex, cont, country)}/${stepDirName(step)}`
+          const media = decodeStepMedia(step.media, stepDirPath)
+          const firstMedia = media[0]
           return {
             ...step,
             description: '',
-            bgImage: `${stepDirPath}/bg.webp`,
-            media: decodeStepMedia(step.media, stepDirPath)
+            bgImage:
+              backgroundFromMedia && firstMedia
+                ? typeof firstMedia === 'string'
+                  ? firstMedia
+                  : firstMedia.thumbnail
+                : backgroundFromMedia
+                  ? ''
+                  : `${stepDirPath}/bg.webp`,
+            media
           }
         })
       }))

@@ -7,22 +7,21 @@ import {
   Collection,
   Trip
 } from '/@/types/trip'
-
-import { useTripData } from '/@/composables/useTripData'
+import type { TripData } from '/@/composables/tripDataContext'
 import { joinPath, waveFetchData } from '.'
 import { contDirName, countryDirName, stepDirName } from './static/trip/utils'
 import { Month } from '/@/utils/months'
 
 //////// getters ////////
 
-export const getCountryByStep = (step: Step): Country =>
-  useTripData().countries.find((country) => country.steps.some((s) => s.id === step.id)) || {
+export const getCountryByStep = (step: Step, countries: Country[]): Country =>
+  countries.find((country) => country.steps.some((s) => s.id === step.id)) || {
     name: 'Unknown Country',
     steps: []
   }
 
-export const getContinentByStep = (step: Step): Continent =>
-  useTripData().continents.find((continent) =>
+export const getContinentByStep = (step: Step, continents: Continent[]): Continent =>
+  continents.find((continent) =>
     continent.countries.some((country) => country.steps.some((s) => s.id === step.id))
   ) || {
     name: 'Unknown Continent',
@@ -30,12 +29,14 @@ export const getContinentByStep = (step: Step): Continent =>
     countries: []
   }
 
-export const getCollection = (type: CollectionType): Collection | undefined => {
-  const { highlights, music, people } = useTripData()
+export const getCollection = (
+  type: CollectionType,
+  tripData: Pick<TripData, 'highlights' | 'music' | 'people'>
+): Collection | undefined => {
   const collections: Partial<Record<CollectionType, Collection>> = {
-    [CollectionType.Highlights]: highlights,
-    [CollectionType.Music]: music,
-    [CollectionType.People]: people
+    [CollectionType.Highlights]: tripData.highlights,
+    [CollectionType.Music]: tripData.music,
+    [CollectionType.People]: tripData.people
   }
   return collections[type]
 }
@@ -46,20 +47,20 @@ export const isImage = (media: MediaType): boolean => typeof media === 'string'
 export const smallThumbnail = (media: MediaType): string =>
   (typeof media === 'string' ? media : media.thumbnail).replace(/\.jpg$/, '.small.webp')
 
-export const stepToIndex = (step: Step): number => {
-  return useTripData().steps.findIndex((s) => s.id === step.id)
+export const stepToIndex = (step: Step, steps: Step[]): number => {
+  return steps.findIndex((s) => s.id === step.id)
 }
 
-export const stepToCollection = (step: Step): Collection => {
-  const stepIndex = stepToIndex(step)
+export const stepToCollection = (step: Step, steps: Step[]): Collection => {
+  const stepIndex = stepToIndex(step, steps)
   return {
     name: step.name,
     stepslides: step.media.map((_, slide) => ({ step: stepIndex, slide }))
   }
 }
 
-export const collectionToMediaArray = (collection: Collection): MediaType[] => {
-  return collection.stepslides.map(({ step, slide }) => useTripData().steps[step].media[slide])
+export const collectionToMediaArray = (collection: Collection, steps: Step[]): MediaType[] => {
+  return collection.stepslides.map(({ step, slide }) => steps[step].media[slide])
 }
 
 export const stepDegree = (step: Step): string => `${step.degrees}°c`
@@ -76,9 +77,9 @@ export const formatDate = (longDateString: string): string => {
 
 export const encodeURIStep = (step: Step) => `${step.id}-${encodeURIComponent(step.shortName)}`
 
-export const decodeURIStep = (id: string) => {
+export const decodeURIStep = (id: string, steps: Step[]) => {
   const [stepId, _] = id.split('-')
-  return useTripData().steps.find((step) => step.id === Number(stepId))
+  return steps.find((step) => step.id === Number(stepId))
 }
 
 //////// generateRandomDescription ////////
@@ -133,7 +134,11 @@ export const generateRandomDescription = () => {
 
 const errorHtml = (message: string) => `<p style="color: red; text-align: center;">${message}</p>`
 
-const fetchStepDescription = async (trip: Trip, step: Step): Promise<string> => {
+const fetchStepDescription = async (
+  trip: Trip,
+  step: Step,
+  dataRoot: string
+): Promise<string> => {
   const hasStep = (country: Country) => country.steps.some((s) => s.id === step.id)
   const countries = trip.continents.flatMap((c) => c.countries)
   const continentIndex = trip.continents.findIndex((c) => c.countries.some(hasStep))
@@ -145,7 +150,7 @@ const fetchStepDescription = async (trip: Trip, step: Step): Promise<string> => 
 
   const descriptionUrl = joinPath(
     'data',
-    'trip',
+    dataRoot,
     contDirName(continentIndex, trip.continents[continentIndex]),
     countryDirName(countryIndex, countries[countryIndex]),
     stepDirName(step),
@@ -168,12 +173,16 @@ const fetchStepDescription = async (trip: Trip, step: Step): Promise<string> => 
   }
 }
 
-export const lazyLoadDescriptions = async (trip: Trip, initialIndexToFetch: number) => {
+export const lazyLoadDescriptions = async (
+  trip: Trip,
+  initialIndexToFetch: number,
+  dataRoot = 'trip'
+) => {
   const steps = trip.continents.flatMap((continent) =>
     continent.countries.flatMap((country) => country.steps)
   )
   await waveFetchData(steps, initialIndexToFetch, async (step) => {
-    const description = await fetchStepDescription(trip, step)
+    const description = await fetchStepDescription(trip, step, dataRoot)
     step.description = description
   })
 }

@@ -4,7 +4,12 @@
 
     <article class="flex flex-col items-center justify-center w-full gap-4">
       <!-- <DestBar :destinations="continents" :currDest="currContinent" :chooseDest="chooseContinent" /> -->
-      <DestBar :destinations="countries" :currDest="currCountry" :chooseDest="chooseCountry" />
+      <DestBar
+        v-if="route === 'trip'"
+        :destinations="countries"
+        :currDest="currCountry"
+        :chooseDest="chooseCountry"
+      />
       <DestBar :destinations="steps" :dates :currDest="currStep" :chooseDest="chooseStep" />
     </article>
 
@@ -22,7 +27,7 @@ import { useTripState } from '/@/composables/useTripState'
 import { useSeoMeta } from '@unhead/vue'
 import { generateRandomDescription, stepDegree } from '/@/functions/trip'
 
-const { /*continents,*/ countries, steps, dates } = useTripData()
+const { /*continents,*/ countries, steps, dates, route } = useTripData()
 const {
   activeCollection,
   fullscreen,

@@ -1,5 +1,11 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
-import { TripRoute, PortfolioRoute, CookbookRoute, VegetavailableRoute } from '/@/data/globals'
+import {
+  TripRoute,
+  IcelandTripRoute,
+  PortfolioRoute,
+  CookbookRoute,
+  VegetavailableRoute
+} from '/@/data/globals'
 import { useLoading } from '/@/composables/useLoading'
 import { DEFAULT_LANGUAGE, isSupportedLanguage } from '/@/i18n/index'
 import PortfolioView from '/@/views/PortfolioView.vue'
@@ -7,7 +13,9 @@ import PortfolioView from '/@/views/PortfolioView.vue'
 const { startLoadingSpinner, stopLoadingSpinner } = useLoading()
 // Hardcoded to keep trip data out of the main bundle
 const defaultTripPath = `/${TripRoute}/1-TLV`
-const isTripRoute = (path: string) => path.startsWith(`/${TripRoute}`)
+const defaultIcelandTripPath = `/${IcelandTripRoute}/1-Natbag`
+const isTripRoute = (path: string) =>
+  path.startsWith(`/${TripRoute}`) || path.startsWith(`/${IcelandTripRoute}`)
 const getSegments = (path: string) => path.split('/')
 const isSameSegment = (path1: string, path2: string) =>
   getSegments(path1)[1] === getSegments(path2)[1]
@@ -24,6 +32,10 @@ const routes: RouteRecordRaw[] = [
     redirect: () => defaultTripPath
   },
   {
+    path: `/${IcelandTripRoute}`,
+    redirect: () => defaultIcelandTripPath
+  },
+  {
     path: '/projects/microservices',
     component: () => import('/@/views/MicroservicesView.vue')
   },
@@ -38,6 +50,10 @@ const routes: RouteRecordRaw[] = [
   {
     path: `/${TripRoute}/:id`,
     component: () => import('/@/views/TripView.vue')
+  },
+  {
+    path: `/${IcelandTripRoute}/:id`,
+    component: () => import('/@/views/IcelandTripView.vue')
   },
   {
     path: `/${CookbookRoute}`,
@@ -60,7 +76,12 @@ export const router = createRouter({
   history: createWebHistory(),
   routes,
   scrollBehavior(to) {
-    if (isTripRoute(to.fullPath) && to.fullPath !== defaultTripPath) return
+    if (
+      isTripRoute(to.fullPath) &&
+      to.fullPath !== defaultTripPath &&
+      to.fullPath !== defaultIcelandTripPath
+    )
+      return
     return { top: 0, left: 0, behavior: 'smooth' }
   }
 })

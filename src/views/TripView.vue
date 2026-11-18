@@ -14,11 +14,12 @@ import { loadTrip, useTripData } from '/@/composables/useTripData'
 import { useSeoMeta } from '@unhead/vue'
 
 const route = useRoute()
-const { isTripLoaded } = useTripData()
+const tripData = useTripData()
+const { isTripLoaded } = tripData
 
 const isMasonryView = computed(() => route.query.view === 'masonry')
 
-loadTrip()
+loadTrip(tripData, route.params.id as string)
 
 useSeoMeta({
   title: 'The Big Trip',

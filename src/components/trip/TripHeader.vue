@@ -1,7 +1,8 @@
 <template>
   <header class="flex flex-col items-center justify-center gap-2 py-4 w-full select-none">
-    <TitleSeeThrough class="text-4xl" />
+    <TitleSeeThrough :title="title" class="text-4xl" />
     <div
+      v-if="hasCollections"
       class="w-full flex gap-2 items-center justify-center text-sm text-blue-gray-800 dark:text-blue-gray-300"
     >
       <h3 :class="{ 'animate-my-tada': bounceIndex === 5 }">
@@ -20,11 +21,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { computed, ref, onMounted, onUnmounted } from 'vue'
 import { CollectionType } from '/@/types/trip'
 import { useTripState } from '/@/composables/useTripState'
+import { useTripData } from '/@/composables/useTripData'
 
 const { collection } = useTripState()
+const { title, highlights, music, people } = useTripData()
+const hasCollections = computed(() =>
+  [highlights, music, people].some((item) => item.stepslides.length > 0)
+)
 
 const bounceIndex = ref(-1)
 let interval: number | undefined

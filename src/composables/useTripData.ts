@@ -1,11 +1,12 @@
-import type { Trip, Collection, MediaType } from '/@/types/trip'
+import type { Collection, MediaType } from '/@/types/trip'
 import { decodeTrip } from '/@/functions/static/trip/utils'
 import { initialTripData } from '/@/data/trip.metadata'
-import { reactive, ref } from 'vue'
-import { useTripState } from '/@/composables/useTripState'
-import { lazyLoadDescriptions, stepToIndex } from '/@/functions/trip'
+import { inject, provide, reactive, ref } from 'vue'
+import { TripRoute } from '/@/data/globals'
+import { tripDataKey, type TripData } from './tripDataContext'
+import { lazyLoadDescriptions } from '/@/functions/trip'
 
-const trip: Trip = reactive(decodeTrip(initialTripData))
+const trip = reactive(decodeTrip(initialTripData))
 const continents = trip.continents
 const countries = continents.flatMap((continent) => continent.countries)
 const steps = countries.flatMap((country) => country.steps)
@@ -174,13 +175,7 @@ const carouselHeight = '65vh' // I hate this hack, but my css skills ain't that 
 
 const isTripLoaded = ref(false)
 
-export const loadTrip = async () => {
-  if (isTripLoaded.value) return
-  await lazyLoadDescriptions(trip, stepToIndex(useTripState().currStep.value))
-  isTripLoaded.value = true
-}
-
-export const useTripData = () => ({
+const tripData: TripData = {
   isTripLoaded,
   trip,
   continents,
@@ -191,5 +186,19 @@ export const useTripData = () => ({
   music,
   people,
   allMedia,
-  carouselHeight
-})
+  carouselHeight,
+  route: TripRoute,
+  dataRoot: TripRoute,
+  title: 'The Big Trip'
+}
+
+export const useTripData = () => inject(tripDataKey, tripData)
+
+export const provideTripData = (data: TripData) => provide(tripDataKey, data)
+
+export const loadTrip = async (data: TripData, stepId?: string) => {
+  if (data.isTripLoaded.value) return
+  const stepIndex = data.steps.findIndex((step) => step.id === Number(stepId?.split('-')[0]))
+  await lazyLoadDescriptions(data.trip, Math.max(stepIndex, 0), data.dataRoot)
+  data.isTripLoaded.value = true
+}
