@@ -28,20 +28,20 @@ const IDLE_TICKS = 5
 const bounceIndex = ref(-1)
 let interval: number | undefined
 
+// only do the animation when static
+const stopBouncing = () => (bounceIndex.value = -1)
+
 onMounted(() => {
   if (!collections.length) return
   interval = window.setInterval(() => {
     bounceIndex.value = (bounceIndex.value + 1) % (IDLE_TICKS + collections.length)
   }, 1500)
-})
-
-// only do the animation when static
-window.addEventListener('scroll', () => {
-  bounceIndex.value = -1
+  window.addEventListener('scroll', stopBouncing)
 })
 
 onUnmounted(() => {
   if (interval) clearInterval(interval)
+  window.removeEventListener('scroll', stopBouncing)
 })
 </script>
 

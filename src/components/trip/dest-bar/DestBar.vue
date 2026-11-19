@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts" generic="T extends { name: string }">
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 
 const props = defineProps<{
   destinations: T[]
@@ -53,18 +53,18 @@ const currIdx = computed(() => props.destinations.findIndex(isCurrDest))
 const containerRef = ref<HTMLElement | null>(null)
 const containerWidth = ref<number | null>(null)
 
-onMounted(() => {
+const updateContainerWidth = () => {
   if (containerRef.value) {
     containerWidth.value = containerRef.value.clientWidth
   }
+}
+
+onMounted(() => {
+  updateContainerWidth()
+  window.addEventListener('resize', updateContainerWidth)
 })
 
-// Optional: Update width on window resize
-window.addEventListener('resize', () => {
-  if (containerRef.value) {
-    containerWidth.value = containerRef.value.clientWidth
-  }
-})
+onUnmounted(() => window.removeEventListener('resize', updateContainerWidth))
 
 // Watch for changes in currIdx or containerWidth and update scroll
 watch([currIdx, containerWidth], () => {

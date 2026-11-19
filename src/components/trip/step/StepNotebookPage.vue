@@ -18,7 +18,7 @@
       <div class="flex justify-center items-center">
         <ToolbarShare
           class="inline-flex rounded-full overflow-hidden mx-auto my-2.5"
-          :shareText="`Check out my visit to ${activeCollection.name}`!"
+          :shareText="`Check out my visit to ${activeCollection.name}!`"
         />
       </div>
     </template>
