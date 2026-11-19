@@ -25,7 +25,7 @@
 import { computed } from 'vue'
 import { useTheme } from '/@/composables/useTheme'
 
-withDefaults(defineProps<{ title?: string }>(), { title: 'The Big Trip' })
+defineProps<{ title: string }>()
 
 const { isDark } = useTheme()
 

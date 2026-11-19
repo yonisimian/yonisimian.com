@@ -5,6 +5,7 @@ import {
   CompiletimeTrip,
   Continent,
   Country,
+  StepBackgroundSource,
   Trip
 } from '../../../../src/types/trip'
 
@@ -49,10 +50,22 @@ const decodeStepMedia = (media: string, stepDirPath: string) => {
   )
 }
 
+const stepBackground = (
+  source: StepBackgroundSource,
+  stepDirPath: string,
+  media: ReturnType<typeof decodeStepMedia>
+): string => {
+  if (source === 'file') return `${stepDirPath}/bg.webp`
+  const firstMedia = media[0]
+  if (!firstMedia) return ''
+  return typeof firstMedia === 'string' ? firstMedia : firstMedia.thumbnail
+}
+
+// `contentDir` is the trip's directory name under both public/media and public/data
 export const decodeTrip = (
   trip: CompiletimeTrip,
-  mediaRoot = 'trip',
-  backgroundFromMedia = false
+  contentDir: string,
+  backgroundSource: StepBackgroundSource
 ): Trip => {
   const getCountryDir = (
     continentIndex: number,
@@ -62,7 +75,7 @@ export const decodeTrip = (
     const countryIndex = trip.continents.flatMap((c) => c.countries).findIndex((c) => c === country)
     return joinPath(
       'media',
-      mediaRoot,
+      contentDir,
       contDirName(continentIndex, continent),
       countryDirName(countryIndex, country)
     )
@@ -77,18 +90,10 @@ export const decodeTrip = (
         steps: country.steps.map((step) => {
           const stepDirPath = `${getCountryDir(contIndex, cont, country)}/${stepDirName(step)}`
           const media = decodeStepMedia(step.media, stepDirPath)
-          const firstMedia = media[0]
           return {
             ...step,
             description: '',
-            bgImage:
-              backgroundFromMedia && firstMedia
-                ? typeof firstMedia === 'string'
-                  ? firstMedia
-                  : firstMedia.thumbnail
-                : backgroundFromMedia
-                  ? ''
-                  : `${stepDirPath}/bg.webp`,
+            bgImage: stepBackground(backgroundSource, stepDirPath, media),
             media
           }
         })

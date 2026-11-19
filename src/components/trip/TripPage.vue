@@ -5,7 +5,7 @@
     <article class="flex flex-col items-center justify-center w-full gap-4">
       <!-- <DestBar :destinations="continents" :currDest="currContinent" :chooseDest="chooseContinent" /> -->
       <DestBar
-        v-if="route === 'trip'"
+        v-if="showCountryBar"
         :destinations="countries"
         :currDest="currCountry"
         :chooseDest="chooseCountry"
@@ -27,7 +27,7 @@ import { useTripState } from '/@/composables/useTripState'
 import { useSeoMeta } from '@unhead/vue'
 import { generateRandomDescription, stepDegree } from '/@/functions/trip'
 
-const { /*continents,*/ countries, steps, dates, route } = useTripData()
+const { /*continents,*/ countries, steps, dates, showCountryBar } = useTripData()
 const {
   activeCollection,
   fullscreen,
@@ -45,7 +45,6 @@ useSeoMeta({
       currCountry.value.name,
       currStep.value.date,
       stepDegree(currStep.value),
-      'Hot as hell',
       `I was just ${generateRandomDescription()}, when suddenly...`
     ].join('. '),
   ogTitle: () => `Yoni's trip to ${currStep.value.shortName}`,

@@ -1,28 +1,16 @@
 <template>
-  <div class="w-full h-full">
-    <TripMasonry v-if="isTripLoaded && isMasonryView" />
-    <TripPage v-else-if="isTripLoaded" />
-    <TripSkeleton v-else />
-    <!-- TODO: create mansory skeleton -->
-  </div>
+  <TripViewer />
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useRoute } from 'vue-router'
-import { loadTrip, useTripData } from '/@/composables/useTripData'
 import { useSeoMeta } from '@unhead/vue'
+import { provideTripData } from '/@/composables/useTripData'
+import { bigTrip } from '/@/data/trip'
 
-const route = useRoute()
-const tripData = useTripData()
-const { isTripLoaded } = tripData
-
-const isMasonryView = computed(() => route.query.view === 'masonry')
-
-loadTrip(tripData, route.params.id as string)
+provideTripData(bigTrip)
 
 useSeoMeta({
-  title: 'The Big Trip',
+  title: bigTrip.title,
   description: 'A showcase of my big trip around the world, winter 2024.',
   ogDescription:
     'Allow me to share with you a journey spans continents and cultures, showcasing beauty, diversity, as well as a shallow dive into my heart and thoughts. ',

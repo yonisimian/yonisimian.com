@@ -3,14 +3,18 @@ import {
   type Country,
   type Continent,
   type MediaType,
-  CollectionType,
   Collection,
+  CuratedCollection,
   Trip
 } from '/@/types/trip'
-import type { TripData } from '/@/composables/tripDataContext'
 import { joinPath, waveFetchData } from '.'
 import { contDirName, countryDirName, stepDirName } from './static/trip/utils'
 import { Month } from '/@/utils/months'
+
+//////// constants ////////
+
+// Fixed carousel height; the layout doesn't size it reliably otherwise
+export const CAROUSEL_HEIGHT = '65vh'
 
 //////// getters ////////
 
@@ -30,16 +34,9 @@ export const getContinentByStep = (step: Step, continents: Continent[]): Contine
   }
 
 export const getCollection = (
-  type: CollectionType,
-  tripData: Pick<TripData, 'highlights' | 'music' | 'people'>
-): Collection | undefined => {
-  const collections: Partial<Record<CollectionType, Collection>> = {
-    [CollectionType.Highlights]: tripData.highlights,
-    [CollectionType.Music]: tripData.music,
-    [CollectionType.People]: tripData.people
-  }
-  return collections[type]
-}
+  slug: string,
+  collections: CuratedCollection[]
+): CuratedCollection | undefined => collections.find((collection) => collection.slug === slug)
 
 export const isImage = (media: MediaType): boolean => typeof media === 'string'
 
@@ -47,7 +44,7 @@ export const isImage = (media: MediaType): boolean => typeof media === 'string'
 export const smallThumbnail = (media: MediaType): string =>
   (typeof media === 'string' ? media : media.thumbnail).replace(/\.jpg$/, '.small.webp')
 
-export const stepToIndex = (step: Step, steps: Step[]): number => {
+const stepToIndex = (step: Step, steps: Step[]): number => {
   return steps.findIndex((s) => s.id === step.id)
 }
 
@@ -137,7 +134,7 @@ const errorHtml = (message: string) => `<p style="color: red; text-align: center
 const fetchStepDescription = async (
   trip: Trip,
   step: Step,
-  dataRoot: string
+  contentDir: string
 ): Promise<string> => {
   const hasStep = (country: Country) => country.steps.some((s) => s.id === step.id)
   const countries = trip.continents.flatMap((c) => c.countries)
@@ -150,7 +147,7 @@ const fetchStepDescription = async (
 
   const descriptionUrl = joinPath(
     'data',
-    dataRoot,
+    contentDir,
     contDirName(continentIndex, trip.continents[continentIndex]),
     countryDirName(countryIndex, countries[countryIndex]),
     stepDirName(step),
@@ -176,13 +173,13 @@ const fetchStepDescription = async (
 export const lazyLoadDescriptions = async (
   trip: Trip,
   initialIndexToFetch: number,
-  dataRoot = 'trip'
+  contentDir: string
 ) => {
   const steps = trip.continents.flatMap((continent) =>
     continent.countries.flatMap((country) => country.steps)
   )
   await waveFetchData(steps, initialIndexToFetch, async (step) => {
-    const description = await fetchStepDescription(trip, step, dataRoot)
+    const description = await fetchStepDescription(trip, step, contentDir)
     step.description = description
   })
 }

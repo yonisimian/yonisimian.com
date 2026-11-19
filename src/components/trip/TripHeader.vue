@@ -2,42 +2,36 @@
   <header class="flex flex-col items-center justify-center gap-2 py-4 w-full select-none">
     <TitleSeeThrough :title="title" class="text-4xl" />
     <div
-      v-if="hasCollections"
+      v-if="collections.length"
       class="w-full flex gap-2 items-center justify-center text-sm text-blue-gray-800 dark:text-blue-gray-300"
     >
-      <h3 :class="{ 'animate-my-tada': bounceIndex === 5 }">
-        <a href="#" @click.prevent="collection = CollectionType.Highlights">highlights</a>
-      </h3>
-      <p>•</p>
-      <h3 :class="{ 'animate-my-tada': bounceIndex === 6 }">
-        <a href="#" @click.prevent="collection = CollectionType.Music">music</a>
-      </h3>
-      <p>•</p>
-      <h3 :class="{ 'animate-my-tada': bounceIndex === 7 }">
-        <a href="#" @click.prevent="collection = CollectionType.People">people</a>
-      </h3>
+      <template v-for="(item, index) in collections" :key="item.slug">
+        <p v-if="index > 0">•</p>
+        <h3 :class="{ 'animate-my-tada': bounceIndex === IDLE_TICKS + index }">
+          <a href="#" @click.prevent="collection = item.slug">{{ item.slug }}</a>
+        </h3>
+      </template>
     </div>
   </header>
 </template>
 
 <script setup lang="ts">
-import { computed, ref, onMounted, onUnmounted } from 'vue'
-import { CollectionType } from '/@/types/trip'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { useTripState } from '/@/composables/useTripState'
 import { useTripData } from '/@/composables/useTripData'
 
 const { collection } = useTripState()
-const { title, highlights, music, people } = useTripData()
-const hasCollections = computed(() =>
-  [highlights, music, people].some((item) => item.stepslides.length > 0)
-)
+const { title, collections } = useTripData()
 
+// each cycle: IDLE_TICKS quiet ticks, then one bounce per collection link
+const IDLE_TICKS = 5
 const bounceIndex = ref(-1)
 let interval: number | undefined
 
 onMounted(() => {
+  if (!collections.length) return
   interval = window.setInterval(() => {
-    bounceIndex.value = (bounceIndex.value + 1) % 8 // cycle through 0, 1, 2... 7
+    bounceIndex.value = (bounceIndex.value + 1) % (IDLE_TICKS + collections.length)
   }, 1500)
 })
 

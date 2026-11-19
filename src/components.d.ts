@@ -100,6 +100,7 @@ declare module 'vue' {
     TripMasonry: typeof import('./components/trip/TripMasonry.vue')['default']
     TripPage: typeof import('./components/trip/TripPage.vue')['default']
     TripSkeleton: typeof import('./components/trip/TripSkeleton.vue')['default']
+    TripViewer: typeof import('./components/trip/TripViewer.vue')['default']
     VegetaGallery: typeof import('./components/vegetavailable/gallery/VegetaGallery.vue')['default']
     VegetaGalleryCard: typeof import('./components/vegetavailable/gallery/VegetaGalleryCard.vue')['default']
     VegetaGalleryCardAttribute: typeof import('./components/vegetavailable/gallery/VegetaGalleryCardAttribute.vue')['default']

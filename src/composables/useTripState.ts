@@ -1,8 +1,7 @@
-// basically the state of TheBigTrip
 import { computed } from 'vue'
 import { useQueryParam } from './useQueryParam'
 import { useRouter, useRoute } from 'vue-router'
-import { Continent, Country, Step, CollectionType, Collection /*, BaseStep*/ } from '/@/types/trip'
+import { Continent, Country, Step, Collection } from '/@/types/trip'
 import { useTripData } from '/@/composables/useTripData'
 import {
   decodeURIStep,
@@ -15,7 +14,7 @@ import {
 
 export const useTripState = () => {
   const tripData = useTripData()
-  const { steps, countries, continents } = tripData
+  const { steps, countries, continents, collections } = tripData
   const route = useRoute()
   const router = useRouter()
 
@@ -33,7 +32,7 @@ export const useTripState = () => {
   const currCountry = computed<Country>(() => getCountryByStep(currStep.value, countries))
   const currContinent = computed<Continent>(() => getContinentByStep(currStep.value, continents))
   const activeCollection = computed<Collection>(
-    () => getCollection(collection.value, tripData) ?? stepToCollection(currStep.value, steps)
+    () => getCollection(collection.value, collections) ?? stepToCollection(currStep.value, steps)
   )
 
   // ===== Query string state ===== //
@@ -62,20 +61,16 @@ export const useTripState = () => {
     parse: (v) => v || ''
   })
 
-  const collectionValues = Object.values(CollectionType) as CollectionType[]
-
-  const collection = computed<CollectionType>({
-    get: () =>
-      collectionValues.includes(collectionRaw.value as CollectionType)
-        ? (collectionRaw.value as CollectionType)
-        : CollectionType.None,
-    set: (val: CollectionType) => {
+  // slug of the active curated collection, or '' when browsing a single step
+  const collection = computed<string>({
+    get: () => (getCollection(collectionRaw.value, collections) ? collectionRaw.value : ''),
+    set: (slug: string) => {
       // batching updates to prevent race conditions
       router.push({
         query: {
           ...route.query,
-          [QUERY_PARAM_FULLSCREEN]: val !== CollectionType.None ? QUERY_PARAM_FULLSCREEN_TRUE : '',
-          [QUERY_PARAM_CUSTOM_SLIDES]: val
+          [QUERY_PARAM_FULLSCREEN]: slug ? QUERY_PARAM_FULLSCREEN_TRUE : '',
+          [QUERY_PARAM_CUSTOM_SLIDES]: slug
         }
       })
     }

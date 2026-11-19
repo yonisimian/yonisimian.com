@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-center justify-center">
     <header class="flex flex-col items-center justify-center gap-2 py-4 w-full select-none">
-      <TitleSeeThrough class="text-4xl" />
+      <TitleSeeThrough :title class="text-4xl" />
     </header>
 
     <article class="w-full px-4 mb-4">
@@ -31,7 +31,7 @@ import { useTripData } from '/@/composables/useTripData'
 import { isImage } from '/@/functions/trip'
 import { PhotoURL, VideoURL } from '/@/types/trip'
 
-const { allMedia } = useTripData()
+const { title, allMedia } = useTripData()
 
 const ITEMS_PER_BATCH = 50
 const visibleCount = ref(ITEMS_PER_BATCH)

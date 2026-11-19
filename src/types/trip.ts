@@ -38,12 +38,8 @@ export interface Step extends BaseStep {
 
 export type CompiletimeTrip = Trip<Continent<Country<CompiletimeStep>>> // after build, before runtime processing
 
-export enum CollectionType {
-  None = '',
-  Highlights = 'highlights',
-  Music = 'music',
-  People = 'people'
-}
+// 'file': each step dir has its own bg.webp; 'firstMedia': use the step's first photo/video thumbnail
+export type StepBackgroundSource = 'file' | 'firstMedia'
 
 interface StepSlide {
   step: number
@@ -52,4 +48,9 @@ interface StepSlide {
 export interface Collection {
   name: string
   stepslides: StepSlide[]
+}
+
+// A hand-picked collection, addressable via the `collection` query param
+export interface CuratedCollection extends Collection {
+  slug: string
 }
