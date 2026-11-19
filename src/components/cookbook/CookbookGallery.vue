@@ -1,5 +1,5 @@
 <template>
-  <main class="pt-6 sm:pt-14 pb-16 min-h-[100svh]">
+  <main class="pt-6 sm:pt-14 pb-8 min-h-[100svh]">
     <YGalleryHeader>מחברת המתכונים הישנה של מיכל</YGalleryHeader>
     <YSearchInput :filterSearch="(text: string) => (searchRecipe = text)" placeholder="חפש..." />
 

@@ -1,6 +1,5 @@
 <template>
-  <ul class="flex justify-between w-5/6 max-w-72 mx-auto">
-    <DarkThemeIcon />
+  <ul class="flex gap-5">
     <YoutubeIcon />
     <GitHubIcon />
     <EmailIcon />

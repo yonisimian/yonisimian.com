@@ -4,7 +4,8 @@ import {
   IcelandTripRoute,
   PortfolioRoute,
   CookbookRoute,
-  VegetavailableRoute
+  VegetavailableRoute,
+  PrivacyRoute
 } from '/@/data/globals'
 import { useLoading } from '/@/composables/useLoading'
 import { DEFAULT_LANGUAGE, isSupportedLanguage } from '/@/i18n/index'
@@ -65,6 +66,10 @@ const routes: RouteRecordRaw[] = [
   {
     path: `/${VegetavailableRoute}`,
     component: () => import('/@/views/VegetavailaView.vue')
+  },
+  {
+    path: `/${PrivacyRoute}`,
+    component: () => import('/@/views/PrivacyView.vue')
   },
   {
     path: '/:pathMatch(.*)*',
