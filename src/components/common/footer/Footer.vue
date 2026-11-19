@@ -5,9 +5,7 @@
     <div class="grid grid-cols-2 md:grid-cols-[1.2fr_1fr_1fr_1.6fr] gap-x-6 gap-y-8">
       <section class="col-span-2 md:col-span-1">
         <h2 class="text-base font-bold mb-2">Yehonatan Simian</h2>
-        <p class="opacity-70 mb-4">
-          Writes code by day and funk basslines by night. Both ship with bugs.
-        </p>
+        <p class="opacity-70 mb-4 italic">{{ tagline }}</p>
         <FooterIcons />
       </section>
 
@@ -51,6 +49,18 @@ import {
 } from '/@/data/globals'
 
 const year = new Date().getFullYear()
+
+const taglines = [
+  'Software developer, musician, and maker of terrible dad jokes.',
+  'Writes code by day and funk basslines by night. Both ship with bugs.',
+  'Professional overthinker. Amateur underthinker.',
+  'A fragile, tiny shell, drifting in the foam.',
+  '"If you have time to worry, then run!"',
+  '"Always try to be nice, but never fail to be kind."',
+  '"Hakuna matata. It means no warnings for the rest of your build."',
+  '"It\'s better to regret something you did than something you didn\'t do."'
+]
+const tagline = taglines[Math.floor(Math.random() * taglines.length)]
 
 const linkGroups: { title: string; links: { label: string; to: string }[] }[] = [
   {
