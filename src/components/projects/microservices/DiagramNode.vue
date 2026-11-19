@@ -6,14 +6,14 @@
       el.typeClass === 'user-interface'
         ? 'bg-[#7cbcff]'
         : el.typeClass === 'api-gateway'
-        ? 'bg-[#ffd36b]'
-        : el.typeClass === 'account-service'
-        ? 'bg-[#8be38b]'
-        : el.typeClass === 'inventory-service'
-        ? 'bg-[#c18bff]'
-        : el.typeClass === 'order-service'
-        ? 'bg-[#ff9aa2]'
-        : ''
+          ? 'bg-[#ffd36b]'
+          : el.typeClass === 'account-service'
+            ? 'bg-[#8be38b]'
+            : el.typeClass === 'inventory-service'
+              ? 'bg-[#c18bff]'
+              : el.typeClass === 'order-service'
+                ? 'bg-[#ff9aa2]'
+                : ''
     ]"
     :style="{ transform: `translate(${el.x}px, ${el.y}px)` }"
     @pointerdown.stop.prevent="$emit('pointerdown', $event, el.id)"

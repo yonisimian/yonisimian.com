@@ -4,7 +4,7 @@
     <PortfolioGalleryBar
       :selectedCategories="selectedCategories"
       :toggleCategory="toggleCategory"
-      :filterSearch="(text: string) => searchProject = text"
+      :filterSearch="(text: string) => (searchProject = text)"
       :isHighlightsSelected="selectedHighlights"
       :toggleHighlights="toggleHighlights"
     />

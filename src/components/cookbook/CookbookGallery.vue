@@ -1,7 +1,7 @@
 <template>
   <main class="pt-6 sm:pt-14 pb-16 min-h-[100svh]">
     <YGalleryHeader>מחברת המתכונים הישנה של מיכל</YGalleryHeader>
-    <YSearchInput :filterSearch="(text: string) => searchRecipe = text" placeholder="חפש..." />
+    <YSearchInput :filterSearch="(text: string) => (searchRecipe = text)" placeholder="חפש..." />
 
     <YGallery :items="filteredRecipes" class="mt-4">
       <template #CardFront="{ item, onClick }">

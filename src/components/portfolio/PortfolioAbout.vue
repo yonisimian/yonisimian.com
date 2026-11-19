@@ -4,20 +4,18 @@
       <h2 class="text-4xl font-bold my-8">About Me</h2>
       <ExpandableContent>
         <p>
-          I'm a {{ age }} years old <strong>software developer</strong> at Intel {{ isBirthday ? '(today is my birthday 🥳)' : '' }}
+          I'm a {{ age }} years old <strong>software developer</strong> at Intel
+          {{ isBirthday ? '(today is my birthday 🥳)' : '' }}
           with a
           <a
             href="/bsc.pdf"
             target="_blank"
-            style="text-decoration: none;"
+            style="text-decoration: none"
             title="I swear it's not that interesting"
             ><strong>B.Sc. in Computer Science</strong></a
           >
           from The Open University of Israel. Visit my
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            title="...better visit my GitHub instead!"
+          <a href="/resume.pdf" target="_blank" title="...better visit my GitHub instead!"
             >resume</a
           >
           to learn more.

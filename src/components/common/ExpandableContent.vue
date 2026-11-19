@@ -55,12 +55,15 @@ watch([expanded, () => window.innerWidth], () => {
 
 watch(expanded, () => {
   if (expanded.value) {
-    const interval = setInterval(() => {
-      gradientHeight.value += 1
-      if (gradientHeight.value >= 100) {
-        clearInterval(interval)
-      }
-    }, 1010 / (100 - initialGradientHeight))
+    const interval = setInterval(
+      () => {
+        gradientHeight.value += 1
+        if (gradientHeight.value >= 100) {
+          clearInterval(interval)
+        }
+      },
+      1010 / (100 - initialGradientHeight)
+    )
   }
 })
 </script>

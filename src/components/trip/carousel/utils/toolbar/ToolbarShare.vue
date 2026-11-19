@@ -85,7 +85,8 @@ const share = () => {
 
 <style scoped>
 .shareButton {
-  transition: padding-right 1s cubic-bezier(0.4, 0, 0.2, 1),
+  transition:
+    padding-right 1s cubic-bezier(0.4, 0, 0.2, 1),
     background-color 1s cubic-bezier(0.4, 0, 0.2, 1);
   padding-right: 0rem;
   background-color: rgba(0, 0, 0, 0.3);

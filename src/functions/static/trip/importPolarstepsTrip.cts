@@ -64,7 +64,10 @@ const descriptionToHtml = (description: string) =>
     .join('\n')
 
 const safeName = (name: string) =>
-  name.replace(/[<>:"/\\|?*\x00-\x1f]/g, '-').replace(/\s+/g, ' ').trim()
+  name
+    .replace(/[<>:"/\\|?*\x00-\x1f]/g, '-')
+    .replace(/\s+/g, ' ')
+    .trim()
 
 const downloadFile = async ({ url, path }: Download) => {
   if (!/^https:\/\//.test(url)) throw new Error(`Unsupported download URL: ${url}`)

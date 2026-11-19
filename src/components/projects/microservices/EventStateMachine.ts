@@ -2,12 +2,7 @@ import type { NodeType } from './types'
 import type { MicroservicesSystem } from './MicroservicesSystem'
 
 type EventState =
-  | 'idle'
-  | 'logging-in'
-  | 'fetching-order'
-  | 'removing-inventory'
-  | 'completing-order'
-  | 'completed'
+  'idle' | 'logging-in' | 'fetching-order' | 'removing-inventory' | 'completing-order' | 'completed'
 type EventStatus = 'success' | 'failed' | null
 
 interface EventLog {

@@ -23,7 +23,7 @@
   </div>
 </template>
 
-<script setup lang="ts" generic="T extends { name: string, shortName?: string }">
+<script setup lang="ts" generic="T extends { name: string; shortName?: string }">
 import { formatDate, isImage } from '/@/functions/trip'
 import { MediaType, PhotoURL, VideoURL } from '/@/types/trip'
 
@@ -71,7 +71,9 @@ const imageSrc = (() => {
   overflow: hidden;
   position: relative;
   aspect-ratio: 3 / 2;
-  transition: background-color var(--transition-duration), color var(--transition-duration),
+  transition:
+    background-color var(--transition-duration),
+    color var(--transition-duration),
     opacity 200ms;
 }
 .active {

@@ -19,12 +19,7 @@
         :style="slideStyles"
         @click.capture="handleSlideClick"
       >
-        <slot
-          name="slide"
-          :item="item"
-          :index="index"
-          :isActive="index === currentSlide"
-        />
+        <slot name="slide" :item="item" :index="index" :isActive="index === currentSlide" />
       </div>
     </div>
 

@@ -7,9 +7,17 @@
         <DNDButton playlistType="heroic" :activePlaylist :selectPlaylist />
       </div>
       <div class="w-full">
-        <iframe v-for="(playlistId, type) in playlists" :key="type" v-show="activePlaylist === type"
-          :src="getEmbedUrl(playlistId)" width="100%" height="492" frameborder="0"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="eager" />
+        <iframe
+          v-for="(playlistId, type) in playlists"
+          :key="type"
+          v-show="activePlaylist === type"
+          :src="getEmbedUrl(playlistId)"
+          width="100%"
+          height="492"
+          frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="eager"
+        />
       </div>
     </div>
   </div>

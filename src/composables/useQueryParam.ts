@@ -18,7 +18,7 @@ export function useQueryParam<T>(
   const param = computed<T>({
     get() {
       const raw = route.query[key]
-      return parse(Array.isArray(raw) ? raw[0] : raw ?? null)
+      return parse(Array.isArray(raw) ? raw[0] : (raw ?? null))
     },
     set(value: T) {
       const newQuery = { ...route.query }

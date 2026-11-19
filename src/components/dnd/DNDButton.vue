@@ -1,7 +1,9 @@
 <template>
-  <button @click="selectPlaylist(playlistType)"
+  <button
+    @click="selectPlaylist(playlistType)"
     class="w-1/3 h-1/3 py-2 flex items-center justify-center text-white font-bold text-lg transition-all duration-300"
-    :class="[isActive ? colorClasses.active : colorClasses.inactive]">
+    :class="[isActive ? colorClasses.active : colorClasses.inactive]"
+  >
     <div class="flex flex-col items-center gap-1">
       <div :class="iconClass" class="text-3xl" />
       <span class="capitalize">{{ playlistType }}</span>

@@ -1,10 +1,5 @@
 <template>
-  <YCarousel
-    v-model="slide"
-    :items="mediaItems"
-    :itemsToShow="5"
-    height="80px"
-  >
+  <YCarousel v-model="slide" :items="mediaItems" :itemsToShow="5" height="80px">
     <template #slide="{ item, index, isActive }">
       <div class="thumbnail" :class="{ 'is-active': isActive }" @click="slide = index">
         <ResponsiveImage

@@ -1,9 +1,5 @@
 export type NodeType =
-  | 'User Interface'
-  | 'API Gateway'
-  | 'Account Service'
-  | 'Inventory Service'
-  | 'Order Service'
+  'User Interface' | 'API Gateway' | 'Account Service' | 'Inventory Service' | 'Order Service'
 
 export interface DiagramElement {
   id: number

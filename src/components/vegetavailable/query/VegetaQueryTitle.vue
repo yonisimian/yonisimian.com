@@ -9,8 +9,8 @@
         activeTypes.length == 1
           ? $t('veg.queryTitle.type')
           : activeTypes.length > 1 && activeTypes.length < productTypeValues.length
-          ? $t('veg.queryTitle.types')
-          : ''
+            ? $t('veg.queryTitle.types')
+            : ''
       }}
       <span class="text-cyan-500">
         {{

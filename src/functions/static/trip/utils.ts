@@ -31,7 +31,8 @@ export const encodeStepMedia = (stepFiles: string[]) => {
       continue
     }
     const [_, _idx, typ] = match
-    if (typ === '-video') media += 'v' // video
+    if (typ === '-video')
+      media += 'v' // video
     else if (typ === '-thumb') /*already added video */ continue
     else media += 'p' // photo
   }
