@@ -4,14 +4,14 @@ import type {
   Continent,
   Country,
   CuratedCollection,
-  MediaType,
   PhotoURL,
   Step,
   StepBackgroundSource,
   Trip
 } from '/@/types/trip'
+import type { MediaItem } from '/@/types/media'
 import { decodeTrip } from '/@/functions/static/trip/utils'
-import { lazyLoadDescriptions } from '/@/functions/trip'
+import { lazyLoadDescriptions, toMediaItem } from '/@/functions/trip'
 import { mediaUrl } from '/@/functions/media'
 import { trips, type TripSlug } from '/@/data/trips'
 
@@ -37,7 +37,7 @@ export interface TripData extends Omit<TripConfig, 'stepBackground' | 'cover'> {
   countries: Country[]
   steps: Step[]
   dates: string[]
-  allMedia: MediaType[]
+  allMedia: MediaItem[]
 }
 
 export const createTripData = (
@@ -48,9 +48,16 @@ export const createTripData = (
   const continents = trip.continents
   const countries = continents.flatMap((continent) => continent.countries)
   const steps = countries.flatMap((country) => country.steps)
+  const unmeasured = steps.find((step) => step.ratios.length !== step.media.length)
+  if (unmeasured)
+    throw new Error(
+      `${config.slug}: step ${unmeasured.id} has no media ratios; run generate-local-trip`
+    )
   const coverMedia = steps.find((step) => step.id === cover.stepId)?.media[cover.slide]
   if (typeof coverMedia !== 'string')
-    throw new Error(`${config.slug}: cover at step ${cover.stepId}, slide ${cover.slide} is not a photo`)
+    throw new Error(
+      `${config.slug}: cover at step ${cover.stepId}, slide ${cover.slide} is not a photo`
+    )
   return {
     ...config,
     title: trips[config.slug].title,
@@ -61,7 +68,9 @@ export const createTripData = (
     countries,
     steps,
     dates: steps.map((step) => step.date),
-    allMedia: steps.flatMap((step) => step.media)
+    allMedia: steps.flatMap((step) =>
+      step.media.map((media, i) => toMediaItem(media, step.ratios[i], step.name))
+    )
   }
 }
 

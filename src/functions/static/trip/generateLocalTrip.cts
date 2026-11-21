@@ -1,7 +1,24 @@
-import { writeFileSync, readdirSync, readFileSync } from 'fs'
+import { writeFileSync, readdirSync, readFileSync, existsSync } from 'fs'
 import { join } from 'path'
 import { CompiletimeTrip, Continent, Country, CompiletimeStep } from '../../../../src/types/trip'
 import { dirNameToName, encodeStepMedia } from './utils'
+
+// Reads the dimensions from a lossy (VP8) WebP header, which is what generateThumbnails.py writes
+const webpRatio = (path: string): number => {
+  const header = readFileSync(path).subarray(0, 30)
+  if (header.toString('ascii', 8, 16) !== 'WEBPVP8 ') throw new Error(`${path}: not a lossy WebP`)
+  const width = header.readUInt16LE(26) & 0x3fff
+  const height = header.readUInt16LE(28) & 0x3fff
+  return Math.round((width / height) * 1000) / 1000
+}
+
+// Thumbnails are EXIF-rotated, so their ratio matches what is displayed
+const mediaRatios = (media: string, stepMediaDir: string): number[] =>
+  [...media].map((type, index) =>
+    webpRatio(
+      join(stepMediaDir, type === 'p' ? `${index}.small.webp` : `${index}-thumb.small.webp`)
+    )
+  )
 
 const loadStepData = (step: CompiletimeStep, stepDir: string) => {
   const files = readdirSync(stepDir)
@@ -68,18 +85,23 @@ const generateTripMetadata = async (slug: string): Promise<CompiletimeTrip> => {
           shortName: '',
           date: '',
           degrees: '',
-          media: ''
+          media: '',
+          ratios: []
         }
         country.steps.push(step)
         const stepDataDir = join(countryDataDir, stepDirName)
         const stepMediaDir = join(countryMediaDir, stepDirName)
-        const stepFiles = readdirSync(stepMediaDir).sort((a, b) => {
-          const aIdx = parseInt(a.match(/^(\d+)/)?.[1] ?? '0', 10)
-          const bIdx = parseInt(b.match(/^(\d+)/)?.[1] ?? '0', 10)
-          return aIdx - bIdx
-        })
+        // Git drops empty dirs, so steps without media may have no media dir
+        const stepFiles = (existsSync(stepMediaDir) ? readdirSync(stepMediaDir) : []).sort(
+          (a, b) => {
+            const aIdx = parseInt(a.match(/^(\d+)/)?.[1] ?? '0', 10)
+            const bIdx = parseInt(b.match(/^(\d+)/)?.[1] ?? '0', 10)
+            return aIdx - bIdx
+          }
+        )
         loadStepData(step, stepDataDir)
         step.media = encodeStepMedia(stepFiles)
+        step.ratios = mediaRatios(step.media, stepMediaDir)
       }
     }
   }

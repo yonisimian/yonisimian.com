@@ -8,7 +8,7 @@
       class="relative z-10"
       imgClass="w-full h-full object-contain"
       :class="{ 'cursor-pointer': !fullscreen }"
-      @click="!disabled && openFullscreen()"
+      @click="openFullscreen()"
     />
   </div>
 </template>
@@ -21,7 +21,6 @@ const { slide, fullscreen, openFullscreen } = useTripState()
 
 defineProps<{
   src: PhotoURL
-  disabled?: boolean
 }>()
 </script>
 

@@ -178,7 +178,8 @@ const main = async () => {
         typeof polarStep.weather_temperature === 'number'
           ? String(Math.round(polarStep.weather_temperature))
           : '',
-      media: ''
+      media: '',
+      ratios: []
     }
     country.steps.push(step)
 
@@ -264,6 +265,7 @@ export const initialTripData: CompiletimeTrip = ${JSON.stringify({ continents } 
   writeFileSync(metadataPath, output)
   console.log(`Imported ${trip.name}: ${stepCount} steps, ${downloads.length} assets`)
   console.log(`✅ ${metadataPath} generated`)
+  console.log(`Next: pnpm generate-thumbnails && pnpm generate-local-trip ${slug}`)
 }
 
 main().catch((error: unknown) => {

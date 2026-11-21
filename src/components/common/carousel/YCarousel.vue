@@ -19,7 +19,13 @@
         :style="slideStyles"
         @click.capture="handleSlideClick"
       >
-        <slot name="slide" :item="item" :index="index" :isActive="index === currentSlide" />
+        <slot
+          v-if="Math.abs(index - currentSlide) <= renderWindow"
+          name="slide"
+          :item="item"
+          :index="index"
+          :isActive="index === currentSlide"
+        />
       </div>
     </div>
 
@@ -37,12 +43,14 @@ const props = withDefaults(
     itemsToShow?: number
     height?: string
     transition?: number
+    renderWindow?: number // slides further than this from the current one render empty
   }>(),
   {
     modelValue: 0,
     itemsToShow: 1,
     height: 'auto',
-    transition: 300
+    transition: 300,
+    renderWindow: Infinity
   }
 )
 

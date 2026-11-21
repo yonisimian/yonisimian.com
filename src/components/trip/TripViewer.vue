@@ -2,8 +2,8 @@
   <div class="w-full h-full">
     <TripMasonry v-if="isTripLoaded && isMasonryView" />
     <TripPage v-else-if="isTripLoaded" />
+    <YMediaGridSkeleton v-else-if="isMasonryView" class="px-4 pt-20" />
     <TripSkeleton v-else />
-    <!-- TODO: create mansory skeleton -->
   </div>
 </template>
 

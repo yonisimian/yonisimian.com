@@ -28,11 +28,13 @@ export interface BaseStep {
 
 export interface CompiletimeStep extends BaseStep {
   media: string // the i-th char represents whether the i-th media is a photo ('p') or a video ('v')
+  ratios: number[] // width / height of the i-th media
 }
 
 export interface Step extends BaseStep {
   bgImage: string // url of the background image
   media: MediaType[] // photos and videos
+  ratios: number[] // width / height of the i-th media
   description: string // HTML, lazy-loaded at runtime
 }
 
