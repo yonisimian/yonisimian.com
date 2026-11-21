@@ -13,9 +13,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useAOS } from '/@/composables/useAOS'
+import { useTemplateRef } from 'vue'
+import { useElementVisibility } from '@vueuse/core'
 
-const elementRef = ref<HTMLElement>()
-const { isVisible } = useAOS(elementRef)
+const elementRef = useTemplateRef<HTMLElement>('elementRef')
+const isVisible = useElementVisibility(elementRef, { threshold: 0.1, rootMargin: '50px' })
 </script>

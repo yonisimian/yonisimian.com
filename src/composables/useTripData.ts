@@ -5,23 +5,32 @@ import type {
   Country,
   CuratedCollection,
   MediaType,
+  PhotoURL,
   Step,
   StepBackgroundSource,
   Trip
 } from '/@/types/trip'
 import { decodeTrip } from '/@/functions/static/trip/utils'
 import { lazyLoadDescriptions } from '/@/functions/trip'
+import { mediaUrl } from '/@/functions/media'
+import { trips, type TripSlug } from '/@/data/trips'
 
 export interface TripConfig {
-  title: string
-  route: string // URL segment the trip is served under
-  contentDir: string // directory name under both public/data and public/media
+  slug: TripSlug // URL segment and directory name under public/data and the media root
   stepBackground: StepBackgroundSource
   showCountryBar: boolean // multi-country trips get a country bar above the step bar
   collections: CuratedCollection[]
+  cover: { stepId: number; slide: number } // a photo; used for link previews and the trips index
+  seo: {
+    description: string
+    ogTitle: string
+    ogDescription: string
+  }
 }
 
-export interface TripData extends Omit<TripConfig, 'stepBackground'> {
+export interface TripData extends Omit<TripConfig, 'stepBackground' | 'cover'> {
+  title: string
+  cover: PhotoURL
   isTripLoaded: Ref<boolean>
   trip: Trip
   continents: Continent[]
@@ -33,14 +42,19 @@ export interface TripData extends Omit<TripConfig, 'stepBackground'> {
 
 export const createTripData = (
   metadata: CompiletimeTrip,
-  { stepBackground, ...config }: TripConfig
+  { stepBackground, cover, ...config }: TripConfig
 ): TripData => {
-  const trip = reactive(decodeTrip(metadata, config.contentDir, stepBackground))
+  const trip = reactive(decodeTrip(metadata, mediaUrl('trips', config.slug), stepBackground))
   const continents = trip.continents
   const countries = continents.flatMap((continent) => continent.countries)
   const steps = countries.flatMap((country) => country.steps)
+  const coverMedia = steps.find((step) => step.id === cover.stepId)?.media[cover.slide]
+  if (typeof coverMedia !== 'string')
+    throw new Error(`${config.slug}: cover at step ${cover.stepId}, slide ${cover.slide} is not a photo`)
   return {
     ...config,
+    title: trips[config.slug].title,
+    cover: coverMedia,
     isTripLoaded: ref(false),
     trip,
     continents,
@@ -64,6 +78,6 @@ export const useTripData = (): TripData => {
 export const loadTrip = async (data: TripData, stepId?: string) => {
   if (data.isTripLoaded.value) return
   const stepIndex = data.steps.findIndex((step) => step.id === Number(stepId?.split('-')[0]))
-  await lazyLoadDescriptions(data.trip, Math.max(stepIndex, 0), data.contentDir)
+  await lazyLoadDescriptions(data.trip, Math.max(stepIndex, 0), `trips/${data.slug}`)
   data.isTripLoaded.value = true
 }

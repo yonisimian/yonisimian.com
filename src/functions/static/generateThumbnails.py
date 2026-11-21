@@ -4,7 +4,7 @@ import os
 import argparse
 from PIL import Image, ImageOps
 
-MEDIA_DIR = os.path.join("public", "media", "trip")
+MEDIA_DIR = os.path.join("public", "media", "trips")
 MAX_SIZE = (320, 320)
 QUALITY = 70
 

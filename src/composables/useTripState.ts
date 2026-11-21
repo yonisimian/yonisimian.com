@@ -3,6 +3,7 @@ import { useQueryParam } from './useQueryParam'
 import { useRouter, useRoute } from 'vue-router'
 import { Continent, Country, Step, Collection } from '/@/types/trip'
 import { useTripData } from '/@/composables/useTripData'
+import { tripPath } from '/@/data/trips'
 import {
   decodeURIStep,
   encodeURIStep,
@@ -80,7 +81,7 @@ export const useTripState = () => {
 
   const chooseStep = (step: Step) => {
     router.push({
-      path: `/${tripData.route}/${encodeURIStep(step)}`,
+      path: tripPath(tripData.slug, encodeURIStep(step)),
       query: {
         ...route.query,
         [QUERY_PARAM_SLIDE]: undefined

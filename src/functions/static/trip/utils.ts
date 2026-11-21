@@ -1,4 +1,3 @@
-import { joinPath } from '../..'
 import {
   BaseStep,
   CompiletimeStep,
@@ -62,10 +61,10 @@ const stepBackground = (
   return typeof firstMedia === 'string' ? firstMedia : firstMedia.thumbnail
 }
 
-// `contentDir` is the trip's directory name under both public/media and public/data
+// `mediaDir` is the URL of the trip's media root
 export const decodeTrip = (
   trip: CompiletimeTrip,
-  contentDir: string,
+  mediaDir: string,
   backgroundSource: StepBackgroundSource
 ): Trip => {
   const getCountryDir = (
@@ -74,12 +73,8 @@ export const decodeTrip = (
     country: Country<CompiletimeStep>
   ) => {
     const countryIndex = trip.continents.flatMap((c) => c.countries).findIndex((c) => c === country)
-    return joinPath(
-      'media',
-      contentDir,
-      contDirName(continentIndex, continent),
-      countryDirName(countryIndex, country)
-    )
+    const dirs = [contDirName(continentIndex, continent), countryDirName(countryIndex, country)]
+    return `${mediaDir}/${encodeURI(dirs.join('/'))}`
   }
   return {
     continents: trip.continents.map((cont, contIndex) => ({

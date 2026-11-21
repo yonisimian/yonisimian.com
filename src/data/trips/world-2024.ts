@@ -1,6 +1,5 @@
 import type { CuratedCollection } from '/@/types/trip'
-import { initialTripData } from '/@/data/trip.metadata'
-import { TripRoute } from '/@/data/globals'
+import { initialTripData } from './world-2024.metadata'
 import { createTripData } from '/@/composables/useTripData'
 
 const highlights: CuratedCollection = {
@@ -163,11 +162,16 @@ const people: CuratedCollection = {
   ]
 }
 
-export const bigTrip = createTripData(initialTripData, {
-  title: 'The Big Trip',
-  route: TripRoute,
-  contentDir: 'trip',
+export const world2024 = createTripData(initialTripData, {
+  slug: 'world-2024',
   stepBackground: 'file',
   showCountryBar: true,
-  collections: [highlights, music, people]
+  collections: [highlights, music, people],
+  cover: { stepId: 45, slide: 2 },
+  seo: {
+    description: 'A showcase of my big trip around the world, winter 2024.',
+    ogTitle: "Yoni's trip around the world, winter 2024",
+    ogDescription:
+      'Allow me to share with you a journey spans continents and cultures, showcasing beauty, diversity, as well as a shallow dive into my heart and thoughts. '
+  }
 })

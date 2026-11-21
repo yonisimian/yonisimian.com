@@ -27,26 +27,32 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" generic="T">
 import { ref, computed, watch } from 'vue'
 
-interface Props {
-  modelValue?: number
-  items: any[]
-  itemsToShow?: number
-  height?: string
-  transition?: number
-}
-
-const props = withDefaults(defineProps<Props>(), {
-  modelValue: 0,
-  itemsToShow: 1,
-  height: 'auto',
-  transition: 300
-})
+const props = withDefaults(
+  defineProps<{
+    modelValue?: number
+    items: T[]
+    itemsToShow?: number
+    height?: string
+    transition?: number
+  }>(),
+  {
+    modelValue: 0,
+    itemsToShow: 1,
+    height: 'auto',
+    transition: 300
+  }
+)
 
 const emit = defineEmits<{
   'update:modelValue': [value: number]
+}>()
+
+defineSlots<{
+  slide(props: { item: T; index: number; isActive: boolean }): unknown
+  navigation(props: { prev: () => void; next: () => void }): unknown
 }>()
 
 const currentSlide = ref(props.modelValue)

@@ -123,8 +123,8 @@ const main = async () => {
     throw new Error(`No steps found in ${inputPath}`)
   }
 
-  const dataRoot = join('public', 'data', `trip-${slug}`)
-  const mediaRoot = join('public', 'media', `trip-${slug}`)
+  const dataRoot = join('public', 'data', 'trips', slug)
+  const mediaRoot = join('public', 'media', 'trips', slug)
   const downloads: Download[] = []
   const continents: Continent<Country<CompiletimeStep>>[] = []
   const countryByName = new Map<string, Country<CompiletimeStep>>()
@@ -257,7 +257,7 @@ const main = async () => {
 
   await runDownloads(downloads)
 
-  const metadataPath = join('src', 'data', `${slug}-trip.metadata.ts`)
+  const metadataPath = join('src', 'data', 'trips', `${slug}.metadata.ts`)
   const output = `// GENERATED file — do not edit manually
 import { CompiletimeTrip } from '/@/types/trip'
 export const initialTripData: CompiletimeTrip = ${JSON.stringify({ continents } satisfies CompiletimeTrip)}`

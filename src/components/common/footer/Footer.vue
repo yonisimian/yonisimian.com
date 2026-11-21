@@ -38,8 +38,6 @@
 
 <script setup lang="ts">
 import {
-  TripRoute,
-  IcelandTripRoute,
   PortfolioRoute,
   CookbookRoute,
   VegetavailableRoute,
@@ -47,6 +45,7 @@ import {
   ResumePath,
   DegreePath
 } from '/@/data/globals'
+import { trips, tripSlugs, tripPath } from '/@/data/trips'
 
 const year = new Date().getFullYear()
 
@@ -75,8 +74,7 @@ const linkGroups: { title: string; links: { label: string; to: string }[] }[] = 
   {
     title: 'Family',
     links: [
-      { label: 'The Big Trip', to: '/' + TripRoute },
-      { label: 'Iceland 2026', to: '/' + IcelandTripRoute },
+      ...tripSlugs.map((slug) => ({ label: trips[slug].title, to: tripPath(slug) })),
       { label: "Michal's Cookbook", to: '/' + CookbookRoute },
       { label: "Mom's Vegetables", to: '/' + VegetavailableRoute }
     ]

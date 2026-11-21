@@ -1,8 +1,7 @@
 <template>
   <div
-    ref="containerRef"
     class="w-full h-full bg-black flex items-center justify-center overflow-hidden relative inline-block"
-    @mousemove="isVideoButtonVisible = true"
+    @mousemove="showAndAutoHideButton"
     @mouseleave="isVideoButtonVisible = false"
     @click="togglePlay"
   >
@@ -35,7 +34,7 @@
 
 <script setup lang="ts">
 import { VideoURL } from '/@/types/trip'
-import { ref, watch, onMounted, onUnmounted, computed } from 'vue'
+import { ref, watch, onUnmounted, computed } from 'vue'
 import { useTripState } from '/@/composables/useTripState'
 import ResponsiveVideo from '/@/components/common/ResponsiveVideo.vue'
 
@@ -50,7 +49,6 @@ const isVideoButtonVisible = ref(true)
 let timeout: number | undefined = undefined
 
 const responsiveVideoRef = ref<InstanceType<typeof ResponsiveVideo> | null>(null)
-const containerRef = ref<HTMLElement | null>(null)
 const isLoading = computed(() => responsiveVideoRef.value?.isLoading ?? true)
 
 const showAndAutoHideButton = () => {
@@ -77,10 +75,6 @@ const togglePlay = () => {
   }
 }
 
-const onMouseMove = () => {
-  showAndAutoHideButton()
-}
-
 watch(isPlaying, (playing) => {
   if (!playing) {
     isVideoButtonVisible.value = true
@@ -89,16 +83,7 @@ watch(isPlaying, (playing) => {
   }
 })
 
-// Set up mousemove listener on mount
-onMounted(() => {
-  containerRef.value?.addEventListener('mousemove', onMouseMove)
-})
-onUnmounted(() => {
-  containerRef.value?.removeEventListener('mousemove', onMouseMove)
-  clearTimeout(timeout)
-})
-
-// TODO: clean up some code
+onUnmounted(() => clearTimeout(timeout))
 </script>
 
 <style scoped></style>

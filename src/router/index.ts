@@ -1,7 +1,9 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
+import { defineComponent, h } from 'vue'
+import type { TripData } from '/@/composables/useTripData'
+import { trips, tripSlugs, tripPath } from '/@/data/trips'
 import {
   TripRoute,
-  IcelandTripRoute,
   PortfolioRoute,
   CookbookRoute,
   VegetavailableRoute,
@@ -12,14 +14,37 @@ import { DEFAULT_LANGUAGE, isSupportedLanguage } from '/@/i18n/index'
 import PortfolioView from '/@/views/PortfolioView.vue'
 
 const { startLoadingSpinner, stopLoadingSpinner } = useLoading()
-// Hardcoded to keep trip data out of the main bundle
-const defaultTripPath = `/${TripRoute}/1-TLV`
-const defaultIcelandTripPath = `/${IcelandTripRoute}/1-Natbag`
-const isTripRoute = (path: string) =>
-  path.startsWith(`/${TripRoute}`) || path.startsWith(`/${IcelandTripRoute}`)
-const getSegments = (path: string) => path.split('/')
-const isSameSegment = (path1: string, path2: string) =>
-  getSegments(path1)[1] === getSegments(path2)[1]
+const firstStepPaths = tripSlugs.map((slug) => tripPath(slug, trips[slug].firstStep))
+
+// Each trip's data stays in its own chunk, loaded in parallel with the shared view
+const tripView = (loadData: () => Promise<TripData>) => async () => {
+  const [{ default: TripView }, data] = await Promise.all([
+    import('/@/views/TripView.vue'),
+    loadData()
+  ])
+  return defineComponent(() => () => h(TripView, { data }))
+}
+
+const tripRoutes: RouteRecordRaw[] = tripSlugs.flatMap((slug) => [
+  { path: tripPath(slug), redirect: tripPath(slug, trips[slug].firstStep) },
+  { path: tripPath(slug, ':id'), component: tripView(trips[slug].load) }
+])
+
+const legacyTripRoutes: RouteRecordRaw[] = [
+  // The big trip's steps used to live directly under /trip
+  {
+    path: `/${TripRoute}/:id(\\d+-.*)`,
+    redirect: (to) => ({ path: tripPath('world-2024', String(to.params.id)), query: to.query })
+  },
+  {
+    path: '/iceland/:id?',
+    redirect: (to) => ({
+      path: tripPath('iceland-2026', to.params.id ? String(to.params.id) : undefined),
+      query: to.query
+    })
+  },
+  { path: `/${TripRoute}/:pathMatch(.*)*`, redirect: `/${TripRoute}` }
+]
 
 const routes: RouteRecordRaw[] = [
   { path: '/', redirect: `/${PortfolioRoute}` },
@@ -30,12 +55,10 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: `/${TripRoute}`,
-    redirect: () => defaultTripPath
+    component: () => import('/@/views/TripsView.vue')
   },
-  {
-    path: `/${IcelandTripRoute}`,
-    redirect: () => defaultIcelandTripPath
-  },
+  ...tripRoutes,
+  ...legacyTripRoutes,
   {
     path: '/projects/microservices',
     component: () => import('/@/views/MicroservicesView.vue')
@@ -47,14 +70,6 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/dnd',
     component: () => import('/@/views/DndView.vue')
-  },
-  {
-    path: `/${TripRoute}/:id`,
-    component: () => import('/@/views/TripView.vue')
-  },
-  {
-    path: `/${IcelandTripRoute}/:id`,
-    component: () => import('/@/views/IcelandTripView.vue')
   },
   {
     path: `/${CookbookRoute}`,
@@ -81,18 +96,15 @@ export const router = createRouter({
   history: createWebHistory(),
   routes,
   scrollBehavior(to) {
-    if (
-      isTripRoute(to.fullPath) &&
-      to.fullPath !== defaultTripPath &&
-      to.fullPath !== defaultIcelandTripPath
-    )
-      return
+    // Moving between steps of a trip keeps the scroll position
+    if (to.path.startsWith(`/${TripRoute}/`) && !firstStepPaths.includes(to.fullPath)) return
     return { top: 0, left: 0, behavior: 'smooth' }
   }
 })
 
 router.beforeEach((to, from) => {
-  if (!isSameSegment(to.fullPath, from.fullPath)) startLoadingSpinner()
+  // Same route record means only params/query changed, e.g. another step of the same trip
+  if (to.matched[0] !== from.matched[0]) startLoadingSpinner()
   const { lang } = to.query
   if (lang && !isSupportedLanguage(lang)) {
     console.warn(`Unsupported language: ${lang}. Defaulting to ${DEFAULT_LANGUAGE}.`)

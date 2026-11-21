@@ -15,17 +15,15 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useSizeObserver } from '/@/composables/useSizeObserver'
 
 const props = defineProps<{
   rot: number
+  width: number // of the container the rotated content must fit
+  height: number
 }>()
 
-const { target } = useSizeObserver()
-
 const wrapperStyle = computed(() => {
-  const { width, height } = target.value
-  const [w, h] = props.rot % 180 !== 0 ? [height, width] : [width, height]
+  const [w, h] = props.rot % 180 !== 0 ? [props.height, props.width] : [props.width, props.height]
   return { width: `${w}px`, height: `${h}px` }
 })
 </script>

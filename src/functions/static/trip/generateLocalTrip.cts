@@ -20,10 +20,10 @@ const loadStepData = (step: CompiletimeStep, stepDir: string) => {
   step.degrees = data.degrees
 }
 
-const generateTripMetadata = async (): Promise<CompiletimeTrip> => {
+const generateTripMetadata = async (slug: string): Promise<CompiletimeTrip> => {
   const trip: CompiletimeTrip = { continents: [] }
-  const tripMediaDir = join('public', 'media', 'trip')
-  const tripDataDir = join('public', 'data', 'trip')
+  const tripMediaDir = join('public', 'media', 'trips', slug)
+  const tripDataDir = join('public', 'data', 'trips', slug)
   let stepCount = 1
 
   const continentsDirNames = readdirSync(tripMediaDir, { withFileTypes: true })
@@ -87,8 +87,15 @@ const generateTripMetadata = async (): Promise<CompiletimeTrip> => {
 }
 
 ;(async () => {
-  const trip: CompiletimeTrip = await generateTripMetadata()
-  const outputPath = 'src/data/trip.metadata.ts'
+  const slug = process.argv[2]
+  if (!slug || !/^[a-z0-9-]+$/.test(slug)) {
+    console.error(
+      'Usage: ts-node --project tsconfig.node.json src/functions/static/trip/generateLocalTrip.cts <slug>'
+    )
+    process.exit(1)
+  }
+  const trip: CompiletimeTrip = await generateTripMetadata(slug)
+  const outputPath = `src/data/trips/${slug}.metadata.ts`
   const output = `// GENERATED file — do not edit manually
 import { CompiletimeTrip } from '/@/types/trip'
 export const initialTripData: CompiletimeTrip = ${JSON.stringify(trip)}`
